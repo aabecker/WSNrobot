@@ -1,0 +1,352 @@
+%  compress using: gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dNOPAUSE -dQUIET -dBATCH      -sOutputFile=foo-compressed.pdf gradientDescentWirelessNetworks.pdf
+% submit at  https://cmt.research.microsoft.com/TXWMCS2015/Default.aspx
+% http://texassymposium.org/PaperSubmission.html
+
+\documentclass[conference]{IEEEtran}
+\newcommand{\subparagraph}{}
+\bibliographystyle{plain}
+\usepackage{epsfig,graphicx,cite}
+\usepackage{psfrag}
+\usepackage[small,compact]{titlesec}
+\usepackage{wrapfig}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{cite,url,subfigure,epsfig,graphicx}
+\usepackage{verbatim,amsfonts,amsmath,amssymb}
+\usepackage{fancyhdr}
+\usepackage{mathbbold}
+\usepackage{bbm}
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{cite,url,subfigure,epsfig,graphicx}
+\usepackage{amssymb,amsmath,bm,makecell}
+\usepackage{indentfirst}
+
+
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+
+
+\usepackage{mathtools}
+\usepackage[font=small]{caption}
+%\usepackage{amsmath}
+%\usepackage{amssymb}
+\usepackage{tabulary}
+\usepackage{booktabs}
+%\usepackage{framed}
+%\usepackage{fancyhdr}
+%\usepackage[hypertex]{hyperref}
+\usepackage[hidelinks]{hyperref}
+%\IEEEoverridecommandlockouts
+\usepackage{cite,url,subfigure,epsfig,graphicx}
+\usepackage{times,verbatim,amsfonts,amsmath,color}
+\newtheorem{definition}{\textbf{Definition}}
+\newtheorem{lemma}{\textbf{Lemma}}
+\newtheorem{proof}{\textbf{Proof}}
+\newtheorem{theorem}{\textbf{Theorem}}
+\newtheorem{example}{\textbf{Example}}
+\newtheorem{proposition}{\textbf{Proposition}}
+\newtheorem{remark}{\textbf{Remark}}
+\newtheorem{corrolary}{\textbf{Corrolary}}
+\newtheorem{ex}{\textbf{EX}}
+\usepackage{overpic}
+\graphicspath{{./},{./pictures/}}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\usepackage[table,xcdraw]{xcolor}
+\newcommand{\todo}[1]{\vspace{5 mm}\par \noindent \framebox{\begin{minipage}[c]{0.98 \columnwidth} \ttfamily\flushleft \textcolor{red}{#1}\end{minipage}}\vspace{5 mm}\par}
+\let\labelindent\relax \usepackage{enumitem}
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{Using Gradient Descent to Optimize Paths for Sustaining Wireless Sensor Networks } %Data Ferrying and Wireless Recharging of 
+
+% author names and affiliations
+% use a multiple column layout for up to three different
+% affiliations
+\author{\IEEEauthorblockN{Srikanth K. V. Sudarshan and Aaron T. Becker}
+\IEEEauthorblockA{Dept.~of Electrical and Computer Engineering\\
+University of Houston,\\
+ Houston, TX 70004, USA\\
+Email: \protect{srikanth\_arsenal@yahoo.in}, atbecker@uh.edu}}
+
+
+% make the title area
+\maketitle
+
+\begin{abstract}
+A structural-health wireless sensor network (WSN) should last for decades, but traditional disposable batteries cannot sustain such a network. Energy is the major impediment to sustainability of WSNs. Most energy is consumed by (i) wireless transmissions of perceived data, and (ii) long-distance multi-hop transmissions from the source sensors to the sink. This paper explores how to exploit emerging wireless power transfer technology together with robot control of unmanned vehicles (UVs) to simultaneously select sensors to recharge, cut transmissions from long to short-distances, collect sensed information, and replenish WSN's energy. Different from prior work focusing solely on energy replenishment, this research replenishes sensors' energy, significantly reduce WSN's energy consumption, and efficiently deliver sensor data to the sink. 
+This paper focuses on fundamental challenges associated with sustainable WSN development by jointly using wireless power transfer technology and controlling UVs. 
+Energy costs due to power transmission are less than the UV's transportation costs. This is true for WSNs spread over large geographic areas, terrain with obstacles, or where transportation costs are high, such as subsea or aerial UVs. This task focuses on algorithms that make such WSNs sustainable by focusing on path-planning and trajectory optimization.
+\end{abstract}
+\begin{IEEEkeywords} Wireless sensor networks, wireless recharge, robot, unmanned vehicles \end{IEEEkeywords}
+
+
+
+
+\section{Introduction}
+New wireless sensor technologies have enabled wireless sensor networks (WSNs) to proliferate in many different fields (e.g., battlefield surveillance, environmental sensing, biomedical observation)~\cite{AkSu02,RenewSN12,EPRNP05,jTbHCC06}.
+Although advances in processing and computing designs can endow sensors with a multitude of sensing modalities (temperature, pressure, light, magnetometer, infrared, etc.), the crawling development of battery technology imposes harsh energy constraints on battery-powered sensors and the sustainable working of WSNs. In WSNs, the majority of energy is consumed by (\romannumeral1) wireless transmission of perceived data~\cite{ChTyTNet08,RenewSN12,OBSP09}, and (\romannumeral2) long-distance multi-hop transmissions from source sensors to the sink.
+Research efforts to address WSN energy concerns have focused on energy conservation~\cite{FbNbRbICC09}, environmental energy harvesting~\cite{CpSAHCN06,KwfSF08} and incremental sensor deployment~\cite{YpPSN10}.
+However, energy conservation schemes  only slow  energy consumption, not compensate energy depletion. Harvesting environmental energy, such as solar, wind and vibration, is subject to their availability, and is often uncontrollable. Incremental sensor deployment makes  WSNs neither sustainable nor environmentally friendly, since most disposable sensors' batteries contain cadmium, lead, mercury, copper, zinc, manganese, lithium, or potassium~\cite{BatteryPoll12}.  These  heavy metals ``\emph{can leach into soil and water, polluting lakes and streams, making them unfit for drinking, swimming, fishing, and supporting wildlife, and even posing hazards to human health}''~\cite{NRDC2015}. %These dangers, coupled with the proliferation of WSNs, make sustainable WSN design more necessary now than ever before.
+%\textbf{It is more necessary now than ever before to design a \emph{sustainable} WSN, one transparent to human and wildlife's activities, friendly to the environment, and economically advantageous without repeated deployment.}
+
+
+Fortunately, recent breakthroughs in the area of wireless power transfer technologies (e.g. inductive coupling, magnetic resonant, and RF energy harvesting)~\cite{AkAkSE07}  provide promising alternatives for deploying such WSNs. \emph{Magnetic resonant wireless power transfer}~\cite{AkAkSE07} has the ability to wirelessly transfer electric power from the energy storage device to the receiving device efficiently within medium range (e.g., 40\% within 2 meters). It is also insensitive to the neighboring environment and does not require a line of sight between the charging and receiving devices. Researchers proposed that a mobile unmanned vehicle (UV) carrying a wireless charging device could  visit and recharge each sensor to sustain a WSN~\cite{XySyNT12}.
+
+However, one UV may not be able to visit every sensor if the WSN is deployed in harsh environments/terrains (e.g. dense forest, mountains, underwater), or the WSN is large-scale, consisting of a great number of sensors. Although these seminal studies replenished sensor energy, most of the energy was still wasted by long-distance wireless transmissions of perceived data, especially by relaying sensors. Due to charging and travel time of the UV, some bottleneck sensors may  drain their residual energy while waiting for the UV. Great unsolved challenges on control remain, including how to select the optimal path for the UV to travel within WSNs and how to efficiently dispatch multiple UVs to recharge WSNs.
+
+Assigning sensors to UVS using matching theory often assumes that energy costs due to power transmission greatly exceed the UV's transportation costs.  This assumption might not fit for WSNs spread over large geographic areas, or terrain with obstacles, %% OR not OF
+or where transportation costs are high, such as subsea or aerial UVs. This paper focuses on algorithms that make such WSNs sustainable by focusing on path-planing, trajectory optimization, and responding to dynamic network conditions.
+
+
+
+\begin{figure} \centering
+  {\includegraphics[width=\columnwidth]{overall.pdf}}
+ \caption{Evolution from traditional wireless sensor networks (WSNs) to servicing WSN with UV(s). We present techniques that uses unmanned vehicles (UVs) to gather aggregated data and recharge sensors using one or more vehicles, and design energy-optimal control policies for the UVs.} \label{fig:overall}
+\end{figure}
+
+\begin{figure} \centering
+  {\includegraphics[width=\columnwidth]{txenergy}}
+ \caption{Power usage in a wireless sensor node is dominated by transmission costs and listening costs.  Figure modified from [26].} \label{fig:txenergy}
+\end{figure}
+
+\section{Related Work}
+%I haven't read these papers, and so don't feel comfortable repeating them:
+%Energy issues make current WSNs unsustainable. Prior work reduces consumption, but cannot fundamentally resolve the energy issue~\cite{AkSu02,CpSAHCN06,KwfSF08,YpPSN10,FbNbRbICC09}. Wireless power transfer technologies~\cite{AkAkSE07,1AcMdDm14,2JgRcJl13,3CvGd14,38Ns12} add a new dimension to this research. Some pioneering works employ UVs to recharge WSNs to prevent the sensors from depleting their energy~\cite{CwYYangIPDPS2013,xie2013wireless,RenewSN12,XySyNT12,YpPSN10,ZlYp2011}. However, most energy is consumed by long-distance wireless transmissions and there are significant challenges in UV path-planning. Below, we recap wireless power transfer technologies, existing robot-planning solutions, and the applications of each to WSNs.
+%
+%Wireless power transfer is a technology that enables transmitting energy through vacuum or an air gap to electrical devices without using wire or any other substance. This can be used for a wide variety of applications from low-power toothbrushes, to high-power electric vehicles, where conventional wires are unaffordable, inconvenient, dangerous, expensive or impossible~\cite{60Jg07,61AkkiJh96,63ZcYlKs,64FtKzWy12,65HgHoRm14,66HgMdFb14,67YlYhXl14,93HjJzSs10,94HjJzDl13,95AaSkAa12,96ArGl13,97ArGl12,98ArSmCm11,99RxKcMj13,100QxHwZg13,101QxHwZg13,102GyCd12,103DaSh14}. Wireless power transfer can be generally classified into non-radiative technology~\cite{AkAkSE07,46AkJjMs08,47BcJhDs09,48CzKlCy08,49ZlRcRt09,50JcYrDk12,51DkKkNk12,52AkRmMs10,53KrFk11,54Witri,88HkCsJk14,98ArSmCm11,99RxKcMj13,100QxHwZg13,101QxHwZg13,102GyCd12,103DaSh14,9GcJb13,33ShJwWf13,39XwZwHd14,40CwGcOs04,41ZpSl12,42SaMi08,43LrFaGo13,44HwAgKs12,45JjDk14,81hwAgks12,82MeDoJh07,83NlTh,84UmDj11,85MkMkLt,93HjJzSs10,94HjJzDl13,95AaSkAa12,96ArGl13,97ArGl12} and radiative RF-based technology~\cite{7LxYsTh13,8AsDyPp08,36Zp13,55RzCh13,56Lv08,57KhVl14}. The non-radiative technology, which is based on coupling, consists of inductive coupling~\cite{9GcJb13,33ShJwWf13,39XwZwHd14,40CwGcOs04,41ZpSl12,42SaMi08,43LrFaGo13,44HwAgKs12,45JjDk14,81hwAgks12,82MeDoJh07,83NlTh,84UmDj11,85MkMkLt,93HjJzSs10,94HjJzDl13,95AaSkAa12,96ArGl13,97ArGl12}, magnetic resonant coupling~\cite{AkAkSE07,46AkJjMs08,47BcJhDs09,48CzKlCy08,49ZlRcRt09,50JcYrDk12,51DkKkNk12,52AkRmMs10,53KrFk11,54Witri,88HkCsJk14,98ArSmCm11,99RxKcMj13,100QxHwZg13,101QxHwZg13,102GyCd12,103DaSh14}, and capacitive coupling~\cite{35MkIiBb11,37Sh13}. The radiative RF-based charging can be further sorted into directive RF and non-directive RF power transfer~\cite{36Zp13}. Magnetic \emph{inductive} coupling uses a magnetic field to deliver electrical energy between two coils. Due to low quality factors, the effective charging distance is generally within 20cm. Magnetic \emph{resonant} coupling is based on evanescent wave coupling to generate and transfer electrical energy between two resonant coils through varying or oscillating magnetic fields. Magnetic resonant coupling can transfer power over longer distance than inductive coupling, and its efficiency is better than an RF radiation approach. In 2007, MIT scientists demonstrated that magnetic resonant coupling can light a 60W bulb more than two meters distant with an efficiency around 40\%~\cite{AkAkSE07}. Inductive coupling and resonance coupling have been widely used in many fields including: robot manipulation, automated underwater vehicles, induction generators, induction motors, and biomedical implants~\cite{60Jg07,61AkkiJh96,63ZcYlKs,64FtKzWy12,65HgHoRm14,66HgMdFb14,67YlYhXl14,93HjJzSs10,94HjJzDl13,95AaSkAa12,96ArGl13,97ArGl12,98ArSmCm11,99RxKcMj13,100QxHwZg13,101QxHwZg13,102GyCd12,103DaSh14}. RF radiation utilizes diffused RF/microwave as a medium to carry radiant energy. It can also use other electromagnetic waves such as infrared and X-rays. However, due to safety issues raised by RF exposure, these bands are not widely used.  RF/microwave energy can be radiated isotropically or toward some direction through beamforming. RF/microwave radiation is generally used for far-field charging. Applications vary, including TV broadcast, AM radio broadcast and GSM bands (900/1800), as well as WiFi routers, cellular base stations, and satellites~\cite{137PnMnKc13,138XwAm13,139LbNbHs14,140TlNlBp13,141EkAhMb14,142FaMaSa14,143ApAsYz13,144AtHaLd13}.
+
+%Relevant literature from robotics:
+The path-planning problem for UVs has been investigated from several angles. To minimize path length, the authors in~\cite{bektas2006multiple}  survey the multiple-Traveling Salesman Problem, itself a generalization of the vehicle routing problem~\cite{dantzig1959truckdispatchingproblem}. Servicing a WSN is closely related to coverage problems, recent work includes methods for optimizing speed along given routes~\cite{smith2012persistent}, and techniques to continually improve existing routes~\cite{soltero2013decentralized}. 
+Much work has focused on the data ferrying problem, from minimizing the latency between visits to nodes~\cite{Alamdari:2014:PMD:2568343.2568350}, to maximizing the total data rate from sensors to sink using UVs \cite{huang2014resource}, to minimizing overall delay  while sharing bandwidth~\cite{Guo:2007:FES:1364654.1364671}, to having a set schedule and opportunistically deviating from it \cite{guo2006opportunistic}
+
+Using unmanned aerial vehicles to recharge other robots or sensor nodes has focused on physical design, which includes direct contact, such as swapping batteries~\cite{toksoz2011automated,swieringa2010autonomous} or direct recharge~\cite{mulgaonkar2012automated}, wireless resonant coupling~\cite{griffin2012resonant,johnson2013charge,jung2012inductive}, and electromagnetic radiation~\cite{xie2013wireless}, and algorithmic improvements using graph theory~\cite{mathew2013graph}, linear programming~\cite{smith2012persistent}, and gradient descent optimization~\cite{soltero2013decentralized}. 
+
+
+\section{ Overview}
+
+The previous work use optimization/matching theory to assign one UV/multiple UVs to WSN nodes, and use a Hamiltonian cycle to visit each node.  This is reasonable if recharging nodes is the largest component of a UV's energy budget: $ E_{\rm{recharge}} |\rm{nodes}| \gg E_{\rm{movement}} *
+\rm{path\_length}$.  If this assumption is violated, path-planning becomes the key concern.  A simplified form of this decision could be written as  $K_{dist} = \frac{E_{\rm{movement}} *
+\rm{path\_length}}{E_{\rm{recharge}} |\rm{nodes}|}.
+%\label{eq:TippingPointDistance}
+$
+ Here $K_{dist}$ represents the \emph{tipping point}, the variable where the decision problem becomes fundamentally different.  If $K_{dist}$ is small, path-planning is inconsequential, and almost any solver is sufficient.  However, when $K_{dist}$ is large path-planning becomes the key consideration. Our eventual goal is to design full trajectories that optimize the path of each UV, by servicing multiple nodes simultaneously.  However, even just  the path-planning component is NP-hard~\cite{arkin2000approximation}.
+
+This paper's goal is to explore \emph{tipping points} in recharging WSNs.
+We will focus on three classes of tipping points: ravel vs. recharging (\ref{subsubsec:travelvsrecharge}), local density of WSN nodes (\ref{subsubsec:travelvsrecharge}), static vs.~dynamic loading(\ref{subsubsec:dynamicLoading}).
+
+The following subtasks delineate when each indicates a required change in algorithm, investigate a specific swarm-robotics technique for each, and implement solutions. Together these techniques will increase sustainability of WSNs. Solutions for these subtasks will be verified using the quadcopter testbed described in \ref{subsubsec:quadcopterTestbed}.
+
+
+\subsection{Travel vs. Recharging:  mTSP for path-planning}\label{subsubsec:travelvsrecharge}
+Given a list of cities to visit, the classic \emph{traveling salesman problem} (TSP) attempts to find an ordering of the cities that minimizes the total distance on a tour that visits all the cities once\cite{applegate1999finding}.  The solution is the shortest Hamilton cycle. By labelling our sensor nodes as cities, the solution to the traveling salesman problem gives the shortest length path.  This problem is NP-hard, but many powerful heuristics are available, and software packages can provide answers for tens of thousands of nodes (e.g., the Concorde TSP Solver~\cite{applegate2002minmax}).
+
+\begin{figure}\centering 
+\newcommand{\figheight}{1.4in}
+ \subfigure[preliminary experiment design.\label{subfig:Task3Experiment}]
+  {\includegraphics[width=\columnwidth]{Task3Experiment}}
+\subfigure[nodes partitioned by angle\label{subfig:tspCities}]
+  {\includegraphics[width=.45\columnwidth]{tspCities.pdf}}
+ \subfigure[near-optimal solution.\label{subfig:tspPaths}]
+  {\includegraphics[width=.45\columnwidth]{tspPaths.pdf}}
+   \vspace*{-.1in}
+ \caption{Using our motion tracking system, we can abstract the problem of localizing our sensor nodes and focus on implementing path-planning algorithms. (Right)  screenshots from a mTSP solver aided by our heuristic.   \label{fig:mTSPsim}}
+ \vspace*{-.1in}
+\end{figure}
+
+%%\begin{wrapfigure}{r}{0.6\textwidth}
+%\begin{figure}
+%\begin{overpic}[width =0.33\columnwidth]{tspCities.pdf}\end{overpic}
+%\begin{overpic}[width =0.33\columnwidth]{tspPaths.pdf}\end{overpic}
+%\begin{overpic}[width =0.33\columnwidth]{Task3Experiment}\end{overpic}
+%\caption{\label{fig:mTSPsim}
+%Left and center: screenshots from mTSP solver aided by heuristic.  Left, nodes partitioned according to angle from sink. Center, near-optimal solution. Right, preliminary hardware experiment design.  Using our motion tracking system, we can abstract the problem of localizing our sensor nodes and focus on implementing  path-planning algorithms.
+%}
+%\end{figure}
+
+UVs have a limited energy budget.  As the number of nodes grows, more UVs are needed.  One solution is to require all UVs to return to the sink to recharge and return data.  This formulation is called the \emph{multiple-Traveling Salesman Problem} (mTSP) \cite{bektas2006multiple}, but does not try to balance the workload between UVs.  A good heuristic can increase TSP solver performance.   In our  numerical simulations, priming an open-source genetic algorithm solver\cite{Kirk2014} by sorting the nodes by angle from the sink and dividing the sorted list equally between the UVs decreased path costs by 20\%.  Figure \ref{fig:mTSPsim} shows results from our simulation with 100 nodes and 5 UVs.
+
+%Future Work:
+%We will take solutions from task 1, solve for the exact TSP solution, and compare energy costs as a function of  $K_{dist}$.
+%We will  repeat this process using solutions for multiple UVs  in task 2, using optimization techniques to find approximate solutions for the mTSP problem, comparing as a function of $K_{dist}$.
+%Results will quantify advantages of route planning, and enable more sustainable operation of WSN.
+
+
+
+\subsection{Using local density to optimize path speed} \label{subsubsec:oprimizepathspeed}
+Data aggregation and recharging shares similarities with persistent robotic tasks, such as cleaning, mowing, observing, and patrolling\cite{mackenzie1996making,kakalis2008robotic,Choset2001,Cortes2004,smith2012persistent,arkin2000approximation,correll2009building,soltero2013decentralized}.  A key tipping point in these problems is if a UV can service multiple clients simultaneously.  A UV has an associated recharging footprint and a data-transfer footprint, which can often be modeled as disks of radius $r_{recharge}$ and $r_{data}$, as illustrated in Fig.~\ref{fig:loadDensity}.
+We represent the fraction of sensors that are clustered as 
+$K_{footprint} = \sum_{j=i+1}^N  \sum_{i=1}^N ||p_i - p_j ||_2  \le r_{footprint}$.
+ In general, energy-efficient recharging requires closer proximity than data transmission, so this implies there are two tipping points related to node density, $K_{recharge}$, and $K_{data}$.   
+ Correspondingly, the WSN recharge problem has three regimes with differing solutions. 
+ Before the tipping points, nodes are sparse and not clustered.  In this regime optimal paths are straight lines from node to node, and the optimal solution is a variant of the traveling salesman problem.  As sensors get closer together, the optimal path may be to take paths \emph{between} one or more sensors.   In Fig.~\ref{fig:loadDensity}, path \textbf{B} is designed to transfer data from all nodes, and the optimal solution is often to weave between clusters of nodes.  The third regime is when many nodes are close enough for recharging.
+ 
+ \begin{figure}
+\begin{overpic}[width =\columnwidth]{loadDensity}\end{overpic}
+\centering \vspace*{-.1in}
+\caption{\label{fig:loadDensity}
+A UV has an associated recharging footprint and a data-transfer footprint, which can often be modeled as disks of radius $r_{recharge}$ and $r_{data}$.  
+Path \textbf{A} visits each node, but path \textbf{B} is shorter because it is designed merely to recharge all nodes.  Path \textbf{C} is the least tortuous because it is designed to transfer data from all nodes, and $r_{data}>r_{recharge}$. %We will design speed controllers to service multiple clients when sensors are dense or clustered.
+} \vspace*{-.1in}
+\end{figure}
+ 
+%Our eventual goal is to design full trajectories that optimize the path of each UV, by servicing multiple nodes simultaneously.  However, even just  the path-planning component is NP-hard~\cite{arkin2000approximation}. To make progress, we decouple the problem and optimize the \emph{speed} of UVs along prescribed paths to service multiple clients when sensors are dense or clustered. This approach is reasonable for ground-based mobile UVs that are constrained to roads or trails, and aerial UVs constrained to air corridors.
+%%The mobile robotics community has investigated optimal path-planning for similar problem, such as harvesting agricultural products~\cite{correll2009building}, recovering oil from a spill \cite{kakalis2008robotic}, cleaning dirt from a room~\cite{mackenzie1996making}, and recharging WSNs~ \cite{Cortes2004}.
+%We will augment existing solvers~\cite{smith2012persistent} to account for battery levels of the nodes and UV.  We will pose this as an LP, and share code on Matlab central. Solutions will be compared to results using matching algorithms in task 2.
+%
+
+
+\subsection{Static vs. dynamic loading:  gradient descent on path-planning}\label{subsubsec:dynamicLoading}
+
+The above algorithms assumed a static WSN, but often sensor data transmission is  dependent on transient phenomena.  For example,  a swarm of subsea sensors may track a school of fish, the progress of an oil slick, or seasonal drift of ocean currents.  These are time-varying phenomena, and so the UV servicing the sensors should be able to adapt.
+
+ For this subtask we design local optimization techniques to iteratively adapt the paths of UVs.  A schematic of our the adaptive control law is shown in Fig.~\ref{fig:dynamicVsStatic}.  Recent research has focused on local optimization techniques that gradually improve the paths followed by robots during persistent tasks~\cite{soltero2013decentralized}.  These techniques are amenable to WSN.  The base technique is a variant of Lloyd's algorithm~\cite{lloyd1982least,Becker2013l}. Each path is represented by a finite number of waypoints, and these waypoints are both attracted to the centroid of all sensor nodes within their Voronoi cell, and attracted to their neighboring waypoints.  Our {\sc Matlab} implementation is available at \href{http://www.mathworks.com/matlabcentral/fileexchange/49863-decentralizedpathplanningforcoverageusinggradientdescent}{mathworks.com/matlabcentral/fileexchange/49863}~\cite{Srikanth2015}.
+ %We will use both battery levels and the cost of transmitting data to weight the sensor nodes. We will also compare improvements using Newton's method~\cite{seiler1989numerical}. 
+
+\begin{figure}
+ % \vspace{-20pt}
+ %  \hspace{-35pt}
+%  \begin{center}
+  \includegraphics[width=\columnwidth]{dynamicVsStatic.pdf}
+ % \end{center}
+  %\vspace{-10pt}
+  %\hspace{-35pt}
+  \caption{\label{fig:dynamicVsStatic}The grey cloud represents a time-varying region of interest. Allowing the UVs to dynamically modify their routes in a distributed manner enables a robust response to changing conditions while maintaining service.}
+\end{figure}
+
+%\begin{figure}
+%\begin{overpic}[width =.8\columnwidth]{dynamicVsStatic.pdf}\end{overpic}
+%\vspace{-5pt}
+%\caption{\label{fig:dynamicVsStatic}The grey cloud represents a time-varying region of interest. Allowing the UVs to dynamically modify their routes in a distributed manner enables a robust response to changing conditions while maintaining service.
+%}\vspace{-15pt}
+%\end{figure}
+
+
+
+%\begin{wrapfigure}{r}{0.4\textwidth}
+%  \vspace{-20pt}
+%  \begin{center}
+%  \includegraphics[width=0.4\textwidth]{hgridsrand50.eps}
+%  \end{center}
+%  \vspace{-20pt}
+%%  \caption{Revenue upper bounds: $|\mathcal{H}|$ = 2, 3 and 4.}\label{fig:RevenueDiffBandRGT}
+%  \caption{Performance of different algorithms.}\label{Fig:simu}
+%  \vspace{-7pt}
+%\end{wrapfigure}
+
+
+\subsubsection{Hardware implementations}\label{subsubsec:quadcopterTestbed}
+Hardware implementations generate confidence in solutions, often uncover assumptions in our theory, and are excellent for teaching.  Our initial implementations will use an existing fleet of eight industrial mobile robot bases (ERA), shown in Fig.~\ref{subfig:Task3Experiment}. These robots are ideal for demonstrating WSN servicing because  they are simple, have a long battery life, and  are highly expandable. Each robot fits within a 40cm cube, and can be accurately tracked with our OptiTrack motion capture system, allowing us to quickly focus on the algorithms.  
+
+
+
+
+
+\section{Algorithm}
+
+At each step, we compute the Voronoi partition defined by the waypoints, with one partition assigned to each waypoint.  
+We assign to each position in the workspace a value $\phi(\mathbf{q})$ that corresponds how useful this position is for servicing our network.
+
+We then compute the mass, mass-moment, and centroid of the $V_i^r$ partition as follows:
+\begin{align}\label{eq:massmomentcentroid}
+M_i^r &=  \int_{V_i^r}\phi(\mathbf{q}) d\mathbf{q}, 
+\mathbf{L}_i^r =  \int_{V_i^r}\mathbf{q}\phi(\mathbf{q}) d\mathbf{q}, \nonumber\\
+\mathbf{C}_i^r  &= \frac{ \mathbf{L}_i^r } { M_i^r  }
+\end{align}
+
+The control law for each waypoint is a summation of a force that pulls the waypoint toward the centroid of the Voronoi partition (weighted by $\phi(\mathbf{q})$
+\begin{align}\label{eq:controllaw}
+\mathbf{u}_i^r  = \frac{ K_i^r (M_i^r \mathbf{e}_i^r + \boldsymbol{\alpha}_i^r)} { \beta_i^r  }
+\end{align}
+Here,  $\mathbf{e}_i^r = \mathbf{C}_i^r  - \mathbf{p}_i^r$, the error between the waypoint position and the weighted centroid which pulls the waypoint toward the centroid.
+The second term  
+$ \boldsymbol{\alpha}_i^r = W_n( \mathbf{p}_{i+1}^r  + \mathbf{p}_{i-1}^r -2 \mathbf{p}_{i}^r)$, $ \beta_i^r = M_i^r + 2 W_n$.
+
+
+The control is then applied in discrete time:
+\begin{align}\label{eq:state evolution}
+\mathbf{p}_i^r(k)  = \mathbf{p}_i^r(k-1) + \mathbf{u}_i^r 
+\end{align}
+
+
+\begin{algorithm}
+\caption{IC (Interesting Closed) path controller for the $i^{th}$ waypoint $\mathbf{p}_i^r$ in robot $r$'s path in a known environment (from~\cite{smith2012persistent}, implemented at \cite{Srikanth2015}).}\label{alg:ICpathcontrol}
+%Algorithm: IC (Interesting Closed) path controller for the $i^{th}$ waypoint $p_i^r$ in robot $r$’s path in a known environment. (from~\cite{smith2012persistent}) \\
+\begin{algorithmic}[1]
+\Require Ability to calculate Voronoi partition 
+\Require Knowledge of the location of neighboring waypoints  $\mathbf{p}_{i-1}^r $ and $ \mathbf{p}_{i+1}^r$
+\Loop
+\State  Compute the waypoint’s Voronoi partition 
+\State  Compute $\mathbf{C}_i$ according to \eqref{eq:massmomentcentroid}
+\State  Obtain neighbor waypoint locations $\mathbf{p}_{i-1}^r$  and $\mathbf{p}_{i+1}^r$
+\State  Compute $\mathbf{u}_i^r$  according to \eqref{eq:controllaw}
+\State  Update $\mathbf{p}_i^r$  according to \eqref{eq:state evolution}
+\EndLoop
+\end{algorithmic}
+\end{algorithm}
+
+It is important to have an initial path that fills the map so that the robots can identify all the sensory regions, which helps in forming an optimal path. A space filling algorithm needs to be implemented to fill the map. We adapt the space-filling \emph{Hilbert Curve}, which creates a fractal path that fills up a unit area space and serves as an initial path for the first iteration~\cite{fischer1928darstellung}.
+
+
+\section{Simulation Results}
+
+\subsection{One UV}
+A single UV system was simulated using MATLAB\cite{Srikanth2015}. The initial path was set to be a space-filling Hilbert curve. This is done so that the robot has access to the whole map and identifies all the interesting points. As the simulation progresses the waypoints act according to the above proposed algorithm and adapt themselves to the given sensor information. As the number of iterations increases the path stabilizes and reaches an optimum value. This is observed in the images of the paths at increasing algorithm iterations in Fig.~\ref{fig:OneUAVsim}.
+
+
+
+\begin{figure}\centering
+  \includegraphics[width=0.49\columnwidth]{UAV1_1}
+    \includegraphics[width=0.49\columnwidth]{UAV1_5}
+      \includegraphics[width=0.49\columnwidth]{UAV1_10}
+        \includegraphics[width=0.49\columnwidth]{UAV1_50}
+\caption{Simulation of Algorithm \ref{alg:ICpathcontrol} with one UAV at iteration 1,5,10, and 50.  The path waypoints are indicated by a set of linked $\circ$ markers, the associated Voronoi diagram in blue, all overlaying a density plot representing the reward function.
+\label{fig:OneUAVsim}}
+\end{figure}
+
+\subsection{Multiple UVs}
+A two UV system was simulated on MATLAB. As shown in  \ref{fig:multipleUAVsim}, UAVs service different sets of nodes in the WSN. A multi UV system is apt in a practical sense since a single UV might not be able to handle a large network. A waypoint at $[0,0]$ is stationary, it acts as a sink for the UVs. The UV understands its position on the map and attempts to service the sensor nodes with in its range. The initial path plays a major role in deciding the service strategy. Future work will iterate between the mTSP solver in Section~\ref{subsubsec:travelvsrecharge}. Several frames from iterations of  Algorithm \ref{alg:ICpathcontrol} with two UAVs and 21 sensor nodes  are shown in Fig.~\ref{fig:multipleUAVsim}.
+
+\begin{figure}\centering
+  \includegraphics[width=0.49\columnwidth]{UAV2_1}
+    \includegraphics[width=0.49\columnwidth]{UAV2_10}
+      \includegraphics[width=0.49\columnwidth]{UAV2_25}
+        \includegraphics[width=0.49\columnwidth]{UAV2_100}
+\caption{Simulation of Algorithm \ref{alg:ICpathcontrol} with two UAVs at iteration 1,10,25, and 100.  The path waypoints are indicated by a linked set of $\circ$ markers, the associated Voronoi diagram in blue, and the reward function by a density plot.
+\label{fig:multipleUAVsim}}
+\end{figure}
+
+
+\section{Conclusion}
+An optimized path-planning algorithm was simulated to service  a WSN. The path constructed is adaptive to the sensor node locations. Future work should extend our simulation to handle non-stationary sensor nodes,  improve convergence rate, and use our mTSP code to escape local minimal. We are in the process of implementing the algorithm on mobile-robots, with eventual implementation with a set of quadcopters, as shown in~Fig.~\ref{fig:QuadcopterTestbed}.
+
+\begin{figure}\centering
+  \includegraphics[width=\columnwidth]{hardwareTestbed3}
+\caption{Quadcopter testbed under construction for research on recharging sensor nodes.\label{fig:QuadcopterTestbed}}
+\end{figure}
+
+
+
+
+% use section* for acknowledgement
+%\section*{Acknowledgment}
+%The authors would like to thank...
+
+
+
+\bibliography{./bibs/CySEES_ref,./bibs/zhu_ref,./bibs/ref,./bibs/Dissertation_reference_lanchao_C,./bibs/Match}
+
+% that's all folks
+\end{document}
+
+

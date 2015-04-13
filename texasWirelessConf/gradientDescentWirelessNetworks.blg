@@ -1,0 +1,376 @@
+This is BibTeX, Version 0.99d (TeX Live 2012)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: gradientDescentWirelessNetworks.aux
+The style file: plain.bst
+Database file #1: ./bibs/CySEES_ref.bib
+Warning--entry type for "NRDC2015" isn't style-file defined
+--line 68 of file ./bibs/CySEES_ref.bib
+Warning--entry type for "Becker2013l" isn't style-file defined
+--line 1026 of file ./bibs/CySEES_ref.bib
+Repeated entry---line 1288 of file ./bibs/CySEES_ref.bib
+ : @webpage{Becker2013l
+ :                     ,
+I'm skipping whatever remains of this entry
+Warning--entry type for "Kirk2014" isn't style-file defined
+--line 1416 of file ./bibs/CySEES_ref.bib
+You're missing a field name---line 1942 of file ./bibs/CySEES_ref.bib
+ : 
+ : %  AUTHOR =       "A. Kurs and A. Karalis and R. Moffatt and J. D. Joannopoulos and P. Fisher and M. Soljacic",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 3514 of file ./bibs/CySEES_ref.bib
+ : 
+ : %  pages =        "813-821",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 3876 of file ./bibs/CySEES_ref.bib
+ :   year = {1996}
+ :                .
+I'm skipping whatever remains of this entry
+"{" immediately follows a field name---line 4030 of file ./bibs/CySEES_ref.bib
+ : @ARTICLE
+ :         {RmScTWC06,
+I'm skipping whatever remains of this entry
+Repeated entry---line 4076 of file ./bibs/CySEES_ref.bib
+ : @article{jTbHCC06
+ :                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 4098 of file ./bibs/CySEES_ref.bib
+ : @article{EPRNP05
+ :                 ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 4120 of file ./bibs/CySEES_ref.bib
+ : @conference{RenewSN12
+ :                      ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 4160 of file ./bibs/CySEES_ref.bib
+ : @article{OBSP09
+ :                ,
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 4536 of file ./bibs/CySEES_ref.bib
+ :   year = {1996}
+ :                .
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 4822 of file ./bibs/CySEES_ref.bib
+ :  year = {2004}
+ :               .
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 4968 of file ./bibs/CySEES_ref.bib
+ :  address = {New York, NY}
+ :                          .
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 4982 of file ./bibs/CySEES_ref.bib
+ :   year = {2005}
+ :                .
+I'm skipping whatever remains of this entry
+You're missing a field name---line 5178 of file ./bibs/CySEES_ref.bib
+ : 
+ : %  url = "http://www.sciencedirect.com/science/article/B7576-50G6W7W-2/2/d5b461fdc68da442089f14324c0d948d"
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 5290 of file ./bibs/CySEES_ref.bib
+ :   address = {Cambridge, NY}
+ :                            .
+I'm skipping whatever remains of this entry
+You're missing a field name---line 5306 of file ./bibs/CySEES_ref.bib
+ : 
+ : %  address =      "New York",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 5442 of file ./bibs/CySEES_ref.bib
+ :  
+ :  % number={},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 5722 of file ./bibs/CySEES_ref.bib
+ :   year = {1979}
+ :                .
+I'm skipping whatever remains of this entry
+You're missing a field name---line 5800 of file ./bibs/CySEES_ref.bib
+ : 
+ : %  address = {NY},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 5836 of file ./bibs/CySEES_ref.bib
+ :   
+ :   year = {1971}.
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 5858 of file ./bibs/CySEES_ref.bib
+ :   year = {1970}
+ :                .
+I'm skipping whatever remains of this entry
+You're missing a field name---line 5880 of file ./bibs/CySEES_ref.bib
+ : 
+ : %  number =       "2",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 5956 of file ./bibs/CySEES_ref.bib
+ :   year = {1996}
+ :                .
+I'm skipping whatever remains of this entry
+You're missing a field name---line 6154 of file ./bibs/CySEES_ref.bib
+ :  
+ :  %doi = {http://dx.doi.org/10.1155/2008/896420},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 6256 of file ./bibs/CySEES_ref.bib
+ : 
+ : % issn = {0097-5397},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field part---line 6294 of file ./bibs/CySEES_ref.bib
+ :   month= 
+ :          ,
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 6338 of file ./bibs/CySEES_ref.bib
+ :     
+ :     %url = {http://dx.doi.org/10.1016/0022-0531(92)90091-U},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 6414 of file ./bibs/CySEES_ref.bib
+ : 
+ : % isbn = {0-7695-2233-5},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 6462 of file ./bibs/CySEES_ref.bib
+ : 
+ : %    author = {M. Yokoo and K. Suzuki},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 6484 of file ./bibs/CySEES_ref.bib
+ : 
+ : %    crossref = {DBLP:conf/tcc/2005},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 6520 of file ./bibs/CySEES_ref.bib
+ : 
+ : % doi = {http://dx.doi.org/10.1137/S0097539795291562},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 6540 of file ./bibs/CySEES_ref.bib
+ :  
+ :  %isbn = {1-58113-480-0},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 6588 of file ./bibs/CySEES_ref.bib
+ : 
+ : %  month =        {April},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 6610 of file ./bibs/CySEES_ref.bib
+ :   
+ :   %month =        {May},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 6736 of file ./bibs/CySEES_ref.bib
+ :   
+ :   %month =        {May},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 6794 of file ./bibs/CySEES_ref.bib
+ :   
+ :   %month =        {May},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 6918 of file ./bibs/CySEES_ref.bib
+ : 
+ : %  address =      "Boca Raton, FL",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 6958 of file ./bibs/CySEES_ref.bib
+ :   
+ :   %month =        {May},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 7034 of file ./bibs/CySEES_ref.bib
+ :   
+ :   %month =        {May},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 7090 of file ./bibs/CySEES_ref.bib
+ : 
+ : %  address =      "Boca Raton, FL",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Repeated entry---line 7240 of file ./bibs/CySEES_ref.bib
+ : @article{AkSu02
+ :                ,
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 8390 of file ./bibs/CySEES_ref.bib
+ :   
+ :   url= "www.acq.osd.mil/dsb/reports/2004-10-Integrated_Fire_Support.pdf"
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 9366 of file ./bibs/CySEES_ref.bib
+ :   booktitle =    {Proc. of the Second ACM Conference on Embedded Networked Sensor Systems} 
+ :                                                                                            (SenSys 2004)},
+I'm skipping whatever remains of this entry
+You're missing a field name---line 10800 of file ./bibs/CySEES_ref.bib
+ : 
+ : %  url= "http://dtype.org/keyanalyze/"
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 11700 of file ./bibs/CySEES_ref.bib
+ : 
+ : %  AUTHOR =       "R. Albert and H. Jeong and A.-L. Barabasi",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 11722 of file ./bibs/CySEES_ref.bib
+ : 
+ : %  author =       {E. Lebhar and N. Schabanel},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Database file #2: ./bibs/zhu_ref.bib
+You're missing a field name---line 2572 of file ./bibs/zhu_ref.bib
+ : 
+ : %  author    = {},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 2583 of file ./bibs/zhu_ref.bib
+ : 
+ : %author={},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Database file #3: ./bibs/ref.bib
+Warning--entry type for "Srikanth2015" isn't style-file defined
+--line 2 of file ./bibs/ref.bib
+I was expecting a `,' or a `)'---line 1091 of file ./bibs/ref.bib
+ :  note = "Mathematical Programming, to appear"
+ :                                              .
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `)'---line 3283 of file ./bibs/ref.bib
+ :  
+ :  volume = {62},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `)'---line 3741 of file ./bibs/ref.bib
+ :  note = ``arXive 
+ :                  Preprint, arXiv:1402.4238 "
+I'm skipping whatever remains of this entry
+You're missing a field name---line 6640 of file ./bibs/ref.bib
+ : 
+ : % author = "Z. Xu and M. Hong and Z.-Q. Luo",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Database file #4: ./bibs/Dissertation_reference_lanchao_C.bib
+Database file #5: ./bibs/Match.bib
+Repeated entry---line 57 of file ./bibs/Match.bib
+ : @article{AkSu02
+ :                ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 79 of file ./bibs/Match.bib
+ : @conference{RenewSN12
+ :                      ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 95 of file ./bibs/Match.bib
+ : @article{EPRNP05
+ :                 ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 115 of file ./bibs/Match.bib
+ : @article{jTbHCC06
+ :                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 137 of file ./bibs/Match.bib
+ : @conference{FbNbRbICC09
+ :                        ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 153 of file ./bibs/Match.bib
+ : @article{AkAkSE07
+ :                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 173 of file ./bibs/Match.bib
+ : @conference{CpSAHCN06
+ :                      ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 191 of file ./bibs/Match.bib
+ : @conference{KwfSF08
+ :                    ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 209 of file ./bibs/Match.bib
+ : @conference{YpPSN10
+ :                    ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 415 of file ./bibs/Match.bib
+ : @article{OBSP09
+ :                ,
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 791 of file ./bibs/Match.bib
+ :   year = {1996}
+ :                .
+I'm skipping whatever remains of this entry
+Repeated entry---line 839 of file ./bibs/Match.bib
+ : @article{ChTyTNet08
+ :                    ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 903 of file ./bibs/Match.bib
+ : @article{XySyNT12
+ :                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 925 of file ./bibs/Match.bib
+ : @article{AkAkSE07
+ :                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 991 of file ./bibs/Match.bib
+ : @article{jTbHCC06
+ :                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1013 of file ./bibs/Match.bib
+ : @article{EPRNP05
+ :                 ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1035 of file ./bibs/Match.bib
+ : @conference{RenewSN12
+ :                      ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1075 of file ./bibs/Match.bib
+ : @article{OBSP09
+ :                ,
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 1451 of file ./bibs/Match.bib
+ :   year = {1996}
+ :                .
+I'm skipping whatever remains of this entry
+Warning--empty booktitle in guo2006opportunistic
+You've used 43 entries,
+            2118 wiz_defined-function locations,
+            764 strings with 12215 characters,
+and the built_in function-call counts, 15466 in all, are:
+= -- 1506
+> -- 786
+< -- 7
++ -- 313
+- -- 266
+* -- 1099
+:= -- 2521
+add.period$ -- 131
+call.type$ -- 43
+change.case$ -- 257
+chr.to.int$ -- 0
+cite$ -- 44
+duplicate$ -- 595
+empty$ -- 1193
+format.name$ -- 266
+if$ -- 3276
+int.to.chr$ -- 0
+int.to.str$ -- 43
+missing$ -- 40
+newline$ -- 214
+num.names$ -- 86
+pop$ -- 305
+preamble$ -- 1
+purify$ -- 217
+quote$ -- 0
+skip$ -- 429
+stack$ -- 0
+substring$ -- 869
+swap$ -- 146
+text.length$ -- 7
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 166
+warning$ -- 1
+while$ -- 130
+width$ -- 45
+write$ -- 464
+(There were 71 error messages)
