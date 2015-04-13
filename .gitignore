@@ -2,6 +2,9 @@
 .out
 .aux
 .gz
+.dvi
 *.dvi
 *.aux
 *.gz
+*.out
+*.log
