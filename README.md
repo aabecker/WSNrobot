@@ -1,4 +1,10 @@
-WSNservice
+WSNrobots
 ======================
+This directory contains:
 
-papers posters designs and code for servicing WSN
+papers 
+posters 
+designs and 
+code
+
+All related to servicing Wireless Sensor Nodes (WSN)
