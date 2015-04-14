@@ -186,7 +186,8 @@ UVs have a limited energy budget.  As the number of nodes grows, more UVs are ne
 \subsection{Using local density to optimize path speed} \label{subsubsec:oprimizepathspeed}
 Data aggregation and recharging shares similarities with persistent robotic tasks, such as cleaning, mowing, observing, and patrolling\cite{mackenzie1996making,kakalis2008robotic,Choset2001,Cortes2004,smith2012persistent,arkin2000approximation,correll2009building,soltero2013decentralized}.  A key tipping point in these problems is if a UV can service multiple clients simultaneously.  A UV has an associated recharging footprint and a data-transfer footprint, which can often be modeled as disks of radius $r_{recharge}$ and $r_{data}$, as illustrated in Fig.~\ref{fig:loadDensity}.
 We represent the fraction of sensors that are clustered as 
-$K_{footprint} = \sum_{j=i+1}^N  \sum_{i=1}^N ||p_i - p_j ||_2  \le r_{footprint}$.
+$K_{footprint} = \sum_{j=i+1}^N  \sum_{i=1}^N ||p_i - p_j ||_2  \le r_{footprint}$. Here, $p_i$ is the position of the $i$th node, $i\ne j$.
+
  In general, energy-efficient recharging requires closer proximity than data transmission, so this implies there are two tipping points related to node density, $K_{recharge}$, and $K_{data}$.   
  Correspondingly, the WSN recharge problem has three regimes with differing solutions. 
  Before the tipping points, nodes are sparse and not clustered.  In this regime optimal paths are straight lines from node to node, and the optimal solution is a variant of the traveling salesman problem.  As sensors get closer together, the optimal path may be to take paths \emph{between} one or more sensors.   In Fig.~\ref{fig:loadDensity}, path \textbf{B} is designed to transfer data from all nodes, and the optimal solution is often to weave between clusters of nodes.  The third regime is when many nodes are close enough for recharging.

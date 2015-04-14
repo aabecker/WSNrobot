@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.4.13)  13 APR 2015 23:03
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.4.13)  14 APR 2015 11:47
 entering extended mode
 **gradientDescentWirelessNetworks.tex
 
@@ -696,147 +696,26 @@ irelessNetworks.out)
 (C:\Users\Srikanth\Documents\GitHub\WSNrobot\texasWirelessConf\gradientDescentW
 irelessNetworks.out)
 \@outlinefile=\write4
-
-
-LaTeX Warning: Citation `AkSu02' on page 1 undefined on input line 97.
-
-
-LaTeX Warning: Citation `RenewSN12' on page 1 undefined on input line 97.
-
-
-LaTeX Warning: Citation `EPRNP05' on page 1 undefined on input line 97.
-
-
-LaTeX Warning: Citation `jTbHCC06' on page 1 undefined on input line 97.
-
-
-LaTeX Warning: Citation `ChTyTNet08' on page 1 undefined on input line 98.
-
-
-LaTeX Warning: Citation `RenewSN12' on page 1 undefined on input line 98.
-
-
-LaTeX Warning: Citation `OBSP09' on page 1 undefined on input line 98.
-
-
-LaTeX Warning: Citation `FbNbRbICC09' on page 1 undefined on input line 99.
-
-
-LaTeX Warning: Citation `CpSAHCN06' on page 1 undefined on input line 99.
-
-
-LaTeX Warning: Citation `KwfSF08' on page 1 undefined on input line 99.
-
-
-LaTeX Warning: Citation `YpPSN10' on page 1 undefined on input line 99.
-
-
-LaTeX Warning: Citation `BatteryPoll12' on page 1 undefined on input line 100.
-
-
-LaTeX Warning: Citation `NRDC2015' on page 1 undefined on input line 100.
-
-
-LaTeX Warning: Citation `AkAkSE07' on page 1 undefined on input line 104.
-
-
-LaTeX Warning: Citation `AkAkSE07' on page 1 undefined on input line 104.
-
-
-LaTeX Warning: Citation `XySyNT12' on page 1 undefined on input line 104.
-
-<./pictures/overall.pdf, id=55, 1264.725pt x 578.16pt>
+ <./pictures/overall.pdf, id=71, 1264.725pt x 578.16pt>
 File: ./pictures/overall.pdf Graphic file (type pdf)
 
 <use ./pictures/overall.pdf>
 Package pdftex.def Info: ./pictures/overall.pdf used on input line 114.
 (pdftex.def)             Requested size: 253.04987pt x 115.67406pt.
 
-<./pictures/txenergy.pdf, id=56, 325.215pt x 255.95625pt>
+<./pictures/txenergy.pdf, id=72, 325.215pt x 255.95625pt>
 File: ./pictures/txenergy.pdf Graphic file (type pdf)
 
 <use ./pictures/txenergy.pdf>
 Package pdftex.def Info: ./pictures/txenergy.pdf used on input line 119.
 (pdftex.def)             Requested size: 253.04987pt x 199.16467pt.
-
-
-LaTeX Warning: Citation `bektas2006multiple' on page 1 undefined on input line 
-130.
-
-
-LaTeX Warning: Citation `dantzig1959truckdispatchingproblem' on page 1 undefine
-d on input line 130.
-
-
-LaTeX Warning: Citation `smith2012persistent' on page 1 undefined on input line
- 130.
-
-
-LaTeX Warning: Citation `soltero2013decentralized' on page 1 undefined on input
- line 130.
-
-
-LaTeX Warning: Citation `Alamdari:2014:PMD:2568343.2568350' on page 1 undefined
- on input line 131.
-
-
-LaTeX Warning: Citation `huang2014resource' on page 1 undefined on input line 1
-31.
-
-
-LaTeX Warning: Citation `Guo:2007:FES:1364654.1364671' on page 1 undefined on i
-nput line 131.
-
-
-LaTeX Warning: Citation `guo2006opportunistic' on page 1 undefined on input lin
-e 131.
-
-[1
+ [1
 Non-PDF special ignored!{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
 ]
-
-LaTeX Warning: Citation `toksoz2011automated' on page 2 undefined on input line
- 133.
-
-
-LaTeX Warning: Citation `swieringa2010autonomous' on page 2 undefined on input 
-line 133.
-
-
-LaTeX Warning: Citation `mulgaonkar2012automated' on page 2 undefined on input 
-line 133.
-
-
-LaTeX Warning: Citation `griffin2012resonant' on page 2 undefined on input line
- 133.
-
-
-LaTeX Warning: Citation `johnson2013charge' on page 2 undefined on input line 1
-33.
-
-
-LaTeX Warning: Citation `jung2012inductive' on page 2 undefined on input line 1
-33.
-
-
-LaTeX Warning: Citation `xie2013wireless' on page 2 undefined on input line 133
-.
-
-
-LaTeX Warning: Citation `mathew2013graph' on page 2 undefined on input line 133
-.
-
-
-LaTeX Warning: Citation `smith2012persistent' on page 2 undefined on input line
- 133.
-
-
-LaTeX Warning: Citation `soltero2013decentralized' on page 2 undefined on input
- line 133.
-
 LaTeX Font Info:    Try loading font information for U+rsfs on input line 138.
+
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\jknappen\ursfs.fd"
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
@@ -854,35 +733,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 LaTeX Font Warning: Font shape `U/bbold/m/n' in size <5> not available
 (Font)              size <6> substituted on input line 138.
 
-
-LaTeX Warning: Citation `arkin2000approximation' on page 2 undefined on input l
-ine 143.
-
-
-LaTeX Warning: Reference `subsubsec:travelvsrecharge' on page 2 undefined on in
-put line 146.
-
-
-LaTeX Warning: Reference `subsubsec:travelvsrecharge' on page 2 undefined on in
-put line 146.
-
-
-LaTeX Warning: Reference `subsubsec:dynamicLoading' on page 2 undefined on inpu
-t line 146.
-
-
-LaTeX Warning: Reference `subsubsec:quadcopterTestbed' on page 2 undefined on i
-nput line 148.
-
-
-LaTeX Warning: Citation `applegate1999finding' on page 2 undefined on input lin
-e 152.
-
-
-LaTeX Warning: Citation `applegate2002minmax' on page 2 undefined on input line
- 152.
-
-<./pictures/Task3Experiment.pdf, id=66, 722.7pt x 542.025pt>
+<./pictures/Task3Experiment.pdf, id=123, 722.7pt x 542.025pt>
 File: ./pictures/Task3Experiment.pdf Graphic file (type pdf)
 
 <use ./pictures/Task3Experiment.pdf>
@@ -890,267 +741,120 @@ Package pdftex.def Info: ./pictures/Task3Experiment.pdf used on input line 157.
 
 (pdftex.def)             Requested size: 253.04987pt x 189.78603pt.
 
-<./pictures/tspCities.pdf, id=67, 517.34392pt x 394.07605pt>
+<./pictures/tspCities.pdf, id=124, 517.34392pt x 394.07605pt>
 File: ./pictures/tspCities.pdf Graphic file (type pdf)
 
 <use ./pictures/tspCities.pdf>
 Package pdftex.def Info: ./pictures/tspCities.pdf used on input line 159.
 (pdftex.def)             Requested size: 113.87166pt x 86.73909pt.
 
-<./pictures/tspPaths.pdf, id=68, 517.53783pt x 394.41402pt>
+<./pictures/tspPaths.pdf, id=125, 517.53783pt x 394.41402pt>
 File: ./pictures/tspPaths.pdf Graphic file (type pdf)
 
 <use ./pictures/tspPaths.pdf>
 Package pdftex.def Info: ./pictures/tspPaths.pdf used on input line 161.
 (pdftex.def)             Requested size: 113.87166pt x 86.77736pt.
-
-
-LaTeX Warning: Citation `bektas2006multiple' on page 2 undefined on input line 
-177.
-
-
-LaTeX Warning: Citation `Kirk2014' on page 2 undefined on input line 177.
-
-
-LaTeX Warning: Reference `fig:mTSPsim' on page 2 undefined on input line 177.
-
-
-LaTeX Warning: Citation `mackenzie1996making' on page 2 undefined on input line
- 187.
-
-
-LaTeX Warning: Citation `kakalis2008robotic' on page 2 undefined on input line 
-187.
-
-
-LaTeX Warning: Citation `Choset2001' on page 2 undefined on input line 187.
-
-
-LaTeX Warning: Citation `Cortes2004' on page 2 undefined on input line 187.
-
-
-LaTeX Warning: Citation `smith2012persistent' on page 2 undefined on input line
- 187.
-
-
-LaTeX Warning: Citation `arkin2000approximation' on page 2 undefined on input l
-ine 187.
-
-
-LaTeX Warning: Citation `correll2009building' on page 2 undefined on input line
- 187.
-
-
-LaTeX Warning: Citation `soltero2013decentralized' on page 2 undefined on input
- line 187.
-
-
-LaTeX Warning: Reference `fig:loadDensity' on page 2 undefined on input line 18
-7.
-
-
-LaTeX Warning: Reference `fig:loadDensity' on page 2 undefined on input line 19
-2.
-
-[2 <C:/Users/Srikanth/Documents/GitHub/WSNrobot/texasWirelessConf/pictures/over
-all.pdf> <C:/Users/Srikanth/Documents/GitHub/WSNrobot/texasWirelessConf/picture
-s/txenergy.pdf>]
-<./pictures/loadDensity.pdf, id=596, 1120.185pt x 1098.1025pt>
+ [2 <C:/Users/Srikanth/Documents/GitHub/WSNrobot/texasWirelessConf/pictures/ove
+rall.pdf> <C:/Users/Srikanth/Documents/GitHub/WSNrobot/texasWirelessConf/pictur
+es/txenergy.pdf>]
+<./pictures/loadDensity.pdf, id=689, 1120.185pt x 1098.1025pt>
 File: ./pictures/loadDensity.pdf Graphic file (type pdf)
 
 <use ./pictures/loadDensity.pdf>
-Package pdftex.def Info: ./pictures/loadDensity.pdf used on input line 195.
+Package pdftex.def Info: ./pictures/loadDensity.pdf used on input line 196.
 (pdftex.def)             Requested size: 253.04987pt x 248.05098pt.
 
-
-LaTeX Warning: Reference `fig:dynamicVsStatic' on page 3 undefined on input lin
-e 213.
-
-
-LaTeX Warning: Citation `soltero2013decentralized' on page 3 undefined on input
- line 213.
-
-
-LaTeX Warning: Citation `lloyd1982least' on page 3 undefined on input line 213.
-
-
-
-LaTeX Warning: Citation `Becker2013l' on page 3 undefined on input line 213.
-
-
-LaTeX Warning: Citation `Srikanth2015' on page 3 undefined on input line 213.
-
-<./pictures/dynamicVsStatic.pdf, id=598, 1445.4pt x 538.01pt>
+<./pictures/dynamicVsStatic.pdf, id=696, 1445.4pt x 538.01pt>
 File: ./pictures/dynamicVsStatic.pdf Graphic file (type pdf)
 
 <use ./pictures/dynamicVsStatic.pdf>
-Package pdftex.def Info: ./pictures/dynamicVsStatic.pdf used on input line 220.
+Package pdftex.def Info: ./pictures/dynamicVsStatic.pdf used on input line 221.
 
 (pdftex.def)             Requested size: 253.04987pt x 94.18599pt.
-
-
-LaTeX Warning: Reference `subfig:Task3Experiment' on page 3 undefined on input 
-line 249.
-
-[3 <C:/Users/Srikanth/Documents/GitHub/WSNrobot/texasWirelessConf/pictures/Task
-3Experiment.pdf> <C:/Users/Srikanth/Documents/GitHub/WSNrobot/texasWirelessConf
-/pictures/tspCities.pdf> <C:/Users/Srikanth/Documents/GitHub/WSNrobot/texasWire
-lessConf/pictures/tspPaths.pdf> <C:/Users/Srikanth/Documents/GitHub/WSNrobot/te
-xasWirelessConf/pictures/loadDensity.pdf> <C:/Users/Srikanth/Documents/GitHub/W
-SNrobot/texasWirelessConf/pictures/dynamicVsStatic.pdf>]
+ [3 <C:/Users/Srikanth/Documents/GitHub/WSNrobot/texasWirelessConf/pictures/Tas
+k3Experiment.pdf> <C:/Users/Srikanth/Documents/GitHub/WSNrobot/texasWirelessCon
+f/pictures/tspCities.pdf> <C:/Users/Srikanth/Documents/GitHub/WSNrobot/texasWir
+elessConf/pictures/tspPaths.pdf> <C:/Users/Srikanth/Documents/GitHub/WSNrobot/t
+exasWirelessConf/pictures/loadDensity.pdf> <C:/Users/Srikanth/Documents/GitHub/
+WSNrobot/texasWirelessConf/pictures/dynamicVsStatic.pdf>]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 283.
-
-
-LaTeX Warning: Citation `smith2012persistent' on page 4 undefined on input line
- 283.
-
-
-LaTeX Warning: Citation `Srikanth2015' on page 4 undefined on input line 283.
-
-
-LaTeX Warning: Citation `smith2012persistent' on page 4 undefined on input line
- 283.
-
-
-LaTeX Warning: Citation `Srikanth2015' on page 4 undefined on input line 283.
-
+put line 284.
 Missing character: There is no Õ in font ptmr7t!
-
-LaTeX Warning: Reference `eq:massmomentcentroid' on page 4 undefined on input l
-ine 290.
-
-
-LaTeX Warning: Reference `eq:controllaw' on page 4 undefined on input line 292.
-
-
-
-LaTeX Warning: Reference `eq:state evolution' on page 4 undefined on input line
- 293.
-
-
-LaTeX Warning: Citation `fischer1928darstellung' on page 4 undefined on input l
-ine 298.
-
-
-LaTeX Warning: Citation `Srikanth2015' on page 4 undefined on input line 304.
-
-
-LaTeX Warning: Reference `fig:OneUAVsim' on page 4 undefined on input line 304.
-
-
-<./pictures/UAV1_1.png, id=3269, 515.9275pt x 499.8675pt>
+ <./pictures/UAV1_1.png, id=3379, 515.9275pt x 499.8675pt>
 File: ./pictures/UAV1_1.png Graphic file (type png)
 
 <use ./pictures/UAV1_1.png>
-Package pdftex.def Info: ./pictures/UAV1_1.png used on input line 309.
+Package pdftex.def Info: ./pictures/UAV1_1.png used on input line 310.
 (pdftex.def)             Requested size: 123.99582pt x 120.13081pt.
 
-<./pictures/UAV1_5.png, id=3271, 514.92375pt x 492.84125pt>
+<./pictures/UAV1_5.png, id=3381, 514.92375pt x 492.84125pt>
 File: ./pictures/UAV1_5.png Graphic file (type png)
 
 <use ./pictures/UAV1_5.png>
-Package pdftex.def Info: ./pictures/UAV1_5.png used on input line 310.
+Package pdftex.def Info: ./pictures/UAV1_5.png used on input line 311.
 (pdftex.def)             Requested size: 123.99582pt x 118.67535pt.
 
-<./pictures/UAV1_10.png, id=3272, 516.93124pt x 495.8525pt>
+<./pictures/UAV1_10.png, id=3382, 516.93124pt x 495.8525pt>
 File: ./pictures/UAV1_10.png Graphic file (type png)
 
 <use ./pictures/UAV1_10.png>
-Package pdftex.def Info: ./pictures/UAV1_10.png used on input line 311.
+Package pdftex.def Info: ./pictures/UAV1_10.png used on input line 312.
 (pdftex.def)             Requested size: 123.99582pt x 118.93893pt.
 
-<./pictures/UAV1_50.png, id=3273, 517.935pt x 498.86375pt>
+<./pictures/UAV1_50.png, id=3383, 517.935pt x 498.86375pt>
 File: ./pictures/UAV1_50.png Graphic file (type png)
 
 <use ./pictures/UAV1_50.png>
-Package pdftex.def Info: ./pictures/UAV1_50.png used on input line 312.
+Package pdftex.def Info: ./pictures/UAV1_50.png used on input line 313.
 (pdftex.def)             Requested size: 123.99582pt x 119.42526pt.
 
-
-LaTeX Warning: Reference `alg:ICpathcontrol' on page 4 undefined on input line 
-314.
-
-
-LaTeX Warning: Reference `alg:ICpathcontrol' on page 4 undefined on input line 
-314.
-
-
-LaTeX Warning: Reference `fig:multipleUAVsim' on page 4 undefined on input line
- 318.
-
-
-LaTeX Warning: Reference `subsubsec:travelvsrecharge' on page 4 undefined on in
-put line 318.
-
-
-LaTeX Warning: Reference `alg:ICpathcontrol' on page 4 undefined on input line 
-318.
-
-
-LaTeX Warning: Reference `fig:multipleUAVsim' on page 4 undefined on input line
- 318.
-
-<./pictures/UAV2_1.png, id=3274, 516.93124pt x 507.8975pt>
+<./pictures/UAV2_1.png, id=3390, 516.93124pt x 507.8975pt>
 File: ./pictures/UAV2_1.png Graphic file (type png)
 
 <use ./pictures/UAV2_1.png>
-Package pdftex.def Info: ./pictures/UAV2_1.png used on input line 321.
+Package pdftex.def Info: ./pictures/UAV2_1.png used on input line 322.
 (pdftex.def)             Requested size: 123.99582pt x 121.82814pt.
 
-<./pictures/UAV2_10.png, id=3275, 517.935pt x 522.95375pt>
+<./pictures/UAV2_10.png, id=3391, 517.935pt x 522.95375pt>
 File: ./pictures/UAV2_10.png Graphic file (type png)
 
 <use ./pictures/UAV2_10.png>
-Package pdftex.def Info: ./pictures/UAV2_10.png used on input line 322.
+Package pdftex.def Info: ./pictures/UAV2_10.png used on input line 323.
 (pdftex.def)             Requested size: 123.99582pt x 125.19228pt.
 
-<./pictures/UAV2_25.png, id=3276, 513.92pt x 517.935pt>
+<./pictures/UAV2_25.png, id=3392, 513.92pt x 517.935pt>
 File: ./pictures/UAV2_25.png Graphic file (type png)
 
 <use ./pictures/UAV2_25.png>
-Package pdftex.def Info: ./pictures/UAV2_25.png used on input line 323.
+Package pdftex.def Info: ./pictures/UAV2_25.png used on input line 324.
 (pdftex.def)             Requested size: 123.99582pt x 124.96288pt.
 
-<./pictures/UAV2_100.png, id=3277, 515.9275pt x 509.905pt>
+<./pictures/UAV2_100.png, id=3393, 515.9275pt x 509.905pt>
 File: ./pictures/UAV2_100.png Graphic file (type png)
 
 <use ./pictures/UAV2_100.png>
-Package pdftex.def Info: ./pictures/UAV2_100.png used on input line 324.
+Package pdftex.def Info: ./pictures/UAV2_100.png used on input line 325.
 (pdftex.def)             Requested size: 123.99582pt x 122.54309pt.
-
-
-LaTeX Warning: Reference `alg:ICpathcontrol' on page 4 undefined on input line 
-326.
-
-
-LaTeX Warning: Reference `alg:ICpathcontrol' on page 4 undefined on input line 
-326.
-
-
-LaTeX Warning: Reference `fig:QuadcopterTestbed' on page 4 undefined on input l
-ine 331.
-
-<./pictures/hardwareTestbed3.pdf, id=3278, 722.7pt x 542.025pt>
+ [4 <C:/Users/Srikanth/Documents/GitHub/WSNrobot/texasWirelessConf/pictures/UAV
+1_1.png> <C:/Users/Srikanth/Documents/GitHub/WSNrobot/texasWirelessConf/picture
+s/UAV1_5.png> <C:/Users/Srikanth/Documents/GitHub/WSNrobot/texasWirelessConf/pi
+ctures/UAV1_10.png> <C:/Users/Srikanth/Documents/GitHub/WSNrobot/texasWirelessC
+onf/pictures/UAV1_50.png>]
+<./pictures/hardwareTestbed3.pdf, id=3416, 722.7pt x 542.025pt>
 File: ./pictures/hardwareTestbed3.pdf Graphic file (type pdf)
 
 <use ./pictures/hardwareTestbed3.pdf>
-Package pdftex.def Info: ./pictures/hardwareTestbed3.pdf used on input line 334
+Package pdftex.def Info: ./pictures/hardwareTestbed3.pdf used on input line 335
 .
 (pdftex.def)             Requested size: 253.04987pt x 189.78603pt.
 
 (C:\Users\Srikanth\Documents\GitHub\WSNrobot\texasWirelessConf\gradientDescentW
-irelessNetworks.bbl [4 <C:/Users/Srikanth/Documents/GitHub/WSNrobot/texasWirele
-ssConf/pictures/UAV1_1.png> <C:/Users/Srikanth/Documents/GitHub/WSNrobot/texasW
-irelessConf/pictures/UAV1_5.png> <C:/Users/Srikanth/Documents/GitHub/WSNrobot/t
-exasWirelessConf/pictures/UAV1_10.png> <C:/Users/Srikanth/Documents/GitHub/WSNr
-obot/texasWirelessConf/pictures/UAV1_50.png>] [5 <C:/Users/Srikanth/Documents/G
-itHub/WSNrobot/texasWirelessConf/pictures/UAV2_1.png> <C:/Users/Srikanth/Docume
-nts/GitHub/WSNrobot/texasWirelessConf/pictures/UAV2_10.png> <C:/Users/Srikanth/
-Documents/GitHub/WSNrobot/texasWirelessConf/pictures/UAV2_25.png> <C:/Users/Sri
-kanth/Documents/GitHub/WSNrobot/texasWirelessConf/pictures/UAV2_100.png> <C:/Us
-ers/Srikanth/Documents/GitHub/WSNrobot/texasWirelessConf/pictures/hardwareTestb
-ed3.pdf>]
+irelessNetworks.bbl [5 <C:/Users/Srikanth/Documents/GitHub/WSNrobot/texasWirele
+ssConf/pictures/UAV2_1.png> <C:/Users/Srikanth/Documents/GitHub/WSNrobot/texasW
+irelessConf/pictures/UAV2_10.png> <C:/Users/Srikanth/Documents/GitHub/WSNrobot/
+texasWirelessConf/pictures/UAV2_25.png> <C:/Users/Srikanth/Documents/GitHub/WSN
+robot/texasWirelessConf/pictures/UAV2_100.png> <C:/Users/Srikanth/Documents/Git
+Hub/WSNrobot/texasWirelessConf/pictures/hardwareTestbed3.pdf>]
 Underfull \hbox (badness 2913) in paragraph at lines 162--165
 []\OT1/ptm/m/n/8 Andr Kurs, Aris-tei-dis Kar-alis, and Robert Mof-fatt.  Wire-l
 ess
@@ -1168,16 +872,16 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 350.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 351.
 [6
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 350.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 351.
 
 (C:\Users\Srikanth\Documents\GitHub\WSNrobot\texasWirelessConf\gradientDescentW
 irelessNetworks.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 350.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 350.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 351.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 351.
 Package rerunfilecheck Info: File `gradientDescentWirelessNetworks.out' has not
  changed.
 (rerunfilecheck)             Checksum: 84E55008C32083F0100A3C1A21441E36;843.
@@ -1186,22 +890,16 @@ Package rerunfilecheck Info: File `gradientDescentWirelessNetworks.out' has not
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 350.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 351.
  ) 
 Here is how much of TeX's memory you used:
  11141 strings out of 493921
  168530 string characters out of 3144867
- 269078 words of memory out of 3000000
+ 272736 words of memory out of 3000000
  14117 multiletter control sequences out of 15000+200000
  48408 words of font info for 110 fonts, out of 3000000 for 9000
  844 hyphenation exceptions out of 8191
- 41i,13n,43p,3588b,474s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,13n,43p,3588b,468s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program 
 Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Fi
@@ -1220,10 +918,10 @@ ype1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
 rw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/ut
 mbi8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><
 C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on gradientDescentWirelessNetworks.pdf (6 pages, 6308545 bytes).
+Output written on gradientDescentWirelessNetworks.pdf (6 pages, 6322180 bytes).
 
 PDF statistics:
- 3548 PDF objects out of 3580 (max. 8388607)
+ 3626 PDF objects out of 4296 (max. 8388607)
  77 named destinations out of 1000 (max. 500000)
  185 words of extra memory for PDF output out of 10000 (max. 10000000)
 
