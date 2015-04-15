@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.4.13)  14 APR 2015 11:47
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.4.13)  15 APR 2015 02:08
 entering extended mode
 **gradientDescentWirelessNetworks.tex
 
@@ -696,14 +696,14 @@ irelessNetworks.out)
 (C:\Users\Srikanth\Documents\GitHub\WSNrobot\texasWirelessConf\gradientDescentW
 irelessNetworks.out)
 \@outlinefile=\write4
- <./pictures/overall.pdf, id=71, 1264.725pt x 578.16pt>
+ <./pictures/overall.pdf, id=70, 1264.725pt x 578.16pt>
 File: ./pictures/overall.pdf Graphic file (type pdf)
 
 <use ./pictures/overall.pdf>
 Package pdftex.def Info: ./pictures/overall.pdf used on input line 114.
 (pdftex.def)             Requested size: 253.04987pt x 115.67406pt.
 
-<./pictures/txenergy.pdf, id=72, 325.215pt x 255.95625pt>
+<./pictures/txenergy.pdf, id=71, 325.215pt x 255.95625pt>
 File: ./pictures/txenergy.pdf Graphic file (type pdf)
 
 <use ./pictures/txenergy.pdf>
@@ -733,7 +733,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 LaTeX Font Warning: Font shape `U/bbold/m/n' in size <5> not available
 (Font)              size <6> substituted on input line 138.
 
-<./pictures/Task3Experiment.pdf, id=123, 722.7pt x 542.025pt>
+<./pictures/Task3Experiment.pdf, id=122, 722.7pt x 542.025pt>
 File: ./pictures/Task3Experiment.pdf Graphic file (type pdf)
 
 <use ./pictures/Task3Experiment.pdf>
@@ -741,14 +741,14 @@ Package pdftex.def Info: ./pictures/Task3Experiment.pdf used on input line 157.
 
 (pdftex.def)             Requested size: 253.04987pt x 189.78603pt.
 
-<./pictures/tspCities.pdf, id=124, 517.34392pt x 394.07605pt>
+<./pictures/tspCities.pdf, id=123, 517.34392pt x 394.07605pt>
 File: ./pictures/tspCities.pdf Graphic file (type pdf)
 
 <use ./pictures/tspCities.pdf>
 Package pdftex.def Info: ./pictures/tspCities.pdf used on input line 159.
 (pdftex.def)             Requested size: 113.87166pt x 86.73909pt.
 
-<./pictures/tspPaths.pdf, id=125, 517.53783pt x 394.41402pt>
+<./pictures/tspPaths.pdf, id=124, 517.53783pt x 394.41402pt>
 File: ./pictures/tspPaths.pdf Graphic file (type pdf)
 
 <use ./pictures/tspPaths.pdf>
@@ -757,14 +757,14 @@ Package pdftex.def Info: ./pictures/tspPaths.pdf used on input line 161.
  [2 <C:/Users/Srikanth/Documents/GitHub/WSNrobot/texasWirelessConf/pictures/ove
 rall.pdf> <C:/Users/Srikanth/Documents/GitHub/WSNrobot/texasWirelessConf/pictur
 es/txenergy.pdf>]
-<./pictures/loadDensity.pdf, id=689, 1120.185pt x 1098.1025pt>
+<./pictures/loadDensity.pdf, id=688, 1120.185pt x 1098.1025pt>
 File: ./pictures/loadDensity.pdf Graphic file (type pdf)
 
 <use ./pictures/loadDensity.pdf>
 Package pdftex.def Info: ./pictures/loadDensity.pdf used on input line 196.
 (pdftex.def)             Requested size: 253.04987pt x 248.05098pt.
 
-<./pictures/dynamicVsStatic.pdf, id=696, 1445.4pt x 538.01pt>
+<./pictures/dynamicVsStatic.pdf, id=695, 1445.4pt x 538.01pt>
 File: ./pictures/dynamicVsStatic.pdf Graphic file (type pdf)
 
 <use ./pictures/dynamicVsStatic.pdf>
@@ -778,83 +778,74 @@ elessConf/pictures/tspPaths.pdf> <C:/Users/Srikanth/Documents/GitHub/WSNrobot/t
 exasWirelessConf/pictures/loadDensity.pdf> <C:/Users/Srikanth/Documents/GitHub/
 WSNrobot/texasWirelessConf/pictures/dynamicVsStatic.pdf>]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 284.
+put line 282.
 Missing character: There is no Õ in font ptmr7t!
- <./pictures/UAV1_1.png, id=3379, 515.9275pt x 499.8675pt>
-File: ./pictures/UAV1_1.png Graphic file (type png)
+ <./pictures/1_1.pdf, id=3378, 433.62pt x 433.62pt>
+File: ./pictures/1_1.pdf Graphic file (type pdf)
 
-<use ./pictures/UAV1_1.png>
-Package pdftex.def Info: ./pictures/UAV1_1.png used on input line 310.
-(pdftex.def)             Requested size: 123.99582pt x 120.13081pt.
+<use ./pictures/1_1.pdf>
+Package pdftex.def Info: ./pictures/1_1.pdf used on input line 306.
+(pdftex.def)             Requested size: 123.99582pt x 123.9932pt.
+ <./pictures/1_2.pdf, id=3379, 433.62pt x 433.62pt>
+File: ./pictures/1_2.pdf Graphic file (type pdf)
 
-<./pictures/UAV1_5.png, id=3381, 514.92375pt x 492.84125pt>
-File: ./pictures/UAV1_5.png Graphic file (type png)
+<use ./pictures/1_2.pdf>
+Package pdftex.def Info: ./pictures/1_2.pdf used on input line 307.
+(pdftex.def)             Requested size: 123.99582pt x 123.9932pt.
+ <./pictures/1_3.pdf, id=3380, 433.62pt x 433.62pt>
+File: ./pictures/1_3.pdf Graphic file (type pdf)
 
-<use ./pictures/UAV1_5.png>
-Package pdftex.def Info: ./pictures/UAV1_5.png used on input line 311.
-(pdftex.def)             Requested size: 123.99582pt x 118.67535pt.
+<use ./pictures/1_3.pdf>
+Package pdftex.def Info: ./pictures/1_3.pdf used on input line 308.
+(pdftex.def)             Requested size: 123.99582pt x 123.9932pt.
+ <./pictures/1_4.pdf, id=3381, 433.62pt x 433.62pt>
+File: ./pictures/1_4.pdf Graphic file (type pdf)
 
-<./pictures/UAV1_10.png, id=3382, 516.93124pt x 495.8525pt>
-File: ./pictures/UAV1_10.png Graphic file (type png)
+<use ./pictures/1_4.pdf>
+Package pdftex.def Info: ./pictures/1_4.pdf used on input line 309.
+(pdftex.def)             Requested size: 123.99582pt x 123.9932pt.
+ <./pictures/1_5.pdf, id=3382, 433.62pt x 433.62pt>
+File: ./pictures/1_5.pdf Graphic file (type pdf)
 
-<use ./pictures/UAV1_10.png>
-Package pdftex.def Info: ./pictures/UAV1_10.png used on input line 312.
-(pdftex.def)             Requested size: 123.99582pt x 118.93893pt.
+<use ./pictures/1_5.pdf>
+Package pdftex.def Info: ./pictures/1_5.pdf used on input line 310.
+(pdftex.def)             Requested size: 123.99582pt x 123.9932pt.
+ <./pictures/1_6.pdf, id=3383, 433.62pt x 433.62pt>
+File: ./pictures/1_6.pdf Graphic file (type pdf)
 
-<./pictures/UAV1_50.png, id=3383, 517.935pt x 498.86375pt>
-File: ./pictures/UAV1_50.png Graphic file (type png)
+<use ./pictures/1_6.pdf>
+Package pdftex.def Info: ./pictures/1_6.pdf used on input line 311.
+(pdftex.def)             Requested size: 123.99582pt x 123.9932pt.
 
-<use ./pictures/UAV1_50.png>
-Package pdftex.def Info: ./pictures/UAV1_50.png used on input line 313.
-(pdftex.def)             Requested size: 123.99582pt x 119.42526pt.
+Underfull \hbox (badness 2229) in paragraph at lines 313--313
+\OT1/ptm/m/n/9 Space Fill-ing Curve.2.)Iteration 100- Al-go-rithm with Gra-di-e
+nt
+ []
 
-<./pictures/UAV2_1.png, id=3390, 516.93124pt x 507.8975pt>
-File: ./pictures/UAV2_1.png Graphic file (type png)
 
-<use ./pictures/UAV2_1.png>
-Package pdftex.def Info: ./pictures/UAV2_1.png used on input line 322.
-(pdftex.def)             Requested size: 123.99582pt x 121.82814pt.
+Underfull \hbox (badness 1748) in paragraph at lines 334--334
+\OT1/ptm/m/n/9 the mTSP was plot-ted with two UVs. 1.)It-er-a-tion 0-Hilbert's
+ []
 
-<./pictures/UAV2_10.png, id=3391, 517.935pt x 522.95375pt>
-File: ./pictures/UAV2_10.png Graphic file (type png)
 
-<use ./pictures/UAV2_10.png>
-Package pdftex.def Info: ./pictures/UAV2_10.png used on input line 323.
-(pdftex.def)             Requested size: 123.99582pt x 125.19228pt.
+Underfull \hbox (badness 2229) in paragraph at lines 334--334
+\OT1/ptm/m/n/9 Space Fill-ing Curve.2.)Iteration 100- Al-go-rithm with Gra-di-e
+nt
+ []
 
-<./pictures/UAV2_25.png, id=3392, 513.92pt x 517.935pt>
-File: ./pictures/UAV2_25.png Graphic file (type png)
 
-<use ./pictures/UAV2_25.png>
-Package pdftex.def Info: ./pictures/UAV2_25.png used on input line 324.
-(pdftex.def)             Requested size: 123.99582pt x 124.96288pt.
+LaTeX Warning: Reference `fig:QuadcopterTestbed' on page 4 undefined on input l
+ine 339.
 
-<./pictures/UAV2_100.png, id=3393, 515.9275pt x 509.905pt>
-File: ./pictures/UAV2_100.png Graphic file (type png)
-
-<use ./pictures/UAV2_100.png>
-Package pdftex.def Info: ./pictures/UAV2_100.png used on input line 325.
-(pdftex.def)             Requested size: 123.99582pt x 122.54309pt.
- [4 <C:/Users/Srikanth/Documents/GitHub/WSNrobot/texasWirelessConf/pictures/UAV
-1_1.png> <C:/Users/Srikanth/Documents/GitHub/WSNrobot/texasWirelessConf/picture
-s/UAV1_5.png> <C:/Users/Srikanth/Documents/GitHub/WSNrobot/texasWirelessConf/pi
-ctures/UAV1_10.png> <C:/Users/Srikanth/Documents/GitHub/WSNrobot/texasWirelessC
-onf/pictures/UAV1_50.png>]
-<./pictures/hardwareTestbed3.pdf, id=3416, 722.7pt x 542.025pt>
-File: ./pictures/hardwareTestbed3.pdf Graphic file (type pdf)
-
-<use ./pictures/hardwareTestbed3.pdf>
-Package pdftex.def Info: ./pictures/hardwareTestbed3.pdf used on input line 335
-.
-(pdftex.def)             Requested size: 253.04987pt x 189.78603pt.
 
 (C:\Users\Srikanth\Documents\GitHub\WSNrobot\texasWirelessConf\gradientDescentW
-irelessNetworks.bbl [5 <C:/Users/Srikanth/Documents/GitHub/WSNrobot/texasWirele
-ssConf/pictures/UAV2_1.png> <C:/Users/Srikanth/Documents/GitHub/WSNrobot/texasW
-irelessConf/pictures/UAV2_10.png> <C:/Users/Srikanth/Documents/GitHub/WSNrobot/
-texasWirelessConf/pictures/UAV2_25.png> <C:/Users/Srikanth/Documents/GitHub/WSN
-robot/texasWirelessConf/pictures/UAV2_100.png> <C:/Users/Srikanth/Documents/Git
-Hub/WSNrobot/texasWirelessConf/pictures/hardwareTestbed3.pdf>]
+irelessNetworks.bbl [4] [5 <C:/Users/Srikanth/Documents/GitHub/WSNrobot/texasWi
+relessConf/pictures/1_1.pdf> <C:/Users/Srikanth/Documents/GitHub/WSNrobot/texas
+WirelessConf/pictures/1_2.pdf> <C:/Users/Srikanth/Documents/GitHub/WSNrobot/tex
+asWirelessConf/pictures/1_3.pdf> <C:/Users/Srikanth/Documents/GitHub/WSNrobot/t
+exasWirelessConf/pictures/1_4.pdf> <C:/Users/Srikanth/Documents/GitHub/WSNrobot
+/texasWirelessConf/pictures/1_5.pdf> <C:/Users/Srikanth/Documents/GitHub/WSNrob
+ot/texasWirelessConf/pictures/1_6.pdf>]
 Underfull \hbox (badness 2913) in paragraph at lines 162--165
 []\OT1/ptm/m/n/8 Andr Kurs, Aris-tei-dis Kar-alis, and Robert Mof-fatt.  Wire-l
 ess
@@ -872,34 +863,37 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 351.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 358.
 [6
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 351.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 358.
 
 (C:\Users\Srikanth\Documents\GitHub\WSNrobot\texasWirelessConf\gradientDescentW
 irelessNetworks.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 351.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 351.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 358.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 358.
 Package rerunfilecheck Info: File `gradientDescentWirelessNetworks.out' has not
  changed.
-(rerunfilecheck)             Checksum: 84E55008C32083F0100A3C1A21441E36;843.
+(rerunfilecheck)             Checksum: FECFC936CE54C057692A3C0D793FAFC2;836.
 
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 351.
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 358.
  ) 
 Here is how much of TeX's memory you used:
- 11141 strings out of 493921
- 168530 string characters out of 3144867
- 272736 words of memory out of 3000000
- 14117 multiletter control sequences out of 15000+200000
+ 11121 strings out of 493921
+ 167932 string characters out of 3144867
+ 277436 words of memory out of 3000000
+ 14104 multiletter control sequences out of 15000+200000
  48408 words of font info for 110 fonts, out of 3000000 for 9000
  844 hyphenation exceptions out of 8191
- 41i,13n,43p,3588b,468s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,13n,43p,3588b,470s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program 
 Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Fi
@@ -918,10 +912,10 @@ ype1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
 rw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/ut
 mbi8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><
 C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on gradientDescentWirelessNetworks.pdf (6 pages, 6322180 bytes).
+Output written on gradientDescentWirelessNetworks.pdf (6 pages, 3431084 bytes).
 
 PDF statistics:
- 3626 PDF objects out of 4296 (max. 8388607)
- 77 named destinations out of 1000 (max. 500000)
- 185 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3516 PDF objects out of 3580 (max. 8388607)
+ 76 named destinations out of 1000 (max. 500000)
+ 170 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -254,18 +254,16 @@ Hardware implementations generate confidence in solutions, often uncover assumpt
 
 
 \section{Algorithm}
+Let us consider $r$ UVs servicing the Wireless Sensor Network and let $\mathbf{p}_i^r$ be the position of the $\mathbf{i}^{th}$ waypoint of the $\mathbf{r}^{th}$ UV. Servicing includes recharging the nodes and collecting a part of the data that the nodes are about to transmit to the sink there by reducing the power expenditure in the sensor nodes. The algorithm help in formulating an optimal path to visit the sensor nodes in the WSN depending on the interesting regions. Waypoints are a set of points that define the path for each UV $r$, the robot travels in straight lines in between two neighboring waypoints. At each step, we compute the Voronoi partition defined by the waypoints, with one partition assigned to each waypoint. We define an interesting function  $\phi(\mathbf{q})$ that commands the usefulness of a location on the map for servicing the WSN.
 
-At each step, we compute the Voronoi partition defined by the waypoints, with one partition assigned to each waypoint.  
-We assign to each position in the workspace a value $\phi(\mathbf{q})$ that corresponds how useful this position is for servicing our network.
-
-We then compute the mass, mass-moment, and centroid of the $V_i^r$ partition as follows:
+We compute the mass, mass-moment, and centroid of the $V_i^r$ partition as follows:
 \begin{align}\label{eq:massmomentcentroid}
 M_i^r &=  \int_{V_i^r}\phi(\mathbf{q}) d\mathbf{q}, 
 \mathbf{L}_i^r =  \int_{V_i^r}\mathbf{q}\phi(\mathbf{q}) d\mathbf{q}, \nonumber\\
 \mathbf{C}_i^r  &= \frac{ \mathbf{L}_i^r } { M_i^r  }
 \end{align}
 
-The control law for each waypoint is a summation of a force that pulls the waypoint toward the centroid of the Voronoi partition (weighted by $\phi(\mathbf{q})$
+The control law for each waypoint is the summation of forces that pulls the waypoint toward the centroid of the Voronoi partition (weighted by $\phi(\mathbf{q})$)
 \begin{align}\label{eq:controllaw}
 \mathbf{u}_i^r  = \frac{ K_i^r (M_i^r \mathbf{e}_i^r + \boldsymbol{\alpha}_i^r)} { \beta_i^r  }
 \end{align}
@@ -302,28 +300,37 @@ It is important to have an initial path that fills the map so that the robots ca
 \section{Simulation Results}
 
 \subsection{One UV}
-A single UV system was simulated using MATLAB\cite{Srikanth2015}. The initial path was set to be a space-filling Hilbert curve. This is done so that the robot has access to the whole map and identifies all the interesting points. As the simulation progresses the waypoints act according to the above proposed algorithm and adapt themselves to the given sensor information. As the number of iterations increases the path stabilizes and reaches an optimum value. This is observed in the images of the paths at increasing algorithm iterations in Fig.~\ref{fig:OneUAVsim}.
-
-
+A single UV system was simulated using MATLAB in Fig.~\ref{fig:OneUAVsim}.\cite{Srikanth2015}.The initial path at iteration $0$ was set to be a space-filling Hilbert's curve, in order to identify the location of the sensor nodes. The UV follows this initial path there by getting access to the whole map and identifying the interesting points. A waypoint at $[0,0]$ is stationary, it acts as a sink for the UV to recharge and to unload the data collected while servicing the sensor nodes. For the first $100$ iterations the Algorithm with Gradient Descent is used for simulation. This uses the Voronoi diagram for moving the waypoints to locations where there is high sensory information and uses the Gradient Descent for optimization. The path achieved after $100$ iterations is a local-optimum and iterating further does not decrease the cost function. This sub-optimal solution obtained is not impressive. Thus to optimize our path further and to snap out of this local-optimum the path is inputted into a mTSP (multiple-Traveling Salesman Problem) solver for the next $100$ iterations, this straightens the loops by reconnecting the waypoints without changing the waypoint location($\mathbf{p}_{i}^r$ ). After 200 iterations the cost function has deceased due to straightening of the loops by the mTSP solver. These two algorithms are called in succession to optimize the cost function depending on the time available for calculation or until the cost function converges asymptotically. The cost function has also been plotted which is strictly decreasing reassures the significance of the Algorithms used.
 
 \begin{figure}\centering
-  \includegraphics[width=0.49\columnwidth]{UAV1_1}
-    \includegraphics[width=0.49\columnwidth]{UAV1_5}
-      \includegraphics[width=0.49\columnwidth]{UAV1_10}
-        \includegraphics[width=0.49\columnwidth]{UAV1_50}
-\caption{Simulation of Algorithm \ref{alg:ICpathcontrol} with one UAV at iteration 1,5,10, and 50.  The path waypoints are indicated by a set of linked $\circ$ markers, the associated Voronoi diagram in blue, all overlaying a density plot representing the reward function.
+  \includegraphics[width=0.49\columnwidth]{1_1}
+    \includegraphics[width=0.49\columnwidth]{1_2}
+      \includegraphics[width=0.49\columnwidth]{1_3}
+        \includegraphics[width=0.49\columnwidth]{1_4}
+         \includegraphics[width=0.49\columnwidth]{1_5}
+           \includegraphics[width=0.49\columnwidth]{1_6}
+\caption{Simulation of the Algorithm that uses Gradient Descent \ref{alg:ICpathcontrol} and the mTSP was plotted with one UV. 1.)Iteration 0-Hilbert's Space Filling Curve.2.)Iteration 100- Algorithm with Gradient Descent(first).3.)Iteration 200- mTSP Solver(first).4.)Iteration 300-Algorithm with Gradient Descent(second).5.)Iteration 400- mTSP Solver(second).6.)Cost-function is plotted. The waypoints are indicated by a set of linked $\circ$ markers, the associated Voronoi diagram is in blue, the magenta lines represent the path the UV follows for servicing the sensor nodes and the overlaying density plot represents the sensor node's interesting region.
 \label{fig:OneUAVsim}}
 \end{figure}
 
+%\begin{figure}\centering
+%  \includegraphics[width=0.49\coloumnwidth]{1_1}
+%  \includegraphics[width=0.49\coloumnwidth]{1_2}
+ % \includegraphics[width=0.49\coloumnwidth]{1_3}
+ %  \includegraphics[width=0.49\coloumnwidth]{1_4}
+ %   \includegraphics[width=0.49\coloumnwidth]{1_5}
+  %    \includegraphics[width=0.49\coloumnwidth]{1_6}
+  %  \caption{Simulation of Algorithm with Gradient Descent \ref{alg:ICpathcontrol} and the mTSP was plotted with two UVs. 1.)Iteration 0-Hilbert's Space Filling Curve.2.)Iteration 100- Algorithm with Gradient Descent(first).3.)Iteration 200- mTSP Solver(first).4.)Iteration 300-Algorithm with Gradient Descent(second).5.)Iteration 400- mTSP Solver(second).6.)Cost-function is plotted. The waypoints are indicated by a set of linked red and yellow $\circ$ markers, the associated Voronoi diagram is in blue, the white and cyan lines represent the path the UVs follows for servicing the sensor nodes and the overlaying density plot represents the sensor node's interesting region.
+% \label{fig:OneUAVsim}} 
+%\end{figure}
+
 \subsection{Multiple UVs}
-A two UV system was simulated on MATLAB. As shown in  \ref{fig:multipleUAVsim}, UAVs service different sets of nodes in the WSN. A multi UV system is apt in a practical sense since a single UV might not be able to handle a large network. A waypoint at $[0,0]$ is stationary, it acts as a sink for the UVs. The UV understands its position on the map and attempts to service the sensor nodes with in its range. The initial path plays a major role in deciding the service strategy. Future work will iterate between the mTSP solver in Section~\ref{subsubsec:travelvsrecharge}. Several frames from iterations of  Algorithm \ref{alg:ICpathcontrol} with two UAVs and 21 sensor nodes  are shown in Fig.~\ref{fig:multipleUAVsim}.
+A two UV system was simulated on MATLAB. As shown in  \ref{fig:multipleUAVsim}, UVs service different sets of nodes in the WSN. A multi-UV system is apt in a practical sense since a single UV might not be able to handle a large network.Similar to the one UV case a space filling hilbert's curve is used for the same reasons stated. A waypoint at $[0,0]$ is stationary, it acts as a sink for both the UVs to recharge and to unload the data collected while servicing the sensor nodes. The sensor nodes were placed in random locations to verify the robustness of the algorithm. The Algorithm proceeds in a similar fashion to the one UV case. The simulation results show the optimization of the path and the minimization of the cost function.
 
 \begin{figure}\centering
-  \includegraphics[width=0.49\columnwidth]{UAV2_1}
-    \includegraphics[width=0.49\columnwidth]{UAV2_10}
-      \includegraphics[width=0.49\columnwidth]{UAV2_25}
-        \includegraphics[width=0.49\columnwidth]{UAV2_100}
-\caption{Simulation of Algorithm \ref{alg:ICpathcontrol} with two UAVs at iteration 1,10,25, and 100.  The path waypoints are indicated by a linked set of $\circ$ markers, the associated Voronoi diagram in blue, and the reward function by a density plot.
+   %   \includegraphics[width=0.49\columnwidth]{UAV2_25}
+   %     \includegraphics[width=0.49\columnwidth]{UAV2_100}
+\caption{Simulation of Algorithm with Gradient Descent \ref{alg:ICpathcontrol} and the mTSP was plotted with two UVs. 1.)Iteration 0-Hilbert's Space Filling Curve.2.)Iteration 100- Algorithm with Gradient Descent(first).3.)Iteration 200- mTSP Solver(first).4.)Iteration 300-Algorithm with Gradient Descent(second).5.)Iteration 400- mTSP Solver(second).6.)Cost-function is plotted. The waypoints are indicated by a set of linked red and yellow $\circ$ markers, the associated Voronoi diagram is in blue, the white and cyan lines represent the path the UVs follows for servicing the sensor nodes and the overlaying density plot represents the sensor node's interesting region.
 \label{fig:multipleUAVsim}}
 \end{figure}
 
@@ -331,10 +338,10 @@ A two UV system was simulated on MATLAB. As shown in  \ref{fig:multipleUAVsim}, 
 \section{Conclusion}
 An optimized path-planning algorithm was simulated to service  a WSN. The path constructed is adaptive to the sensor node locations. Future work should extend our simulation to handle non-stationary sensor nodes,  improve convergence rate, and use our mTSP code to escape local minimal. We are in the process of implementing the algorithm on mobile-robots, with eventual implementation with a set of quadcopters, as shown in~Fig.~\ref{fig:QuadcopterTestbed}.
 
-\begin{figure}\centering
-  \includegraphics[width=\columnwidth]{hardwareTestbed3}
-\caption{Quadcopter testbed under construction for research on recharging sensor nodes.\label{fig:QuadcopterTestbed}}
-\end{figure}
+%\begin{figure}\centering
+%  \includegraphics[width=\columnwidth]{hardwareTestbed3}
+%\caption{Quadcopter testbed under construction for research on %recharging sensor nodes.\label{fig:QuadcopterTestbed}}
+%\end{figure}
 
 
 
