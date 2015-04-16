@@ -83,9 +83,9 @@ Email: \protect{skvenkatasudarshan@uh.edu}, atbecker@uh.edu}}
 \maketitle
 
 \begin{abstract}
-A structural-health wireless sensor network (WSN) should last for decades, but traditional disposable batteries cannot sustain such a network. Energy is the major impediment to sustainability of WSNs. Most energy is consumed by (i) wireless transmissions of perceived data, and (ii) long-distance multi-hop transmissions from the source sensors to the sink. This paper explores how to exploit emerging wireless power transfer technology together with robot control of unmanned vehicles (UVs) to simultaneously select sensors to recharge, cut transmissions from long to short-distances, collect sensed information, and replenish WSN's energy. Different from prior work focusing solely on energy replenishment, this research replenishes sensors' energy, significantly reduce WSN's energy consumption, and efficiently deliver sensor data to the sink. 
-This paper focuses on fundamental challenges associated with sustainable WSN development by jointly using wireless power transfer technology and controlling UVs. 
-Energy costs due to power transmission are less than the UV's transportation costs. This is true for WSNs spread over large geographic areas, terrain with obstacles, or where transportation costs are high, such as subsea or aerial UVs. This task focuses on algorithms that make such WSNs sustainable by focusing on path-planning and trajectory optimization.
+A structural-health wireless sensor network (WSN) should last for decades, but traditional disposable batteries cannot sustain such a network. Energy is the major impediment to sustainability of WSNs. Most energy is consumed by (i) wireless transmissions of perceived data, and (ii) long-distance multi-hop transmissions from the source sensors to the sink. This paper explores how to exploit emerging wireless power transfer technology by using robotic unmanned vehicles (UVs) to service the WSNs.  These UVs cut data transmissions from long to short-distances, collect sensed information, and replenish WSN's energy. 
+This paper presents path-planning and path optimization algorithms for sustaining WSNs.
+%Energy costs due to power transmission are less than the UV's transportation costs. This is true for WSNs spread over large geographic areas, terrain with obstacles, or where transportation costs are high, such as subsea or aerial UVs. 
 \end{abstract}
 \begin{IEEEkeywords} Wireless sensor networks, wireless recharge, robot, unmanned vehicles \end{IEEEkeywords}
 
@@ -104,7 +104,7 @@ Fortunately, recent breakthroughs in the area of wireless power transfer technol
 
 However, one UV may not be able to visit every sensor if the WSN is deployed in harsh environments/terrains (e.g. dense forest, mountains, underwater), or the WSN is large-scale, consisting of a great number of sensors. Although these seminal studies replenished sensor energy, most of the energy was still wasted by long-distance wireless transmissions of perceived data, especially by relaying sensors. Due to charging and travel time of the UV, some bottleneck sensors may  drain their residual energy while waiting for the UV. Great unsolved challenges on control remain, including how to select the optimal path for the UV to travel within WSNs and how to efficiently dispatch multiple UVs to recharge WSNs.
 
-Assigning sensors to UVS using matching theory often assumes that energy costs due to power transmission greatly exceed the UV's transportation costs.  This assumption might not fit for WSNs spread over large geographic areas, or terrain with obstacles, %% OR not OF
+Assigning sensors to UVs using matching theory often assumes that energy costs due to power transmission greatly exceed the UV's transportation costs.  This assumption might not fit for WSNs spread over large geographic areas, or terrain with obstacles, %% OR not OF
 or where transportation costs are high, such as subsea or aerial UVs. This paper focuses on algorithms that make such WSNs sustainable by focusing on path-planing, trajectory optimization, and responding to dynamic network conditions.
 
 
@@ -184,7 +184,7 @@ UVs have a limited energy budget.  As the number of nodes grows, more UVs are ne
 Data aggregation and recharging shares similarities with persistent robotic tasks, such as cleaning, mowing, observing, and patrolling\cite{mackenzie1996making,kakalis2008robotic,Choset2001,Cortes2004,smith2012persistent,arkin2000approximation,correll2009building,soltero2013decentralized}.  A key tipping point in these problems is if a UV can service multiple clients simultaneously.  A UV has an associated recharging footprint and a data-transfer footprint, which can often be modeled as disks of radius $r_{recharge}$ and $r_{data}$, as illustrated in Fig.~\ref{fig:loadDensity}.
 We represent the fraction of sensors that are clustered as 
 \begin{equation}
-K_{footprint} = \frac{2}{N^2-N}  \sum_{i=1}^N \sum_{j=i+1}^N   ||p_i - p_j ||_2  \le r_{footprint}.
+K_{footprint} = \frac{2}{N^2-N}  \sum_{i=1}^N \sum_{j=i+1}^N \left(  \left\| p_i - p_j \right\| _2  \le r_{footprint} \right).
 \end{equation}
 %$K_{footprint} = \frac{1}{N}  \sum_{i=1}^N (\underset{j\mei, j\in [1,N]}{\text{minimize}} ||p_i - p_j ||_2 ) \le r_{footprint}$. 
 %$K_{footprint} = \sum_{j=i+1}^N  \sum_{i=1}^N ||p_i - p_j ||_2  \le r_{footprint}$. 
