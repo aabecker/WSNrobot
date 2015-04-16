@@ -8,3 +8,10 @@
 *.gz
 *.out
 *.log
+*.aux
+
+*.aux
+
+*.log
+
+*.gz
