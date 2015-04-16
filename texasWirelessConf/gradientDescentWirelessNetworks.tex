@@ -182,6 +182,10 @@ UVs have a limited energy budget.  As the number of nodes grows, more UVs are ne
 
 \subsection{Using local density to optimize path speed} \label{subsubsec:oprimizepathspeed}
 Data aggregation and recharging shares similarities with persistent robotic tasks, such as cleaning, mowing, observing, and patrolling\cite{mackenzie1996making,kakalis2008robotic,Choset2001,Cortes2004,smith2012persistent,arkin2000approximation,correll2009building,soltero2013decentralized}.  A key tipping point in these problems is if a UV can service multiple clients simultaneously.  A UV has an associated recharging footprint and a data-transfer footprint, which can often be modeled as disks of radius $r_{recharge}$ and $r_{data}$, as illustrated in Fig.~\ref{fig:loadDensity}.
+\begin{figure} \centering
+  {\includegraphics[width=\columnwidth]{Kfootprint}}
+ \caption{} \label{fig:footprint}
+\end{figure}
 We represent the fraction of sensors that are clustered as 
 \begin{equation}
 K_{footprint} = \frac{2}{N^2-N}  \sum_{i=1}^N \sum_{j=i+1}^N \left(  \left\| p_i - p_j \right\| _2  \le r_{footprint} \right).
@@ -310,15 +314,15 @@ The above algorithm results in a sub-optimal path that cannot be improved any fu
 \begin{figure*}
 \centering
 \renewcommand{\figwid}{0.4\columnwidth}
-\begin{overpic}[width =\figwid]{1_1}\put(6,15){T = 5 s}
+\begin{overpic}[width =\figwid]{1_1}
 \end{overpic}
-\begin{overpic}[width =\figwid]{1_2}\put(6,15){T = 12 s}
+\begin{overpic}[width =\figwid]{1_2}
 \end{overpic}
-\begin{overpic}[width =\figwid]{1_3}\put(6,15){T = 20 s}
+\begin{overpic}[width =\figwid]{1_3}
 \end{overpic}
-\begin{overpic}[width =\figwid]{1_4}\put(6,15){T = 25 s}
+\begin{overpic}[width =\figwid]{1_4}
 \end{overpic}
-\begin{overpic}[width =\figwid]{1_5}\put(6,15){T = 33 s}
+\begin{overpic}[width =\figwid]{1_5}
 \end{overpic}
 \vspace{-1em}
 \caption{Simulation of the Algorithm that uses Gradient Descent \ref{alg:ICpathcontrol} and the mTSP was plotted with one UV. 1.)Iteration 0-Hilbert's Space Filling Curve.2.)Iteration 100- Algorithm with Gradient Descent(first).3.)Iteration 200- mTSP Solver(first).4.)Iteration 300-Algorithm with Gradient Descent(second).5.)Iteration 400- mTSP Solver(second). The waypoints are indicated by a set of linked $\circ$ markers, the associated Voronoi diagram is in blue, the magenta lines represent the path the UV follows for servicing the sensor nodes and the overlaying density plot represents the sensor node's interesting region.
@@ -327,15 +331,15 @@ The above algorithm results in a sub-optimal path that cannot be improved any fu
 \begin{figure*}
 \centering
 \renewcommand{\figwid}{0.4\columnwidth}
-\begin{overpic}[width =\figwid]{2_1}\put(6,15){T = 5 s}
+\begin{overpic}[width =\figwid]{2_1}
 \end{overpic}
-\begin{overpic}[width =\figwid]{2_2}\put(6,15){T = 12 s}
+\begin{overpic}[width =\figwid]{2_2}
 \end{overpic}
-\begin{overpic}[width =\figwid]{2_3}\put(6,15){T = 20 s}
+\begin{overpic}[width =\figwid]{2_3}
 \end{overpic}
-\begin{overpic}[width =\figwid]{2_4}\put(6,15){T = 25 s}
+\begin{overpic}[width =\figwid]{2_4}
 \end{overpic}
-\begin{overpic}[width =\figwid]{2_5}\put(6,15){T = 33 s}
+\begin{overpic}[width =\figwid]{2_5}
 \end{overpic}
 \vspace{-1em}
 \caption{Simulation of Algorithm with Gradient Descent \ref{alg:ICpathcontrol} and the mTSP was plotted with two UVs. 1.)Iteration 0-Hilbert's Space Filling Curve.2.)Iteration 100- Algorithm with Gradient Descent(first).3.)Iteration 200- mTSP Solver(first).4.)Iteration 300-Algorithm with Gradient Descent(second).5.)Iteration 400- mTSP Solver(second).6.)Cost-function is plotted. The waypoints are indicated by a set of linked red and yellow $\circ$ markers, the associated Voronoi diagram is in blue, the white and cyan lines represent the path the UVs follows for servicing the sensor nodes and the overlaying density plot represents the sensor node's interesting region.
