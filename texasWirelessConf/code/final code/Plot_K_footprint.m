@@ -40,7 +40,7 @@ plot( sensors(:,1),sensors(:,2), 'o','LineWidth',2)
 set(gca,'Xtick',[-10,0,10],'Ytick',[-10,0,10])
 axis equal
 axis tight
-title(['r_{footprint} = ',num2str(r_footprint)])
+title(['\it r_{footprint} = ',num2str(r_footprint)])
 
 set(gcf,'papersize',[7,4])
 set(gcf,'paperposition',[0,0,7,4])

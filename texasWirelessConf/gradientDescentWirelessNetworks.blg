@@ -332,45 +332,45 @@ I was expecting a `,' or a `}'---line 1451 of file ./bibs/Match.bib
  :                .
 I'm skipping whatever remains of this entry
 Warning--empty booktitle in guo2006opportunistic
-You've used 43 entries,
+You've used 38 entries,
             2118 wiz_defined-function locations,
-            764 strings with 12215 characters,
-and the built_in function-call counts, 15466 in all, are:
-= -- 1506
-> -- 786
-< -- 7
-+ -- 313
-- -- 266
-* -- 1099
-:= -- 2521
-add.period$ -- 131
-call.type$ -- 43
-change.case$ -- 257
+            732 strings with 11207 characters,
+and the built_in function-call counts, 13366 in all, are:
+= -- 1303
+> -- 667
+< -- 6
++ -- 266
+- -- 224
+* -- 931
+:= -- 2179
+add.period$ -- 115
+call.type$ -- 38
+change.case$ -- 223
 chr.to.int$ -- 0
-cite$ -- 44
-duplicate$ -- 595
-empty$ -- 1193
-format.name$ -- 266
-if$ -- 3276
+cite$ -- 39
+duplicate$ -- 523
+empty$ -- 1040
+format.name$ -- 224
+if$ -- 2839
 int.to.chr$ -- 0
-int.to.str$ -- 43
-missing$ -- 40
-newline$ -- 214
-num.names$ -- 86
-pop$ -- 305
+int.to.str$ -- 38
+missing$ -- 35
+newline$ -- 189
+num.names$ -- 76
+pop$ -- 270
 preamble$ -- 1
-purify$ -- 217
+purify$ -- 188
 quote$ -- 0
-skip$ -- 429
+skip$ -- 377
 stack$ -- 0
-substring$ -- 869
-swap$ -- 146
-text.length$ -- 7
+substring$ -- 733
+swap$ -- 128
+text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 166
+type$ -- 146
 warning$ -- 1
-while$ -- 130
-width$ -- 45
-write$ -- 464
+while$ -- 112
+width$ -- 40
+write$ -- 409
 (There were 71 error messages)
