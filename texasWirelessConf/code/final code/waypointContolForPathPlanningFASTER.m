@@ -37,7 +37,7 @@ if MAKE_MOVIE
 end
 
 set(G.fig,'Name','IC path controller');
-%make out interesting function
+%make our interesting function
 szInteresting = 200;
 phi = zeros(szInteresting,szInteresting);
 %these are interesting!!!
