@@ -2,9 +2,9 @@ This is BibTeX, Version 0.99d (TeX Live 2012)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: gradientDescentWirelessNetworks.aux
 The style file: plain.bst
-Illegal, another \bibstyle command---line 121 of file gradientDescentWirelessNetworks.aux
+Illegal, another \bibstyle command---line 120 of file gradientDescentWirelessNetworks.aux
  : \bibstyle
- :          {IEEEtran}
+ :          {abbrv}
 I'm skipping whatever remains of this command
 Database file #1: ./bibs/CySEES_ref.bib
 Warning--entry type for "NRDC2015" isn't style-file defined
@@ -341,7 +341,7 @@ I'm skipping whatever remains of this entry
 Warning--empty booktitle in guo2006opportunistic
 You've used 37 entries,
             2118 wiz_defined-function locations,
-            730 strings with 11134 characters,
+            731 strings with 11144 characters,
 and the built_in function-call counts, 13193 in all, are:
 = -- 1283
 > -- 659

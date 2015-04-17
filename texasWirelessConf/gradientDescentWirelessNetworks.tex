@@ -420,10 +420,12 @@ Future work should extend our simulation to handle non-stationary sensor nodes, 
 %The authors would like to thank...
 %\bibliographystyle{IEEEtran}
 
-{\footnotesize
+\let\oldbibliography\thebibliography
+\renewcommand{\thebibliography}[1]{\oldbibliography{#1}
+\setlength{\itemsep}{0pt}}
+
 \bibliographystyle{abbrv}
 \bibliography{./bibs/CySEES_ref,./bibs/zhu_ref,./bibs/ref,./bibs/Dissertation_reference_lanchao_C,./bibs/Match}
-}
 
 
 % that's all folks
