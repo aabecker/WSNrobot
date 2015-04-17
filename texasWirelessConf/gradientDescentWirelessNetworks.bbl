@@ -44,6 +44,26 @@ F.~Bouabdallah, N.~Bouabdallah, and R.~Boutaba.
 \newblock In {\em Proc. of IEEE International Conference on Communications, ICC
   2009)}, Dresden, Germany, June 2009.
 
+\bibitem{Choset2001}
+Howie Choset.
+\newblock Coverage for robotics - a survey of recent results.
+\newblock {\em Annals of Mathematics and Artificial Intelligence},
+  31(1-4):113--126, October 2001.
+
+\bibitem{correll2009building}
+Nikolaus Correll, Nikos Arechiga, Adrienne Bolger, Mario Bollini, Benjamin
+  Charrow, Adam Clayton, Felipe Dominguez, Kenneth Donahue, Samuel Dyar, Luke
+  Johnson, et~al.
+\newblock Building a distributed robot garden.
+\newblock In {\em Intelligent Robots and Systems, 2009. IROS 2009. IEEE/RSJ
+  International Conference on}, pages 1509--1516. IEEE, 2009.
+
+\bibitem{Cortes2004}
+J.~Cortes, S.~Martinez, T.~Karatas, and F.~Bullo.
+\newblock Coverage control for mobile sensing networks.
+\newblock {\em Robotics and Automation, IEEE Transactions on}, 20(2):243--255,
+  April 2004.
+
 \bibitem{NRDC2015}
 Natural Resources~Defence Council.
 \newblock Proper disposal of batteries, electronics, and hazardous waste.
@@ -128,6 +148,11 @@ Sunghun Jung, Taesup Lee, Tamzidul Mina, and Kartik~B Ariyur.
 \newblock Inductive or magnetic recharging for small uavs.
 \newblock Technical report, SAE Technical Paper, 2012.
 
+\bibitem{kakalis2008robotic}
+Nikolaos~MP Kakalis and Yiannis Ventikos.
+\newblock Robotic swarm concept for efficient oil spill confrontation.
+\newblock {\em Journal of hazardous materials}, 154(1):880--887, 2008.
+
 \bibitem{Kirk2014}
 Joseph Kirk.
 \newblock Fixed start/end point multiple traveling salesmen problem - genetic
@@ -142,6 +167,12 @@ Andr Kurs, Aristeidis Karalis, and Robert Moffatt.
 Stuart Lloyd.
 \newblock Least squares quantization in pcm.
 \newblock {\em Information Theory, IEEE Transactions on}, 28(2):129--137, 1982.
+
+\bibitem{mackenzie1996making}
+Douglas MacKenzie, Tucker Balch, et~al.
+\newblock Making a clean sweep: Behavior based vacuuming.
+\newblock In {\em AAAI Fall Symposium, Instantiating Real-World Agents}, mar
+  1996.
 
 \bibitem{mathew2013graph}
 Neil Mathew, Stephen~L Smith, and Steven~Lake Waslander.
@@ -174,6 +205,13 @@ Y.~Shi, L.~Xie, Y.~T. Hou, W.~Lou, and H.~D. Sherali.
   multi-node case.
 \newblock In {\em Proc. of IEEE International Conference on Computer
   Communications, INFOCOM 2011}, Shanghai, China, April 2011.
+
+\bibitem{VsMh04}
+Victor Shnayder, Mark Hempstead, Bor rong Chen, Geoff~Werner Allen, and Matt
+  Welsh.
+\newblock Simulating the power consumption of large-scale sensor network
+  applications.
+\newblock In {\em ACM Sensys}, Baltimore, MD, November 2004.
 
 \bibitem{smith2012persistent}
 Stephen~L Smith, Mac Schwager, and Daniela Rus.

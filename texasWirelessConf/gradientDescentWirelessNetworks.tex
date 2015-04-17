@@ -91,16 +91,27 @@ This paper presents path-planning and path optimization algorithms for sustainin
 
 
 
-
 \section{Introduction}
 New wireless sensor technologies have enabled wireless sensor networks (WSNs) to proliferate in many different fields (e.g., battlefield surveillance, environmental sensing, biomedical observation)~\cite{AkSu02,RenewSN12,EPRNP05,jTbHCC06}.
-Although advances in processing and computing designs can endow sensors with a multitude of sensing modalities (temperature, pressure, light, magnetometer, infrared, etc.), advances in battery technology have been more modest.  Energy constraints on battery-powered sensors limits the sustainability of WSNs. In WSNs, the majority of energy is consumed by (\romannumeral1) wireless transmission of perceived data~\cite{ChTyTNet08,RenewSN12,OBSP09}, and (\romannumeral2) long-distance multi-hop transmissions from source sensors to the sink.
+Although advances in processing and computing designs can endow sensors with a multitude of sensing modalities (temperature, pressure, light, magnetometer, infrared, etc.), advances in battery technology have been more modest.  Energy constraints on battery-powered sensors limits the sustainability of WSNs. In WSNs, the majority of energy is consumed by (\romannumeral1) wireless transmission of perceived data~\cite{ChTyTNet08,RenewSN12,OBSP09}, and (\romannumeral2) long-distance multi-hop transmissions from source sensors to the sink. Radio transmission and listening dominate power usage, as shown in Fig./~\ref{fig:txenergy}.
 Research efforts to address WSN energy concerns have focused on energy conservation~\cite{FbNbRbICC09}, environmental energy harvesting~\cite{CpSAHCN06,KwfSF08} and incremental sensor deployment~\cite{YpPSN10}.
 However, energy conservation schemes  only slow  energy consumption, not compensate energy depletion. Harvesting environmental energy, such as solar, wind and vibration, is subject to their availability, and is often uncontrollable. Incremental sensor deployment makes  WSNs neither sustainable nor environmentally friendly, since most disposable sensors' batteries contain cadmium, lead, mercury, copper, zinc, manganese, lithium, or potassium~\cite{BatteryPoll12}.  These  heavy metals ``\emph{can leach into soil and water, polluting lakes and streams, making them unfit for drinking, swimming, fishing, and supporting wildlife, and even posing hazards to human health}''~\cite{NRDC2015}. %These dangers, coupled with the proliferation of WSNs, make sustainable WSN design more necessary now than ever before.
 %\textbf{It is more necessary now than ever before to design a \emph{sustainable} WSN, one transparent to human and wildlife's activities, friendly to the environment, and economically advantageous without repeated deployment.}
 
 
-Fortunately, recent breakthroughs in the area of wireless power transfer technologies (e.g. inductive coupling, magnetic resonant, and RF energy harvesting)~\cite{AkAkSE07}  provide promising alternatives for deploying such WSNs. \emph{Magnetic resonant wireless power transfer}~\cite{AkAkSE07} has the ability to wirelessly transfer electric power from the energy storage device to the receiving device efficiently within medium range (e.g., 40\% within 2 meters). It is also insensitive to the neighboring environment and does not require a line of sight between the charging and receiving devices. Researchers proposed that a mobile unmanned vehicle (UV) carrying a wireless charging device could  visit and recharge each sensor to sustain a WSN~\cite{XySyNT12}.
+\begin{figure} \centering
+  {\includegraphics[width=\columnwidth]{overall.pdf}}
+ \caption{Evolution from traditional wireless sensor networks (WSNs) to servicing WSN with UV(s). We present path-planning techniques that use unmanned vehicles (UVs) to gather aggregated data and recharge sensors.} \label{fig:overall}
+\end{figure}
+
+
+
+\begin{figure} \centering
+  {\includegraphics[width=\columnwidth]{txenergy}}
+ \caption{Power usage in a wireless sensor node is dominated by transmission costs and listening costs.  Figure modified from~\cite{VsMh04}.} \label{fig:txenergy}
+\end{figure}
+ 
+Fortunately, recent breakthroughs in the area of wireless power transfer technologies (e.g. inductive coupling, magnetic resonant, and RF energy harvesting)~\cite{AkAkSE07}  provide promising alternatives for deploying such WSNs. \emph{Magnetic resonant wireless power transfer}~\cite{AkAkSE07} can wirelessly transfer electric power from the energy storage device to the receiving device efficiently within medium range (40\% efficiency within 2 meters). It is also insensitive to the neighboring environment and does not require a line of sight between the charging and receiving devices. Researchers proposed that a mobile unmanned vehicle (UV) carrying a wireless charging device could  visit and recharge each sensor to sustain a WSN~\cite{XySyNT12}.
 
 However, one UV may not be able to visit every sensor if the WSN is deployed in harsh environments/terrains (e.g. dense forest, mountains, underwater), or the WSN is large-scale, consisting of a great number of sensors. Although these seminal studies replenished sensor energy, most of the energy was still wasted by long-distance wireless transmissions of perceived data, especially by relaying sensors. Due to charging and travel time of the UV, some bottleneck sensors may  drain their residual energy while waiting for the UV. Great unsolved challenges on control remain, including how to select the optimal path for the UV to travel within WSNs and how to efficiently dispatch multiple UVs to recharge WSNs.
 
@@ -109,15 +120,6 @@ or where transportation costs are high, such as subsea or aerial UVs. This paper
 
 
 
-\begin{figure} \centering
-  {\includegraphics[width=\columnwidth]{overall.pdf}}
- \caption{Evolution from traditional wireless sensor networks (WSNs) to servicing WSN with UV(s). We present techniques that use unmanned vehicles (UVs) to gather aggregated data and recharge sensors using one or more vehicles, and design energy-optimal control policies for the UVs.} \label{fig:overall}
-\end{figure}
-
-\begin{figure} \centering
-  {\includegraphics[width=\columnwidth]{txenergy}}
- \caption{Power usage in a wireless sensor node is dominated by transmission costs and listening costs.  Figure modified from [26].} \label{fig:txenergy}
-\end{figure}
 
 \section{Related Work}
 %I haven't read these papers, and so don't feel comfortable repeating them:
@@ -137,7 +139,7 @@ Finally, data aggregation and recharging shares similarities with persistent rob
 \section{ Overview}
 This paper's goal is to explore path-optimization techniques. 
 Previous work often uses optimization/matching theory to assign one UV/multiple UVs to WSN nodes, and use a Hamiltonian cycle to visit each node.  This is reasonable if recharging nodes is the largest component of a UV's energy budget: $ E_{\rm{recharge}} |\rm{nodes}| \gg E_{\rm{movement}} *
-\rm{path\_length}$.  If this assumption is violated, path-planning becomes the key concern.  A simplified form of this decision could be written as  
+\rm{path\_length}$.  If this assumption is violated, path-planning becomes the key concern.  A simplified form of this decision is written as  
 \begin{equation}
 K_{dist} = \frac{E_{\rm{movement}} *
 \rm{path\_length}}{E_{\rm{recharge}} |\rm{nodes}|}.
@@ -161,7 +163,7 @@ K_{footprint} = \frac{2}{N^2-N}  \sum_{i=1}^N \sum_{j=i+1}^N \left(  \left\| p_i
 \end{equation}
 %$K_{footprint} = \frac{1}{N}  \sum_{i=1}^N (\underset{j\mei, j\in [1,N]}{\text{minimize}} ||p_i - p_j ||_2 ) \le r_{footprint}$. 
 %$K_{footprint} = \sum_{j=i+1}^N  \sum_{i=1}^N ||p_i - p_j ||_2  \le r_{footprint}$. 
-Here, $p_i$ is the position of the $i$th node, and there are $N$ nodes.
+Here, $p_i$ is the position of the $i$th node, and there are $N$ nodes. $K_{footprint}$ is shown in  Fig.~\ref{fig:footprint} for a representative network.
 
  In general, energy-efficient recharging requires closer proximity than data transmission, so this implies there are two tipping points related to node density, $K_{recharge}$, and $K_{data}$.   
  Correspondingly, the WSN recharge problem has three regimes with differing solutions. 
@@ -210,26 +212,33 @@ Path \textbf{A} visits each node, but path \textbf{B} is shorter because it is d
 
 
 \section{Path Optimization Algorithm}\label{sec:algorithm}
-Our solution designs a closed-loop path that intersects the origin for each UV.  These paths are composed of waypoints connected by straight-line segments.  The following sections describe how this path is initialized (\ref{subsec:InitializingPath}), and then how the path is optimized by switching between a gradient descent optimization routine that finds local minimas (\ref{subsec:gradientDescent}), and a genetic algorithm that rearranges the order of waypoints to find better paths (\ref{subsec:TSP}).
+Our solution designs a closed-loop path that intersects the origin for each UV.  These paths are composed of waypoints connected by straight-line segments.  The following sections describe how this path is initialized (\ref{subsec:InitializingPath}), and then how the path is optimized by switching between a gradient descent optimization routine that finds local minimas (\ref{subsec:gradientDescent}), and a genetic algorithm that rearranges the order of waypoints to improve the paths (\ref{subsec:TSP}).
 
 
 \subsection{ Initializing Path with Hilbert Curve}\label{subsec:InitializingPath}
-It is important to have an initial path that fills the map. This ensures the UVs will visit  every node. We adapt the space-filling \emph{Hilbert Curve}, which creates a fractal path that fills up a unit area space and serves as an initial path for the first iteration~\cite{fischer1928darstellung}. If there are multiple UVs, the Hilbert curve is scaled by a scalar to ensure the waypoints are unique.
+It is important to have an initial path that fills the map. This ensures the UVs will visit  every node. We adapt the space-filling \emph{Hilbert Curve}, which creates a fractal path that fills up a unit area space and serves as an initial path for the first iteration~\cite{fischer1928darstellung}. Figure~\ref{fig:OneUAVsim} shows an initial path using a Hilbert curve.  If there are multiple UVs, the Hilbert curve is scaled by a scalar to ensure the waypoints are unique, as shown in Fig.~\ref{fig:multipleUAVsim}.
 
 \subsection{ Gradient Descent on a Path Composed of Waypoints}\label{subsec:gradientDescent}
 The following algorithm is derived from \cite{soltero2013decentralized}.
-Consider $\mathbf{N}(r=1...\mathbf{N})$ UVs servicing a Wireless Sensor Network in a convex, bounded area $\mathbf{Q\subset{R^2}}$ and let $\mathbf{p}_i^r$ be the position of the $\mathbf{i}^{th}(\mathbf{i}\in(1...n(r)))$ waypoint of the $\mathbf{r}^{th}$ UV. Servicing includes recharging the nodes and collecting a part of the data that the nodes are about to transmit to the sink there by reducing the power expenditure in the sensor nodes. The algorithm help in formulating an optimal path to visit the sensor nodes in the WSN depending on the interesting regions. Waypoints are a set of points that define the path for each UV $\mathbf{(1:r)}$, the UV travels in a straight line in between two neighboring waypoints. At each step, we compute the Voronoi partition($\mathbf{V_i^r}$) defined by the waypoints, with one partition assigned to each waypoint. We define an interesting function  $\phi(\mathbf{q})$ that commands the usefulness of a location on the map for servicing the WSN (${\mathbf{q}\in{Q}|\phi(\mathbf{q})>0}$) .
+Consider $N$ UVs servicing a Wireless Sensor Network in a convex, bounded area $\mathbf{Q}\subset{ \mathbb{R}^2}$.
+Waypoints are a set of points that define the path for each UV. The UV travels in a straight line in between two neighboring waypoints.
+Let $\mathbf{p}_i^r$ be the position of the $i^{th}$, $i\in(1\ldots n(r))$ waypoint of the $r^{th}$ UV. Servicing includes recharging the nodes and collecting a part of the data that the nodes are about to transmit to the sink there by reducing the power expenditure in the sensor nodes. The algorithm forms a locally-optimal path to visit the sensor nodes in the WSN.  At each step, we compute the Voronoi partition $\mathbf{V}_i^r$ defined by the waypoints, with one partition assigned to each waypoint.
+
+ We require a function  $\phi(\mathbf{q})$ that designates how many sensor nodes can be recharged at the position $\mathbf{q}$.
+%commands the usefulness of a location on the map for servicing the WSN (${\mathbf{q}\in{Q}|\phi(\mathbf{q})>0}$) .
+This function is used to define a cost function for each path:
 \begin{align}\label{eq:cost-function}
-\mathbf{H} = \sum\limits_{r=1}^\mathbf{N}\sum\limits_{i=1}^\mathbf{n(r)} \int_{V_i^r}\frac{\mathbf{W_s}}{2}\|q-p_i^r\|^2&\phi(\mathbf{q}) d\mathbf{q}&+\nonumber\\
-\sum\limits_{r=1}^\mathbf{N}\sum\limits_{i=1}^\mathbf{n(r)}\frac{\mathbf{W_n}}{2}\|p_i^r-p_{i+1}^r\|^2
+\mathbf{H} = \sum\limits_{r=1}^N\sum\limits_{i=1}^{n(r)} \int_{V_i^r}\frac{\mathbf{W}_s}{2}\|q-p_i^r\|^2&\phi(\mathbf{q}) d\mathbf{q}&+\nonumber\\
+\sum\limits_{r=1}^N\sum\limits_{i=1}^{n(r)}\frac{\mathbf{W}_n}{2}\|p_i^r-p_{i+1}^r\|^2
 \end{align}
 
-The above mentioned equation is the cost-function of the algorithm we aim at minimizing the value. The first part of the equation indicates sensing in regions far away from the interesting regions is costly and the second part indicates having neighboring points far away is also costly. This help is producing a concise path that mostly travels only on the interesting region there by minimizing the cost of travel.
-$\mathbf{W_s},\mathbf{W_n}$ are positive scalar constants that are used to weight the sensing and neighbor distance respectively depending on the experimental setup.
+$\mathbf{W}_s,\mathbf{W}_n$ are positive scalar constants that are used to weight the sensing and neighbor distance, respectively, and depend on the experimental setup.
+The gradient descent algorithm minimizes the two-part cost function \eqref{eq:cost-function}. The first part of the equation indicates waypoints in regions far away from sensor nodes is costly and the second part indicates having neighboring waypoints far away is also costly. A minimizing solution is a short path that mostly travels near WSNs. 
+
 
 We compute the mass, mass-moment, and centroid of the $V_i^r$ (Voronoi partition for $\mathbf{i}^{th}$ waypoint of the $\mathbf{r}^{th}$ UV ) as follows:
 \begin{align}\label{eq:massmomentcentroid}
-M_i^r &=  \int_{V_i^r}\phi(\mathbf{q}) d\mathbf{q}, 
+M_i^r &=  \int_{V_i^r}\phi(\mathbf{q}) d\mathbf{q}, \quad
 \mathbf{L}_i^r =  \int_{V_i^r}\mathbf{q}\phi(\mathbf{q}) d\mathbf{q}, \nonumber\\
 \mathbf{C}_i^r  &= \frac{ \mathbf{L}_i^r } { M_i^r  }
 \end{align}
@@ -238,18 +247,19 @@ The control law for each waypoint is the summation of forces that pulls the wayp
 \begin{align}\label{eq:controllaw}
 \mathbf{u}_i^r  = \frac{ K_i^r (M_i^r \mathbf{e}_i^r + \boldsymbol{\alpha}_i^r)} { \beta_i^r  }
 \end{align}
-Here, $\mathbf{K_i^r}$ is a positive definite matrix (potentially-time varying). $\mathbf{e}_i^r = \mathbf{C}_i^r  - \mathbf{p}_i^r$, the error introduces the first primitive by obtaining the difference between the waypoint position and the weighted centroid. This tries to move the waypoint towards the interesting region there by reshaping the path of the robot. The second term  
-$ \boldsymbol{\alpha}_i^r = W_n( \mathbf{p}_{i+1}^r  + \mathbf{p}_{i-1}^r -2 \mathbf{p}_{i}^r)$ introduces the second primitive which binds the neighboring waypoints together in order to obtain a closed path. $\boldsymbol{\beta}_i^r = \mathbf{M}_{i}^r + 2\mathbf{W}_{n}$ normalizes the weight distribution between servicing interesting regions and staying close to neighbors.
+Here, $\mathbf{K}_i^r$ is a positive definite matrix and is potentially-time varying. $\mathbf{e}_i^r = \mathbf{C}_i^r  - \mathbf{p}_i^r$, the error, introduces the first primitive by obtaining the difference between the waypoint position and the weighted centroid of the Voronoi region. This tries to move the waypoint towards the interesting region, reshaping the path of the robot. The second term  
+$ \boldsymbol{\alpha}_i^r = W_n( \mathbf{p}_{i+1}^r  + \mathbf{p}_{i-1}^r -2 \mathbf{p}_{i}^r)$ introduces the second primitive which pulls the neighboring waypoints together to obtain a short path. $\boldsymbol{\beta}_i^r = \mathbf{M}_{i}^r + 2\mathbf{W}_{n}$ normalizes the weight distribution between servicing sensors and staying close to neighboring waypoints.
 
 
-The control is then applied to each waypoint and it's position is updated:
+The control is then applied to each waypoint and update their positions:
 \begin{align}\label{eq:state evolution}
 \mathbf{p}_i^r(k)  = \mathbf{p}_i^r(k-1) + \mathbf{u}_i^r 
 \end{align}
-
+The control algorithm is described in Alg. \ref{alg:ICpathcontrol}.
 
 \begin{algorithm}
-\caption{IC (Interesting Closed) path controller for the $i^{th}$ waypoint $\mathbf{p}_i^r$ in robot $r$'s path in a known environment (from~\cite{smith2012persistent}, implemented at \cite{Srikanth2015}).}\label{alg:ICpathcontrol}
+\caption{Gradient descent path optimization for the $i^{th}$ waypoint $\mathbf{p}_i^r$ in robot $r$'s path in a known environment (from~\cite{smith2012persistent}, implemented at \cite{Srikanth2015}).
+\label{alg:ICpathcontrol}}
 %Algorithm: IC (Interesting Closed) path controller for the $i^{th}$ waypoint $p_i^r$ in robot $r$Õs path in a known environment. (from~\cite{smith2012persistent}) \\
 \begin{algorithmic}[1]
 \Require Ability to calculate Voronoi partition 
@@ -268,17 +278,15 @@ The control is then applied to each waypoint and it's position is updated:
 
 
 \subsection{ multiple-Traveling Salesman Problem (mTSP)}\label{subsec:TSP}
-The gradient descent algorithm can get stuck in local minima.  To further improve the path we input the location of the waypoints obtained after running the gradient descent algorithm into a multiple-Traveling Salesman Problem (mTSP) search algorithm. 
-Given a list of cities to visit, the classic \emph{traveling salesman problem} (TSP) attempts to find an ordering of the cities that minimizes the total distance on a tour that visits all the cities once\cite{applegate1999finding}.  The solution is the shortest Hamilton cycle. By labelling our sensor nodes as cities, the solution to the traveling salesman problem gives the shortest length path. The mTSP solution straightens out loops in the path and can reduce the cost function.  This often moves the solution out of the local minimum obtained after the executing the gradient algorithm. 
+The gradient descent algorithm  \ref{alg:ICpathcontrol} can get stuck in local minima.  To further improve the path we input the location of the waypoints obtained after running the gradient descent algorithm into a multiple-Traveling Salesman Problem (mTSP) search algorithm. 
+Given a list of cities to visit, the classic \emph{traveling salesman problem} (TSP) attempts to find an ordering of the cities that minimizes the total distance on a tour that visits all the cities once\cite{applegate1999finding}.  The solution is the shortest Hamilton cycle. By labelling our sensor nodes as cities, the solution to the traveling salesman problem gives the shortest length path. The mTSP solution straightens out loops in the path and can reduce the cost function.  This often moves the solution out of the local minimum obtained after the executing the gradient descent algorithm. 
 
 
-  This problem is NP-hard, but many powerful heuristics are available, and software packages can provide answers for tens of thousands of nodes (e.g., the Concorde TSP Solver~\cite{applegate2002minmax}).
-A solution with multiple salesman is called a mTSP.  The mTSP is an NP-hard (Non-Deterministic Polynomial) problem~\cite{arkin2000approximation}, so the solutions returned by the search algorithm may not be the global optimum.
-
-
- In [] based on heuristics you get an approximate solution, it depends on the execution time of the algorithm. The waypoints position after $\mathbf{n}$ iteration is given to the mTSP solver which considers these to be city locations and formulates a path depending on the execution time. These algorithms are repeated in succession to obtain a minimal value of cost function depending on the computational time available.
+  This problem is NP-hard (Non-Deterministic Polynomial), but many powerful heuristics are available, and software packages can provide answers for tens of thousands of nodes (e.g., the Concorde TSP Solver~\cite{applegate2002minmax}).
+A solution with multiple salesman is called a mTSP.  The mTSP is still an NP-hard  problem~\cite{arkin2000approximation}, so the solutions returned by the search algorithm given limited time may not be the global optimum. 
 
  A good heuristic can increase TSP solver performance.   In our  numerical simulations, priming an open-source genetic algorithm solver\cite{Kirk2014} by sorting the nodes by angle from the sink and dividing the sorted list equally between the UVs decreased path costs by 20\%.  Figure \ref{fig:mTSPsim} shows results from our simulation with 100 nodes and 5 UVs.
+
 
 
 \begin{figure}\centering 
