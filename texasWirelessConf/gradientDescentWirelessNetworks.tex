@@ -216,12 +216,26 @@ Consider $N$ UVs servicing a Wireless Sensor Network in a convex, bounded area $
 Waypoints are a set of points that define the path for each UV. The UV travels in a straight line in between two neighboring waypoints.
 Let $\mathbf{p}_i^r$ be the position of the $i^{th}$, $i\in(1\ldots n(r))$ waypoint of the $r^{th}$ UV. Servicing includes recharging the nodes and collecting a part of the data that the nodes are about to transmit to the sink there by reducing the power expenditure in the sensor nodes. The algorithm forms a locally-optimal path to visit the sensor nodes in the WSN.  At each step, we compute the Voronoi partition $\mathbf{V}_i^r$ defined by the waypoints, with one partition assigned to each waypoint.
 
- We require a function  $\phi(\mathbf{q})$ that designates how many sensor nodes can be recharged at the position $\mathbf{q}$.
+ We require a function  $\phi(\mathbf{q})$(interesting function) that designates how many sensor nodes can be recharged from the position $\mathbf{q}$. It tells the positions of the sensors and indicates the $\mathbf{r_{footprint}}$ of each sensor. This information is necessary for minimizing the distance traveled by the UV and when incorporated into the map it provides information for charging multiple sensor nodes from a single location. For the simulation experiments we use a binary interesting function. A simple function is used but the int resting function can be designed by taking parameters like max height at which the robot starts charging, rate of charging etc and can be made better to mimic the real time presence. Here the function calculates the distance between each sensor node and every other point on the map, if this distance is less that the constant $\mathbf{P}$ then that point would be interesting. As mentioned this function is binary and can be improved.
+ \begin{align}\label{eq:interesting-function}
+ \mathbf{\phi(q)}  = {(\mathbf{X}_s-\mathbf{X}_q)}^2 + {(\mathbf{Y}_s-\mathbf{Y}_q)}^2 < P 
+ \end{align}
+ Here $(\mathbf{X}_s,\mathbf{Y}_s)$ correspond to the location(X and Y co-ordinate) of the sensor and $(\mathbf{X}_q,\mathbf{Y}_q)$ correspond to the location of every point on the map $\mathbf{q}\subset\mathbf{Q}$.
+\begin{figure}\centering 
+\newcommand{\figheight}{1.4in}
+\subfigure[\label{subfig:nodePositions}]
+  {\includegraphics[width=.45\columnwidth]{phi_1}}
+ \subfigure[\label{subfig:PhiwithTransCost}]
+  {\includegraphics[width=.45\columnwidth]{phi_2}}
+   \vspace*{-.1in}
+ \caption{The interesting function provides the range from which the UV will be able to service the sensor node. \label{fig:Phi_interesting}}
+ \vspace*{-.1in}
+\end{figure}
 %commands the usefulness of a location on the map for servicing the WSN (${\mathbf{q}\in{Q}|\phi(\mathbf{q})>0}$) .
-This function is used to define a cost function for each path:
+ Definition of cost function for each path is given by:
 \begin{align}\label{eq:cost-function}
 \mathbf{H} = \sum\limits_{r=1}^N\sum\limits_{i=1}^{n(r)} \int_{V_i^r}\frac{\mathbf{W}_s}{2}\|q-p_i^r\|^2&\phi(\mathbf{q}) d\mathbf{q}&+\nonumber\\
-\sum\limits_{r=1}^N\sum\limits_{i=1}^{n(r)}\frac{\mathbf{W}_n}{2}\|p_i^r-p_{i+1}^r\|^2
+\sum\limits_{i=1}^{n(r)}\frac{\mathbf{W}_n}{2}\|p_i^r-p_{i+1}^r\|^2
 \end{align}
 
 $\mathbf{W}_s,\mathbf{W}_n$ are positive scalar constants that are used to weight the sensing and neighbor distance, respectively, and depend on the experimental setup.
@@ -271,7 +285,7 @@ The control algorithm is described in Alg. \ref{alg:ICpathcontrol}.
 
 \subsection{ multiple-Traveling Salesman Problem (mTSP)}\label{subsec:TSP}
 The gradient descent algorithm  (Alg. \ref{alg:ICpathcontrol}) can get stuck in local minima.  To further improve the path we input the location of the waypoints obtained after running the gradient descent algorithm into a multiple-Traveling Salesman Problem (mTSP) search algorithm. 
-Given a list of cities to visit, the classic \emph{traveling salesman problem} (TSP) attempts to find an ordering of the cities that minimizes the total distance on a tour that visits all the cities once\cite{applegate1999finding}.  The solution is the shortest Hamilton cycle. By labelling our sensor nodes as cities, the solution to the traveling salesman problem gives the shortest length path. The mTSP solution straightens out loops in the path and can reduce the cost function.  This often moves the solution out of the local minimum obtained after the executing the gradient descent algorithm. 
+Given a list of cities to visit, the classic \emph{traveling salesman problem} (TSP) attempts to find an ordering of the cities that minimizes the total distance on a tour that visits all the cities once\cite{applegate1999finding}.  The solution is the shortest Hamilton cycle. By labeling our sensor nodes as cities, the solution to the traveling salesman problem gives the shortest length path. The mTSP solution straightens out loops in the path and can reduce the cost function.  This often moves the solution out of the local minimum obtained after the executing the gradient descent algorithm. 
 
 
   This problem is NP-hard (Non-Deterministic Polynomial), but many powerful heuristics are available, and software packages can provide answers for tens of thousands of nodes (e.g., the Concorde TSP Solver~\cite{applegate2002minmax}).
@@ -332,7 +346,7 @@ The waypoints are indicated by a set of linked $\circ$ markers, the associated V
 \end{figure*}
 \begin{figure*}
 \centering
-\renewcommand{\figwid}{0.4\columnwidth}
+\renewcommand{\figwid}{0.5\columnwidth}
 \begin{overpic}[width =\figwid]{2_1}
 \end{overpic}
 \begin{overpic}[width =\figwid]{2_2}
@@ -341,8 +355,8 @@ The waypoints are indicated by a set of linked $\circ$ markers, the associated V
 \end{overpic}
 \begin{overpic}[width =\figwid]{2_4}
 \end{overpic}
-\begin{overpic}[width =\figwid]{2_5}
-\end{overpic}
+%\begin{overpic}[width =\figwid]{2_5}
+%\end{overpic}
 \vspace{-1em}
 \caption{
 Simulation results of optimization algorithm in Section \ref{sec:algorithm} for two UVs. 
@@ -362,21 +376,21 @@ A single UV system was simulated using {\sc Matlab} in Fig.~\ref{fig:OneUAVsim}.
 \newcommand{\figheight}{1.4in}
 \subfigure[Cost-function plotted for the single robot case.\label{subfig:CostFunc1robot}]
   {\includegraphics[width=.45\columnwidth]{1_6}}
- \subfigure[Cost-function plotted for the two robot case.\label{subfig:CostFunc2robots}]
-  {\includegraphics[width=.45\columnwidth]{2_7}}
+ \subfigure[Cost-function plotted for the four robot case.\label{subfig:CostFunc2robots}]
+  {\includegraphics[width=.45\columnwidth]{2_6}}
    \vspace*{-.1in}
  \caption{Cost function indicates a decreasing trend approving the optimization algorithm.\label{fig:CostFunctionSim}}
  \vspace*{-.1in}
 \end{figure}
 
 \subsection{Multiple UVs}
-A two UV system was simulated on MATLAB. As shown in Fig.~\ref{fig:multipleUAVsim}, UVs service different sets of nodes in the WSN. A multi-UV system is practical  because a single UV might not be able to handle a large network. Similar to the one UV case, a space-filling Hilbert's curve is used to initialize the paths. Each path contains a stationary waypoint at $[0,0]$, representing the sink where both UVs recharge and unload data collected while servicing the sensor nodes. The sensor nodes were placed in random locations to verify the robustness of the algorithm. The algorithm proceeds in a similar fashion to the one UV case. The simulation results show the optimization of the path and the minimization of the cost function.
+A two UV system was simulated on {\sc Matlab}. As shown in Fig.~\ref{fig:multipleUAVsim}, UVs service different sets of nodes in the WSN. A multi-UV system is practical  because a single UV might not be able to handle a large network. Similar to the one UV case, a space-filling Hilbert's curve is used to initialize the paths. Each path contains a stationary waypoint at $[0,0]$, representing the sink where both UVs recharge and unload data collected while servicing the sensor nodes. The sensor nodes were placed in random locations to verify the robustness of the algorithm. The algorithm proceeds in a similar fashion to the one UV case. The simulation results show the optimization of the path and the minimization of the cost function.
 
-\section{Conclusion}
+\section{Conclusion and Future Work}
 An optimized path-planning algorithm was simulated for servicing a WSN. The path constructed is adaptive to the sensor node locations. 
 The simulations above used a static WSN, but often sensor data transmission is  dependent on transient phenomena.  For example,  a swarm of subsea sensors may track a school of fish, the progress of an oil slick, or seasonal drift of ocean currents.  These are time-varying phenomena, and so the UV servicing the sensors should be able to adapt.
 
-The same local optimization techniques can iteratively adapt the paths of UVs.  A schematic of our the adaptive control law is shown in Fig.~\ref{fig:dynamicVsStatic}.  
+The same local optimization techniques presented in this paper can iteratively adapt the paths of UVs.  A schematic of our the adaptive control law is shown in Fig.~\ref{fig:dynamicVsStatic}.  
  %We will use both battery levels and the cost of transmitting data to weight the sensor nodes. We will also compare improvements using Newton's method~\cite{seiler1989numerical}. 
 Future work should extend our simulation to handle non-stationary sensor nodes, improve the convergence rate, and use our mTSP code to escape local minimal. We are in the process of implementing the algorithm on mobile-robots, with eventual implementation with a set of quadcopters.
 
