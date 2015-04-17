@@ -216,11 +216,11 @@ Consider $N$ UVs servicing a Wireless Sensor Network in a convex, bounded area $
 Waypoints are a set of points that define the path for each UV. The UV travels in a straight line in between two neighboring waypoints.
 Let $\mathbf{p}_i^r$ be the position of the $i^{th}$, $i\in(1\ldots n(r))$ waypoint of the $r^{th}$ UV. Servicing includes recharging the nodes and collecting a part of the data that the nodes are about to transmit to the sink there by reducing the power expenditure in the sensor nodes. The algorithm forms a locally-optimal path to visit the sensor nodes in the WSN.  At each step, we compute the Voronoi partition $\mathbf{V}_i^r$ defined by the waypoints, with one partition assigned to each waypoint.
 
- We require a function  $\phi(\mathbf{q})$(interesting function) that designates how many sensor nodes can be recharged from the position $\mathbf{q}$. It tells the positions of the sensors and indicates the $\mathbf{r_{footprint}}$ of each sensor. This information is necessary for minimizing the distance traveled by the UV and when incorporated into the map it provides information for charging multiple sensor nodes from a single location. For the simulation experiments we use a binary interesting function. A simple function is used but the int resting function can be designed by taking parameters like max height at which the robot starts charging, rate of charging etc and can be made better to mimic the real time presence. Here the function calculates the distance between each sensor node and every other point on the map, if this distance is less that the constant $\mathbf{P}$ then that point would be interesting. As mentioned this function is binary and can be improved.
+ We require a function  $\phi(\mathbf{q})$(interesting function) that designates how many sensor nodes can be recharged from the position $\mathbf{q}$. It tells the positions of the sensors and indicates the $r_{footprint}$ of each sensor. This information is necessary for minimizing the distance traveled by the UV and when incorporated into the map it provides information for charging multiple sensor nodes from a single location. For the simulation experiments we use a binary interesting function. A simple function is used but the int resting function can be designed by taking parameters like max height at which the robot starts charging, rate of charging etc and can be made better to mimic the real time presence. Here the function calculates the distance between each sensor node and every other point on the map, if this distance is less $r_{footprint}$ then that point would be interesting. As mentioned this function is binary and can be improved.
  \begin{align}\label{eq:interesting-function}
- \mathbf{\phi(q)}  = {(\mathbf{X}_s-\mathbf{X}_q)}^2 + {(\mathbf{Y}_s-\mathbf{Y}_q)}^2 < P 
+ \mathbf{\phi(q)}  = {(\mathbf{X}_s-\mathbf{X}_q)}^2 + {(\mathbf{Y}_s-\mathbf{Y}_q)}^2 < r_{footprint}
  \end{align}
- Here $(\mathbf{X}_s,\mathbf{Y}_s)$ correspond to the location(X and Y co-ordinate) of the sensor and $(\mathbf{X}_q,\mathbf{Y}_q)$ correspond to the location of every point on the map $\mathbf{q}\subset\mathbf{Q}$.
+ In Fig.~\ref{fig:Phi_interesting} $(\mathbf{X}_s,\mathbf{Y}_s)$ correspond to the location(X and Y co-ordinate) of the sensor and $(\mathbf{X}_q,\mathbf{Y}_q)$ correspond to the location of every point on the map $\mathbf{q}\subset\mathbf{Q}$.
 \begin{figure}\centering 
 \newcommand{\figheight}{1.4in}
 \subfigure[\label{subfig:nodePositions}]
@@ -232,10 +232,11 @@ Let $\mathbf{p}_i^r$ be the position of the $i^{th}$, $i\in(1\ldots n(r))$ waypo
  \vspace*{-.1in}
 \end{figure}
 %commands the usefulness of a location on the map for servicing the WSN (${\mathbf{q}\in{Q}|\phi(\mathbf{q})>0}$) .
- Definition of cost function for each path is given by:
+ 
+Definition of cost function for each path is given by:
 \begin{align}\label{eq:cost-function}
-\mathbf{H} = \sum\limits_{r=1}^N\sum\limits_{i=1}^{n(r)} \int_{V_i^r}\frac{\mathbf{W}_s}{2}\|q-p_i^r\|^2&\phi(\mathbf{q}) d\mathbf{q}&+\nonumber\\
-\sum\limits_{i=1}^{n(r)}\frac{\mathbf{W}_n}{2}\|p_i^r-p_{i+1}^r\|^2
+\mathbf{H} = \sum\limits_{r=1}^N\sum\limits_{i=1}^{n(r)} \int_{V_i^r}\frac{\mathbf{W}_s}{2}\|\mathbf{q}-p_i^r\|^2&\phi(\mathbf{q}) d\mathbf{q}&+\nonumber\\
+\sum\limits_{r=1}^N\sum\limits_{i=1}^{n(r)}\frac{\mathbf{W}_n}{2}\|p_i^r-p_{i+1}^r\|^2
 \end{align}
 
 $\mathbf{W}_s,\mathbf{W}_n$ are positive scalar constants that are used to weight the sensing and neighbor distance, respectively, and depend on the experimental setup.
@@ -291,7 +292,7 @@ Given a list of cities to visit, the classic \emph{traveling salesman problem} (
   This problem is NP-hard (Non-Deterministic Polynomial), but many powerful heuristics are available, and software packages can provide answers for tens of thousands of nodes (e.g., the Concorde TSP Solver~\cite{applegate2002minmax}).
 A solution with multiple salesman is called a mTSP.  The mTSP is still an NP-hard  problem~\cite{arkin2000approximation}, so the solutions returned by the search algorithm given limited time may not be the global optimum. 
 
- A good heuristic can increase TSP solver performance.   In our  numerical simulations, priming an open-source genetic algorithm solver\cite{Kirk2014} by sorting the nodes by angle from the sink and dividing the sorted list equally between the UVs decreased path costs by 20\%.  Figure \ref{fig:mTSPsim} shows results from our simulation with 100 nodes and 5 UVs.
+ A good heuristic can increase TSP solver performance.   In our  numerical simulations, priming an open-source genetic algorithm solver\cite{Kirk2014} by sorting the nodes by angle from the sink and dividing the sorted list equally between the UVs decreased path costs by 20\%.  Fig.~ \ref{fig:mTSPsim} shows results from our simulation with 100 nodes and 5 UVs.
 
 
 
@@ -323,7 +324,7 @@ We developed a {\sc Matlab} simulation using the three algorithms described in S
 
 \begin{figure*}
 \centering
-\renewcommand{\figwid}{0.4\columnwidth}
+\renewcommand{\figwid}{0.5\columnwidth}
 \begin{overpic}[width =\figwid]{1_1}
 \end{overpic}
 \begin{overpic}[width =\figwid]{1_2}
@@ -332,15 +333,14 @@ We developed a {\sc Matlab} simulation using the three algorithms described in S
 \end{overpic}
 \begin{overpic}[width =\figwid]{1_4}
 \end{overpic}
-\begin{overpic}[width =\figwid]{1_5}
-\end{overpic}
+%\begin{overpic}[width =\figwid]{1_5}
+%\end{overpic}
 \vspace{-1em}
 \caption{Simulation results of optimization algorithm in Section \ref{sec:algorithm} for one UV. 
 1.) Iteration 0: Hilbert's Space Filling Curve.
 2.) Iteration 100: gradient descent algorithm (first).
 3.) Iteration 200: mTSP solver (first).
-4.) Iteration 300: gradient descent algorithm (second).
-5.) Iteration 400: mTSP solver (second). 
+4.) Iteration 300: gradient descent algorithm (second). 
 The waypoints are indicated by a set of linked $\circ$ markers, the associated Voronoi diagram is in blue, the magenta lines represent the path the UV follows for servicing the sensor nodes, and the underlying density plot represents the interesting regions generated by the sensor nodes.
 \label{fig:OneUAVsim}}
 \end{figure*}
@@ -359,13 +359,12 @@ The waypoints are indicated by a set of linked $\circ$ markers, the associated V
 %\end{overpic}
 \vspace{-1em}
 \caption{
-Simulation results of optimization algorithm in Section \ref{sec:algorithm} for two UVs. 
+Simulation results of optimization algorithm in Section \ref{sec:algorithm} for multiple UVs. 
 1.) Iteration 0: Hilbert's Space Filling Curve.
 2.) Iteration 100: gradient descent algorithm (first).
 3.) Iteration 200: mTSP solver (first).
-4.) Iteration 300: gradient descent algorithm (second).
-5.) Iteration 400: mTSP solver (second). 
-The waypoints are indicated by a sets of linked red and yellow$\circ$ markers, the associated Voronoi diagram is in blue, the white and cyan lines represent the path the UVs follow for servicing the sensor nodes, and the underlying density plot represents the interesting regions generated by the sensor nodes.
+4.) Iteration 300: gradient descent algorithm (second). 
+The waypoints are indicated by green$\circ$ markers, the associated Voronoi diagram is in blue, the white,cyan,magenta and red lines represent the path the UVs follow for servicing the sensor nodes, and the underlying density plot represents the interesting regions generated by the sensor nodes.
 \label{fig:multipleUAVsim}}
 \end{figure*}
 
