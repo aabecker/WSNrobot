@@ -212,14 +212,17 @@ Path \textbf{A} visits each node, but path \textbf{B} is shorter because it is d
 
 
 \section{Path Optimization Algorithm}\label{sec:algorithm}
-Our solution designs a closed-loop path that intersects the origin for each UV.  These paths are composed of waypoints connected by straight-line segments.  The following sections describe how this path is initialized (\ref{subsec:InitializingPath}), and then how the path is optimized by switching between a gradient descent optimization routine that finds local minimas (\ref{subsec:gradientDescent}), and a genetic algorithm that rearranges the order of waypoints to improve the paths (\ref{subsec:TSP}).
+Our solution designs a closed-loop path that intersects the origin for each UV.   The base technique is a variant of Lloyd's algorithm~\cite{lloyd1982least,Becker2013l}. Each path is represented by a finite number of waypoints, and these waypoints are both attracted to the centroid of all sensor nodes within their Voronoi cell, and attracted to their neighboring waypoints.  The following sections describe how this path is initialized (\ref{subsec:InitializingPath}), and then how the path is optimized by switching between a gradient descent optimization routine that finds local minimas (\ref{subsec:gradientDescent}), and a genetic algorithm that rearranges the order of waypoints to improve the paths (\ref{subsec:TSP}). Our {\sc Matlab} implementation is available at \href{http://www.mathworks.com/matlabcentral/fileexchange/49863-decentralizedpathplanningforcoverageusinggradientdescent}{mathworks.com/matlabcentral/fileexchange/49863}~\cite{Srikanth2015}. 
+
+
 
 
 \subsection{ Initializing Path with Hilbert Curve}\label{subsec:InitializingPath}
 It is important to have an initial path that fills the map. This ensures the UVs will visit  every node. We adapt the space-filling \emph{Hilbert Curve}, which creates a fractal path that fills up a unit area space and serves as an initial path for the first iteration~\cite{fischer1928darstellung}. Figure~\ref{fig:OneUAVsim} shows an initial path using a Hilbert curve.  If there are multiple UVs, the Hilbert curve is scaled by a scalar to ensure the waypoints are unique, as shown in Fig.~\ref{fig:multipleUAVsim}.
 
 \subsection{ Gradient Descent on a Path Composed of Waypoints}\label{subsec:gradientDescent}
-The following algorithm is derived from \cite{soltero2013decentralized}.
+The following algorithm is derived from \cite{soltero2013decentralized}, which focused on local optimization techniques that gradually improve the paths followed by robots during persistent tasks. This technique is amenable to WSN. 
+
 Consider $N$ UVs servicing a Wireless Sensor Network in a convex, bounded area $\mathbf{Q}\subset{ \mathbb{R}^2}$.
 Waypoints are a set of points that define the path for each UV. The UV travels in a straight line in between two neighboring waypoints.
 Let $\mathbf{p}_i^r$ be the position of the $i^{th}$, $i\in(1\ldots n(r))$ waypoint of the $r^{th}$ UV. Servicing includes recharging the nodes and collecting a part of the data that the nodes are about to transmit to the sink there by reducing the power expenditure in the sensor nodes. The algorithm forms a locally-optimal path to visit the sensor nodes in the WSN.  At each step, we compute the Voronoi partition $\mathbf{V}_i^r$ defined by the waypoints, with one partition assigned to each waypoint.
@@ -278,7 +281,7 @@ The control algorithm is described in Alg. \ref{alg:ICpathcontrol}.
 
 
 \subsection{ multiple-Traveling Salesman Problem (mTSP)}\label{subsec:TSP}
-The gradient descent algorithm  \ref{alg:ICpathcontrol} can get stuck in local minima.  To further improve the path we input the location of the waypoints obtained after running the gradient descent algorithm into a multiple-Traveling Salesman Problem (mTSP) search algorithm. 
+The gradient descent algorithm  (Alg. \ref{alg:ICpathcontrol}) can get stuck in local minima.  To further improve the path we input the location of the waypoints obtained after running the gradient descent algorithm into a multiple-Traveling Salesman Problem (mTSP) search algorithm. 
 Given a list of cities to visit, the classic \emph{traveling salesman problem} (TSP) attempts to find an ordering of the cities that minimizes the total distance on a tour that visits all the cities once\cite{applegate1999finding}.  The solution is the shortest Hamilton cycle. By labelling our sensor nodes as cities, the solution to the traveling salesman problem gives the shortest length path. The mTSP solution straightens out loops in the path and can reduce the cost function.  This often moves the solution out of the local minimum obtained after the executing the gradient descent algorithm. 
 
 
@@ -313,7 +316,7 @@ A solution with multiple salesman is called a mTSP.  The mTSP is still an NP-har
 
 \section{Results}
 
-We developed a {\sc Matlab} simulation using the three algorithms described in \ref{sec:algorithm}.  The code is available at \cite{Srikanth2015}. The next two sections describe the results with one UV and with multiple UVs.
+We developed a {\sc Matlab} simulation using the three algorithms described in Section \ref{sec:algorithm}.  The code is available at \cite{Srikanth2015}. The next two sections describe the results with one UV and with multiple UVs.
 
 \begin{figure*}
 \centering
@@ -364,7 +367,7 @@ The waypoints are indicated by a sets of linked red and yellow$\circ$ markers, t
 \end{figure*}
 
 \subsection{One UV}
-A single UV system was simulated using {\sc Matlab} in Fig.~\ref{fig:OneUAVsim}. The initial path at iteration $0$ was set to be a space-filling Hilbert's curve, in order to identify the location of the sensor nodes. The UV follows this initial path there by getting access to the whole map and identifying the interesting points. A waypoint at $[0,0]$ is stationary, it acts as a sink for the UV to recharge and to unload the data collected while servicing the sensor nodes. For the first $100$ iterations the Algorithm with Gradient Descent is used for simulation. This uses the Voronoi diagram for moving the waypoints to locations where there is high sensory information and uses the Gradient Descent for optimization. The path achieved after $100$ iterations is a local-optimum and iterating further does not decrease the cost function. This sub-optimal solution obtained is not impressive. Thus to optimize our path further and to snap out of this local-optimum the path is inputted into a mTSP (multiple-Traveling Salesman Problem) solver for the next $100$ iterations, this straightens the loops by reconnecting the waypoints without changing the waypoint location($\mathbf{p}_{i}^r$ ). After 200 iterations the cost function has deceased due to straightening of the loops by the mTSP solver. These two algorithms are called in succession to optimize the cost function depending on the time available for calculation or until the cost function converges asymptotically. The cost function has also been plotted which is strictly decreasing reassures the significance of the Algorithms used.
+A single UV system was simulated using {\sc Matlab} in Fig.~\ref{fig:OneUAVsim}. The initial path at iteration $0$ was set to be a space-filling Hilbert's curve, to identify the location of the sensor nodes. If the UV follows this initial path it can learn the value function $\phi(\mathbf{q})$, and identifying the interesting points for the whole map. A waypoint at $[0,0]$ is stationary, this represents the sink where the UV recharges and unloads data collected while servicing the sensor nodes. For the first $100$ iterations the gradient descent algorithm moves the path waypoints, using the Voronoi diagram to identify locations with high sensory information. The path achieved after $100$ iterations is usually a local-optimum and iterating further does not decrease the cost function. This sub-optimal solution obtained often contains loops.  To further optimize our path  and escape this local-optimum the path is inputted into a mTSP (multiple-Traveling Salesman Problem) solver for the next $100$ iterations, this straightens the loops by reconnecting the waypoints without changing the waypoint location ($\mathbf{p}_{i}^r$ ). After 200 iterations the cost function has decreased due to straightening of the loops by the mTSP solver. These two algorithms are called in succession to optimize the cost function depending on the time available for calculation or until the cost function asymptotically converges. The cost function is shown in Fig.~\label{subfig:CostFunc1robot}.  This cost function monotonically decreases.  
 
 \begin{figure}\centering 
 \newcommand{\figheight}{1.4in}
@@ -378,18 +381,18 @@ A single UV system was simulated using {\sc Matlab} in Fig.~\ref{fig:OneUAVsim}.
 \end{figure}
 
 \subsection{Multiple UVs}
-A two UV system was simulated on MATLAB. As shown in  \ref{fig:multipleUAVsim}, UVs service different sets of nodes in the WSN. A multi-UV system is apt in a practical sense since a single UV might not be able to handle a large network.Similar to the one UV case a space filling hilbert's curve is used for the same reasons stated. A waypoint at $[0,0]$ is stationary, it acts as a sink for both the UVs to recharge and to unload the data collected while servicing the sensor nodes. The sensor nodes were placed in random locations to verify the robustness of the algorithm. The Algorithm proceeds in a similar fashion to the one UV case. The simulation results show the optimization of the path and the minimization of the cost function.
+A two UV system was simulated on MATLAB. As shown in Fig.~\ref{fig:multipleUAVsim}, UVs service different sets of nodes in the WSN. A multi-UV system is practical  because a single UV might not be able to handle a large network. Similar to the one UV case, a space-filling Hilbert's curve is used to initialize the paths. Each path contains a stationary waypoint at $[0,0]$, representing the sink where both UVs recharge and unload data collected while servicing the sensor nodes. The sensor nodes were placed in random locations to verify the robustness of the algorithm. The algorithm proceeds in a similar fashion to the one UV case. The simulation results show the optimization of the path and the minimization of the cost function.
 
 \section{Conclusion}
-An optimized path-planning algorithm was simulated to service  a WSN. The path constructed is adaptive to the sensor node locations. Future work should extend our simulation to handle non-stationary sensor nodes,  improve convergence rate, and use our mTSP code to escape local minimal. We are in the process of implementing the algorithm on mobile-robots, with eventual implementation with a set of quadcopters.
-
-
-\subsection{Static vs. dynamic environments}\label{subsubsec:dynamicLoading}
-
+An optimized path-planning algorithm was simulated for servicing a WSN. The path constructed is adaptive to the sensor node locations. 
 The simulations above used a static WSN, but often sensor data transmission is  dependent on transient phenomena.  For example,  a swarm of subsea sensors may track a school of fish, the progress of an oil slick, or seasonal drift of ocean currents.  These are time-varying phenomena, and so the UV servicing the sensors should be able to adapt.
 
-The same local optimization techniques can iteratively adapt the paths of UVs.  A schematic of our the adaptive control law is shown in Fig.~\ref{fig:dynamicVsStatic}.  Recent research has focused on local optimization techniques that gradually improve the paths followed by robots during persistent tasks~\cite{soltero2013decentralized}.  These techniques are amenable to WSN.  The base technique is a variant of Lloyd's algorithm~\cite{lloyd1982least,Becker2013l}. Each path is represented by a finite number of waypoints, and these waypoints are both attracted to the centroid of all sensor nodes within their Voronoi cell, and attracted to their neighboring waypoints.  Our {\sc Matlab} implementation is available at \href{http://www.mathworks.com/matlabcentral/fileexchange/49863-decentralizedpathplanningforcoverageusinggradientdescent}{mathworks.com/matlabcentral/fileexchange/49863}~\cite{Srikanth2015}.
+The same local optimization techniques can iteratively adapt the paths of UVs.  A schematic of our the adaptive control law is shown in Fig.~\ref{fig:dynamicVsStatic}.  
  %We will use both battery levels and the cost of transmitting data to weight the sensor nodes. We will also compare improvements using Newton's method~\cite{seiler1989numerical}. 
+Future work should extend our simulation to handle non-stationary sensor nodes, improve the convergence rate, and use our mTSP code to escape local minimal. We are in the process of implementing the algorithm on mobile-robots, with eventual implementation with a set of quadcopters.
+
+
+
 
 \begin{figure}
  % \vspace{-20pt}
