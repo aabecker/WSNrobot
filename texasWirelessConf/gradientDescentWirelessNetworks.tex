@@ -171,7 +171,7 @@ Here, $p_i$ is the position of the $i$th node, and there are $N$ nodes. $K_{foot
  Before the tipping points, nodes are sparse and not clustered.  In this regime optimal paths are straight lines from node to node, and the optimal solution is a variant of the traveling salesman problem.  As sensors get closer together, the optimal path may be \emph{between} one or more sensors.   In Fig.~\ref{fig:loadDensity}, path \textbf{A} is designed to visit each node, but path \textbf{B} is designed to recharge all nodes.  Here, the optimal solution is often to weave between clusters of nodes.  The third regime is when many nodes are close enough for transfer data, as shown in path \textbf{C}.  The simulations in this paper take advantage of the non-zero $r_{footprint}$ to allow the UVs to pass near sensors without requiring them to visit each node.
  
  \begin{figure}
-\begin{overpic}[width =\columnwidth]{loadDensity}\end{overpic}
+\begin{overpic}[width =\columnwidth]{loadcompressed}\end{overpic}
 \centering \vspace*{-.1in}
 \caption{\label{fig:loadDensity}
 A UV has an associated recharging footprint and a data-transfer footprint, which can often be modeled as disks of radius $r_{recharge}$ and $r_{data}$.  
@@ -403,7 +403,7 @@ Future work should extend our simulation to handle non-stationary sensor nodes, 
  % \vspace{-20pt}
  %  \hspace{-35pt}
 %  \begin{center}
-  \includegraphics[width=\columnwidth]{dynamicVsStatic.pdf}
+  \includegraphics[width=\columnwidth]{dyncompressed.pdf}%{dynamicVsStatic.pdf}
  % \end{center}
   %\vspace{-10pt}
   %\hspace{-35pt}
