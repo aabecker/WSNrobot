@@ -101,7 +101,7 @@ However, energy conservation schemes  only slow  energy consumption, not compens
 
 \begin{figure} \centering
   {\includegraphics[width=\columnwidth]{overall.pdf}}
- \caption{Evolution from traditional wireless sensor networks (WSNs) to servicing WSN with UV(s). We present path-planning techniques that use unmanned vehicles (UVs) to gather aggregated data and recharge sensors.} \label{fig:overall}
+ \caption{Evolution from traditional wireless sensor networks (WSNs) to servicing WSN with UV(s). We present path-planning techniques that use unmanned vehicles (UVs) to gather aggregated data and recharge sensors.\label{fig:overall}} 
 \end{figure}
 
 
@@ -116,7 +116,7 @@ Fortunately, recent breakthroughs in the area of wireless power transfer technol
 However, one UV may not be able to visit every sensor if the WSN is deployed in harsh environments/terrains (e.g. dense forest, mountains, underwater), or the WSN is large-scale, consisting of a great number of sensors. Although these seminal studies replenished sensor energy, most of the energy was still wasted by long-distance wireless transmissions of perceived data, especially by relaying sensors. Due to charging and travel time of the UV, some bottleneck sensors may  drain their residual energy while waiting for the UV. Great unsolved challenges on control remain, including how to select the optimal path for the UV to travel within WSNs and how to efficiently dispatch multiple UVs to recharge WSNs.
 
 Assigning sensors to UVs using matching theory often assumes that energy costs due to power transmission greatly exceed the UV's transportation costs.  This assumption might not fit for WSNs spread over large geographic areas, or terrain with obstacles, %% OR not OF
-or where transportation costs are high, such as subsea or aerial UVs. This paper focuses on algorithms that make such WSNs sustainable by focusing on path-planing, trajectory optimization, and responding to dynamic network conditions.
+or where transportation costs are high, such as subsea or aerial UVs. This paper focuses on algorithms that make such WSNs sustainable by focusing on path-planing, trajectory optimization, and responding to dynamic network conditions, as shown in Fig.~\ref{fig:overall}.
 
 
 
@@ -182,17 +182,6 @@ Path \textbf{A} visits each node, but path \textbf{B} is shorter because it is d
 %%The mobile robotics community has investigated optimal path-planning for similar problem, such as harvesting agricultural products~\cite{correll2009building}, recovering oil from a spill \cite{kakalis2008robotic}, cleaning dirt from a room~\cite{mackenzie1996making}, and recharging WSNs~ \cite{Cortes2004}.
 %We will augment existing solvers~\cite{smith2012persistent} to account for battery levels of the nodes and UV.  We will pose this as an LP, and share code on Matlab central. Solutions will be compared to results using matching algorithms in task 2.
 %
-
-
-
-
-%\begin{figure}
-%\begin{overpic}[width =.8\columnwidth]{dynamicVsStatic.pdf}\end{overpic}
-%\vspace{-5pt}
-%\caption{\label{fig:dynamicVsStatic}The grey cloud represents a time-varying region of interest. Allowing the UVs to dynamically modify their routes in a distributed manner enables a robust response to changing conditions while maintaining service.
-%}\vspace{-15pt}
-%\end{figure}
-
 
 
 %\begin{wrapfigure}{r}{0.4\textwidth}
