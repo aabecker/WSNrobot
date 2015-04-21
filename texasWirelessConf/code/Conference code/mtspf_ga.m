@@ -235,6 +235,7 @@ end
 if showWaitbar
     hWait = waitbar(0,'Searching for near-optimal solution ...');
 end
+initial = true;
 for iter = 1:numIter
     % Evaluate Members of the Population
     for p = 1:popSize
@@ -277,7 +278,7 @@ for iter = 1:numIter
             for s = 1:nSalesmen
                 rte = [1 optRoute(rng(s,1):rng(s,2)) 1];
                 if dims > 2, plot3(hAx,xy(rte,1),xy(rte,2),xy(rte,3),'-','Color',clr(s,:), 'linewidth',3);
-                else plot(hAx,xy(rte,1),xy(rte,2),'-','Color',clr(s,:), 'linewidth',2);
+                else plot(hAx,xy(rte,1),xy(rte,2),'-','Color',clr(s,:), 'linewidth',3);
                 plot(xy(rte,1),xy(rte,2),'go','markersize',12, 'linewidth',2);
                 end
                 hold(hAx,'on');
@@ -292,12 +293,21 @@ for iter = 1:numIter
              xlabel 'X-axis (m)'
     ylabel 'Y-axis (m)'
     drawnow;
-    set(gcf,'renderer','painters')  %use these settings for final
+    %set(gcf,'renderer','painters')  %use these settings for final
 
     tfig = myaa(3);
-F = getframe(tfig);
+    F = getframe(tfig);
     %F = getframe(configStruct.G.fig);
-    writeVideo(configStruct.G.writerObj,F.cdata);
+    for i = 1:10
+        writeVideo(configStruct.G.writerObj,F.cdata);
+    end
+    if initial == true
+        initial = false;
+        for i = 1:10
+        writeVideo(configStruct.G.writerObj,F.cdata);
+        end
+    end
+    
     close(tfig)
      %%%%%%%%%%%% END OUR PLOTTING CODE %%%%%%%%%%%%%%%%%%%%%
     end
@@ -353,6 +363,18 @@ end
 if showWaitbar
     close(hWait);
 end
+
+ %%%%%%%%%%%%  OUR PLOTTING CODE %%%%%%%%%%%%%%%%%%%%%
+figure(configStruct.G.fig);
+tfig = myaa(3);
+    F = getframe(tfig);
+    %F = getframe(configStruct.G.fig);
+    for i = 1:15
+        writeVideo(configStruct.G.writerObj,F.cdata);
+    end
+    close(tfig)
+ %%%%%%%%%%%% END OUR PLOTTING CODE %%%%%%%%%%%%%%%%%%%%%
+
 
 if showResult
     % Plots

@@ -8,7 +8,7 @@ nRobots = 4;
  waypoints3=[0 ,0;10*x1'+5,10*y1'-5];
  waypoints4=[0 ,0;10*x1'-5,10*y1'+5];
  WAYPOINTS=[waypoints1;waypoints2;waypoints3;waypoints4];
-  MOVIE_NAME = 'FourRobots2';
+  MOVIE_NAME = 'FourRobots';
  
  nRobots = 1;
   [x1,y1] = hilbert(3);

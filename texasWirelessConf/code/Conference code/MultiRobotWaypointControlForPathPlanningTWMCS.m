@@ -360,7 +360,7 @@ if ~G.init
     uistack(G.hPhiPlot, 'bottom')
     
     %      title '400';
-    G.htitle = title(['Iteration = ',num2str(G.iterationStart+iter)]);
+    G.htitle = title(['Gradient Descent, Iteration = ',num2str(G.iterationStart+iter)]);
     xlabel 'X-axis (m)'
     ylabel 'Y-axis (m)'
     G.init =true;
@@ -375,7 +375,7 @@ else
         set(G.hPath(i),'Xdata', WAYPOINTS(wpInd,1),'Ydata',WAYPOINTS(wpInd,2));
         set(G.hWaypoints(i), 'Xdata',WAYPOINTS(wpInd,1),'Ydata',WAYPOINTS(wpInd,2));
     end
-    set(G.htitle,'string', ['Iteration = ',num2str(G.iterationStart+iter)]);
+    set(G.htitle,'string', ['Gradient Descent, Iteration = ',num2str(G.iterationStart+iter)]);
     %computing the waypoint's Voronoi Partition
     % [vx,vy] = voronoi(waypoints(:,1),waypoints(:,2));
     % set(G.hVoronoi,'Xdata',vx,'Ydata',vy)
