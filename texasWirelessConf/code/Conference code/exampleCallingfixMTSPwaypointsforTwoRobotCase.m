@@ -1,6 +1,7 @@
 function exampleCallingfixMTSPwaypointsforTwoRobotCase(waypoints,nRobots)
 % waypoints position needs to be given;
 % number of robots need to be mentioned;
+if nargin < 2
 waypoints=[              0         0
     1.5666    0.6141
     2.3415    1.7018
@@ -138,6 +139,7 @@ waypoints=[              0         0
 %    -0.7569   -2.2087
 %     0.0064   -1.1506];
 nRobots=4;
+end
 
 fixMTSPwaypoints(waypoints,nRobots)
 

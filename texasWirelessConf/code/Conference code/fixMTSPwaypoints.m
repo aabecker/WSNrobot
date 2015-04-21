@@ -1,18 +1,15 @@
-
-function Y = fixMTSPwaypoints(waypoints,nRobots)
+function newWaypoints = fixMTSPwaypoints(waypoints,nRobots,G)
 %  Calls mTSP to improve an existing collection of waypoints.  This
 %  algorithm only rearranges the order of waypoints.  It assigns equal
 %  numbers of waypoints to each robot
 % INPUTS:  waypoints:  a mx2 matrix of waypoints.  It assumes that the
 % origin is at [0,0], and that there are [0,0] at the start of each robot
 % section.
-
 %
 %  Calls the function mtspf_ga.m, by Joseph Kirk  02 Sep 2008 (Updated 06 May 2014)
 % http://www.mathworks.com/matlabcentral/fileexchange/21299
 %
 %  Aaron Becker and Srikanth KVS
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 if nargin< 2  %if no inputs are given, make up random waypoints
     wp_per_robot = 10;
@@ -23,11 +20,7 @@ if nargin< 2  %if no inputs are given, make up random waypoints
     end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 % Recording the simulation
-
-
 myConfig.xy = waypoints;
 
 
@@ -45,6 +38,7 @@ myConfig.numIter     = 10e2;
 myConfig.showProg    = true;
 myConfig.showResult  = true;
 myConfig.showWaitbar = true;
+myConfig.G =  G;
 
 %     USERCONFIG (structure) with zero or more of the following fields:
 %     - XY (float) is an Nx2 matrix of city locations, where N is the number of cities
@@ -87,9 +81,10 @@ display(newWaypoints)
 figure
 subplot(1,2,1)
 plotwaypoints(waypoints, nRobots)
+title('Before')
 subplot(1,2,2)
 plotwaypoints(newWaypoints, nRobots)
-
+title('After')
 end
 
 function plotwaypoints(wps, nRobots)

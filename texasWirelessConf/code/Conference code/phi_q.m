@@ -5,6 +5,7 @@ axis([-11 11 -11 11]);
  title 'Position of Sensor Nodes';
     xlabel 'X-axis(m)';
     ylabel 'Y-axis(m)';
+end
     
 function [O] = TransmissionCostCalc(h, xs, ys, pow, xr, yr) %#ok<INUSL>
 %  h is height of robot

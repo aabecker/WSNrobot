@@ -115,6 +115,7 @@ defaultConfig.numIter     = 5e3;
 defaultConfig.showProg    = true;
 defaultConfig.showResult  = true;
 defaultConfig.showWaitbar = false;
+defaultConfig.G = false;
 
 % Interpret user configuration inputs
 if ~nargin
@@ -214,6 +215,7 @@ popBreak = zeros(popSize,nBreaks);   % population of breaks
 % Select the Colors for the Plotted Routes
 pclr = ~get(0,'DefaultAxesColor');
 clr = [1 0 0; 0 0 1; 0.67 0 1; 0 1 0; 1 0.5 0];
+clr =  ['w';'r';'c';'m';'y'];
 if nSalesmen > 5
     clr = hsv(nSalesmen);
 end
@@ -260,18 +262,44 @@ for iter = 1:numIter
         rng = [[1 optBreak+1];[optBreak n]]';
         if showProg
             % Plot the Best Route
+    
+            %%%%%%%%%%%% OUR PLOTTING CODE %%%%%%%%%%%%%%%%%%%%%
+            configStruct.G.fig = gcf;
+            set(configStruct.G.fig,'Units','normalized','outerposition',[0 0 1 1],'NumberTitle','off','MenuBar','none','color','w');
+    imagesc(configStruct.G.mX(1,:),configStruct.G.mY(:,1),configStruct.G.phi);
+    set(gca,'YDir','normal');
+    colormap copper
+    hold on
+    axis equal
+    axis tight
+    plot(configStruct.G.vx,configStruct.G.vy,'b-', 'linewidth',2);
+    %%%%%%%%%%%% END OUR PLOTTING CODE %%%%%%%%%%%%%%%%%%%%%
             for s = 1:nSalesmen
                 rte = [1 optRoute(rng(s,1):rng(s,2)) 1];
-                if dims > 2, plot3(hAx,xy(rte,1),xy(rte,2),xy(rte,3),'.-','Color',clr(s,:));
-                else plot(hAx,xy(rte,1),xy(rte,2),'.-','Color',clr(s,:)); end
+                if dims > 2, plot3(hAx,xy(rte,1),xy(rte,2),xy(rte,3),'-','Color',clr(s,:), 'linewidth',3);
+                else plot(hAx,xy(rte,1),xy(rte,2),'-','Color',clr(s,:), 'linewidth',2);
+                plot(xy(rte,1),xy(rte,2),'go','markersize',12, 'linewidth',2);
+                end
                 hold(hAx,'on');
             end
-            if dims > 2, plot3(hAx,xy(1,1),xy(1,2),xy(1,3),'o','Color',pclr);
-            else plot(hAx,xy(1,1),xy(1,2),'o','Color',pclr); end
-            title(hAx,sprintf('Total Distance = %1.4f, Iteration = %d',minDist,iter));
+            if dims > 2, plot3(hAx,xy(1,1),xy(1,2),xy(1,3),'o','Color',pclr,'markersize',16);
+            else plot(hAx,xy(1,1),xy(1,2),'o','Color',pclr,'markersize',16); end
+            title(hAx,sprintf('mTSP, Distance = %1.1f, Iteration = %d',minDist,iter));
             hold(hAx,'off');
             drawnow;
         end
+         %%%%%%%%%%%% OUR PLOTTING CODE %%%%%%%%%%%%%%%%%%%%%
+             xlabel 'X-axis (m)'
+    ylabel 'Y-axis (m)'
+    drawnow;
+    set(gcf,'renderer','painters')  %use these settings for final
+
+    tfig = myaa(3);
+F = getframe(tfig);
+    %F = getframe(configStruct.G.fig);
+    writeVideo(configStruct.G.writerObj,F.cdata);
+    close(tfig)
+     %%%%%%%%%%%% END OUR PLOTTING CODE %%%%%%%%%%%%%%%%%%%%%
     end
     
     % Genetic Algorithm Operators

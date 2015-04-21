@@ -219,7 +219,7 @@ Let $\mathbf{p}_i^r$ be the position of the $i^{th}$, $i\in(1\ldots n(r))$ waypo
 
  We require a function  $\phi(\mathbf{q})$ that designates how many sensor nodes can be recharged from the position $\mathbf{q}$. It tells the positions of the sensors and indicates the $r_{footprint}$ of each sensor. This information is necessary for minimizing the distance traveled by the UV and, when incorporated into the map, provides information for charging multiple sensor nodes from a single location. For the simulation experiments we use a binary $\phi(\mathbf{q})$. A simple function is used but $\phi(\mathbf{q})$ could also account for  parameters including the maximum height at which the robot starts charging and the rate of charging to better  mimic  real time performance. Here $\phi(\mathbf{q})$ calculates the distance between each sensor node and $\mathbf{q}$ and indicates if this distance is less $r_{footprint}$.
  \begin{align}\label{eq:interesting-function}
- \phi(\mathbf{q})  = \sum_{s = 1}^k {(x_s-\mathbf{q}_x)}^2 + {(y_s-\mathbf{q}_y)}^2 < r_{footprint}
+ \phi(\mathbf{q})  = \sum_{s = 1}^k {(x_s-\mathbf{q}_x)}^2 + {(y_s-\mathbf{q}_y)}^2 < r_{footprint}^2
  \end{align}
  In Fig.~\ref{fig:Phi_interesting} $(x_s,y_s)$ correspond to the xy location of sensor $s$ and $(\mathbf{q}_x,\mathbf{q}_y)$ correspond to the locations $\mathbf{q}\subset\mathbf{Q}$.
 \begin{figure}\centering 
@@ -236,8 +236,8 @@ Let $\mathbf{p}_i^r$ be the position of the $i^{th}$, $i\in(1\ldots n(r))$ waypo
  
 The cost function for each path is given by:
 \begin{align}\label{eq:cost-function}
-\mathbf{H} = \sum\limits_{r=1}^N\sum\limits_{i=1}^{n(r)} \int_{V_i^r}\frac{W_s}{2}\|\mathbf{q}-\mathbf{p}_i^r\|^2&\phi(\mathbf{q}) d\mathbf{q}&+\nonumber\\
-\sum\limits_{r=1}^N\sum\limits_{i=1}^{n(r)}\frac{W_n}{2}\|\mathbf{p}_i^r-\mathbf{p}_{i+1}^r\|^2
+\mathbf{H} = \frac{W_s}{2} \sum\limits_{r=1}^N\sum\limits_{i=1}^{n(r)} \int_{V_i^r}\|\mathbf{q}-\mathbf{p}_i^r\|^2&\phi(\mathbf{q}) d\mathbf{q}&+\nonumber\\
+\frac{W_n}{2}\sum\limits_{r=1}^N\sum\limits_{i=1}^{n(r)}\|\mathbf{p}_i^r-\mathbf{p}_{i+1}^r\|^2
 \end{align}
 
 $W_s, W_n$ are positive scalar constants that are used to weight the sensing and neighbor distance, respectively, and depend on the experimental setup.
@@ -247,7 +247,7 @@ The gradient descent algorithm minimizes the two-part cost function \eqref{eq:co
 We compute the mass, mass-moment, and centroid of the $V_i^r$ (Voronoi partition for $i^{th}$ waypoint of the $r^{th}$ UV) as follows:
 \begin{align}\label{eq:massmomentcentroid}
 M_i^r &=  \int_{V_i^r}\phi(\mathbf{q}) d\mathbf{q}, \quad
-\mathbf{L}_i^r =  \int_{V_i^r}\mathbf{q}\phi(\mathbf{q}) d\mathbf{q}, \nonumber\\
+\mathbf{L}_i^r =  \int_{V_i^r}\mathbf{q} \cdot \phi(\mathbf{q}) d\mathbf{q}, \nonumber\\
 \mathbf{C}_i^r  &= \frac{ \mathbf{L}_i^r } { M_i^r  }
 \end{align}
 
@@ -256,7 +256,7 @@ The control law for each waypoint is the summation of forces that pulls the wayp
 \mathbf{u}_i^r  = \frac{ K_i^r (M_i^r \mathbf{e}_i^r + \boldsymbol{\alpha}_i^r)} { \beta_i^r  }
 \end{align}
 Here, $K_i^r$ is a positive definite matrix and is potentially-time varying. $\mathbf{e}_i^r = \mathbf{C}_i^r  - \mathbf{p}_i^r$, the error, introduces the first primitive by obtaining the difference between the waypoint position and the weighted centroid of the Voronoi region. This tries to move the waypoint towards the interesting region, reshaping the path of the robot. The second term  
-$ \boldsymbol{\alpha}_i^r = W_n( \mathbf{p}_{i+1}^r  + \mathbf{p}_{i-1}^r -2 \mathbf{p}_{i}^r)$ introduces the second primitive which pulls the neighboring waypoints together to obtain a short path. $\boldsymbol{\beta}_i^r = \mathbf{M}_{i}^r + 2\mathbf{W}_{n}$ normalizes the weight distribution between servicing sensors and staying close to neighboring waypoints.
+$ \boldsymbol{\alpha}_i^r = W_n( \mathbf{p}_{i+1}^r  + \mathbf{p}_{i-1}^r -2 \mathbf{p}_{i}^r)$ introduces the second primitive which pulls the neighboring waypoints together to obtain a short path. $\beta_i^r = M_{i}^r + 2 W_{n}$ normalizes the weight distribution between servicing sensors and staying close to neighboring waypoints.
 
 
 The control is then applied to this waypoint to update its position:
