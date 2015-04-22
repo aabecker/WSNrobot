@@ -55,7 +55,7 @@ imagesc(mX(1,:),mY(:,1),phi);
 hold on
     set(gca,'YDir','normal');
     %colormap lines
-    caxis([0,21])
+    %caxis([0,21])
     colormap copper
     
     th = linspace(0,2*pi,50);
