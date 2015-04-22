@@ -10,18 +10,17 @@ nRobots = 4;
  WAYPOINTS=[waypoints1;waypoints2;waypoints3;waypoints4];
   MOVIE_NAME = 'FourRobots';
  
- nRobots = 1;
-  [x1,y1] = hilbert(3);
-   WAYPOINTS=[0 ,0;20*x1',20*y1'];
-  MOVIE_NAME = 'OneRobot';
+%  nRobots = 1;
+%   [x1,y1] = hilbert(3);
+%    WAYPOINTS=[0 ,0;20*x1',20*y1'];
+%   MOVIE_NAME = 'OneRobot';
 
  iterationStart = 0;
  MAKE_MOVIE = true;
  
      G.writerObj = VideoWriter(MOVIE_NAME,'MPEG-4');%http://www.mathworks.com/help/matlab/ref/videowriterclass.html
-    set(G.writerObj,'Quality',100);
+    set(G.writerObj,'Quality',100)
     open(G.writerObj);
- 
  
 [WAYPOINTS,costs,iterationEnd,G] = MultiRobotWaypointControlForPathPlanningTWMCS(MOVIE_NAME, iterationStart,MAKE_MOVIE,WAYPOINTS,nRobots,G);
 WAYPOINTS = fixMTSPwaypoints(WAYPOINTS,nRobots, G)

@@ -336,7 +336,7 @@ if ~G.init
     %     G.hWaypoints = plot(WAYPOINTS(:,1),WAYPOINTS(:,2),'go');
     G.hPath = zeros(nRobots,1);
     G.hWaypoints = zeros(nRobots,1);
-    colorsWp = ['w','r','c','m','y','r','b','w','r','c','m','y','r','b','w','r','c','m','y','r','b'];
+    colorsWp = ['m','w','r','c','y','r','b','w','r','c','m','y','r','b','w','r','c','m','y','r','b'];
     G.nwp = size(WAYPOINTS(:,1))/nRobots;
     for i = 1:nRobots
         wpInd = 1+(i-1)*G.nwp:1+i*G.nwp;
@@ -393,6 +393,10 @@ else
     uistack(G.hPhiPlot,'bottom')
      
 end
+
+p1=plot(nan,nan,'s','markersize',16,'markeredgecolor','k','linewidth',5, 'markerfacecolor',[202,112,62]/255);
+legend([G.hWaypoints(1),G.hPath(1),G.hVoronoi(1),p1],{'path waypoints','path of UV','Voronoi cells','cost function'},'location','eastOutside')
+
 drawnow
 if G.MAKE_MOVIE
     makemovie(G)

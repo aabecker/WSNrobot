@@ -36,8 +36,8 @@ myConfig.minTour     = (size(myConfig.xy,1) - 1)/myConfig.nSalesmen;
 myConfig.popSize     = 500;
 myConfig.numIter     = 10e2;
 myConfig.showProg    = true;
-myConfig.showResult  = true;
-myConfig.showWaitbar = true;
+myConfig.showResult  = false;
+myConfig.showWaitbar = false;
 myConfig.G =  G;
 
 %     USERCONFIG (structure) with zero or more of the following fields:

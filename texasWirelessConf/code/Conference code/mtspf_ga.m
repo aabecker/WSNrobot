@@ -214,8 +214,8 @@ popBreak = zeros(popSize,nBreaks);   % population of breaks
 
 % Select the Colors for the Plotted Routes
 pclr = ~get(0,'DefaultAxesColor');
-clr = [1 0 0; 0 0 1; 0.67 0 1; 0 1 0; 1 0.5 0];
-clr =  ['w';'r';'c';'m';'y'];
+%clr = [1 0 0; 0 0 1; 0.67 0 1; 0 1 0; 1 0.5 0];
+clr =  ['m';'w';'r';'c';'m';'y'];
 if nSalesmen > 5
     clr = hsv(nSalesmen);
 end
@@ -273,13 +273,13 @@ for iter = 1:numIter
     hold on
     axis equal
     axis tight
-    plot(configStruct.G.vx,configStruct.G.vy,'b-', 'linewidth',2);
+    configStruct.G.hVoronoi = plot(configStruct.G.vx,configStruct.G.vy,'b-', 'linewidth',2);
     %%%%%%%%%%%% END OUR PLOTTING CODE %%%%%%%%%%%%%%%%%%%%%
             for s = 1:nSalesmen
                 rte = [1 optRoute(rng(s,1):rng(s,2)) 1];
                 if dims > 2, plot3(hAx,xy(rte,1),xy(rte,2),xy(rte,3),'-','Color',clr(s,:), 'linewidth',3);
-                else plot(hAx,xy(rte,1),xy(rte,2),'-','Color',clr(s,:), 'linewidth',3);
-                plot(xy(rte,1),xy(rte,2),'go','markersize',12, 'linewidth',2);
+                else configStruct.G.hPath(s) = plot(hAx,xy(rte,1),xy(rte,2),'-','Color',clr(s,:), 'linewidth',3);
+                configStruct.G.hWaypoints(s) = plot(xy(rte,1),xy(rte,2),'go','markersize',12, 'linewidth',2);
                 end
                 hold(hAx,'on');
             end
@@ -292,6 +292,11 @@ for iter = 1:numIter
          %%%%%%%%%%%% OUR PLOTTING CODE %%%%%%%%%%%%%%%%%%%%%
              xlabel 'X-axis (m)'
     ylabel 'Y-axis (m)'
+    hold on
+    p1=plot(nan,nan,'s','markersize',16,'markeredgecolor','k','linewidth',5, 'markerfacecolor',[202,112,62]/255);
+legend([configStruct.G.hWaypoints(1),configStruct.G.hPath(1),configStruct.G.hVoronoi(1),p1],{'path waypoints','path of UV','Voronoi cells','cost function'},'location','eastOutside')
+
+    
     drawnow;
     %set(gcf,'renderer','painters')  %use these settings for final
 
@@ -307,7 +312,7 @@ for iter = 1:numIter
         writeVideo(configStruct.G.writerObj,F.cdata);
         end
     end
-    
+    delete(configStruct.G.hVoronoi)
     close(tfig)
      %%%%%%%%%%%% END OUR PLOTTING CODE %%%%%%%%%%%%%%%%%%%%%
     end
@@ -364,16 +369,16 @@ if showWaitbar
     close(hWait);
 end
 
- %%%%%%%%%%%%  OUR PLOTTING CODE %%%%%%%%%%%%%%%%%%%%%
-figure(configStruct.G.fig);
-tfig = myaa(3);
-    F = getframe(tfig);
-    %F = getframe(configStruct.G.fig);
-    for i = 1:15
-        writeVideo(configStruct.G.writerObj,F.cdata);
-    end
-    close(tfig)
- %%%%%%%%%%%% END OUR PLOTTING CODE %%%%%%%%%%%%%%%%%%%%%
+%  %%%%%%%%%%%%  OUR PLOTTING CODE %%%%%%%%%%%%%%%%%%%%%
+% figure(configStruct.G.fig);
+% tfig = myaa(3);
+%     F = getframe(tfig);
+%     %F = getframe(configStruct.G.fig);
+%     for i = 1:15
+%         writeVideo(configStruct.G.writerObj,F.cdata);
+%     end
+%     close(tfig)
+%  %%%%%%%%%%%% END OUR PLOTTING CODE %%%%%%%%%%%%%%%%%%%%%
 
 
 if showResult
