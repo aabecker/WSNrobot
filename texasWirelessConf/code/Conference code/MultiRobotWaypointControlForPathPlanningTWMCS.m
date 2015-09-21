@@ -31,74 +31,74 @@ end
 
 if nargin < 4
     nRobots = 4;
-waypoints1=[         0         0
-    1.5666    0.6141
-    2.3415    1.7018
-    2.4076    1.2928
-    4.5798    3.1806
-    6.7422    5.2761
-    8.9001    7.6432
-   10.3905    8.0013
-    9.1954   10.2322
-    7.3280   10.4516
-    7.8666    9.6395
-    6.8351    9.0446
-    4.7695    6.7555
-    3.3855    4.8906
-    2.3498    2.9911
-    2.5978    2.3467
-    1.0287    2.2551];
-waypoints2=[         0         0
-   -0.5165   -1.3443
-   -1.2427   -2.6482
-   -2.3299   -2.9325
-   -2.3566   -2.6838
-   -2.0364   -2.6117
-   -2.9643   -2.2900
-   -6.1200   -4.2623
-   -7.8462   -5.4912
-   -9.7435   -6.9776
-  -10.0559   -7.8263
-  -10.0906   -9.4392
-   -7.1065  -10.1383
-   -7.4857   -9.0418
-   -4.5079   -3.2495
-   -2.6102   -2.9429
-   -2.4789   -1.2889];
-waypoints3=[         0         0
-    2.4741   -1.8954
-    5.0216   -3.6436
-    7.0758   -3.6681
-    7.7119   -2.8270
-    8.0457   -2.8861
-    8.6455   -4.2876
-    8.3885   -8.4409
-    7.9913   -6.6198
-    6.3069   -5.6286
-    6.3090   -8.0032
-    3.2098   -8.1217
-    3.3343   -6.8655
-    4.1656   -5.1963
-    2.9698   -3.7578
-    1.7391   -1.3785
-    1.5139   -2.6404];
-waypoints4=[         0         0
-   -3.2768    2.1892
-   -6.6460    4.2976
-   -7.4700    3.1829
-   -8.7772    4.3214
-   -8.1437    6.9970
-   -7.9433    8.5667
-   -5.6096    7.5246
-   -6.4260    5.8560
-   -4.3059    8.7033
-   -2.9616    8.2505
-   -3.7351    7.2497
-   -4.6018    5.7769
-   -5.1608    4.2399
-   -3.1153    4.0119
-   -1.3935    2.7478
-   -1.6303    1.2664];
+% waypoints1=[         0         0
+%     1.5666    0.6141
+%     2.3415    1.7018
+%     2.4076    1.2928
+%     4.5798    3.1806
+%     6.7422    5.2761
+%     8.9001    7.6432
+%    10.3905    8.0013
+%     9.1954   10.2322
+%     7.3280   10.4516
+%     7.8666    9.6395
+%     6.8351    9.0446
+%     4.7695    6.7555
+%     3.3855    4.8906
+%     2.3498    2.9911
+%     2.5978    2.3467
+%     1.0287    2.2551];
+% waypoints2=[         0         0
+%    -0.5165   -1.3443
+%    -1.2427   -2.6482
+%    -2.3299   -2.9325
+%    -2.3566   -2.6838
+%    -2.0364   -2.6117
+%    -2.9643   -2.2900
+%    -6.1200   -4.2623
+%    -7.8462   -5.4912
+%    -9.7435   -6.9776
+%   -10.0559   -7.8263
+%   -10.0906   -9.4392
+%    -7.1065  -10.1383
+%    -7.4857   -9.0418
+%    -4.5079   -3.2495
+%    -2.6102   -2.9429
+%    -2.4789   -1.2889];
+% waypoints3=[         0         0
+%     2.4741   -1.8954
+%     5.0216   -3.6436
+%     7.0758   -3.6681
+%     7.7119   -2.8270
+%     8.0457   -2.8861
+%     8.6455   -4.2876
+%     8.3885   -8.4409
+%     7.9913   -6.6198
+%     6.3069   -5.6286
+%     6.3090   -8.0032
+%     3.2098   -8.1217
+%     3.3343   -6.8655
+%     4.1656   -5.1963
+%     2.9698   -3.7578
+%     1.7391   -1.3785
+%     1.5139   -2.6404];
+% waypoints4=[         0         0
+%    -3.2768    2.1892
+%    -6.6460    4.2976
+%    -7.4700    3.1829
+%    -8.7772    4.3214
+%    -8.1437    6.9970
+%    -7.9433    8.5667
+%    -5.6096    7.5246
+%    -6.4260    5.8560
+%    -4.3059    8.7033
+%    -2.9616    8.2505
+%    -3.7351    7.2497
+%    -4.6018    5.7769
+%    -5.1608    4.2399
+%    -3.1153    4.0119
+%    -1.3935    2.7478
+%    -1.6303    1.2664];
 % waypoints1=[         0         0
 %     1.3110   -2.5730
 %     2.8536   -3.6045
@@ -167,17 +167,17 @@ waypoints4=[         0         0
 %    -4.7255    5.5846
 %    -3.0837    4.2248
 %    -1.2921    2.6098];
-% [x1,y1] = hilbert(2);
-% waypoints1=[0 ,0;10*x1'+5,10*y1'+5];
-%   G.nwp1 = size(waypoints1,1);
-% [x2,y2] = hilbert(2);
-% waypoints2=[0 ,0;10*x2'-5,10*y2'-5];
-%  G.nwp2 = size(waypoints2,1);
-% [x3,y3] = hilbert(2);
-% waypoints3=[0 ,0;10*x3'+5,10*y3'-5];
-%  G.nwp3 = size(waypoints3,1);
-% [x4,y4] = hilbert(2);
-% waypoints4=[0 ,0;10*x4'-5,10*y4'+5];
+[x1,y1] = hilbert(2);
+waypoints1=[0 ,0;10*x1'+5,10*y1'+5];
+  G.nwp1 = size(waypoints1,1);
+[x2,y2] = hilbert(2);
+waypoints2=[0 ,0;10*x2'-5,10*y2'-5];
+ G.nwp2 = size(waypoints2,1);
+[x3,y3] = hilbert(2);
+waypoints3=[0 ,0;10*x3'+5,10*y3'-5];
+ G.nwp3 = size(waypoints3,1);
+[x4,y4] = hilbert(2);
+waypoints4=[0 ,0;10*x4'-5,10*y4'+5];
  WAYPOINTS=[waypoints1;waypoints2;waypoints3;waypoints4];
 end
  
@@ -359,8 +359,7 @@ if ~G.init
     axis(a);  % voronoi tends to make the axis zoom out.
     uistack(G.hPhiPlot, 'bottom')
     
-    %      title '400';
-    G.htitle = title(['Gradient Descent, Iteration = ',num2str(G.iterationStart+iter)]);
+      G.htitle = title(['mTSP Algorithm , Iteration = ',num2str(G.iterationStart+iter)]);
     xlabel 'X-axis (m)'
     ylabel 'Y-axis (m)'
     G.init =true;
@@ -375,7 +374,7 @@ else
         set(G.hPath(i),'Xdata', WAYPOINTS(wpInd,1),'Ydata',WAYPOINTS(wpInd,2));
         set(G.hWaypoints(i), 'Xdata',WAYPOINTS(wpInd,1),'Ydata',WAYPOINTS(wpInd,2));
     end
-    set(G.htitle,'string', ['Gradient Descent, Iteration = ',num2str(G.iterationStart+iter)]);
+    set(G.htitle,'string', ['Gradient Descent , Iteration = ',num2str(G.iterationStart+iter)]);
     %computing the waypoint's Voronoi Partition
     % [vx,vy] = voronoi(waypoints(:,1),waypoints(:,2));
     % set(G.hVoronoi,'Xdata',vx,'Ydata',vy)
@@ -394,8 +393,8 @@ else
      
 end
 
-p1=plot(nan,nan,'s','markersize',16,'markeredgecolor','k','linewidth',5, 'markerfacecolor',[202,112,62]/255);
-legend([G.hWaypoints(1),G.hPath(1),G.hVoronoi(1),p1],{'path waypoints','path of UV','Voronoi cells','cost function'},'location','eastOutside')
+% p1=plot(nan,nan,'s','markersize',16,'markeredgecolor','k','linewidth',5, 'markerfacecolor',[202,112,62]/255);
+% legend([G.hWaypoints(1),G.hPath(1),G.hVoronoi(1),p1],{'path waypoints','path of UV','Voronoi cells','cost function'},'location','eastOutside')
 
 drawnow
 if G.MAKE_MOVIE

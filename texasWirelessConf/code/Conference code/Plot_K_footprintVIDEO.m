@@ -11,15 +11,15 @@ if nargin <1
 end
 
 
- MOVIE_NAME = 'KfootprintMovie';
-  fig = figure(1);
+%  MOVIE_NAME = 'KfootprintMovie';
+   fig = figure(1);
     clf
-    set(fig,'Units','normalized','outerposition',[0 0 1 1],'NumberTitle','off','MenuBar','none','color','w');
-    writerObj = VideoWriter(MOVIE_NAME,'MPEG-4');%http://www.mathworks.com/help/matlab/ref/videowriterclass.html
-    set(writerObj,'Quality',100);
-    open(writerObj);
+   set(fig,'Units','normalized','outerposition',[0 0 1 1],'NumberTitle','off','MenuBar','none','color','w');
+%     writerObj = VideoWriter(MOVIE_NAME,'MPEG-4');%http://www.mathworks.com/help/matlab/ref/videowriterclass.html
+%     set(writerObj,'Quality',100);
+%     open(writerObj);
 
-range = [1:0.1:30,30:-1:1];
+ range = 1;%[1:0.1:30,30:-1:1];
 
 for r_footprint = range
 figure(fig)
@@ -72,19 +72,19 @@ title(['\it r_{footprint} = ',num2str(r_footprint,'%4.1f\n')],  'Units', 'normal
 
 %pause(0.5)
            % (for each frame)
-            figure(fig)
+%             figure(fig)
             %axes('Position',[0,0,1,1])
            
            % set(gcf,'renderer','painters')   %optional line to remove antialiasing 
            % tfig = myaa(3);   %optional line 2
-            F = getframe(fig);
-            writeVideo(writerObj,F.cdata);
+%             F = getframe(fig);
+%             writeVideo(writerObj,F.cdata);
           %  close(tfig)
 
 end
 
-title('finished')
-close(writerObj);
+% title('finished')
+% close(writerObj);
 end
 
 

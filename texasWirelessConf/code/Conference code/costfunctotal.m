@@ -213,7 +213,7 @@ plot([300,400],[h2(end),h3(1)],'k-o','linewidth',2);
 hold on;
 % plot(400:500,h3,'g','linewidth',2);
 % hold on;
-% title 'Cost Function for Waypoint Control using Gradient Descent and mTSP Algorithms';
+ title 'Cost Function for Single Robot Case';
 xlabel 'Iteration Number';
 ylabel 'Cost Function';
 legend ('Gradient Descent-1','mTSP-1','Gradient Descent-2','mTSP-2');
