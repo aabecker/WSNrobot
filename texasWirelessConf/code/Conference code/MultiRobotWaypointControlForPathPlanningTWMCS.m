@@ -235,7 +235,7 @@ phiCosts(1) = phiCost;
 stretchCosts(1) = stretchCost;
 
 moveableWP =find(all(WAYPOINTS,2)~=0)';
-for iter = 1:maxIters
+for iter = 0%1:maxIters
     for wp=moveableWP %iterate through all waypoints
         ptsSmall = (minWPs==wp);
         smallerInd = indExciting(ptsSmall);%dists(:,wp)<=minDists;
