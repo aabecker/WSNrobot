@@ -1,11 +1,25 @@
 
 \documentclass{article}
 \usepackage{graphicx}
+\graphicspath{ {pictures/} }
 \begin{document}
 
 \title{Routing a robot to collect data from $n$ underwater sensors in minimum time}
-\author{Dr.Aaron T. Becker, Srikanth.K.V.S}
+\author{Srikanth K.V.S., Aaron T.\ Becker}
 \maketitle
+
+\begin{figure}[htb]
+\begin{center}
+	\includegraphics[width=0.48\columnwidth]{ShortestPathToSensors}
+	\includegraphics[width=0.48\columnwidth]{CommToEachSensor}
+\end{center}
+\caption{Data from $n$ nodes can be acquired by visiting each node, or by staying in place and communicating to each node.
+\label{fig:ShortestPath}}
+\end{figure}
+
+
+
+
 \section{Introduction}
 
  Assume $n$ underwater sensor nodes must transmit data to a mobile underwater robot located at a depot.  We wish to minimize the total time required to transmit this data. 
@@ -14,7 +28,14 @@ We assign $N$ waypoints on the two dimensional plane whose positions decide the 
 This paper examines the motion planning problem for a mobile robot to collect data from all nodes in the minimum time.  
 
 \section{Time for servicing $n$ sensor nodes (Moving)}
-
+\begin{figure}[htb]
+\begin{center}
+	\includegraphics[width=0.48\columnwidth]{CommModel}
+	\includegraphics[width=0.48\columnwidth]{CompareVisitEachToComm}
+\end{center}
+\caption{Two communications models, each based on exponential decay. The two techniques shown in Fig.\ \ref{fig:ShortestPath} have differing costs as a function of the length of the workspace edges.
+\label{fig:CommModel}}
+\end{figure}
  Data Collection can be performed by either Magnetic Induction or Acoustic. Both methods have their advantages and disadvantages. Thus we combine both to improve efficiency.\\*
 \\
 Data Rate for Magnetic Induction =$ D.R_{MI}$\\*
@@ -48,7 +69,7 @@ The rest is the transmission cost.
 \begin{equation}
 1/v \sum_{i=0}^{n+1} \|W_{p}(i)-W_{p}(i-1)\|+\sum_{i=0}^{n+1}\sum_{j=1}^{n} a_{ij}*Min ((1/D.R)*\|W_{p}(i)-P{j}\|)
 \end{equation}
-Constraints :-
+Constraints:
 \label{equation_5}
 \begin{equation}
 \sum_{i=0}^{n+1} a_{ij} = Data_{j}, \forall j \in [1,n], 
@@ -68,7 +89,7 @@ D = \|W_{p}(i)-P{j}\|
 (\sum_{j=1}^{n} b_{ij}\times D/D.R_{Ac}(Dist))
 \end{equation}
 
-Constraints :-
+Constraints:
 \label{equation_8}
 \begin{equation}
 \sum_{i=1}^{n+1} a_{ij}+b_{ij}=Data,\forall i \in [1,n], 
