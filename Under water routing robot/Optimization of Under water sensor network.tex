@@ -36,15 +36,19 @@ This paper examines the motion planning problem for a mobile robot to collect da
 \caption{Two communications models, each based on exponential decay. The two techniques shown in Fig.\ \ref{fig:ShortestPath} have differing costs as a function of the length of the workspace edges.
 \label{fig:CommModel}}
 \end{figure}
- Data Collection can be performed by either Magnetic Induction or Acoustic. Both methods have their advantages and disadvantages. Thus we combine both to improve efficiency.\\*
+ Data Collection can be performed by either Magnetic Induction or Acoustic. Both methods have their advantages and disadvantages. Thus we combine both to improve efficiency.
 \\
-Data Rate for Magnetic Induction =$ D.R_{MI}$\\*
-Data Rate for Acoustic = $D.R_{Ac}$\\*
-Velocity of the robot = $v$\\*
-Waypoints on the 2-D plane = $W_{p}(i)$\\*
-Data stored in each sensor node = $Data(j)$\\*
+\begin{center}
+\begin{tabular}{ c c }
+ Data Rate for Magnetic Induction & $= D.R_{MI}$ \\ 
+ Data Rate for Acoustic  & $= D.R_{Ac}$ \\  
+ Velocity of the robot & $= v$  \\ 
+ Data stored in each sensor node   & $= Data(j)$\\
+\end{tabular}
+\end{center}
+
 \begin{equation}
-    \label{equation_1}
+    \label{TimeEqn_Moving}
    Time_{\textrm{visit each node}}  = [1/v \sum_{i=0}^{n+1} \|W_{p}(i)-W_{p}(i-1)\|] + [1/D.R. \sum_{j=1}^{n} Data(j)]    
 \end{equation}
 The first term in equation 1 indicates\textbf{ travel time}.\\*
@@ -54,34 +58,34 @@ For obtaining the solution we will use a TSP (Traveling Salesman Problem) solver
 \section{Time for servicing $n$ sensor nodes (Stationary)}
 
 \begin{equation}
-    \label{equation_2}
+    \label{TimeEqn_Stationary}
     Time_{\textrm{stay at depot}} = 0 + \sum_{i=1}^{n} \|P_{i}-P_{o}\| 
     \end{equation} 
 \begin{equation}
-    \label{equation_3}
+    \label{Transmission}
     min_{(1/D.R_{MI})}*(Dist),min_{(1/D.R_{Ac})}*(Dist)  
 \end{equation}
 0 refers to the the traveling cost.\\*
 The rest is the transmission cost.
 
 \section{General Cost}
-\label{equation_4}
+\label{GeneralCost_SingleMode}
 \begin{equation}
 1/v \sum_{i=0}^{n+1} \|W_{p}(i)-W_{p}(i-1)\|+\sum_{i=0}^{n+1}\sum_{j=1}^{n} a_{ij}*Min ((1/D.R)*\|W_{p}(i)-P{j}\|)
 \end{equation}
 Constraints:
-\label{equation_5}
+\label{GeneralCostSingle_Constraints}
 \begin{equation}
 \sum_{i=0}^{n+1} a_{ij} = Data_{j}, \forall j \in [1,n], 
  a_{ij}\geq 0
 \end{equation}
 
-\label{equation_6}
+\label{Dist_Definition}
 \begin{equation}
 D = \|W_{p}(i)-P{j}\|
 \end{equation}
 
-\label{equation_7}
+\label{GeneralCost_DoubleMode}
 \begin{equation}
 1/v \sum_{i=0}^{n+1} \|W_{p}(i)-W_{p}(i-1)\|+\sum_{i=0}^{n+1}Max(\sum_{j=1}^{n} \times a_{ij}\times D/D.R_{MI}(Dist))  
 \end{equation}
@@ -90,7 +94,7 @@ D = \|W_{p}(i)-P{j}\|
 \end{equation}
 
 Constraints:
-\label{equation_8}
+\label{GeneralCostDouble_Constraints}
 \begin{equation}
 \sum_{i=1}^{n+1} a_{ij}+b_{ij}=Data,\forall i \in [1,n], 
  a_{ij}\geq 0,b_{ij}\geq 0
