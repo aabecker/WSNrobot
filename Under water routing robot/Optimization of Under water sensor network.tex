@@ -1,10 +1,11 @@
 
 \documentclass{article}
 \usepackage{graphicx}
+\usepackage{amssymb}
 \graphicspath{ {pictures/} }
 \begin{document}
 
-\title{Routing a robot to collect data from $n$ underwater sensors in minimum time}
+\title{Routing a Robot to Collect Data from $n$ Underwater Sensors in Minimum TIme}
 \author{Srikanth K.V.S., Aaron T.\ Becker}
 \maketitle
 
@@ -22,40 +23,79 @@
 
 \section{Introduction}
 
- Assume $n$ underwater sensor nodes must transmit data to a mobile underwater robot located at a depot.  We wish to minimize the total time required to transmit this data. 
+ Assume $n$ underwater sensor nodes must transmit data to a mobile underwater robot located at a depot, as illustrated in Fig.\ \ref{fig:ShortestPath}.  We wish to minimize the total time required to transmit this data to the depot. 
 The robot could potentially shorten transmission time by moving towards nodes to increase data transmission rate.
-We assign $N$ waypoints on the two dimensional plane whose positions decide the path of the robot. The robot travels along the straight line joining two waypoints. The routing problem implies the robot travels in interesting closed paths to accomplish the task of collecting data hence has to traverse $N+1$ waypoints to complete a closed path. the waypoint $N = 0$ will act as a depot for offloading the collected data and recharging.
-This paper examines the motion planning problem for a mobile robot to collect data from all nodes in the minimum time.  
+This paper examines the motion-planning problem for a mobile robot to collect data from all nodes in minimum time.  
+The path of a robot is defined by $N$ waypoints, starting at the depot, and returning to the depot, so waypoint 0 = waypoint $N+1$.
+The $N$ waypoints are in $\mathbb{R}^3$. The robot travels along the straight line joining two waypoints. 
+%The robot travels in closed paths to accomplish the task of collecting data hence has to traverse $N+1$ waypoints to complete a closed path. 
+%The waypoint $N = 0$ will act as a depot for offloading the collected data and recharging.
+The task is complete when the robot returns to the depot.
+
 
 \section{Time for servicing $n$ sensor nodes (Moving)}
+
 \begin{figure}[htb]
 \begin{center}
-	\includegraphics[width=0.48\columnwidth]{CommModel}
-	\includegraphics[width=0.48\columnwidth]{CompareVisitEachToComm}
+	\includegraphics[width=0.8\columnwidth]{CommModel}
 \end{center}
-\caption{Two communications models, each based on exponential decay. The two techniques shown in Fig.\ \ref{fig:ShortestPath} have differing costs as a function of the length of the workspace edges.
+\caption{Two communications models, each based on exponential decay. 
 \label{fig:CommModel}}
 \end{figure}
- Data Collection can be performed by either Magnetic Induction or Acoustic. Both methods have their advantages and disadvantages. Thus we combine both to improve efficiency.
+
+
+
+
+
+ Data transmission can be performed by either \emph{magnetic induction communication} or \emph{acoustic communication}. 
+ Both methods have their advantages and disadvantages.
+Magnetic induction has higher bandwidth at close range, but bandwidth falls faster with increasing range.
+Acoustic communication has lower bandwidth at close range, but bandwidth falls more slowly with increasing range.
+This paper examines how to combine both to improve efficiency.
 \\
 \begin{center}
-\begin{tabular}{ c c }
- Data Rate for Magnetic Induction & $= D.R_{MI}$ \\ 
- Data Rate for Acoustic  & $= D.R_{Ac}$ \\  
- Velocity of the robot & $= v$  \\ 
- Data stored in each sensor node   & $= Data(j)$\\
+\begin{tabular}{ c l  c }
+parameter & symbol  & units\\ 
+\hline
+Length of workspace side & $L$ & m\\
+ Data Rate for Magnetic Induction & $ DR_{MI}(d)$  & b/s\\ 
+ Data Rate for Acoustic  & $ DR_{Ac}(d)$ & b/s \\  
+ Velocity of the robot & $ v$ & m/s \\ 
+ Data stored in each sensor node   & $ Data_j$ & b\\
+ Position of sensor $j$& $P_j$ & m, in $\mathbb{R}^3$\\
+  Position of waypoint $i$ & $W_i$ & m, in $\mathbb{R}^3$\\
+ \hline
 \end{tabular}
 \end{center}
 
+
 \begin{equation}
     \label{TimeEqn_Moving}
-   Time_{\textrm{visit each node}}  = [1/v \sum_{i=0}^{n+1} \|W_{p}(i)-W_{p}(i-1)\|] + [1/D.R. \sum_{j=1}^{n} Data(j)]    
+   Time_{\textrm{visit each node}}  = \left [\frac{1}{v} \sum_{i=0}^{n+1} \left\| W_{i} - W_{i-1}\right\|_2 \right] +\left [\frac{1}{DR(d)} \sum_{j=1}^{n} Data_j\right]    
 \end{equation}
-The first term in equation 1 indicates\textbf{ travel time}.\\*
-The second term indicates the \textbf{transmission time}.\\*
+The first term in equation 1 indicates\textbf{ travel time}.
+The second term indicates the \textbf{transmission time}.
+
+
+\label{Dist_Definition}
+\begin{equation}
+D_{ij} = \|W_{p}(i)-P_{j}\|
+\end{equation}
+
+
 For obtaining the solution we will use a TSP (Traveling Salesman Problem) solver.
 
 \section{Time for servicing $n$ sensor nodes (Stationary)}
+
+\begin{figure}[htb]
+\begin{center}
+	\includegraphics[width=0.8\columnwidth]{CompareVisitEachToComm}
+\end{center}
+\caption{ 
+ The two techniques shown in Fig.\ \ref{fig:ShortestPath} have differing costs as a function of the length of the workspace edges.
+\label{fig:CompareTwoPathTechniques}}
+\end{figure}
+
 
 \begin{equation}
     \label{TimeEqn_Stationary}
@@ -69,34 +109,33 @@ For obtaining the solution we will use a TSP (Traveling Salesman Problem) solver
 The rest is the transmission cost.
 
 \section{General Cost}
+We assume that the robot can simultaneously receive both magnetic and acoustic transmissions, but only when the robot is not moving.
+Given a path composed of $N$ waypoints, the minimum time solution is found by solving the following linear programming problem:
 \label{GeneralCost_SingleMode}
 \begin{equation}
-1/v \sum_{i=0}^{n+1} \|W_{p}(i)-W_{p}(i-1)\|+\sum_{i=0}^{n+1}\sum_{j=1}^{n} a_{ij}*Min ((1/D.R)*\|W_{p}(i)-P{j}\|)
+1/v \sum_{i=0}^{N+1} \|W_{p}(i)-W_{p}(i-1)\|+\sum_{i=0}^{N}\sum_{j=1}^{n}  \frac{ a_{ij}}{DR(\|W_{p}(i)-P{j}\|_2)}
 \end{equation}
-Constraints:
+with constraints:
 \label{GeneralCostSingle_Constraints}
 \begin{equation}
-\sum_{i=0}^{n+1} a_{ij} = Data_{j}, \forall j \in [1,n], 
+\sum_{i=0}^{N} a_{ij} = Data_j,~ \forall j \in [1,n], ~
  a_{ij}\geq 0
 \end{equation}
+The $a_{ij}$ parameters determine what fraction of sensor node $j$'s data should be transmitted at waypoint $i$.
 
-\label{Dist_Definition}
-\begin{equation}
-D = \|W_{p}(i)-P{j}\|
-\end{equation}
-
+If we have two communication modalities, the problem space is more rich, and is formulated as the linear programming problem:
 \label{GeneralCost_DoubleMode}
 \begin{equation}
-1/v \sum_{i=0}^{n+1} \|W_{p}(i)-W_{p}(i-1)\|+\sum_{i=0}^{n+1}Max(\sum_{j=1}^{n} \times a_{ij}\times D/D.R_{MI}(Dist))  
+1/v \sum_{i=0}^{n+1} \|W_{p}(i)-W_{p}(i-1)\|+\sum_{i=0}^{N}\sum_{j=1}^{n} \left(  \frac{ a_{ij}}{DR_{MI}(d_{ij})}  +  \frac{ b_{ij}}{DR_{Ac}(d_{ij})}  \right)
 \end{equation}
-\begin{equation}
-(\sum_{j=1}^{n} b_{ij}\times D/D.R_{Ac}(Dist))
-\end{equation}
-
-Constraints:
+with constraints:
 \label{GeneralCostDouble_Constraints}
 \begin{equation}
-\sum_{i=1}^{n+1} a_{ij}+b_{ij}=Data,\forall i \in [1,n], 
+\sum_{i=0}^{N} a_{ij}+b_{ij}=Data_j, ~\forall j \in [1,n], ~
  a_{ij}\geq 0,b_{ij}\geq 0
 \end{equation}
 \end{document}
+
+here, $a_{ij}$ parameters determine what fraction of sensor node $j$'s data should be transmitted at waypoint $i$ using magnetic induction, while $b_{ij}$ is for accoustic.
+
+
