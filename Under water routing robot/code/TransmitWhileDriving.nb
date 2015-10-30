@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     60450,       1324]
-NotebookOptionsPosition[     59181,       1277]
-NotebookOutlinePosition[     59540,       1293]
-CellTagsIndexPosition[     59497,       1290]
+NotebookDataLength[     63515,       1437]
+NotebookOptionsPosition[     61972,       1382]
+NotebookOutlinePosition[     62319,       1397]
+CellTagsIndexPosition[     62276,       1394]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -373,9 +373,9 @@ vFXtKPcsCbduJ8xQFIG1om0uwTkk/AeJ92La
                     0.4731986666666667], FrameTicks -> None, PlotRangePadding -> 
                     None, ImageSize -> 
                     Dynamic[{
-                    Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                    "\[InvisibleSpace]"}], 
+                    Automatic, 
+                    1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], "\[InvisibleSpace]"}], 
                     "RGBColor[0.368417, 0.506779, 0.709798]"], Appearance -> 
                     None, BaseStyle -> {}, BaselinePosition -> Baseline, 
                     DefaultBaseStyle -> {}, ButtonFunction :> 
@@ -419,9 +419,9 @@ vFXtKPcsCbduJ8xQFIG1om0uwTkk/AeJ92La
                     0.587148, 0.40736066666666665`, 0.09470066666666668], 
                     FrameTicks -> None, PlotRangePadding -> None, ImageSize -> 
                     Dynamic[{
-                    Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
-                    "\[InvisibleSpace]"}], 
+                    Automatic, 
+                    1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], "\[InvisibleSpace]"}], 
                     "RGBColor[0.880722, 0.611041, 0.142051]"], Appearance -> 
                     None, BaseStyle -> {}, BaselinePosition -> Baseline, 
                     DefaultBaseStyle -> {}, ButtonFunction :> 
@@ -1271,14 +1271,118 @@ Cell[BoxData[
     RowBox[{"{", 
      RowBox[{"p", ",", " ", "0", ",", " ", "1"}], "}"}]}], "]"}]}]], "Input",
  CellChangeTimes->{{3.654824831970603*^9, 3.654824846918404*^9}, 
-   3.65482494808832*^9},
- FormatType->"InputForm"]
+   3.65482494808832*^9}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.6552130163699803`*^9, 3.655213053339677*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Gradient Descent", "Subchapter",
+ CellChangeTimes->{{3.6552131105784006`*^9, 3.6552131182011623`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"D", "[", 
+  RowBox[{
+   RowBox[{
+    SqrtBox[
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"xr", "-", "xrp1"}], ")"}], "2"], "+", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"yr", "-", "yrp1"}], ")"}], "2"]}]], "+", 
+    SqrtBox[
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"xr", "-", "xrm1"}], ")"}], "2"], "+", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"yr", "-", "yrm1"}], ")"}], "2"]}]]}], ",", "xr"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"D", "[", 
+  RowBox[{
+   RowBox[{
+    SqrtBox[
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"xr", "-", "xrp1"}], ")"}], "2"], "+", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"yr", "-", "yrp1"}], ")"}], "2"]}]], "+", 
+    SqrtBox[
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"xr", "-", "xrm1"}], ")"}], "2"], "+", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"yr", "-", "yrm1"}], ")"}], "2"]}]]}], ",", "yr"}], "]"}]}], \
+"Input",
+ CellChangeTimes->{{3.6552130555338964`*^9, 3.6552130651648593`*^9}, {
+  3.65521313127747*^9, 3.6552131870560474`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox[
+   RowBox[{"xr", "-", "xrm1"}], 
+   SqrtBox[
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"xr", "-", "xrm1"}], ")"}], "2"], "+", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"yr", "-", "yrm1"}], ")"}], "2"]}]]], "+", 
+  FractionBox[
+   RowBox[{"xr", "-", "xrp1"}], 
+   SqrtBox[
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"xr", "-", "xrp1"}], ")"}], "2"], "+", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"yr", "-", "yrp1"}], ")"}], "2"]}]]]}]], "Output",
+ CellChangeTimes->{
+  3.6552130656719103`*^9, {3.655213142188561*^9, 3.655213187403082*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox[
+   RowBox[{"yr", "-", "yrm1"}], 
+   SqrtBox[
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"xr", "-", "xrm1"}], ")"}], "2"], "+", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"yr", "-", "yrm1"}], ")"}], "2"]}]]], "+", 
+  FractionBox[
+   RowBox[{"yr", "-", "yrp1"}], 
+   SqrtBox[
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"xr", "-", "xrp1"}], ")"}], "2"], "+", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"yr", "-", "yrp1"}], ")"}], "2"]}]]]}]], "Output",
+ CellChangeTimes->{
+  3.6552130656719103`*^9, {3.655213142188561*^9, 3.6552131874110827`*^9}}]
+}, Open  ]]
 }, Open  ]]
 },
 WindowSize->{1277, 639},
 WindowMargins->{{-24, Automatic}, {Automatic, 0}},
-FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
-2014)",
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (September 9, 2014)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -1293,38 +1397,47 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 422, 10, 118, "Section"],
-Cell[1005, 34, 158, 2, 44, "Subsection"],
+Cell[580, 22, 422, 10, 130, "Section"],
+Cell[1005, 34, 158, 2, 49, "Subsection"],
 Cell[CellGroupData[{
-Cell[1188, 40, 440, 8, 61, "Subsection"],
-Cell[1631, 50, 838, 18, 55, "Input",
+Cell[1188, 40, 440, 8, 71, "Subsection"],
+Cell[1631, 50, 838, 18, 52, "Input",
  InitializationCell->True],
 Cell[CellGroupData[{
-Cell[2494, 72, 804, 20, 46, "Input"],
-Cell[3301, 94, 19938, 379, 219, "Output"]
+Cell[2494, 72, 804, 20, 52, "Input"],
+Cell[3301, 94, 19942, 379, 218, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[23288, 479, 110, 1, 44, "Subsection"],
+Cell[23292, 479, 110, 1, 49, "Subsection"],
 Cell[CellGroupData[{
-Cell[23423, 484, 2647, 79, 159, "Input"],
-Cell[26073, 565, 6599, 118, 159, "Output"],
-Cell[32675, 685, 6413, 115, 171, "Output"],
-Cell[39091, 802, 1455, 35, 60, "Output"]
+Cell[23427, 484, 2647, 79, 172, "Input"],
+Cell[26077, 565, 6599, 118, 158, "Output"],
+Cell[32679, 685, 6413, 115, 168, "Output"],
+Cell[39095, 802, 1455, 35, 58, "Output"]
 }, Open  ]],
-Cell[40561, 840, 13214, 248, 78, "Input"],
-Cell[53778, 1090, 1584, 52, 117, "Input"],
+Cell[40565, 840, 13214, 248, 77, "Input"],
+Cell[53782, 1090, 1584, 52, 120, "Input"],
 Cell[CellGroupData[{
-Cell[55387, 1146, 649, 22, 49, "Input"],
-Cell[56039, 1170, 782, 25, 48, "Output"]
+Cell[55391, 1146, 649, 22, 50, "Input"],
+Cell[56043, 1170, 782, 25, 57, "Output"]
 }, Open  ]],
-Cell[56836, 1198, 703, 23, 49, "Input"],
-Cell[57542, 1223, 118, 2, 28, "Input"]
+Cell[56840, 1198, 703, 23, 50, "Input"],
+Cell[57546, 1223, 118, 2, 31, "Input"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[57709, 1231, 169, 2, 64, "Section"],
-Cell[57881, 1235, 1284, 39, 28, "Input"]
+Cell[57713, 1231, 169, 2, 70, "Section"],
+Cell[57885, 1235, 1258, 38, 31, "Input"],
+Cell[59146, 1275, 94, 1, 31, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[59277, 1281, 108, 1, 67, "Subchapter"],
+Cell[CellGroupData[{
+Cell[59410, 1286, 1204, 42, 80, InheritFromParent],
+Cell[60617, 1330, 661, 23, 58, "Output"],
+Cell[61281, 1355, 663, 23, 58, "Output"]
+}, Open  ]]
 }, Open  ]]
 }
 ]
