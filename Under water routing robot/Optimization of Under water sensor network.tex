@@ -134,8 +134,24 @@ with constraints:
 \sum_{i=0}^{N} a_{ij}+b_{ij}=Data_j, ~\forall j \in [1,n], ~
  a_{ij}\geq 0,b_{ij}\geq 0
 \end{equation}
+
+here, $a_{ij}$ parameters determine what fraction of sensor node $j$'s data should be transmitted at waypoint $i$ using magnetic induction, while $b_{ij}$ is for acoustic.
+
+bits transmitted from sensor at  location $s$, $(xy)$ is $(sx,sy)$ when vehicle is 
+moving at velocity $v$ between $p1$  $(p_{1}^{x},p_{1}^{y})$ and $p2$  $(p_{2}^{x},p_{2}^{y})$ is : 
+\label{Drive_and_Transmit}
+\begin{equation}
+(Sqrt[(p1x - p2x)^2 + (p1y - p2y)^2]/v)* Integrate[e^(-Sqrt[(p1x + (p2x - p1x)*p - sx)^2+ (p1y + (p2y - p1y)*p - sy)^2]), {p, 0, 1}]
+\end{equation}
+The first term is  a constant:  distanct/velocity:
+\label{Drive_and_Transmit_constant}
+\begin{equation}
+(Sqrt[(p1x - p2x)^2 + (p1y - p2y)^2]/v)
+\end{equation}
+The next term is an integral from p = 0 to p = 1  (p is progress along straight line from p1 to p2:
+\label{Drive_and_Transmit_integral}
+\begin{equation}
+e^(-Sqrt[(p1x + (p2x - p1x)*p - sx)^2+ (p1y + (p2y - p1y)*p - sy)^2])
+\end{equation}
+e  is the base of the natural logarithm.
 \end{document}
-
-here, $a_{ij}$ parameters determine what fraction of sensor node $j$'s data should be transmitted at waypoint $i$ using magnetic induction, while $b_{ij}$ is for accoustic.
-
-
