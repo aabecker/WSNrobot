@@ -70,12 +70,12 @@
 %
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
-\title{Seismic Survey with Drone mounted Geophones } 
+\title{Seismic Survey with Drone-Mounted Geophones } 
 
-\author[1]{\rm Srikanth K.V.Sudarshan}
+\author[1]{\rm Srikanth K. V. Sudarshan}
 \author[1]{\rm Li Huang}
 \author[2]{\rm Robert Stuart}
-\author[1]{\rm Aaron T.Becker}
+\author[1]{\rm Aaron T. Becker}
 \affil[1]{Department of Electrical and Computer Engineering}
 \affil[2]{Department of Geophysics}
 \affil[ ]{University of Houston}
@@ -84,8 +84,19 @@
 % make the title area
 \maketitle
 
+%(http://www.eoearth.org/view/article/155968/) Seismic exploration is the search for commercially economic subsurface deposits of crude oil, natural gas, and minerals by the recording, processing, and interpretation of artificially induced shock waves in the earth
 \begin{abstract}
-Seismic exploration techniques help in locating and estimating hydrocarbons present in a crude form. Instead of a random search we can precisely locate the presence of these hydrocarbons which help us save millions of dollars. Hydrocarbons (coal, oil, natural gas) fulfill more than half the energy demands currently and is necessary for socio-economic development. The equipment used for seismic exploration are in general bulky and are connected using cables and the process requires tremendous manual labor. The goal of this paper is to prove this process can be automated by using Unmanned Air Vehicles (Quadcopters) to place the geophones (sensors for detecting seismic disturbances) at precise locations. The combined setup can self-deploy at a location, collect and transmit data, relocate and recharge autonomously. A hardware demonstration is performed to prove the feasibility of the model and an experimental survey is conducted to compare the proposed setup with the existing traditional setups on a small scale. The results prove the proposed model has superior efficiency in terms of energy, cost and time. This idea can be extrapolated to a large scale, there by revolutionizing the seismic sensing and data acquisition industry. Since it has the potential to reduce expenditure and increase efficiency.  
+
+Seismic imaging is one of the major techniques (and industries in Texas) for subsurface exploration and involves generating a vibration which propagates into the ground, echoes, and is then recorded using motion sensors. There are numerous sites of resource or rescue interest that may be difficult or hazardous to access. In addition, there is often  many places to survey, which require a great deal of hand labor. Thus, there is a substantial need for unmanned sensors that can be deployed by air and potentially in large numbers. This paper presents working prototypes of an Autonomous Flying Vibration Sensor that can fly to a site, land, then listen for echoes and vibrations, transmit the information, and subsequently return to its home base.
+One design uses four geophone sensors (with spikes) in place of the landing gear.  This provides a stable landing attitude, redundancy in sensing, and ensures the geophones are oriented perpendicular to the ground. The paper describes hardware experiments demonstrating the efficacy of this technique and comparing with traditional manual techniques.
+
+
+%Our overall goal is to design, build, and demonstrate the use of motion sensing drones for seismic surveys, earthquake monitoring, and remote material testing
+
+
+%Seismic exploration induces shock waves in the earth and records the resulting vibrations to search for hydrocarbons located below the surface of the earth. The placement of these sensors is critical for accurate reconstruction of the underlying geology. Currently sensors are placed manually and connected by long cables.  This paper presents a robotic solution by using an aerial drone to accurately place the vibration sensors.  The paper presents an instrumented quadcopter that uses four spike-form geophones in plapce of its landing gear  experimental results 
+
+%[OLD] Seismic exploration techniques help in locating and estimating hydrocarbons present in a crude form. Instead of a random search we can precisely locate the presence of these hydrocarbons which help us save millions of dollars. Hydrocarbons (coal, oil, natural gas) fulfill more than half the energy demands currently and is necessary for socio-economic development. The equipment used for seismic exploration are in general bulky and are connected using cables and the process requires tremendous manual labor. The goal of this paper is to prove this process can be automated by using Unmanned Air Vehicles (Quadcopters) to place the geophones (sensors for detecting seismic disturbances) at precise locations. The combined setup can self-deploy at a location, collect and transmit data, relocate and recharge autonomously. A hardware demonstration is performed to prove the feasibility of the model and an experimental survey is conducted to compare the proposed setup with the existing traditional setups on a small scale. The results prove the proposed model has superior efficiency in terms of energy, cost and time. This idea can be extrapolated to a large scale, there by revolutionizing the seismic sensing and data acquisition industry. Since it has the potential to reduce expenditure and increase efficiency.  
  
 \end{abstract}
 \begin{IEEEkeywords} Data Acquisition, Geophones, Quadcopters, Seismic Exploration \end{IEEEkeywords}
@@ -94,25 +105,28 @@ Seismic exploration techniques help in locating and estimating hydrocarbons pres
 
 
 \section{Introduction}
-Hydrocarbons (coal, oil, natural gas) are estimated to supply more that 66\% of the total energy consumed on earth during the year 2014 by IEA (International Energy Agency).  Thus hydrocarbon exploration, the search for hydrocarbons (oil and natural gas deposits) below the earth?s surface or sea bed is essential to sustain life on this planet. Millions of dollars are pumped into exploration since these hydrocarbons are major sources of energy, to avoid hazards (maintain safety) as they are inflammable and are an essential part of the socio-economic development.
- 
-Traditional exploration involves planting geophones (sensors) into the soil and detecting seismic disturbances caused from a Veibroseis trucks (trucks with a heavy meatal plate) or dynamite act as the source of vibration, as these vibrations propagate on the surface they are detected by the geophones and the data is stored. The data obtained describes the intensity of the pressure wave generated by the source over a time period and is received by the geophones (sensor). This data is highly useful in analyzing the underground rock structure and inferring the presence of hydrocarbons. Hence instead of randomly searching for hydrocarbons the exploration is carried out by using state of the art techniques, equipment and skilled labor over a large area with potential hydrocarbon reserves. An array of sensors are placed in different patterns while the test is performed, these geophones have a spike and are pushed into to ground to aid the sensing process. Coupling between the sensor and ground is at most important while testing. Since the sensor is coupled with the ground, when the source generates pressure waves the ground oscillates these oscillations are sensed by the sensor and the data is transmitted to the seismic recorder and stored. 
 
-The current state of the art technology used to perform exploration is bulky and has long cable connections connecting an array of geophones to the seismic recorder. This requires a lot of manual labor, transportation resources, time and energy. These explorations are carried out on thousands of square kilometers of area multiple times. There are emerging technologies that can improve the situation, there are autonomous senor systems which have spikes and have to be pushed into the ground but instead of an array of sensors which are connected in series to the seismic recorder in general using bulky cable wires, the autonomous node is a single unit comprising the sensor and seismic recorder and battery. It can be deployed at a location for days and collect data, but this data can be viewed only after the experiments are over this is the same case with the extensively used cabled system. This is a drawback since if the data collected was faulty (bad coupling of geophone, the node can be stolen) we would not know until the experiment is over. A recent breakthrough is to wireless sensor nodes and real time data acquisition systems. This improves the system tremendously and using wireless transmission (Radio Frequency) we can cut short the transportation and use of bulky cables. It helps in analyzing complex terrains with mountains, rivers which could not be achieved with the cable system. Real time data acquisition is useful in detecting faults and instant analysis is useful to plan future operations. This system has overcome most of the drawbacks from the cabled systems but this still requires manual labor for setting up their hardware and removing it. The hardware has to be moved periodically during the exploration process to cover the complete field area which again requires manual work. 
+\todo{insert an image of your quadcopter}
+
+Hydrocarbons (coal, oil, natural gas) are estimated to supply more that 66\% of the total energy consumed on earth during the year 2014 by IEA (International Energy Agency)\todo{add this to references}.  Thus hydrocarbon exploration, the search for hydrocarbons (oil and natural gas deposits) below the earth?s surface or sea bed is essential to sustain life on this planet. Millions of dollars are pumped into exploration since these hydrocarbons are major sources of energy, to avoid hazards (maintain safety) as they are inflammable and are an essential part of the socio-economic development.
+ 
+Traditional exploration involves planting geophones (sensors) into the soil and detecting seismic disturbances caused from a \emph{Veibroseis} trucks (trucks with a heavy metal plate) or dynamite act as the source of vibration, as these vibrations propagate on the surface they are detected by the geophones and the data is stored. The data obtained describes the intensity of the pressure wave generated by the source over a time period and is received by the geophones (sensor). This data is highly useful in analyzing the underground rock structure and inferring the presence of hydrocarbons. Hence instead of randomly searching for hydrocarbons the exploration is carried out by using state of the art techniques, equipment and skilled labor over a large area with potential hydrocarbon reserves. An array of sensors are placed in different patterns while the test is performed, these geophones have a spike and are pushed into to ground to aid the sensing process. Coupling between the sensor and ground is at most important while testing. Since the sensor is coupled with the ground, when the source generates pressure waves the ground oscillates these oscillations are sensed by the sensor and the data is transmitted to the seismic recorder and stored. 
+
+The current state of the art technology used to perform exploration is bulky and has long cable connections connecting an array of geophones to the seismic recorder. This requires a lot of manual labor, transportation resources, time and energy. These explorations are carried out on thousands of square kilometers of area multiple times. There are emerging technologies that can improve the situation, there are autonomous sensor systems which have spikes and have to be pushed into the ground but instead of an array of sensors which are connected in series to the seismic recorder in general using bulky cable wires, the autonomous node is a single unit comprising the sensor and seismic recorder and battery. It can be deployed at a location for days and collect data, but this data can be viewed only after the experiments are over this is the same case with the extensively used cabled system. This is a drawback since if the data collected was faulty (bad coupling of geophone, the node can be stolen) we would not know until the experiment is over. A recent breakthrough is to wireless sensor nodes and real time data acquisition systems. This improves the system tremendously and using wireless transmission (Radio Frequency) we can cut short the transportation and use of bulky cables. It helps in analyzing complex terrains with mountains, rivers which could not be achieved with the cable system. Real time data acquisition is useful in detecting faults and instant analysis is useful to plan future operations. This system has overcome most of the drawbacks from the cabled systems but this still requires manual labor for setting up their hardware and removing it. The hardware has to be moved periodically during the exploration process to cover the complete field area which again requires manual work. 
  
 The solution is simple, we need to automate the complete process. Quadcopters (flying robots) are extensively used in pick and drop tasks, these robots are gaining incredible popularity amongst the research fraternity and as a commercial product for recreation and delivery tasks. Quadcopters can be the solution the missing piece in the puzzle to automate the process of seismic exploration. Instead of having humans deploy the sensor nodes quadcopters can deploy, retrieve and recharge these sensor nodes by magnetic induction using on board sensors sensors (Camera, lasers, IR) and GPS information. A swarm of robots can perform the task efficiently thereby saving time, resources and decrease the possibility of errors. The major task is to ensure coupling with the surface, which is essential in obtaining quality data.~\cite{MVEwaWSN05},~\cite{CtMiSD08},~\cite{DSSMaA14} 
 
 
 \section{Overview}
-
+\todo{add some outline sentences here.  what will you talk about?}
 
 \section{Traditional Exploration Methods}
  
-
+\todo{cite the book that Li sent us.  Also cite some papers by Rob.}
 
 \section{Experimental Survey}
 
-
+\todo{list your experiments that you've done so far and the ones we plan to do.  Please call Li on Monday and attempt to set up an experiment}
 
 \section{Results}
 
