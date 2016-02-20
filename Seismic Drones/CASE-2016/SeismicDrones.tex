@@ -74,6 +74,7 @@
 
 \author[1]{\rm Srikanth K. V. Sudarshan}
 \author[1]{\rm Li Huang}
+\author[2]{\rm Li Chang}
 \author[2]{\rm Robert Stuart}
 \author[1]{\rm Aaron T. Becker}
 \affil[1]{Department of Electrical and Computer Engineering}
@@ -106,7 +107,15 @@ One design uses four geophone sensors (with spikes) in place of the landing gear
 
 \section{Introduction}
 
-\todo{insert an image of your quadcopter}
+   \begin{figure}
+   \centering
+\begin{overpic}[width =\columnwidth]{OXEND.png}\end{overpic}
+\caption{\label{fig:OverviewImage}
+ insert Figure 1
+}
+\end{figure}
+
+
 
 Hydrocarbons (coal, oil, natural gas) are estimated to supply more that 66\% of the total energy consumed on earth during the year 2014 by IEA (International Energy Agency)\todo{add this to references}.  Thus hydrocarbon exploration, the search for hydrocarbons (oil and natural gas deposits) below the earth?s surface or sea bed is essential to sustain life on this planet. Millions of dollars are pumped into exploration since these hydrocarbons are major sources of energy, to avoid hazards (maintain safety) as they are inflammable and are an essential part of the socio-economic development.
  
@@ -116,23 +125,113 @@ The current state of the art technology used to perform exploration is bulky and
  
 The solution is simple, we need to automate the complete process. Quadcopters (flying robots) are extensively used in pick and drop tasks, these robots are gaining incredible popularity amongst the research fraternity and as a commercial product for recreation and delivery tasks. Quadcopters can be the solution the missing piece in the puzzle to automate the process of seismic exploration. Instead of having humans deploy the sensor nodes quadcopters can deploy, retrieve and recharge these sensor nodes by magnetic induction using on board sensors sensors (Camera, lasers, IR) and GPS information. A swarm of robots can perform the task efficiently thereby saving time, resources and decrease the possibility of errors. The major task is to ensure coupling with the surface, which is essential in obtaining quality data.~\cite{MVEwaWSN05},~\cite{CtMiSD08},~\cite{DSSMaA14} 
 
+\section{Overview and Related Work}\label{sec:RelatedWork}
 
-\section{Overview}
-\todo{add some outline sentences here.  what will you talk about?}
 
-\section{Traditional Exploration Methods}
- 
+\subsection{Traditional Seismic Exploration Methods}
+
 \todo{cite the book that Li sent us.  Also cite some papers by Rob.}
 
-\section{Experimental Survey}
-
-\todo{list your experiments that you've done so far and the ones we plan to do.  Please call Li on Monday and attempt to set up an experiment}
-
-\section{Results}
+\todo{ an equation describing seismic waves in earth }
 
 
+ \paragraph{Cabled Systems}
+ 
+ \paragraph{Wireless systems}
+ 
+ \paragraph{Mobile robot}  \todo{mention the patent here}
+ 
+\subsection{Wireless Sensor Networks with Drones}
+   \todo{cite some recent robotics papers on drone sensor networks}
 
-\section{Conclusion}
+\section{Experiments}\label{sec:Experiment}
+Three experiments were completed
+
+   \begin{figure}
+   \centering
+\begin{overpic}[width =\columnwidth]{OXEND.png}\end{overpic}
+\caption{\label{fig:OverviewImage}
+ Figure showing the seismic drone, with labels on each part
+}
+\end{figure}
+
+
+
+\subsection{Comparison with traditional geophone system}
+%describe Feb 19th tests.  Li Chang has documentation on these
+The seismic drone lifted off, flew to the same locations as four cabled geophones, and was coupled to the recording equipment.
+
+   \begin{figure}
+   \centering
+\begin{overpic}[width =\columnwidth]{OXEND.png}\end{overpic}
+\caption{\label{fig:OverviewImage}
+System setup for comparison with traditional geophone system.
+}
+\end{figure}
+
+   \begin{figure}
+   \centering
+\begin{overpic}[width =\columnwidth]{OXEND.png}\end{overpic}
+\caption{\label{fig:OverviewImage}
+2 plots showing comparison with traditional geophone system for (1) hard surface, and (2) dirt surface
+}
+\end{figure}
+
+
+\subsection{Recording seismic disturbance using onboard GSR}
+To ensure all measurements had the same attenuation and were synchronous, the previous test  connected the seismic drone to a cabled system.  This experiment demonstrates that the onboard GSR records seismic disturbances.
+
+   \begin{figure}
+   \centering
+\begin{overpic}[width =\columnwidth]{OXEND.png}\end{overpic}
+\caption{\label{fig:OverviewImage}
+Data recorded by the cable-free seismic drone
+}
+\end{figure}
+
+\subsection{Wireless transmission of seismic disturbances}
+describe the Arduino blue-tooth solution
+
+   \begin{figure}
+   \centering
+\begin{overpic}[width =\columnwidth]{OXEND.png}\end{overpic}
+\caption{\label{fig:OverviewImage}
+One plot from the  Arduino blue-tooth equipped quad copter.
+}
+\end{figure}
+
+
+\subsection{Accuracy of autonomous landing with geophone setup}
+Seismic exploration depends on accurate placement of geophones over a large geographic area.  This experiment tested the accuracy of autonomous landing of the fully loaded
+The seismic drone was
+
+   \begin{figure}
+   \centering
+\begin{overpic}[width =\columnwidth]{OXEND.png}\end{overpic}
+\caption{\label{fig:AutonomousLandingImage}
+The seismic drone was commanded to land at the location marked with a green 'x'.  The actual positions are shown with blue 'o'.  The mean and $\pm$1 standard deviation ellipses are drawn in red.
+}
+\end{figure}
+
+
+\subsection{Coupling in various soils}
+% I ordered this and it should come this week:  http://www.amazon.com/Geotest-E-280-Pocket-Penetrometer/dp/B004NEG5BW/  
+% we will land the drone in various soils, take a picture of the geophones to measure their penetration depth and compare to probe measurement.  Can we also measure how level the quadcopter is using the accelerometers?
+
+%\section{Results}\label{sec:Results}
+
+   \begin{figure}
+   \centering
+\begin{overpic}[width =\columnwidth]{OXEND.png}\end{overpic}
+\caption{\label{fig:OverviewImage}
+(left) Photographs of seismic drone geophone feet in different soils, with a ruler visible. (right) plot of penetration depth for three different soil types.
+}
+\end{figure}
+
+
+
+
+\section{Conclusion}\label{sec:Conclusion}
 
 
 \bibliography{./bibs/Match}
