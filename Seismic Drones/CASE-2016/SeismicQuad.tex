@@ -127,7 +127,7 @@ One design uses four geophone sensors (with spikes) in place of the landing gear
 
 Hydrocarbons (coal, oil, natural gas) are estimated to
 supply more that 66\% of the total energy consumed on earth
-during the year 2014.~\cite{bektas2006multiple}
+during the year 2014 by IEA ~\cite{bektas2006multiple}.
  Millions of dollars are pumped into exploration since these hydrocarbons are major sources of energy, it is essential for sustaining life and socio-economic developments. Avoiding hazards and maintaining safety is necessary as they are highly-inflammable and human life is at stake thus essentially requiring state of the art equipment to prevent disasters.
 
 Traditional exploration involves planting geophones (sensors)
@@ -178,39 +178,86 @@ discusses the performance of the above system with traditional methods and follo
 
 
  \paragraph{Cabled Systems}
+
+ Traditional cabled systems were extensively used for seismic data acquisition in hydrocarbon explorations. A group of sensors (geophones) were connected to each other in series using long cables, and this setup was connected to a seismic recorder and a battery. The seismic recorder consisted of a microcontroller which could synchronize the data acquired with the GPS signal and store it in the onboard memory. Generally a four-cell Lithium Polymer (LiPo, 14.8V, 10Ahrs) batteries are used to power this system. This method of data acquisition required high number of manual laborers and a substantial expenditure for transporting the cables. The difficulties faced in used a tradition cabled system for data acquisition are 1. Conducting a seismic survey in rugged terrains 2. The manual labor available might be unskilled and expensive depending on the location.  
  
- \paragraph{Wireless systems}
+ \paragraph{Autonomous Nodal systems}
  
- \paragraph{Mobile robot}  \todo{mention the patent here}
+ Currently the autonomous nodal systems are extensively used for conducting seismic data acquisition surveys in USA. Unlike traditional cabled systems, the autonomous nodal systems are not connected using cables. The sensor, seismic recorder and battery are all combined into a single package, and this unit can autonomously record data and hence these systems are called autonomous nodal systems. Even in these systems the data is stored in the onboard memory and can only be acquired after the survey is completed. This poses as a disadvantage since the errors cannot be detected and rectified while conducting the survey. Recently wireless autonomous nodes have been developed, these systems can transmit data wirelessly as a radio frequency in real time. Yet these systems require manual laborers for planting the autonomous nodes at specific locations and deploying long antennas which are necessary for wireless communication.
  
-\subsection{Wireless Sensor Networks with Drones}
+\subsection{Seismic Drone}  \todo{mention the patent here}
+
+Seismic drones combine the quality of data acquisition present in the traditional exploration method with an autonomous unmanned air vehicle (UAV) which has high maneuverability and the capability of performing robust movements. A seismic recorder, battery, and four geophones are embedded onto a platform which is attached to an UAV. By inputting the specific GPS location, the UAV can deploy the seismic data acquisition system. The geophones obtain data which is processed by the seismic recorder and stored in the on-board memory. The major advantage with the current system is automating the deployment process and thereby eliminating humans from the loop. By using a robot to perform the above task, we can reduce costs and errors. Since we use the same micro-controller as in the traditional cabled systems, we obtain a 24-bit accuracy on the ADC conversion and sampled rates as low as half a millisecond. The drawback with the proposed system is that it cannot transmit data wirelessly and hence we cannot obtain seismic plots in real-time. Since the deployment is autonomous, it is precise and the system has the ability to re-deploy or return home from the current deployment site. 
+ 
+\subsection{Seismic Wireless Sensor Network Drone}
    \todo{cite some recent robotics papers on drone sensor networks}
+   
+   This system also employs an UAV for sensor deployment and it has the ability to transmit data wirelessly. In the current system, the data is transmitted via Bluetooth transmission and is limited to a range of 50 m. We use an Arduino Mega processor which possesses a 12-bit ADC and a maximum sampling rate of 1 ms. The proposed system was developed using commercially accessible products and is not comparable to the micro-controller which were specifically designed for seismic data acquisition purposes. The key point to note is the feasibility of the proposed idea and the features presented can be extended to the present state of the art technology
 
 \section{Experiments}\label{sec:Experiment}
 Three experiments were completed
 
    \begin{figure}
    \centering
-\begin{overpic}[width =\columnwidth]{OXEND.png}\end{overpic}
+\begin{overpic}[width =\columnwidth]{drone_base.pdf}\end{overpic}
 \caption{\label{fig:OverviewImage}
- Figure showing the seismic drone, with labels on each part
+ Figure showing the seismic drone's sensor base which consists of four geophones a Geospace Seismic Recorder and a LiPo (14.8V, 0.5Ah, 4 cells) battery
 }
 \end{figure}
 
 
 
-\subsection{Comparison with traditional geophone system}
+\subsection{Seismic Survey Comparison}
 %describe Feb 19th tests.  Li Chang has documentation on these
-The seismic drone lifted off, flew to the same locations as four cabled geophones, and was coupled to the recording equipment.
+
+The purpose of this experiment is to compare the proposed system's (Seismic Drone) performance with the currently available systems (traditional cabled systems). The seismic drone lifted off, flew to the same locations as four cabled geophones, and was coupled to the recording equipment to obtain graphs for comparison.
+
+\textbf{Materials Required :-}
+\begin{center}
+ \begin{tabular}{||c c c||} 
+ \hline
+ S No. & Materials & No. of Units \\ [0.5ex] 
+ \hline\hline
+1 &	Sledge Hammer &	1 \\ 
+ \hline
+2 & Traditional Geophones &	10 \\
+ \hline
+3 &	GSR	& 1 \\
+ \hline
+4 & Battery,14.8V,10Ah &	1 \\
+ \hline
+5 &	Seismic Drone &	1 \\ [1ex] 
+ \hline
+\end{tabular}
+\end{center}
+
+\textbf{Procedure :-}
+\\
+1.	 Plant the geophones vertically into the ground, 5m apart from one another. Ensure the coupling with the ground is satisfactory.\\
+2.	 Attach the series geophone bundle to the GSR (Geospace Seismic Recorder).\\
+3.	Attach the GSR to the battery for power.\\
+4.	Fly drone and land it approximately next to the 1st stationary geophone.\\
+5.	At approximately 10m from the geophone setup use the sledge hammer to strike the ground, the impact causes vibrational waves that propagate below the earth's surface and is detected by the geophones.\\
+6.	Repeat steps 4 and 5, landing the drone next to each geophone.\\
+7.	Save data files from both the drone and the stationary geophones.  In software line up the hammer strikes. Display data for one test with all the stationary geophones overlayed with the data from each position of the seismic drone.\\
+
+\textbf{Results}
+
 
    \begin{figure}
    \centering
-\begin{overpic}[width =\columnwidth]{OXEND.png}\end{overpic}
+\begin{overpic}[width =\columnwidth]{TraditionalCabeledSystem.pdf}\end{overpic}
 \caption{\label{fig:OverviewImage}
-System setup for comparison with traditional geophone system.
+A sketch of the traditional geophone system,used extensively for Seismic data acquisition..
 }
 \end{figure}
-
+ \begin{figure}
+   \centering
+\begin{overpic}[width =\columnwidth]{SeismicDrone.pdf}\end{overpic}
+\caption{\label{fig:OverviewImage}
+A sketch of the proposed drone setup which can replace manual laborers during seismic surveys.
+}
+\end{figure}
    \begin{figure}
    \centering
 \begin{overpic}[width =\columnwidth]{OXEND.png}\end{overpic}
@@ -220,8 +267,8 @@ System setup for comparison with traditional geophone system.
 \end{figure}
 
 
-\subsection{Recording seismic disturbance using onboard GSR}
-To ensure all measurements had the same attenuation and were synchronous, the previous test  connected the seismic drone to a cabled system.  This experiment demonstrates that the onboard GSR records seismic disturbances.
+%\subsection{Recording seismic disturbance using onboard GSR}
+%To ensure all measurements had the same attenuation and were synchronous, the previous test  connected the seismic drone to a cabled system.  This experiment demonstrates that the onboard GSR records seismic disturbances.
 
    \begin{figure}
    \centering
@@ -232,7 +279,23 @@ Data recorded by the cable-free seismic drone
 \end{figure}
 
 \subsection{Wireless transmission of seismic disturbances}
-describe the Arduino blue-tooth solution
+%describe the Arduino blue-tooth solution
+The purpose of this experiment is to compare the seismic drone system's performance with the \textbf{Seismic Wireless Sensor Network Drone} (SWSN Drone).
+
+\textbf{Materials Required :-}
+\begin{center}
+ \begin{tabular}{||c c c||} 
+ \hline
+ S No. & Materials & No. of Units \\ [0.5ex] 
+ \hline\hline
+1 &	Sledge Hammer &	1 \\ 
+ \hline
+2 & SWSN Drone &	10 \\
+ \hline
+3 &	Seismic Drone &	1 \\ [1ex] 
+ \hline
+\end{tabular}
+\end{center}
 
    \begin{figure}
    \centering
@@ -242,10 +305,50 @@ One plot from the  Arduino blue-tooth equipped quad copter.
 }
 \end{figure}
 
+\textbf{Procedure :-}\\
+1.	Fly the seismic drone and land it around the first survey location.\\ 
+2.	Use a sledge hammer to strike the ground, the impact causes vibrational waves which propagates below the earth surface and is detected by the geophones.\\
+3.	Repeat steps one and two for all survey locations.\\ 
+4.	Repeat steps one, two and three for the seismic wireless sensor network drone system.\\
+5.	Save the data file obtained from the seismic drone and the seismic wireless sensor network drone system (obtained wirelessly). In software line up the hammer strikes. Display data from both the test overlaid on each other for all survey locations.\\ 
+
+\textbf{Results}
+
+
 
 \subsection{Accuracy of autonomous landing with geophone setup}
-Seismic exploration depends on accurate placement of geophones over a large geographic area.  This experiment tested the accuracy of autonomous landing of the fully loaded
-The seismic drone was
+Seismic exploration depends on accurate placement of geophones over a large geographic area.  This experiment tested the accuracy of autonomous landing of the fully loaded seismic drone system verses the manual landing controlled by a piolot using an RC transmitter. The purpose of this experiment is to compare the accurate placement of geophones using manual control and autonomous control.
+
+\textbf{Materials Required :-}
+\begin{center}
+ \begin{tabular}{||c c c||} 
+ \hline
+ S No. & Materials & No. of Units \\ [0.5ex] 
+ \hline\hline
+1 &	Mobile Phone &	1 \\ 
+ \hline
+2 & SWSN Drone &	10 \\
+ \hline
+3 &	Seismic Drone &	1 \\ [1ex] 
+ \hline
+\end{tabular}
+\end{center}
+
+
+\textbf{Procedure :-}\\
+1.	Mark the landing location with an x using a red insulating tape.\\
+2.	Try to land the seismic drone manually at the center of the marked x location using the wireless RF transmitter.\\
+3.	After landing, measure the displacement from the center of the seismic drone to the center of the x location.\\
+4.	Repeat steps 2 and 3 ten times.\\
+5.	Obtain the mean and variance using the displacement values.\\
+6.	Use the mobile phone (tower app) to land the seismic drone autonomously at the center of the x location.\\
+7.	 Measure the distance between the center of the seismic drone to the center of the x location.\\
+8.	Repeat the above two steps ten times.\\
+9.	Obtain the mean and variance using the displacement values.\\
+10.	Compare the average mean and variance values for manual and autonomous control.
+
+\textbf{Results}
+
 
    \begin{figure}
    \centering
@@ -257,12 +360,16 @@ The seismic drone was commanded to land at the location marked with a green 'x'.
 
 
 \subsection{Coupling in various soils}
-% I ordered this and it should come this week:  http://www.amazon.com/Geotest-E-280-Pocket-Penetrometer/dp/B004NEG5BW/  
-% we will land the drone in various soils, take a picture of the geophones to measure their penetration depth and compare to probe measurement.  Can we also measure how level the quadcopter is using the accelerometers?
+  
+We land the drone in various soils, and measure the penetration using a penetrometer.
 
-%\section{Results}\label{sec:Results}
+\textbf{Materials Required :-}\\
+\textbf{Procedure :-}\\
+\textbf{Results :-}\\
 
-   \begin{figure}
+
+
+  \begin{figure}
    \centering
 \begin{overpic}[width =\columnwidth]{OXEND.png}\end{overpic}
 \caption{\label{fig:OverviewImage}

@@ -1,0 +1,13 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Overview and Related Work}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Traditional Seismic Exploration Methods}{section.2}% 3
+\BOOKMARK [3][-]{paragraph.2.1.0.1}{Cabled Systems}{subsection.2.1}% 4
+\BOOKMARK [4][-]{paragraph.2.1.0.2}{Autonomous Nodal systems}{paragraph.2.1.0.1}% 5
+\BOOKMARK [2][-]{subsection.2.2}{Seismic Drone}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.3}{Seismic Wireless Sensor Network Drone}{section.2}% 7
+\BOOKMARK [1][-]{section.3}{Experiments}{}% 8
+\BOOKMARK [2][-]{subsection.3.1}{Seismic Survey Comparison}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.2}{Wireless transmission of seismic disturbances}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.3}{Accuracy of autonomous landing with geophone setup}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.4}{Coupling in various soils}{section.3}% 12
+\BOOKMARK [1][-]{section.4}{Conclusion}{}% 13
