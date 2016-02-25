@@ -1,0 +1,26 @@
+\section{Overview and Related Work}\label{sec:RelatedWork}
+
+
+\subsection{Traditional Seismic Exploration Methods}
+
+\todo{cite the book that Li sent us.  Also cite some papers by Rob.}
+
+\todo{ an equation describing seismic waves in earth }
+
+
+ \paragraph{Cabled Systems}
+
+ Traditional cabled systems were extensively used for seismic data acquisition in hydrocarbon explorations. A group of sensors (geophones) were connected to each other in series using long cables, and this setup was connected to a seismic recorder and a battery. The seismic recorder consisted of a microcontroller which could synchronize the data acquired with the GPS signal and store it in the onboard memory. Generally a four-cell Lithium Polymer (LiPo, 14.8V, 10Ahrs) batteries are used to power this system. This method of data acquisition required high number of manual laborers and a substantial expenditure for transporting the cables. The difficulties faced in used a tradition cabled system for data acquisition are 1. Conducting a seismic survey in rugged terrains 2. The manual labor available might be unskilled and expensive depending on the location.  
+ 
+ \paragraph{Autonomous Nodal systems}
+ 
+ Currently the autonomous nodal systems are extensively used for conducting seismic data acquisition surveys in USA. Unlike traditional cabled systems, the autonomous nodal systems are not connected using cables. The sensor, seismic recorder and battery are all combined into a single package, and this unit can autonomously record data and hence these systems are called autonomous nodal systems. Even in these systems the data is stored in the onboard memory and can only be acquired after the survey is completed. This poses as a disadvantage since the errors cannot be detected and rectified while conducting the survey. Recently wireless autonomous nodes have been developed, these systems can transmit data wirelessly as a radio frequency in real time. Yet these systems require manual laborers for planting the autonomous nodes at specific locations and deploying long antennas which are necessary for wireless communication.
+ 
+\subsection{Seismic Drone}  \todo{mention the patent here}
+
+Seismic drones combine the quality of data acquisition present in the traditional exploration method with an autonomous unmanned air vehicle (UAV) which has high maneuverability and the capability of performing robust movements. A seismic recorder, battery, and four geophones are embedded onto a platform which is attached to an UAV. By inputting the specific GPS location, the UAV can deploy the seismic data acquisition system. The geophones obtain data which is processed by the seismic recorder and stored in the on-board memory. The major advantage with the current system is automating the deployment process and thereby eliminating humans from the loop. By using a robot to perform the above task, we can reduce costs and errors. Since we use the same micro-controller as in the traditional cabled systems, we obtain a 24-bit accuracy on the ADC conversion and sampled rates as low as half a millisecond. The drawback with the proposed system is that it cannot transmit data wirelessly and hence we cannot obtain seismic plots in real-time. Since the deployment is autonomous, it is precise and the system has the ability to re-deploy or return home from the current deployment site. 
+ 
+\subsection{Seismic Wireless Sensor Network Drone}
+   \todo{cite some recent robotics papers on drone sensor networks}
+   
+   This system also employs an UAV for sensor deployment and it has the ability to transmit data wirelessly. In the current system, the data is transmitted via Bluetooth transmission and is limited to a range of 50 m. We use an Arduino Mega processor which possesses a 12-bit ADC and a maximum sampling rate of 1 ms. The proposed system was developed using commercially accessible products and is not comparable to the micro-controller which were specifically designed for seismic data acquisition purposes. The key point to note is the feasibility of the proposed idea and the features presented can be extended to the present state of the art technology
