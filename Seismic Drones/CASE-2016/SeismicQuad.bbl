@@ -21,16 +21,41 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem{MVEwaWSN05}
-{Werner-Allen et. al}, ``{Monitoring volcanic eruptions with a wireless sensor
-  network},'' in \emph{{In Wireless Sensor Networks, Proceeedings of the Second
-  European Workshop on,IEEE}}, {January} {2005}, pp. {108--120}.
+\bibitem{IEA16}
+\BIBentryALTinterwordspacing
+{International Energy Agency}, ``Iea energy atlas.'' [Online]. Available:
+  \url{http://energyatlas.iea.org}
+\BIBentrySTDinterwordspacing
+
+\bibitem{shearer2009introduction}
+P.~M. Shearer, \emph{Introduction to seismology}.\hskip 1em plus 0.5em minus
+  0.4em\relax Cambridge University Press, 2009.
+
+\bibitem{wood1998distributed}
+G.~W. Wood, R.~L. Workman, and M.~W. Norris, ``Distributed seismic
+  data-gathering system,'' Mar.~3 1998, uS Patent 5,724,241.
+
+\bibitem{jiang2015geophysical}
+J.~Jiang, A.~A. Aziz, Y.~Liu, and K.-M. Strack, ``Geophysical data acquisition
+  system,'' Jun.~16 2015, uS Patent 9,057,801.
 
 \bibitem{DSSMaA14}
 \BIBentryALTinterwordspacing
 {Jean-Jacques Postel, Thomas Bianchi, Jonathan Grimsdale}, ``Patent
   us20140307525: Drone seismic sensing method and apparatus,'' October 2014.
   [Online]. Available: \url{https://www.google.com/patents/US20140307525}
+\BIBentrySTDinterwordspacing
+
+\bibitem{LSisMSE81}
+{Goins, Neal Rodney, A. M. Dainty, and M. N. Toksöz}, ``{Lunar seismology: The
+  internal structure of the Moon.}'' in \emph{{Journal of Geophysical Research:
+  Solid Earth 86.B6}}, {1981}, pp. {5061--5074}.
+
+\bibitem{MAPL2006}
+\BIBentryALTinterwordspacing
+M.~A. P.~G. 2006, ``Robotic mars exploration strategy 2007–2016,'' March
+  2006. [Online]. Available:
+  \url{http://mepag.jpl.nasa.gov/reports/3715_Mars_Expl_Strat_GPO.pdf}
 \BIBentrySTDinterwordspacing
 
 \end{thebibliography}

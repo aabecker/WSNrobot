@@ -1,77 +1,78 @@
 \section{Experiments}\label{sec:Experiment}
-Three experiments were completed
 
-   \begin{figure}
-   \centering
-\begin{overpic}[width =\columnwidth]{drone_base.pdf}\end{overpic}
-\caption{\label{fig:OverviewImage}
-The seismic drone's sensor base  consists of four geophones, a Geospace Seismic Recorder (GSR) and a LiPo (14.8V, 0.5Ah, 4 cells) battery.
-\emph{ TODO: add a ruler for scale.  Can you make both images the same size?}
-}
-\end{figure}
+\begin{figure*}
+\centering
+\renewcommand{\figwid}{0.4\columnwidth}
+\begin{overpic}[width =\figwid]{round_platform_compare.pdf}
+\end{overpic}
+\begin{overpic}[width =\figwid]{wooden_platform_compare.pdf}
+\end{overpic}
+\begin{overpic}[width =\figwid]{well_planted_compare.pdf}
+\end{overpic}
+\begin{overpic}[width =\figwid]{satisfactorily_planted_compare.pdf}
+\end{overpic}
+\begin{overpic}[width =\figwid]{drone_platform_compare.pdf}
+\end{overpic}
 
+\caption{Different geophone configurations and setups compared with the seismic drone for analyzing the seismic wave output obtained after triggering the source.
+a.) Round Platform b.) Wooden Platform c.) Well Planted Geophone d.) Satisfactorily Planted Geophone e.) Drone system with sensor platform (Seismic Drone)
+\label{fig:exp_1_pics}}
+\end{figure*}
 
+The seismic drone as four geophones as shown in Fig.  \ref{Sensor_Base} and the current seismic drone cannot plant the geophone spike into the ground. To overcome the issue of satisfactory coupling we use four geophones that are connected in series. The geohones are placed $20-30$ cm apart, but due to the fast propagation of seismic waves can be considered as four geophones being placed at the same location. Hence instead of one \emph{well-planted} geophone at a particular location, we use four \emph{satisfactorily-planted} geophones  to obtain comparable results.
+
+We conducted three experiments to prove the seismic drone is a feasible option that can replace current state-of-the-art technology in the field of seismic exploration. The first experiment is a comparison test it compares the sensed seismic vibrational wave output from traditional geophones with the seismic drone. This comparison validates the capability  of the proposed system to replace a conventional setup. The second experiment analyzes autonomous flying with and without the sensor platform, to explore the reliability of autonomous flight and the effects of the sensor platform on the command execution capabilities due to signal interference. The third experiment compares soil penetration and the angle of incidence in three different soil types. This is important to ensure quality data and shows that the platform can take off, even when the geophones are well planted in soil. Traditional geophone placement requires pushing the geophone spike into the earth to ensure ground-sensor coupling. The quality of a placement is determined by this coupling and the alignment of the spike with gravity vector. Sensitivity decreases with the cosine of the angle from the spike to the gravity vector.
 
 \subsection{Seismic Survey Comparison}
-%describe Feb 19th tests.  Li Chang has documentation on these
 
-The purpose of this experiment is to compare the proposed system's (Seismic Drone) performance with the currently available systems (traditional cabled systems). The seismic drone lifted off, flew to the same locations as four cabled geophones, and was coupled to the recording equipment to obtain graphs for comparison.
+The primary experiment presented in this paper compares the proposed Seismic Drone performance with a traditional cabled sensing system. We compare the seismic drone with different variations to understand its performance. The comparison is done with a \emph{well-planted} geophone: a completely planted geophone where the spike is completely beneath the surface,    \emph{satisfactorily-planted} geophone: spike is partially into the ground. The drone is also compared to a geophone mounted on a \emph{round-platform} made of fiber glass and also to a geophone mounted on a long rectangular \emph{wooden-platform}. Geophones are always well planted into to the ground, the platform setups and satisfactorily planted geophones are tested to test how performance varies with coupling to the ground. Seismic exploration must detect the oscillating seismic wave and sensing quality is a function of coupling. The results of the comparision are shown in the Fig. \ref{exp11_compare}.
 
-\textbf{Materials Required:} 
-\begin{center}
- \begin{tabular}{||c c c||} 
- \hline
- S No. & Materials & No. of Units \\ [0.5ex] 
- \hline\hline
-1 &	Sledge Hammer &	1 \\ 
- \hline
-2 & Traditional Geophones &	10 \\
- \hline
-3 &	GSR	& 1 \\
- \hline
-4 & Battery,14.8V,10Ah &	1 \\
- \hline
-5 &	Seismic Drone &	1 \\ [1ex] 
- \hline
-\end{tabular}
-\end{center}
+A sledge hammer was used as a source to create the seismic vibrations that propagate beneath the surface. The seismic drone was flown to its respective survey location next to the well planted, satisfactorily planted, round platform and wooden platform geophones. The geophones from the above mentioned setups and in the drone were connected to \emph{StrataVisor}, a special computer designed for plotting the data acquired from exploration. The sledge hammer was used to strike a vibrating plate attached to the ground there by creating seismic waves for analysis.
 
-\textbf{Procedure:}
-\begin{enumerate}
-\item Plant the geophones vertically into the ground, 5m apart from one another. Ensure the coupling with the ground is satisfactory.
-\item Attach the series geophone bundle to the GSR (Geospace Seismic Recorder).
-\item Attach the GSR to the battery for power.
-\item Fly drone and land it approximately next to the 1st stationary geophone.
-\item At approximately 10m from the geophone setup use the sledge hammer to strike the ground, the impact causes vibrational waves that propagate below the earth's surface and is detected by the geophones.
-\item Repeat steps 4 and 5, landing the drone next to each geophone.
-\item Save data files from both the drone and the stationary geophones.  In software line up the hammer strikes. Display data for one test with all the stationary geophones overlayed with the data from each position of the seismic drone.
-\end{enumerate}
+The results are shown in Fig. \ref{fig:exp_1_plots}, we observe the amplitude peak of the seismic drone is similar to the setups(\emph{well-planted, satisfactorily-planted, round-platform, wooden-platform}) placed next to the drone. We observe oscillations in the \emph{round platform} and \emph{wooden platform}, since these are not fixed to the surface. Instead of detecting the strike, the platform starts oscillating due to the strike and these oscillations eventually dampen out over time. The performance of the \emph{round platform} and \emph{wooden platform} are poor in comparison to the \emph{well planted} geophone, which is the standard for this experiment. The seismic drone setup and the well planted geophone display excellent similarities in their response. Both the seismic drone and the well planted geophone setup have minimal oscillations, which is an important feature for seismic exploration, validating the seismic drone has good coupling with the surface.  
 
+Experiment 1 we compared the performance of the seismic drone with other setups. The experiment described above was a one-to-one based comparison, however seismic explorations $1000s$ of geophones to conduct seismic survey. Thus we compared the performance of a traditional cabled $24$ geophone system connected to a 24 channel seismic recorder and a battery with an autonomous seismic drone. The geophones were planted vertically into the ground, $1$ m apart from one another.  A schematic of the traditional setup is shown in Fig. \ref{trad_sketch} and the same experiment was repeated for the seismic drone as shown in Fig. \ref{seisdrone_sketch}. We used a vibrosis truck setup to generate the seismic wave. The geophones are well planted, the drone was flown from $1-24$ locations and the readings were taken by generating seismic waves each time. The metal plate was struck $24$ times, once for each location.
 
-\textbf{Results}
+\begin{figure}
+\centering
+\begin{overpic}[width =\columnwidth]{ezp_1_overview.pdf}\end{overpic}
+\caption{\label{ezp1_overview}
+Survey comparision is performed to obtain the shot gather plots of the traditional cabled system and seismic drone. a.) A overview of the experiment is shown b.) The viberosis setup strikes the metal plate below and generates vibrational waves c.) A StrataVisor used to store, process the signals from the cabled system and the seismic drone and in turn used for comparison d.) The drone system and the cabled system are listening to the vibrational waves and sending their corresponding readings to the StrataVisor. 
+}
+\end{figure}
+Fig. \ref{ezp1_overview} describes the important components of the field experiment performed. A seismic survey field test comparison between a 24 channel traditional cabled geophone system and the seismic drone as shown in Fig. \ref{shot_gather_compare}.  Both the plots were obtained using a \emph{Strata Visor}, a device that can obtain, store and plot the sensed data. It is extensively used with the traditional geophone setup since the only ability the setup possess is to sense vibrational waves and is dependent on other devices for storage and processing of data. To adopt a fair comparison, the autonomous setup that can store the sensed data present on the seismic drone was not used in this experiment. We observe excellent similarity thereby proving the seismic drone system can compete with the current state-of-art technology in seismic exploration.
+ 
+ %Attach the series geophone bundle to the GSR (Geospace Seismic Recorder).Attach the GSR to the battery for power.Fly drone and land it approximately next to the 1st stationary geophone.At approximately 10m from the geophone setup use the sledge hammer to strike the ground, the impact causes vibrational waves that propagate below the earth's surface and is detected by the geophones.Repeat steps 4 and 5, landing the drone next to each geophone.Save data files from both the drone and the stationary geophones.  In software line up the hammer strikes. Display data for one test with all the stationary geophones overlayed with the data from each position of the seismic drone.
 
-
-   \begin{figure}
-   \centering
+\begin{figure}
+\centering
 \begin{overpic}[width =\columnwidth]{TraditionalCabeledSystem.pdf}\end{overpic}
-\caption{\label{fig:OverviewImage}
-A sketch of the traditional geophone system,used extensively for Seismic data acquisition..
+\caption{\label{trad_sketch}
+A schematic of a traditional geophone system, used extensively for Seismic data acquisition..
 }
 \end{figure}
  \begin{figure}
    \centering
 \begin{overpic}[width =\columnwidth]{SeismicDrone.pdf}\end{overpic}
-\caption{\label{fig:OverviewImage}
-A sketch of the proposed drone setup which can replace manual laborers during seismic surveys.
+\caption{\label{seisdrone_sketch}
+A schematic of a proposed drone setup which can replace manual laborers during seismic surveys.
 }
 \end{figure}
-   \begin{figure}
-   \centering
-\begin{overpic}[width =\columnwidth]{OXEND.png}\end{overpic}
-\caption{\label{fig:OverviewImage}
-2 plots showing comparison with traditional geophone system for (1) hard surface, and (2) dirt surface
-}
+%\begin{figure}
+%\centering
+%\begin{overpic}[width =\columnwidth]{DataComparison.pdf}\end{overpic}
+%\caption{\label{}
+%2 plots showing comparison with traditional geophone system for (1) hard surface, and (2) dirt surface
+%}
+%\end{figure}
+
+\begin{figure}
+\centering
+\begin{overpic}[width =\columnwidth]{exp11_compare.pdf}\end{overpic}
+\caption{\label{exp11_compare} Displays the seismic wave .
+generated by different geophone setups and the seismic drone. a.)Compares the drone setup with round and wooden platform, we observe oscillations in these platforms since they are not fixed to the ground, The max amplitude values are similar and appear almost simultaneously indicating these setups were placed very close to each other, while testing and time shift is not observed. b.)Compares the drone setup with well planted and satisfactorily planted, we observe mild  oscillations in the drone setup compared to the fixed ones since they are planted into the ground, The max amplitude values are similar but do not appear almost simultaneously indicating these setups were not placed very close to each other, while testing and  hence time shift has been observed.}
 \end{figure}
+
 
 
 %\subsection{Recording seismic disturbance using onboard GSR}
@@ -79,109 +80,65 @@ A sketch of the proposed drone setup which can replace manual laborers during se
 
    \begin{figure}
    \centering
-\begin{overpic}[width =\columnwidth]{OXEND.png}\end{overpic}
-\caption{\label{fig:OverviewImage}
-Data recorded by the cable-free seismic drone
+\begin{overpic}[width =\columnwidth]{shot_gather_compare.pdf}\end{overpic}
+\caption{\label{shot_gather_compare} A shot gather plot comparision, the x-axis is time in milliseconds and the y-axis is the channel number on the stratavisor, to which both the setups are connected. We observe each survey location is 1m apart and the wave generated from the source propagates beneath the surface. We observe the waves to be time shifted as we move from the first channel to the end. a.) shot gather for a traditional cabled system. Channel no. 1-24. b.) shot gather for the seismic drone system. Channel no. 39-63.
 }
 \end{figure}
-
-\subsection{Wireless transmission of seismic disturbances}
-%describe the Arduino blue-tooth solution
-The purpose of this experiment is to compare the seismic drone system's performance with the \textbf{Seismic Wireless Sensor Network Drone} (SWSN Drone).
-
-\textbf{Materials Required:}
-\begin{center}
- \begin{tabular}{||c c c||} 
- \hline
- S No. & Materials & No. of Units \\ [0.5ex] 
- \hline\hline
-1 &	Sledge Hammer &	1 \\ 
- \hline
-2 & SWSN Drone &	10 \\
- \hline
-3 &	Seismic Drone &	1 \\ [1ex] 
- \hline
-\end{tabular}
-\end{center}
-
-   \begin{figure}
-   \centering
-\begin{overpic}[width =\columnwidth]{OXEND.png}\end{overpic}
-\caption{\label{fig:OverviewImage}
-One plot from the  Arduino blue-tooth equipped quad copter.
-}
-\end{figure}
-
-\textbf{Procedure :-}\\
-1.	Fly the seismic drone and land it around the first survey location.\\ 
-2.	Use a sledge hammer to strike the ground, the impact causes vibrational waves which propagates below the earth surface and is detected by the geophones.\\
-3.	Repeat steps one and two for all survey locations.\\ 
-4.	Repeat steps one, two and three for the seismic wireless sensor network drone system.\\
-5.	Save the data file obtained from the seismic drone and the seismic wireless sensor network drone system (obtained wirelessly). In software line up the hammer strikes. Display data from both the test overlaid on each other for all survey locations.\\ 
-
-\textbf{Results}
-
 
 
 \subsection{Accuracy of autonomous landing with geophone setup}
-Seismic exploration depends on accurate placement of geophones over a large geographic area.  This experiment tested the accuracy of autonomous landing of the fully loaded seismic drone system verses the manual landing controlled by a piolot using an RC transmitter. The purpose of this experiment is to compare the accurate placement of geophones using manual control and autonomous control.
+Seismic exploration depends on accurate placement of geophones over a large geographic area.  This experiment tested the \emph{accuracy} of autonomous landing of the fully loaded seismic drone system compared to the autonomous landing of the drone system without the sensor base.
 
-\textbf{Materials Required :-}
-\begin{center}
- \begin{tabular}{||c c c||} 
- \hline
- S No. & Materials & No. of Units \\ [0.5ex] 
- \hline\hline
-1 &	Mobile Phone &	1 \\ 
- \hline
-2 & SWSN Drone &	10 \\
- \hline
-3 &	Seismic Drone &	1 \\ [1ex] 
- \hline
-\end{tabular}
-\end{center}
+The drone system is a 3DR Solo. It uses GPS for autonomous navigation and three compasses to measure its orientation. The landing location with an "x" using blue insulating tape and the origin of the coordinate system was marked with a "x" using a yellow insulating tape as shown in Fig.  \ref{fig:AutoLandImg}. The sensor base attached to the drone for seismic sensing has four geophones. Geophones possess a strong magnet attached to a spring. The magnets on the sensor base influence the internal compasses of the drone system with their strong magnetic fields. This effect can be observed in the plots shown in Fig. \ref{fig:AutoLandPlots}. the ${1}^{st}$ and ${2}^{nd}$ standard deviation ellipses are much smaller for the drone system without the sensor base than the system with the sensor base. The GPS used by the drone has an accuracy of five meters and hence the landing locations accuracy are distributed. $95$\% of all landing were with-in $1$ m for the drone system without sensor base and around $2$ m for the drone system with sensor base, as indicated by of the target $95$\% standard deviation ellipse.
 
+The current landing accuracy is sufficient to serve the purpose of seismic exploration. The autonomous planning of the drone is done using a mobile application called \emph{Tower} shown in Fig. \ref{fig:Towerapp}. This app can be used to plan complex autonomous trajectories, and the drone can perform different tasks at different waypoint locations. Future work will modify the app to perform tailor-made tasks focusing on seismic exploration.
+ 
+% Try to land the seismic drone manually at the center of the marked x location using the wireless RF transmitter.After landing, measure the displacement from the center of the seismic drone to the center of the x location.Repeat steps 2 and 3 ten times.Obtain the mean and variance using the displacement values.Use the mobile phone (tower app) to land the seismic drone autonomously at the center of the $x$ location.Measure the distance between the center of the seismic drone to the center of the $x$ location.Repeat the above two steps ten times.Obtain the mean and variance using the displacement values.Compare the average mean and variance values for manual and autonomous control.
+ 
+\begin{figure}
+\centering
+\begin{overpic}[width =\columnwidth]{tower_app.pdf}\end{overpic}
+\caption{\label{fig:Towerapp}
+Screen shot from the Tower App, that can be used for autonomous waypoint control. We can edit and program the app for performing a specific task which is not present in the current function repository.
+}
+\end{figure}
 
-\textbf{Procedure:}
-\begin{enumerate}
-\item Mark the landing location with an x using a red insulating tape.
-\item Try to land the seismic drone manually at the center of the marked x location using the wireless RF transmitter.
-\item After landing, measure the displacement from the center of the seismic drone to the center of the x location.
-\item Repeat steps 2 and 3 ten times.
-\item Obtain the mean and variance using the displacement values.
-\item Use the mobile phone (tower app) to land the seismic drone autonomously at the center of the $x$ location.
-\item Measure the distance between the center of the seismic drone to the center of the $x$ location.
-\item Repeat the above two steps ten times.
-\item Obtain the mean and variance using the displacement values.
-\item Compare the average mean and variance values for manual and autonomous control.
-\end{enumerate}
+\begin{figure}
+\centering
+\begin{overpic}[width =\columnwidth]{auto_land.pdf}\end{overpic}
+\caption{\label{fig:AutoLandImg}
+The seismic drone was commanded to land at the location with out the sensor platform, ten times to test the accuracy of autonomous landing with and without sensor platform. Since the drone uses GPS for landing at a given spot it possess some errors. Marked with a blue "x" is the goal location, but the drone landed at the landing location the origin of the coordinate system was marked with the yellow "x", measuring tapes were used to measure the goal location from the origin
+a.) without the sensor platform, b.) with the geophones}
+\end{figure}
 
-\textbf{Results}
-
-
-   \begin{figure}
-   \centering
-\begin{overpic}[width =\columnwidth]{OXEND.png}\end{overpic}
-\caption{\label{fig:AutonomousLandingImage}
-The seismic drone was commanded to land at the location marked with a green 'x'.  The actual positions are shown with blue 'o'.  The mean and $\pm$1 standard deviation ellipses are drawn in red.
+\begin{figure}
+\centering
+\begin{overpic}[width =\columnwidth]{exp_2_ellipse.pdf}\end{overpic}
+\caption{\label{fig:AutoLandPlots}
+The plots describe the autonomous landing with and without sensor platform In fig 9a.)We observe the landing locations are closer to the goal location and 9b.)they farther away from from the goal location when the sensor platform is attached.
 }
 \end{figure}
 
 
-\subsection{Coupling in various soils}
+\subsection{Penetration and Angle with the Horizontal}
+
+This experiment tests the soil penetration capabilities of the seismic drone setup in different soil types. We performed the experiment in grass, sand and dry clay. The penetration was maximum in sand followed by grass, but the drone could not drill the geophone spike into dry clay, as  shown in Fig. \ref{fig:DepthPlot}. Good coupling with soil is important for obtaining quality data, hence the experiment explains the penetration capability of the setup in common soils. 
+
+The final experiment measured the angle of deviation from the vertical. Ideally the geophones should be perpendicular to the ground. This is necessary to obtain quality data, since the data loses accuracy with the cosine of the angle. A rule of thumb is less than ${5}^{\circ}$ error for a geohone. It is important to land on a flat surface with less than ${10}^{\circ}$ deviation from the horizontal, otherwise the drone will not fly due to difficulties it faces in take off while inclined at an angle. These two constraints complement each other and we collected data of the roll and pitch Euler angles to calculate the deviation from the horizontal as shown in Fig. \ref{fig:AnglePlot}.
+
+\begin{figure}
+\centering
+\begin{overpic}[width =\columnwidth]{depth_box_plot.pdf}\end{overpic}
+\caption{\label{fig:DepthPlot}
+Box and whisker plots comparing the variations in depth of planted geophones attached to the seismic drone 
+}
+\end{figure} 
+
+\begin{figure}
+\centering
+\begin{overpic}[width =\columnwidth]{angle_box_plot.pdf}\end{overpic}
+\caption{\label{fig:AnglePlot}
+Box and whisker plots comparing the variations in angle of deviation from horizontal of the seismic drone 
+}
+\end{figure} 
   
-We land the drone in various soils, and measure the penetration using a penetrometer.
-
-\textbf{Materials Required :-}\\
-\textbf{Procedure :-}\\
-\textbf{Results :-}\\
-
-
-
-  \begin{figure}
-   \centering
-\begin{overpic}[width =\columnwidth]{OXEND.png}\end{overpic}
-\caption{\label{fig:OverviewImage}
-(left) Photographs of seismic drone geophone feet in different soils, with a ruler visible. (right) plot of penetration depth for three different soil types.
-}
-\end{figure}
