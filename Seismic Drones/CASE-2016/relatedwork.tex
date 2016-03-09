@@ -13,7 +13,7 @@ During seismic surveys a source is triggered to generate seismic/vibrational wav
 \begin{equation}
 \frac{\partial^{2}{U}}{\partial^{2}{t}} = {c}^{2}\frac{\partial^{2}{U}}{\partial^{2}{x}}
 \end{equation}
-\todo{In rock, C ranges from XX to YY m/s}
+The velocity of a seismic wave approximately ranges from $2-8$km/s.
 Its general solution is given by
 \begin{equation}
 u(x,t) = f(x \pm ct)
@@ -30,8 +30,8 @@ The original seismic wave equation is a $3$-dimensional equation that scales in 
  Traditional \emph{cabled systems} are extensively used for seismic data acquisition in hydrocarbon explorations. A group of sensors (geophones) are connected to each other in series using long cables, and this setup is connected to a seismic recorder and a battery. The seismic recorder consists of a micro-controller which synchronizes the data acquired with a GPS signal and store it in the onboard memory. Generally four-cell Lithium Polymer (LiPo, 14.8V, 10Ahrs) batteries are used to power this system. This method of data acquisition requires many manual laborers and a substantial expenditure for transporting the cables. The major difficulties faced in using cabled system for data acquisition are (1.) Conducting a seismic survey in rugged terrains (2.) The manual labor available might be unskilled or expensive depending on the location.  
  
  \paragraph{Autonomous Nodal systems}
-\todo{What is the market share for the autonomous nodal systems?, cite them} 
- Currently \emph{autonomous nodal systems}~\cite{wood1998distributed} are extensively used for conducting seismic data acquisition surveys in USA. Unlike traditional cabled systems, autonomous nodal systems are not connected using cables. The sensor, seismic recorder and battery are all combined into a single package called a node, and this node can autonomously record data. Even in these systems the data is stored in the onboard memory and can only be acquired after the survey is completed. This is disadvantageous since errors cannot be detected and rectified while conducting the survey. Recently, wireless autonomous nodes have been developed. These systems can transmit data wirelessly as a radio frequency in real time by ~\cite{jiang2015geophysical}. Yet these systems still require manual laborers for planting the autonomous nodes at specific locations and deploying large antennas which are necessary for wireless communication.
+
+ Currently \emph{autonomous nodal systems}~\cite{wood1998distributed} are extensively used for conducting seismic data acquisition surveys in USA. Unlike traditional cabled systems, autonomous nodal systems are not connected using cables. The sensor, seismic recorder and battery are all combined into a single package called a node, and this node can autonomously record data. Even in these systems the data is stored in the on-board memory and can only be acquired after the survey is completed. This is disadvantageous since errors cannot be detected and rectified while conducting the survey. Recently, wireless autonomous nodes have been developed. These systems can transmit data wirelessly as a radio frequency in real time by ~\cite{jiang2015geophysical}. Yet these systems still require manual laborers for planting the autonomous nodes at specific locations and deploying large antennas which are necessary for wireless communication.
  
 \subsection{Seismic Drone}  
 
@@ -43,7 +43,7 @@ This paper presents a flying seismic drone. Combines the quality of data acquisi
 \centering
 \begin{overpic}[width =\columnwidth]{drone_base.pdf}\end{overpic}
 \caption{\label{Sensor_Base}
-The seismic drone's sensor base  consists of four geophones, a Seismic Recorder (SR) and a LiPo (14.8V, 0.5Ah, 4 cells) battery.
+The seismic drone's sensor base  consists of four geophones, a Seismic Recorder (SR) and a LiPo battery(14.8V, 0.5Ah, 4 cells).
 }
 \end{figure}
  
