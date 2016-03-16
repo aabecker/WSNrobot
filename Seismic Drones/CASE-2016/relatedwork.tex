@@ -9,21 +9,24 @@
 \subsection{Seismic Exploration Methods}
 
 %\todo{cite the book that Li sent us.  Also cite some papers by Rob.}
-During seismic surveys a source is triggered to generate seismic/vibrational waves that propagate under the earth's surface and are sensed by geophone sensors and recorded for latr analysis to detect the presence of hydrocarbons. Fig.  \ref{fig:sensor_types} describes the current sensors available and the proposed solution, the seismic drone. These sensors are used to sense the vibrational wave that propagates with a velocity $c$ in the positive and negative $x$-directions and is represented by the equation 1, in 1-dimension.
+During seismic surveys a source is excited to generate seismic/vibrational waves that propagate under the earth's surface and are sensed by geophone sensors and recorded for later analysis to detect the presence of resources. Fig.~\ref{fig:sensor_types} describes the current sensors available and the proposed solution, the seismic drone. These sensors are used to sense the vibrational wave that propagates with a velocity $c$ in the positive and negative $x$-directions and is represented by the (1-dimensional) equation
 \begin{equation}
 \frac{\partial^{2}{U}}{\partial^{2}{t}} = {c}^{2}\frac{\partial^{2}{U}}{\partial^{2}{x}}
 \end{equation}
-The velocity of a seismic wave approximately ranges from $2-8$km/s.
+The velocity of a seismic wave approximately ranges from $2-8$ km/s.
 Its general solution is given by
 \begin{equation}
-u(x,t) = f(x \pm ct)
+U(x,t) = f(x \pm ct)
 \end{equation}
 The equations stated above are generalized equations that represent a vibrational wave in physics, and can be used to describe a string that is vibrating. Hence we obtain the equation where $F$ is vibration force and $\rho$ is density.
 \begin{equation}
 {c}^{2} = F/\rho
 \end{equation}
-This equation is a hyperbolic equation from the theory of linear partial differential equations and is challenging to solve because of sharp features that can reflect off boundaries. 
-The original seismic wave equation is a $3$-dimensional equation that scales in complexity and the link between force-displacement must be analyzed from a stress-strain relationship of an elastic solid. These equations can be found in many geophysics textbooks for example see ~\cite{shearer2009introduction}.
+This equation is a hyperbolic equation from the theory of linear partial differential equations and is challenging to solve because of sharp features that can reflect off boundaries.
+\begin{equation}
+m\frac{\partial^{2}{\xi}}{\partial^{2}{t}}+c\frac{\partial{\xi}}{\partial{t}}+k\xi = m\frac{\partial^{2}{U}}{\partial^{2}{x}}-Bli
+\end{equation} 
+The above equation is a $3$-dimensional seismic wave equation that scales in complexity and links the motion of the moving coil relative to the magnetic flux for a given displacement caused by an external source where \xi is coil displacement, k is the spring constant, m moving mass of the coil, c is friction coefficient, g is gravitational acceleration, B is magnetic flux density, l is length of coil wire, i is the current and U is the external displacement. These equations can be found in many geophysics textbooks, for example see~\cite{shearer2009introduction}.
 
  \paragraph{Cabled Systems}
 
@@ -31,13 +34,13 @@ The original seismic wave equation is a $3$-dimensional equation that scales in 
  
  \paragraph{Autonomous Nodal systems}
 
- Currently \emph{autonomous nodal systems}~\cite{wood1998distributed} are extensively used for conducting seismic data acquisition surveys in USA. Unlike traditional cabled systems, autonomous nodal systems are not connected using cables. The sensor, seismic recorder and battery are all combined into a single package called a node, and this node can autonomously record data. Even in these systems the data is stored in the on-board memory and can only be acquired after the survey is completed. This is disadvantageous since errors cannot be detected and rectified while conducting the survey. Recently, wireless autonomous nodes have been developed. These systems can transmit data wirelessly as a radio frequency in real time by ~\cite{jiang2015geophysical}. Yet these systems still require manual laborers for planting the autonomous nodes at specific locations and deploying large antennas which are necessary for wireless communication.
+ Currently \emph{autonomous nodal systems}~\cite{wood1998distributed} are extensively used for conducting seismic data acquisition surveys in USA. Unlike traditional cabled systems, autonomous nodal systems are not connected using cables. The sensor, seismic recorder and battery are all combined into a single package called a node, and this node can autonomously record data. Even in these systems the data is stored in the on-board memory and can only be acquired after the survey is completed. This is disadvantageous since errors cannot be detected and rectified while conducting the survey. Recently, wireless autonomous nodes have been developed. These systems can transmit data wirelessly as a radio frequency in real time~\cite{jiang2015geophysical}. Yet these systems still require manual laborers for planting the autonomous nodes at specific locations and deploying the large antennas necessary for wireless communication.
  
 \subsection{Seismic Drone}  
 
-The concept using robots to place seismic sensors is not new.  Postel et al. describe using mobile robots for geophone placement in patent application~\cite{DSSMaA14}.  Mobile robots have placed seismic sensors on the moon~\cite{LSisMSE81} and plans are underway for a swarm of seismic sensors for Mars exploration ~\cite{MAPL2006}.
+The concept of using robots to place seismic sensors dates to the $1980$s. Mobile robots have placed seismic sensors on the moon~\cite{LSisMSE81}. Postel et al. describe using mobile robots for geophone placement in patent application~\cite{DSSMaA14}. Plans are underway for a swarm of seismic sensors for Mars exploration~\cite{MAPL2006}.
 
-This paper presents a flying seismic drone. Combines the quality of data acquisition present in a traditional exploration method with an autonomous unmanned air vehicle (UAV) which has high maneuverability and the capability of performing robust movements. A seismic recorder, battery, and four geophones are embedded onto a platform which can be attached to an UAV, the setup is shown in Fig.  \ref{fig:sensor_types}. By inputting a specific GPS location, the UAV can accurately deploy the seismic data acquisition system. The geophones obtain data which is processed by the seismic recorder and stored in the on-board memory. The major advantage of the drone is automating the deployment process and thereby eliminating humans from the loop. By using a robot to perform the above task, costs and errors are reduced. Since we use the same micro-controller as in the traditional cabled systems, we obtain the same 24-bit accuracy on the ADC conversion and sampled rates as low as half a millisecond. One current drawback of the seismic drone is that it cannot transmit data wirelessly and hence we cannot obtain seismic plots in real-time. Since the deployment is autonomous, it is precise and the system has the ability to re-deploy or return home from the current deployment site. 
+This paper presents a \emph{flying seismic drone}. It combines the quality of data acquisition present in a traditional exploration method with an autonomous unmanned air vehicle (UAV) which has high maneuverability and the capability of performing precision landing. A seismic recorder, battery, and four geophones are embedded onto a platform which can be attached to an UAV. This setup is shown in Fig.~\ref{fig:sensor_types}. By inputting a specific GPS location, the UAV can accurately deploy the seismic data acquisition system. A \emph{geophone} is a device that converts ground movement (velocity) into voltage, which may be recorded with a seismic recorder. The deviation of this measured voltage from the base line is called the seismic response and is analyzed for structure of the earth. The geophones obtain data which is processed by the seismic recorder and stored in the on-board memory. The major advantage of the drone is automating the deployment process and recovery. By using a robot to perform the above task, costs and errors are reduced. Because we use the same micro-controller as in the traditional cabled systems, we obtain the same 24-bit accuracy on the ADC conversion and sampled rates as low as half a millisecond. Future work on the seismic drone should enable it to transmit data wirelessly and hence obtain seismic plots in real-time. Because the deployment is autonomous, it is precise and the system has the ability to re-deploy or return home from the current deployment site. 
 
 \begin{figure}
 \centering
