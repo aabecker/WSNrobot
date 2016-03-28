@@ -21,6 +21,13 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{SDV16}
+\BIBentryALTinterwordspacing
+{Srikanth K.V.S, Li Huang, Li Chang, Robert Stuart, Aaron T. Becker}, ``Seismic
+  drone video,'' March 2016. [Online]. Available:
+  \url{https://youtu.be/e9iaGbWZOFE}
+\BIBentrySTDinterwordspacing
+
 \bibitem{IEA16}
 \BIBentryALTinterwordspacing
 {International Energy Agency}, ``{IEA Energy Atlas}.'' [Online]. Available:
@@ -39,17 +46,17 @@ G.~W. Wood, R.~L. Workman, and M.~W. Norris, ``Distributed seismic
 J.~Jiang, A.~A. Aziz, Y.~Liu, and K.-M. Strack, ``Geophysical data acquisition
   system,'' Jun.~16 2015, uS Patent 9,057,801.
 
+\bibitem{LSisMSE81}
+{Goins, Neal Rodney, A. M. Dainty, and M. N. Toksöz}, ``{Lunar seismology: The
+  internal structure of the Moon.}'' in \emph{{Journal of Geophysical Research:
+  Solid Earth 86.B6}}, {1981}, pp. {5061--5074}.
+
 \bibitem{DSSMaA14}
 \BIBentryALTinterwordspacing
 {Jean-Jacques Postel, Thomas Bianchi, Jonathan Grimsdale}, ``Patent
   us20140307525: Drone seismic sensing method and apparatus,'' October 2014.
   [Online]. Available: \url{https://www.google.com/patents/US20140307525}
 \BIBentrySTDinterwordspacing
-
-\bibitem{LSisMSE81}
-{Goins, Neal Rodney, A. M. Dainty, and M. N. Toksöz}, ``{Lunar seismology: The
-  internal structure of the Moon.}'' in \emph{{Journal of Geophysical Research:
-  Solid Earth 86.B6}}, {1981}, pp. {5061--5074}.
 
 \bibitem{MAPL2006}
 \BIBentryALTinterwordspacing
