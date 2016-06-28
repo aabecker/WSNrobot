@@ -87,28 +87,13 @@ A schematic of a proposed drone setup which can replace manual laborers during s
 \subsection{Accuracy of autonomous landing with geophone setup}
 Seismic exploration depends on accurate placement of geophones over a large geographic area.  This experiment tested the \emph{accuracy} of autonomous landing of the fully loaded seismic drone system compared to the autonomous landing of the drone system without the sensor base.
 
-The drone system is a 3DR Solo. It uses GPS for autonomous navigation and three compasses to measure its orientation. The landing location with an `$x$' using blue insulating tape and the origin of the coordinate system was marked with a `$x$' using a yellow insulating tape as shown in Fig.~\ref{fig:AutoLandImg}. The sensor base attached to the drone for seismic sensing has four geophones. A geophone has a strong magnet attached to a spring to measure vibrations. These magnets on the sensor base influence the internal compass of the drone system with their strong magnetic fields. This effect can be observed in the plots shown in Fig.~\ref{fig:AutoLandPlots}. The ${1}^{st}$ and ${2}^{nd}$ standard deviation ellipses are much smaller for the drone system without the sensor base than the system with the sensor base. The GPS used by the drone has an accuracy of five meters and hence the landing locations accuracy are approximately normally distributed. $95$\% of the landings were within $1$ m for the drone system without the sensor base and around $2$ m for the drone system with sensor base, as indicated by of the target $95$\% standard deviation ellipse. The current landing accuracy is sufficient for seismic exploration. A $2$ m error corresponds to a time shift of $25$ ms approximately. 
+The drone system used is a 3DR Solo.The seismic drone was commanded to land at the goal location marked with a blue `$x$', with and without the sensor platform. The test was repeated ten times to test the accuracy of autonomous landing. The drone uses GPS for landing which is not highly accurate and hence lands at locations close to the goal location. The origin of the coordinate system was marked with the yellow `$x$', measuring tapes were used to measure the location at which the drone landed to the origin.
+The sensor base attached to the drone for seismic sensing has four geophones. A geophone has a strong magnet attached to a spring to measure vibrations. These magnets on the sensor base influence the internal compass of the drone system with their strong magnetic fields. This effect can be observed in the plots shown in Fig.~\ref{fig:AutoLandPlots}. The ${1}^{st}$ and ${2}^{nd}$ standard deviation ellipses are much smaller for the drone system without the sensor base than the system with the sensor base. The GPS used by the drone has an accuracy of five meters and hence the landing locations accuracy are approximately normally distributed. $95$\% of the landings were within $1$ m for the drone system without the sensor base and around $2$ m for the drone system with sensor base, as indicated by of the target $95$\% standard deviation ellipse. The current landing accuracy is sufficient for seismic exploration. A $2$ m error corresponds to a time shift of $25$ ms approximately. 
 
-The autonomous planning of the drone is done using a mobile application called \emph{Tower} shown in Fig.~\ref{fig:Towerapp}. This app can be used to plan complex autonomous trajectories, and the drone can perform different tasks at different waypoint locations. Future work will modify the app to perform tailor-made tasks focusing on seismic exploration.
+The autonomous planning of the drone is done using a mobile application called \emph{Tower}. This app can be used to plan complex autonomous trajectories, and the drone can perform different tasks at different waypoint locations. 
  
 % Try to land the seismic drone manually at the center of the marked x location using the wireless RF transmitter.After landing, measure the displacement from the center of the seismic drone to the center of the x location.Repeat steps 2 and 3 ten times.Obtain the mean and variance using the displacement values.Use the mobile phone (tower app) to land the seismic drone autonomously at the center of the $x$ location.Measure the distance between the center of the seismic drone to the center of the $x$ location.Repeat the above two steps ten times.Obtain the mean and variance using the displacement values.Compare the average mean and variance values for manual and autonomous control.
  
-\begin{figure}
-\centering
-\begin{overpic}[width =\columnwidth]{tower_app.pdf}\end{overpic}
-\caption{\label{fig:Towerapp}
-Screenshot from the Tower App, that can be used for autonomous waypoint control. The app can be edited and programmed for performing specific tasks.
-}
-\end{figure}
-
-\begin{figure}
-\centering
-\begin{overpic}[width =\columnwidth]{auto_land.pdf}\end{overpic}
-\caption{\label{fig:AutoLandImg}
-The seismic drone was commanded to land at the goal location marked with a blue `$x$', with and without the sensor platform. The test was repeated ten times to test the accuracy of autonomous landing. The drone uses GPS for landing which is not highly accurate lands at locations close to the goal location as shown. The origin of the coordinate system was marked with the yellow `$x$', measuring tapes were used to measure the location at which the drone landed to the origin.
-a.) without the sensor platform. b.) with the geophones and sensor platform.}
-\end{figure}
-
 \begin{figure}
 \centering
 \begin{overpic}[width =\columnwidth]{exp_2_ellipse.pdf}\end{overpic}
@@ -120,7 +105,7 @@ The plots describe autonomous landing with and without the sensor platform. For 
 
 \subsection{Penetration and Angle with the Horizontal}
 
-This experiment tests the soil penetration capabilities of the seismic drone setup in different soil types. Good coupling with soil is important for obtaining quality data, hence the experiment explores the penetration capability of the setup in common soils. We performed the experiment in grass, sand, and dry clay. The penetration was maximum in sand followed by grass, but the drone could not drive the geophone spike into dry clay, as  shown in Fig.~\ref{fig:DepthPlot}.  
+This experiment tests the soil penetration capabilities of the seismic drone setup in different soil types. Good coupling with soil is important for obtaining quality data, hence the experiment explores the penetration capability of the setup in common soils. We performed the experiment in grass, sand, and dry clay. The penetration was maximum in sand followed by grass, but the drone could not drive the geophone spike into dry clay, as  shown in Fig.~\ref{fig:DepthPlot}. Failing to penetrate through dry clay was inevitable even with a manual plant. The seismic sensors are highly sensitive and could collect data without penetrating through a surface, if place vertical to the surface. Since the design considers vertical placement of geophones, a seismic analysis could be achieved by landing on any flat hard surface like dry clay, terrace of a building or a cement road. This system could replace humans who risk lives to sense earthquakes or perform quality checks on a partially completed bridge.
 
 The final experiment measured the angle of deviation of the geophone from vertical. Ideally the geophones should be perpendicular to the ground. This is necessary to obtain quality data, since the data loses accuracy with the cosine of this angle. A rule of thumb is to have less than ${5}^{\circ}$ error for a geophone. It is important to land on a flat surface with less than ${10}^{\circ}$ deviation from the horizontal, otherwise the drone will not fly due to difficulties it faces in take off while inclined at an angle. These two constraints complement each other. We collected data of the roll and pitch Euler angles to calculate the deviation from the horizontal using the cross-product of rotation vectors ${R}_{x}(Roll) \times {R}_{y}(Pitch)$, as shown in Fig.~\ref{fig:AnglePlot}.
 
