@@ -1,15 +1,15 @@
 \section{Overview and Related Work}\label{sec:RelatedWork}
 \begin{figure}
-\vspace{-2em}
+%\vspace{-2em}
 \centering
-\begin{overpic}[width =0.7\columnwidth]{overview.pdf}\end{overpic}
+\begin{overpic}[width=\columnwidth]{overview.pdf}\end{overpic}
 \caption{\label{fig:sensor_types}
  Comparing state-of-the-art seismic survey sensors a.) Traditional cabled system, the geophones (sensors) are connected in series to the seismic recorder and battery. b.) Autonomous nodal systems, each geophone has a seismic recorder and a battery making each geophone ``autonomous" from the other geophones.}
  \vspace{-2em} 
 \end{figure}
-\subsection{Seismic Exploration Methods}
+%\subsection{Seismic Exploration Methods}
 %\todo{cite the book that Li sent us.  Also cite some papers by Rob.}
-During seismic surveys the source of seismic/vibrational waves is excited to generate waves that propagate under the earth's surface. These waves are sensed by geophone sensors and are recorded for later analysis, to detect the presence of hydrocarbons. Fig.~\ref{fig:sensor_types} describes the current sensors available and Fig.~\ref{fig:introimg}c. shows the proposed solution, the seismic drone. 
+During seismic surveys the source of seismic/vibrational waves is excited to generate waves that propagate under the earth's surface. These waves are sensed by geophone sensors and are recorded for later analysis to detect the presence of hydrocarbons. Fig.~\ref{fig:sensor_types} describes the current sensors available and Fig.~\ref{fig:introimg}c. shows the proposed solution, the seismic drone. 
 
 These sensors are used to sense the vertical external displacement $U$ caused by the vibrational waves that propagate with a velocity $c$ in the positive and negative $x$-directions and is represented by the 1-D differential  equation
 \begin{equation}
@@ -32,25 +32,21 @@ This equation is a hyperbolic equation from the theory of linear partial differe
 m\frac{\partial^{2}{\xi}}{\partial^{2}{t}}+c\frac{\partial{\xi}}{\partial{t}}+k\xi = m\frac{\partial^{2}{U}}{\partial^{2}{x}}-Bli
 \end{equation} 
 Here $\xi$ is the coil displacement, $k$ is the spring constant, $m$ is the moving mass of the coil, $c$ is the friction coefficient, $B$ is the magnetic flux density, $l$ is the length of coil wire, $i$ is the current. These equations can be found in many geophysics textbooks, for example see~\cite{shearer2009introduction}.
-\\
- \textbf{Cabled Systems}\\
+\subsection{Cabled Systems}
  Traditional \emph{cabled systems} are extensively used for seismic data acquisition in hydrocarbon exploration. A group of sensors (geophones) are connected to each other in series using long cables, and this setup is connected to a seismic recorder and a battery. The seismic recorder consists of a micro-controller which synchronizes the data acquired with a GPS signal and store the data on-board. Generally, four-cell Lithium Polymer (LiPo, 14.8V, 10Ahrs) batteries are used to power this system. This method of data acquisition requires many manual laborers and a substantial expenditure for transporting the cables. The major difficulties faced in using cabled systems for data acquisition are (1.) Conducting a seismic survey in rugged terrains (2.) The manual labor available might be unskilled or expensive depending on the location.  
-\\
- \textbf{2. Autonomous Nodal systems}\\
+ \subsection{Autonomous Nodal Systems}
  Currently, \emph{autonomous nodal systems}~\cite{wood1998distributed} are extensively used for conducting seismic data acquisition surveys in USA. Unlike traditional cabled systems, autonomous nodal systems are not connected using cables. The sensor, seismic recorder, and battery are all combined into a single package called a node, that can autonomously record data as shown in Fig.~\ref{fig:sensor_types}. Even in these systems the data is stored in the on-board memory and can only be acquired after the survey is completed. This is disadvantageous since errors cannot be detected and rectified while conducting the survey. Recently, wireless autonomous nodes have been developed. These systems can transmit data wirelessly as a radio frequency in real time~\cite{jiang2015geophysical}. Yet these systems still require manual laborers for planting the autonomous nodes at specific locations and deploying the large antennas necessary for wireless communication.
-%\\
-\subsection{Seismic Drone}  
-%\textbf{Seismic Drone}\\
-The concept of using robots to place seismic sensors dates to the $1980$s. Mobile robots have placed seismic sensors on the moon~\cite{LSisMSE81}. Postel et al. use mobile robots for geophone placement in, patent application~\cite{DSSMaA14}. Plans are underway for a swarm of seismic sensors for Mars exploration~\cite{MAPL2006}.
+\subsection{Seismic Drone}
+The concept of using robots to place seismic sensors dates to the $1980$s. Mobile robots have placed seismic sensors on the moon~\cite{LSisMSE81}. Postel et al. proposed mobile robots for geophone placement~\cite{DSSMaA14}. Plans are underway for a swarm of seismic sensors for Mars exploration~\cite{MAPL2006}.
 
-This paper presents a \emph{seismic drone}. It combines the quality of data acquisition present in a traditional exploration method with an autonomous unmanned air vehicle (UAV) which has high maneuverability and the capability of performing precision landing. The primary prototype consisted of a single geophone, Arduino Uno micro-controller, amplifier  and a battery. This system is not stable and if planting of the geophone spike failed, it would result damaging the drone. Thus we moved on to the second prototype with a seismic recorder, battery, and four geophones that are embedded onto a platform and could be attached to an UAV. This sensor platform with $4$ geophones provided stability and acted as an extension of the drone's landing gear, there by solving the issue of tipping over during landing. These prototypes are shown in Fig.~\ref{fig:Sensor_Base}. 
-By inputting a specific GPS location, the UAV can accurately deploy the seismic data acquisition system. A \emph{geophone} senses ground movement (velocity)and converts it into voltage, which is recorded with a seismic recorder. The deviation of this measured voltage from the base line is called the seismic response and is analyzed for identifying and classifying the type of hydrocarbon present. The geophones obtain data which is processed by the seismic recorder and stored in the on-board memory. The seismic recorder is a micron-controller designed for seismic exploration applications and has a 24-bit accuracy on the ADC conversion, and sampling rates as low as half a millisecond. Using this device helps us obtain quality data compare to the commercially available micro controllers. The drone system could successfully automate the deployment and recovery. By using a robot to perform the above task, costs and errors are reduced. 
+This paper presents a \emph{seismic drone}. It combines the quality of data acquisition present in a traditional exploration method with an autonomous unmanned air vehicle (UAV) which has high maneuverability and the capability of performing precision landing. The primary prototype consisted of a single geophone, an Arduino Uno micro-controller, an amplifier, and a battery. This system was not stable and if the plant of the geophone spike failed, the drone fell on its side. The second prototype has a seismic recorder, a battery, and four geophones all embedded onto a platform that is attached to an UAV. This sensor platform with $4$ geophones provided stability and acted as an extension of the drone's landing gear, solving the issue of tipping over during landing. These prototypes are shown in Fig.~\ref{fig:sensor_base}. 
+By inputting a specific GPS location, the UAV can accurately deploy the seismic data acquisition system. A \emph{geophone} senses ground movement (velocity) and converts it into voltage, which is recorded with a seismic recorder. The deviation of this measured voltage from the base line is called the \emph{seismic response} and is analyzed for identifying and classifying the type of hydrocarbon present. The geophones obtain data which is processed by the seismic recorder and stored in the on-board memory. The seismic recorder is a micro-controller designed for seismic exploration applications and has a 24-bit accuracy on the ADC conversion, and sampling rates as low as half a millisecond. This device helps us obtains data comparable to commercially available micro controllers. The drone system could successfully automate the deployment and recovery. By using a robot to perform the above task, costs and errors are reduced. 
 
 \begin{figure}
-\vspace{-2em}
+%\vspace{-2em}
 \centering
 \begin{overpic}[width =\columnwidth]{drone_base.pdf}\end{overpic}
-\caption{\label{Sensor_Base}
+\caption{\label{fig:sensor_base}
 a.) The first prototype consisted of a single 14Hz geophone with a Arduino Uno micro-controller and a 9V battery.
 b.) The second prototype consists of four 100Hz geophones, a Seismic Recorder (SR) and a LiPo battery (14.8V, 0.5Ah, 4 cells).
 }

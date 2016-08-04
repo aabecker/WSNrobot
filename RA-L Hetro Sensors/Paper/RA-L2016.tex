@@ -1,0 +1,107 @@
+%  compress using: gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dNOPAUSE -dQUIET -dBATCH      -sOutputFile=foo-compressed.pdf SeismicDrones.pdf
+\documentclass[letterpaper, 10 pt, conference]{ieeeconf}
+%\IEEEoverridecommandlockouts
+%\documentclass[conference]{IEEEtran}
+\newcommand{\subparagraph}{}
+\usepackage{epsfig,graphicx,cite}
+\usepackage{psfrag}
+\usepackage[small,compact]{titlesec}
+\usepackage{wrapfig}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{cite,url,subfigure,epsfig,graphicx}
+\usepackage{verbatim,amsfonts,amsmath,amssymb}
+\usepackage{fancyhdr}
+\usepackage{mathbbold}
+\usepackage{bbm}
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{cite,url,subfigure,epsfig,graphicx}
+\usepackage{amssymb,amsmath,bm,makecell}
+\usepackage{indentfirst}
+\usepackage{overpic}
+\newcommand{\figwid}{0.22\columnwidth}
+
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{authblk}
+
+
+
+\usepackage{mathtools}
+\usepackage[font=footnotesize]{caption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tabulary}
+\usepackage{booktabs}
+\usepackage{framed}
+\usepackage{fancyhdr}
+%\usepackage[hypertex]{hyperref}
+\usepackage[hidelinks]{hyperref}
+%\IEEEoverridecommandlockouts
+\usepackage{cite,url,subfigure,epsfig,graphicx}
+\usepackage{times,verbatim,amsfonts,amsmath,color}
+%\newtheorem{definition}{\textbf{Definition}}
+%\newtheorem{lemma}{\textbf{Lemma}}
+%\newtheorem{proof}{\textbf{Proof}}
+%\newtheorem{theorem}{\textbf{Theorem}}
+%\newtheorem{example}{\textbf{Example}}
+%\newtheorem{proposition}{\textbf{Proposition}}
+%\newtheorem{remark}{\textbf{Remark}}
+%\newtheorem{corrolary}{\textbf{Corrolary}}
+%\newtheorem{ex}{\textbf{EX}}
+\usepackage{overpic}
+\graphicspath{{./},{./pictures/}}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\usepackage[table,xcdraw]{xcolor}
+\newcommand{\todo}[1]{\vspace{5 mm}\par \noindent \framebox{\begin{minipage}[c]{0.98 \columnwidth} \ttfamily\flushleft \textcolor{red}{#1}\end{minipage}}\vspace{5 mm}\par}
+\let\labelindent\relax \usepackage{enumitem}
+
+\begin{document}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{Heterogeneous Robotic Large-Scale Seismic Sensing} 
+
+\author[1]{\rm Srikanth K. V. Sudarshan}
+\author[1]{\rm Victor Montano}
+\author[2]{\rm Li Chang}
+\author[2]{\rm Robert Stewart}
+\author[1]{\rm Aaron T. Becker}
+\affil[1]{Department of Electrical and Computer Engineering}
+\affil[2]{Department of Earth and Atmospheric Sciences}
+\affil[ ]{University of Houston}
+\affil[ ]{4800 Calhoun Rd, Houston, TX 77004}
+\affil[ ]{\textit {\{skvenkatasudarshan, lhuang21, lchang13, rrstewar, atbecker\}@uh.edu}}
+\maketitle
+
+
+\begin{abstract}
+
+\end{abstract}
+
+\input{Introduction}
+%
+\input{RelatedWork}
+%
+\input{SmartDarts}
+%
+\input{SeismicSpider}
+%
+\input{DeploymentUnit(UAV)}
+%
+\input{conclusion}
+
+
+\bibliographystyle{IEEEtran}
+\bibliography{./bibs/Match}
+
+% that's all folks
+\end{document}
+
+
