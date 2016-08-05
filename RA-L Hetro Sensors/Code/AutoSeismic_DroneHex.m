@@ -194,9 +194,11 @@ for k = 1:S.drones
             end
     end
     % update position of all onboard darts
+    count = 1;
     for m = 1:numel(S.Qdarts(k,:))
         if S.Qdarts(k,m) > 0
-            S.Dpos(S.Qdarts(k,m),:) = S.Qpos(k,:);
+            S.Dpos(S.Qdarts(k,m),:) = S.Qpos(k,:)+[count,-2];
+            count = count+1;
         end
     end
 end
@@ -352,7 +354,7 @@ pts = sc*[xOff+cos(th)',yOff+sin(th)'];
 end
 
 function pts = daPts(xOff,yOff,sc) %draw a dart
-th = 0:2*pi/3:2*pi;
+th = -pi/2+(0:2*pi/3:2*pi);
 pts = sc*[xOff+cos(th)',yOff+sin(th)'];
 end
 
