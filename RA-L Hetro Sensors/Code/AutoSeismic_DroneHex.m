@@ -8,28 +8,33 @@ function [] = AutoSeismic_DroneHex(x,y,T,hex)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 if nargin <1
-    x = 50;
+    x = 1000;
     y = 100;
     T = [50,0];
     hex = 3; %total number of Hexapod walkers
     drones = 3; %total number of Drones
     darts = 16; %total number of Darts
-    drone_cap = 4;
+    drone_cap = 4; %number of darts a drone can hold
+    people = 0; %total number of human workers
+    people_cap = 10; %number of geophones a human can hold
 end
 %constants
-S.T = T; S.x = x; S.y = y; S.hex = hex; S.drones = drones; S.darts = darts; S.drone_cap = drone_cap;
+S.T = T; S.x = x; S.y = y; S.hex = hex; S.drones = drones; S.darts = darts; S.drone_cap = drone_cap; S.people = people;S.people_cap = people_cap;
 dt = 1; % delta T
-
+tic
 S = Init_State(S);
 G = Init_Graphics(S); %draw everything for first time
 for T = 1:dt:100000 % Main_loop
     S = Update_State(S,dt);
-    G = Update_Graphics(S,G,T);
+    %G = Update_Graphics(S,G,T);
     if isFinished(S)
         break
     end
 end
 title(['finished in T = ',num2str(T),' seconds'])
+display(['T = ',num2str(T),', ',num2str(S.numShots),' shots'])
+display([ x,y,hex ,drones,darts,drone_cap,people,T])
+toc
 end
 
 function S = Init_State(S)
