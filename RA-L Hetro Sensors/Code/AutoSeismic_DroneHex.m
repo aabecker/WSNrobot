@@ -12,8 +12,8 @@ if nargin <1
     y = 100;
     T = [50,0];
     hex = 3; %total number of Hexapod walkers
-    drones = 3; %total number of Drones
-    darts = 16; %total number of Darts
+    drones = 30; %total number of Drones
+    darts = 160; %total number of Darts
     drone_cap = 4; %number of darts a drone can hold
     people = 0; %total number of human workers
     people_cap = 10; %number of geophones a human can hold
@@ -33,7 +33,7 @@ for T = 1:dt:100000 % Main_loop
 end
 title(['finished in T = ',num2str(T),' seconds'])
 display(['T = ',num2str(T),', ',num2str(S.numShots),' shots'])
-display([ x,y,hex ,drones,darts,drone_cap,people,T])
+display([ x,y,hex ,drones,darts,drone_cap,people,people_cap,T])
 toc
 end
 
