@@ -8,15 +8,15 @@ function [] = AutoSeismic_DroneHex(x,y,T,hex)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 if nargin <1
-    x = 100;
-    y = 100;
+    x = 10000;
+    y = 1000;
     T = [0,y/2];
-    hex = 10; %total number of Hexapod walkers
+    hex = 15; %total number of Hexapod walkers
     drones = 0; %total number of Drones
     darts = 0; %total number of Darts
-    drone_cap = 4; %number of darts a drone can hold
+    drone_cap = 0; %number of darts a drone can hold
     people = 0; %total number of human workers
-    people_cap = 10; %number of geophones a human can hold
+    people_cap = 0; %number of geophones a human can hold
 end
 %constants
 S.T = T; S.x = x; S.y = y; S.hex = hex; S.drones = drones; S.darts = darts; S.drone_cap = drone_cap; S.people = people;S.people_cap = people_cap;
