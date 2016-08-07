@@ -8,12 +8,12 @@ function [] = AutoSeismic_DroneHex(x,y,T,hex)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 if nargin <1
-    x = 100;
-    y = 100;
+    x = 1000;
+    y = 200;
     T = [0,y/2];
-    hex = 10; %total number of Hexapod walkers
-    drones = 0; %total number of Drones
-    darts = 0; %total number of Darts
+    hex = 3; %total number of Hexapod walkers
+    drones = 30; %total number of Drones
+    darts = 160; %total number of Darts
     drone_cap = 4; %number of darts a drone can hold
     people = 0; %total number of human workers
     people_cap = 10; %number of geophones a human can hold
@@ -24,12 +24,12 @@ dt = 1; % delta T
 tic
 S = Init_State(S);
 G = Init_Graphics(S); %draw everything for first time
-for T = 1:dt:1000000 % Main_loop
+for T = 1:dt:100000 % Main_loop
     if mod(T,1000) == 0
         display(['T = ',num2str(T)]) %shows ocmputer is still running
     end
     S = Update_State(S,dt);
-%     G = Update_Graphics(S,G,T);
+    %G = Update_Graphics(S,G,T);
     if isFinished(S)
         break
     end
@@ -148,7 +148,8 @@ for k = 1:S.hex % 0 - unassigned 1 - assigned 2-ready (at position)
 %                 S.Qsurveypt(k) = minInd;
 %             end
     if S.Hstate(k) == 0
-       
+        minDist = 10*S.x*S.y; %a very large number
+        minInd = NaN;
 %         for m = 1:numel(S.surveyPtsX)
 %             if S.surveyPtsState(m) == 0 %no measurement & unassigned
 %                 dist = sqrt(sum((S.Hpos(k,:) - [S.surveyPtsX(m),S.surveyPtsY(m)]).^2))+...
@@ -167,7 +168,7 @@ numind = sum(ind);
                 [~,i] = min(dist);
                 c = find( S.surveyPtsState == 0, i,'first');
                 minInd =c(end);
-                
+                minDist = dist;
         if ~isnan(minInd)
             S.Hgoal(k,:) = [S.surveyPtsX(minInd),S.surveyPtsY(minInd)];
             S.surveyPtsState(minInd) = 1; %assigned
@@ -176,7 +177,6 @@ numind = sum(ind);
             S.Hsurveypt(k) = minInd;
         end
     end
-   end
 end
 end
 

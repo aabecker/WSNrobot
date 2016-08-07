@@ -1,4 +1,4 @@
-function [] = AutoSeismic_DroneHex(x,y,T,hex)
+function [] = AutoSeismic_DroneHex_v1(x,y,T,hex)
 % simulates a seismic survey with
 % X-length in m, Y-length in m, T = Initial HomeBase location in [x,y];
 % hex: the number of hexapods
@@ -10,34 +10,26 @@ function [] = AutoSeismic_DroneHex(x,y,T,hex)
 if nargin <1
     x = 100;
     y = 100;
-    T = [0,y/2];
-    hex = 10; %total number of Hexapod walkers
-    drones = 0; %total number of Drones
-    darts = 0; %total number of Darts
-    drone_cap = 4; %number of darts a drone can hold
-    people = 0; %total number of human workers
-    people_cap = 10; %number of geophones a human can hold
+    T = [50,0];
+    hex = 0; %total number of Hexapod walkers
+    drones = 5; %total number of Drones
+    darts = 25; %total number of Darts
+    drone_cap = 4;
 end
 %constants
-S.T = T; S.x = x; S.y = y; S.hex = hex; S.drones = drones; S.darts = darts; S.drone_cap = drone_cap; S.people = people;S.people_cap = people_cap;
+S.T = T; S.x = x; S.y = y; S.hex = hex; S.drones = drones; S.darts = darts; S.drone_cap = drone_cap;
 dt = 1; % delta T
-tic
 S = Init_State(S);
 G = Init_Graphics(S); %draw everything for first time
-for T = 1:dt:1000000 % Main_loop
-    if mod(T,1000) == 0
-        display(['T = ',num2str(T)]) %shows ocmputer is still running
-    end
+pause(5);
+for T = 1:dt:100000 % Main_loop
     S = Update_State(S,dt);
-%     G = Update_Graphics(S,G,T);
+    G = Update_Graphics(S,G,T);
     if isFinished(S)
         break
     end
 end
 title(['finished in T = ',num2str(T),' seconds'])
-display(['T = ',num2str(T),', ',num2str(S.numShots),' shots'])
-display([ x,y,hex ,drones,darts,drone_cap,people,people_cap,T])
-toc
 end
 
 function S = Init_State(S)
@@ -51,7 +43,10 @@ S.numShots = 0;
 S.surveyPtsX = xg(:);
 S.surveyPtsY = yg(:);
 S.surveyPtsState = zeros(size(S.surveyPtsX));
-%state: 0 no measurement, 1 assigned, 3 measured
+%state: 0 no measurement, 1 assigned, 2 hex sensor at point & no measurement,
+%3 dart sensor at point & no measurement, 4 measured with hex sensor, 5
+%measured with dart sensor, 6 measured no sensor at location
+
 
 %Initialize truck
 S.Tstate = 2; % 0 - unassigned 1 - assigned 2-ready (at position) 3 - finished
@@ -99,10 +94,12 @@ S = assignHexPod(S);
 S = assignDrone(S);
 
 end
+
 function S = shotTest(S)
 %state: 0 no measurement, 1 assigned, 2 ready for measurement, 3 measured,
 readyPts = sum(S.surveyPtsState == 2);
 if readyPts >= S.minSensorsForShot ||  sum(S.surveyPtsState == 0)+sum(S.surveyPtsState == 1)==0
+    
     S.numShots = S.numShots+1;
     S.surveyPtsState(S.surveyPtsState == 2) = 3; %mark as measured
     S.Hstate(S.Hstate == 2) = 0; %hexpods can move
@@ -134,40 +131,19 @@ function S = assignHexPod(S)
 for k = 1:S.hex % 0 - unassigned 1 - assigned 2-ready (at position)
     % if unassigned, move to the next (doesn't get unassigned until shot
     % is taken)
-%      if numind>0
-%                 dist = sqrt(sum((repmat( S.Qpos(k,:),numind,1) - [S.surveyPtsX(ind),S.surveyPtsY(ind)]).^2,2))+...
-%                     sqrt(sum((repmat( S.Tpos,numind,1) - [S.surveyPtsX(ind),S.surveyPtsY(ind)]).^2,2));
-%                 [~,i] = min(dist);
-%                 c = find( S.surveyPtsState == 0, i,'first');
-%                 minInd =c(end);
-%                 
-%                 S.Qgoal(k,:) = [S.surveyPtsX(minInd),S.surveyPtsY(minInd)];
-%                 S.surveyPtsState(minInd) = 1; %assigned
-%                 S.Qstate(k) = 1; %assigned
-%                 S.Qstart(k,:) = S.Qpos(k,:);
-%                 S.Qsurveypt(k) = minInd;
-%             end
     if S.Hstate(k) == 0
-       
-%         for m = 1:numel(S.surveyPtsX)
-%             if S.surveyPtsState(m) == 0 %no measurement & unassigned
-%                 dist = sqrt(sum((S.Hpos(k,:) - [S.surveyPtsX(m),S.surveyPtsY(m)]).^2))+...
-%                     sqrt(sum((S.Tpos - [S.surveyPtsX(m),S.surveyPtsY(m)]).^2));
-%                 if dist<minDist
-%                     minInd = m;
-%                     minDist = dist;
-%                 end
-%             end
-%         end
-ind = (S.surveyPtsState == 0);
-numind = sum(ind);
-    if numind>0
-                dist = sqrt(sum((repmat( S.Hpos(k,:),numind,1) - [S.surveyPtsX(ind),S.surveyPtsY(ind)]).^2,2))+...
-                    sqrt(sum((repmat( S.Tpos,numind,1) - [S.surveyPtsX(ind),S.surveyPtsY(ind)]).^2,2));
-                [~,i] = min(dist);
-                c = find( S.surveyPtsState == 0, i,'first');
-                minInd =c(end);
-                
+        minDist = 10*S.x*S.y; %a very large number
+        minInd = NaN;
+        for m = 1:numel(S.surveyPtsX)
+            if S.surveyPtsState(m) == 0 %no measurement & unassigned
+                dist = sqrt(sum((S.Hpos(k,:) - [S.surveyPtsX(m),S.surveyPtsY(m)]).^2))+...
+                    sqrt(sum((S.Tpos - [S.surveyPtsX(m),S.surveyPtsY(m)]).^2));
+                if dist<minDist
+                    minInd = m;
+                    minDist = dist;
+                end
+            end
+        end
         if ~isnan(minInd)
             S.Hgoal(k,:) = [S.surveyPtsX(minInd),S.surveyPtsY(minInd)];
             S.surveyPtsState(minInd) = 1; %assigned
@@ -176,7 +152,6 @@ numind = sum(ind);
             S.Hsurveypt(k) = minInd;
         end
     end
-   end
 end
 end
 
@@ -186,46 +161,44 @@ function S = moveDrone(S,dt) %move Drone (and onboard darts) toward goal positio
 %S.Qdarts IDs of darts on drone (0 is no dart)
 for k = 1:S.drones
     if S.Qdeploying(k) == 1 && S.Qstate(k) == 1 %deploy darts
-        dxy = sqrt(sum((S.Qgoal(k,:) - S.Qpos(k,:)).^2));
-        if dxy > S.Qvel*dt
-            S.Qpos(k,:) = S.Qpos(k,:)+S.Qvel*dt*(S.Qgoal(k,:) - S.Qpos(k,:))/dxy;
-        else
-            S.Qpos(k,:) = S.Qgoal(k,:);
-            S.Qstate(k) = 0;  %Unassigned so that the drone can go to it's next location for deployment
-            dartInd = find(S.Qdarts(k,:) >0,1,'first');
-            dartID = S.Qdarts(k,dartInd);
-            S.Qdarts(k,dartInd) = 0;  %remove dart from drone
-            S.Dstate(dartID) =  2;  % dart is ready for measurement
-            S.Dpos(dartID,:) = S.Qgoal(k,:); % dart position is the survey point
-            S.Dsurveypt(dartID) = S.Qsurveypt(k); %assign survey point to dart
-            S.surveyPtsState(S.Dsurveypt(dartID)) = 2; %mark survey ready for test (dart)
-            
-            if sum(S.Qdarts(k,:)>0) == 0 % if number of onboard darts = 0, time to retrieve
-                S.Qdeploying(k) = 0;
+            dxy = sqrt(sum((S.Qgoal(k,:) - S.Qpos(k,:)).^2));
+            if dxy > S.Qvel*dt
+                S.Qpos(k,:) = S.Qpos(k,:)+S.Qvel*dt*(S.Qgoal(k,:) - S.Qpos(k,:))/dxy;
+            else
+                S.Qpos(k,:) = S.Qgoal(k,:);
+                S.Qstate(k) = 0;  %Unassigned so that the drone can go to it's next location for deployment
+                dartInd = find(S.Qdarts(k,:) >0,1,'first');
+                dartID = S.Qdarts(k,dartInd);
+                S.Qdarts(k,dartInd) = 0;  %remove dart from drone
+                S.Dstate(dartID) =  2;  % dart is ready for measurement
+                S.Dpos(dartID,:) = S.Qgoal(k,:); % dart position is the survey point
+                S.Dsurveypt(dartID) = S.Qsurveypt(k); %assign survey point to dart
+                S.surveyPtsState(S.Dsurveypt(dartID)) = 2; %mark survey ready for test (dart)
+                
+                if sum(S.Qdarts(k,:)>0) == 0 % if number of onboard darts = 0, time to retrieve
+                    S.Qdeploying(k) = 0;
+                end
             end
-        end
     elseif S.Qdeploying(k) == 0 && S.Qstate(k) == 1 %retrieving darts
-        dxy = sqrt(sum((S.Qgoal(k,:) - S.Qpos(k,:)).^2));
-        if dxy > S.Qvel*dt
-            S.Qpos(k,:) = S.Qpos(k,:)+S.Qvel*dt*(S.Qgoal(k,:) - S.Qpos(k,:))/dxy;
-        else
-            S.Qpos(k,:) = S.Qgoal(k,:);
-            S.Qstate(k) = 0;  %Unassigned so that the drone can go to it's next location for deployment
-            emptyInd = find(S.Qdarts(k,:) == 0,1,'first'); %find empty slot on quad
-            S.Qdarts(k,emptyInd) = S.Qdartpickup(k);  %add dart to drone
-            S.Dsurveypt(S.Qdartpickup(k)) = 0; %unassign dart's survey point
-            S.Qdartpickup(k) = 0; %dart is picked up
-            if sum(S.Qdarts(k,:)>0) == S.drone_cap % if full of darts, time to deploy
-                S.Qdeploying(k) = 1;
+                    dxy = sqrt(sum((S.Qgoal(k,:) - S.Qpos(k,:)).^2));
+            if dxy > S.Qvel*dt
+                S.Qpos(k,:) = S.Qpos(k,:)+S.Qvel*dt*(S.Qgoal(k,:) - S.Qpos(k,:))/dxy;
+            else
+                S.Qpos(k,:) = S.Qgoal(k,:);
+                S.Qstate(k) = 0;  %Unassigned so that the drone can go to it's next location for deployment
+                emptyInd = find(S.Qdarts(k,:) == 0,1,'first'); %find empty slot on quad
+                S.Qdarts(k,emptyInd) = S.Qdartpickup(k);  %add dart to drone
+                S.Dsurveypt(S.Qdartpickup(k)) = 0; %unassign dart's survey point
+                S.Qdartpickup(k) = 0; %dart is picked up
+                if sum(S.Qdarts(k,:)>0) == S.drone_cap % if full of darts, time to deploy
+                    S.Qdeploying(k) = 1;
+                end
             end
-        end
     end
     % update position of all onboard darts
-    count = 1;
     for m = 1:numel(S.Qdarts(k,:))
         if S.Qdarts(k,m) > 0
-            S.Dpos(S.Qdarts(k,m),:) = S.Qpos(k,:)+[count,-2];
-            count = count+1;
+            S.Dpos(S.Qdarts(k,m),:) = S.Qpos(k,:);
         end
     end
 end
@@ -260,15 +233,19 @@ for k = 1:S.drones  % 0- unassigned 1- assigned
             end
             
         else % need to deploy darts -- so find the closest survey point
-            ind = (S.surveyPtsState == 0);
-            numind = sum(ind);
-            if numind>0
-                dist = sqrt(sum((repmat( S.Qpos(k,:),numind,1) - [S.surveyPtsX(ind),S.surveyPtsY(ind)]).^2,2))+...
-                    sqrt(sum((repmat( S.Tpos,numind,1) - [S.surveyPtsX(ind),S.surveyPtsY(ind)]).^2,2));
-                [~,i] = min(dist);
-                c = find( S.surveyPtsState == 0, i,'first');
-                minInd =c(end);
-                
+            minDist = 10*S.x*S.y; %a very large number
+            minInd = NaN;
+            for m = 1:numel(S.surveyPtsX)
+                if S.surveyPtsState(m) == 0 %no measurement & unassigned
+                    dist = sqrt(sum((S.Qpos(k,:) - [S.surveyPtsX(m),S.surveyPtsY(m)]).^2))+...
+                        sqrt(sum((S.Tpos - [S.surveyPtsX(m),S.surveyPtsY(m)]).^2));
+                    if dist<minDist
+                        minInd = m;
+                        minDist = dist;
+                    end
+                end
+            end
+            if ~isnan(minInd)
                 S.Qgoal(k,:) = [S.surveyPtsX(minInd),S.surveyPtsY(minInd)];
                 S.surveyPtsState(minInd) = 1; %assigned
                 S.Qstate(k) = 1; %assigned
@@ -288,7 +265,9 @@ G.surveyPts = scatter(S.surveyPtsX,S.surveyPtsY,[],S.surveyPtsState);
 hold on
 axis equal
 grid on;
-
+xlabel 'X-dist (m)';
+ylabel 'Y-dist (m)';
+% title 'Seismic Surveying using Heterogenous Sensors';
 %draw truck
 tpts = truckPts(S.Tpos(1),S.Tpos(2),1);
 G.truck = fill(tpts(:,1),tpts(:,2),'b');
@@ -377,7 +356,7 @@ pts = sc*[xOff+cos(th)',yOff+sin(th)'];
 end
 
 function pts = daPts(xOff,yOff,sc) %draw a dart
-th = -pi/2+(0:2*pi/3:2*pi);
+th = 0:2*pi/3:2*pi;
 pts = sc*[xOff+cos(th)',yOff+sin(th)'];
 end
 
