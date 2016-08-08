@@ -9,12 +9,12 @@ function [] = AutoSeismic_DroneHex_MoveTruck(x,y,T,hex)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 if nargin <1
     x = 100;
-    y = 100;
+    y = 200;
     T = [0,y/2];
-    hex = 10; %total number of Hexapod walkers
-    drones = 0; %total number of Drones
-    darts = 0; %total number of Darts
-    drone_cap = 0; %number of darts a drone can hold
+    hex = 20; %total number of Hexapod walkers
+    drones = 50; %total number of Drones
+    darts = 500; %total number of Darts
+    drone_cap = 4; %number of darts a drone can hold
     people = 0; %total number of human workers
     people_cap = 0; %number of geophones a human can hold
 end

@@ -1,4 +1,4 @@
-function [] = AutoSeismic_DroneHex_v2(x,y,T,hex)
+function [] = AutoSeismic_DroneHex_Fast(x,y,T,hex)
 % simulates a seismic survey with
 % X-length in m, Y-length in m, T = Initial HomeBase location in [x,y];
 % hex: the number of hexapods
@@ -8,13 +8,13 @@ function [] = AutoSeismic_DroneHex_v2(x,y,T,hex)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 if nargin <1
-    x = 10000;
-    y = 1000;
+    x = 100;
+    y = 100;
     T = [0,y/2];
-    hex = 495; %total number of Hexapod walkers
-    drones = 0; %total number of Drones
-    darts = 0; %total number of Darts
-    drone_cap = 0; %number of darts a drone can hold
+    hex = 0; %total number of Hexapod walkers
+    drones = 4; %total number of Drones
+    darts = 20; %total number of Darts
+    drone_cap = 4; %number of darts a drone can hold
     people = 0; %total number of human workers
     people_cap = 0; %number of geophones a human can hold
 end
@@ -24,12 +24,12 @@ dt = 1; % delta T
 tic
 S = Init_State(S);
 G = Init_Graphics(S); %draw everything for first time
-for T = 1:dt:10000000 % Main_loop
+for T = 1:dt:1000000 % Main_loop
     if mod(T,1000) == 0
         display(['T = ',num2str(T)]) %shows ocmputer is still running
     end
     S = Update_State(S,dt);
-%     G = Update_Graphics(S,G,T);
+    G = Update_Graphics(S,G,T);
     if isFinished(S)
         break
     end
@@ -61,7 +61,7 @@ S.Tgoal = S.T;
 S.Tvel = 1;
 
 %initialize hex
-S.Hstate = zeros(S.hex,1); % 0 - unassigned 1 - assigned 2-ready (at position)
+S.Hstate = zeros(S.hex,1); % 0 - unassigned 1 - assigned 2-ready (at position) 3- return home
 S.Hpos = repmat( S.T, S.hex,1);
 S.Hstart = S.Hpos;
 S.Hgoal = S.Hpos;
@@ -82,7 +82,6 @@ S.Qsurveypt = zeros(S.drones,1);%ID of the survey point assigned to this robot (
 S.Dstate = zeros(S.darts,1);% 0- unassigned 1- assigned 2-ready (at position)
 S.Dpos = repmat( S.T, S.darts,1);
 S.Dsurveypt = zeros(S.darts,1);
-
 end
 
 function isDone = isFinished(S)
@@ -98,7 +97,6 @@ S = moveDrone(S,dt);
 %assign agents
 S = assignHexPod(S);
 S = assignDrone(S);
-S = moveTruck(S,dt);
 
 end
 function S = shotTest(S)
@@ -126,6 +124,13 @@ for k = 1:S.hex
             S.Hstate(k) = 2;  %hexpod is ready for test here
             S.surveyPtsState(S.Hsurveypt(k)) = 2; %mark survey ready for test (hexapod)
         end
+    elseif S.Hstate(k) == 3
+        if dxy > S.Hvel*dt
+            S.Hpos(k,:) = S.Hpos(k,:)+S.Hvel*dt*(S.Hgoal(k,:) - S.Hpos(k,:))/dxy;
+        else
+            S.Hpos(k,:) = S.Hgoal(k,:);
+            S.Hstate(k) = 0;  %hexpod is ready for test here
+        end     
     end
 end
 end
@@ -178,39 +183,13 @@ numind = sum(ind);
             S.Hsurveypt(k) = minInd;
         end
     end
+    elseif S.Hstate(k) == 3
+        S.Hgoal(k,:) = [S.Tgoal(:,1),S.Tgoal(:,2)];
+        S.Hstart(k,:) = S.Hpos(k,:);
+        S.Hsurveypt(k) = 0;
    end
 end
 end
-
-% function S = assignHexPod(S)
-% % for each unassigned hexpod, assign to the nearest unassigned survey
-% % point
-% for k = 1:S.hex % 0 - unassigned 1 - assigned 2-ready (at position)
-%     % if unassigned, move to the next (doesn't get unassigned until shot
-%     % is taken)
-%     if S.Hstate(k) == 0
-%         minDist = 10*S.x*S.y; %a very large number
-%         minInd = NaN;
-%         for m = 1:numel(S.surveyPtsX)
-%             if S.surveyPtsState(m) == 0 %no measurement & unassigned
-%                 dist = sqrt(sum((S.Hpos(k,:) - [S.surveyPtsX(m),S.surveyPtsY(m)]).^2))+...
-%                     sqrt(sum((S.Tpos - [S.surveyPtsX(m),S.surveyPtsY(m)]).^2));
-%                 if dist<minDist
-%                     minInd = m;
-%                     minDist = dist;
-%                 end
-%             end
-%         end
-%         if ~isnan(minInd)
-%             S.Hgoal(k,:) = [S.surveyPtsX(minInd),S.surveyPtsY(minInd)];
-%             S.surveyPtsState(minInd) = 1; %assigned
-%             S.Hstate(k) = 1; %assigned
-%             S.Hstart(k,:) = S.Hpos(k,:);
-%             S.Hsurveypt(k) = minInd;
-%         end
-%     end
-% end
-% end
 
 function S = moveDrone(S,dt) %move Drone (and onboard darts) toward goal position
 %S.Qstate  0- unassigned 1- assigned
@@ -294,6 +273,10 @@ for k = 1:S.drones  % 0- unassigned 1- assigned
         else % need to deploy darts -- so find the closest survey point
             ind = (S.surveyPtsState == 0);
             numind = sum(ind);
+%             disp(numind);
+            ind_s = (S.surveyPtsState == 1);
+            numind_s = sum(ind_s);
+%             disp(numind_s);
             if numind>0
                 dist = sqrt(sum((repmat( S.Qpos(k,:),numind,1) - [S.surveyPtsX(ind),S.surveyPtsY(ind)]).^2,2))+...
                     sqrt(sum((repmat( S.Tpos,numind,1) - [S.surveyPtsX(ind),S.surveyPtsY(ind)]).^2,2));
@@ -306,31 +289,42 @@ for k = 1:S.drones  % 0- unassigned 1- assigned
                 S.Qstate(k) = 1; %assigned
                 S.Qstart(k,:) = S.Qpos(k,:);
                 S.Qsurveypt(k) = minInd;
+                
+            elseif numind == 0
+                
+                if numind_s > 0
+                    dist_1 = sqrt(sum((repmat( S.Qpos(k,:),numind_s,1) - [S.surveyPtsX(ind_s),S.surveyPtsY(ind_s)]).^2,2))+...
+                    sqrt(sum((repmat( S.Tpos,numind_s,1) - [S.surveyPtsX(ind_s),S.surveyPtsY(ind_s)]).^2,2));
+                    dist_2 = sqrt(sum((repmat( S.Hpos(k,:),numind_s,1) - [S.surveyPtsX(ind_s),S.surveyPtsY(ind_s)]).^2,2))+...
+                    sqrt(sum((repmat( S.Tpos,numind_s,1) - [S.surveyPtsX(ind_s),S.surveyPtsY(ind_s)]).^2,2));
+                    [~,i] = min(dist_1);
+                    c1 = find( S.surveyPtsState == 1, i,'first');
+                    minInd_q =c1(end);
+                    [~,j] = min(dist_2);
+                    c2 = find( S.surveyPtsState == 1, j,'first');
+                    minInd_h =c2(end);
+                    dist_q = norm(S.Qpos(k,:)-[S.surveyPtsX(minInd_q),S.surveyPtsY(minInd_q)],2);
+                    t_q = dist_q/S.Qvel;
+                    for j = 1:S.hex
+                        if S.Hgoal(j,1) == S.surveyPtsX(minInd_h) && S.Hgoal(j,2) == S.surveyPtsY(minInd_h)
+                            dist_h = norm(S.Hpos(j,:)-[S.surveyPtsX(minInd_h),S.surveyPtsY(minInd_h)],2);
+                             t_h = dist_h/S.Hvel;
+                             if t_q > t_h
+                                 S.Hstate(j) = 3; %hexapod return home
+                            end    
+                        end      
+                    end
+                    
+                    S.Qgoal(k,:) = [S.surveyPtsX(minInd_q),S.surveyPtsY(minInd_q)];
+                                 S.surveyPtsState(minInd_q) = 1; %assigned
+                                 S.Qstate(k) = 1; %assigned
+                                 S.Qstart(k,:) = S.Qpos(k,:);
+                                 S.Qsurveypt(k) = minInd_q; 
+                end
             end
         end
     end
 end
-end
-
-function S = moveTruck(S,dt) %move Truck (and onboard darts) in +x
-% find the survey point with lowest x value.
-xMin = min(S.surveyPtsX(S.surveyPtsState < 3));
-if ~isempty(xMin)
-    S.Tgoal(1) = xMin;
-end
-oldPos = S.Tpos;
- dxy = sqrt(sum((S.Tgoal - S.Tpos).^2));
-        if dxy > S.Tvel*dt
-            S.Tpos = S.Tpos+S.Tvel*dt*(S.Tgoal - S.Tpos)/dxy;
-        else
-            S.Tpos = S.Tgoal;
-        end
-    % update position of all onboard darts
-    for m = 1:numel(S.Dstate)
-        if S.Dstate(m) == 0 &&  S.Dpos(m,1) == oldPos(1) &&S.Dpos(m,2) == oldPos(2)
-            S.Dpos(m,:) = S.Tpos;
-        end
-    end
 end
 function G = Init_Graphics(S)
 figure(1);
@@ -343,8 +337,6 @@ axis equal
 grid on;
 
 %draw truck
-G.tPathG = line([S.Tstart(1),S.Tgoal(1)],[S.Tstart(2),S.Tgoal(2)],'color' ,'b');
-G.tPathP = line([S.Tpos(1),S.Tgoal(1)],[S.Tpos(2),S.Tgoal(2)],'color' ,'r');
 tpts = truckPts(S.Tpos(1),S.Tpos(2),1);
 G.truck = fill(tpts(:,1),tpts(:,2),'b');
 
@@ -414,10 +406,6 @@ for k = 1:S.darts
     dapts = daPts(S.Dpos(k,1),S.Dpos(k,2),1);
     set( G.da(k), 'XData',dapts(:,1) ,'YData',dapts(:,2));
 end
-%update truck
-set(G.tPathG, 'XData',[S.Tstart(1),S.Tgoal(1)],'YData',[S.Tstart(2),S.Tgoal(2)]);
-set(G.tPathP, 'XData',[S.Tpos(1),S.Tgoal(1)],'YData',[S.Tpos(2),S.Tgoal(2)]);
-tpts = truckPts(S.Tpos(1),S.Tpos(2),1); set(G.truck, 'XData',tpts(:,1) ,'YData',tpts(:,2)) ;
 %draw people
 
 %update title

@@ -102,11 +102,11 @@ A =[5 20221 1101393;
     500 8794 57823];
 
 figure(1);
-plot(A(:,1),A(:,2),'r-');
+plot(A(:,1),A(:,2),'rO');
 xlabel 'No. of Hexapods';
 ylabel 'No. of Shots';
 figure(2);
-plot(A(:,1),A(:,3),'b-');
+plot(A(:,1),A(:,3),'bO');
 xlabel 'No. of Hexapods';
 ylabel 'Time (s)';
 title 'Time Taken to survey an area of 10km x 1km with Hexapods';
