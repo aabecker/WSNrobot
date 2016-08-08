@@ -11,7 +11,7 @@ if nargin <1
     x = 100;
     y = 100;
     T = [0,y/2];
-    hex = 0; %total number of Hexapod walkers
+    hex = 10; %total number of Hexapod walkers
     drones = 4; %total number of Drones
     darts = 20; %total number of Darts
     drone_cap = 4; %number of darts a drone can hold
@@ -295,23 +295,13 @@ for k = 1:S.drones  % 0- unassigned 1- assigned
                 if numind_s > 0
                     dist_1 = sqrt(sum((repmat( S.Qpos(k,:),numind_s,1) - [S.surveyPtsX(ind_s),S.surveyPtsY(ind_s)]).^2,2))+...
                     sqrt(sum((repmat( S.Tpos,numind_s,1) - [S.surveyPtsX(ind_s),S.surveyPtsY(ind_s)]).^2,2));
-                    dist_2 = sqrt(sum((repmat( S.Hpos(k,:),numind_s,1) - [S.surveyPtsX(ind_s),S.surveyPtsY(ind_s)]).^2,2))+...
-                    sqrt(sum((repmat( S.Tpos,numind_s,1) - [S.surveyPtsX(ind_s),S.surveyPtsY(ind_s)]).^2,2));
                     [~,i] = min(dist_1);
                     c1 = find( S.surveyPtsState == 1, i,'first');
                     minInd_q =c1(end);
-                    [~,j] = min(dist_2);
-                    c2 = find( S.surveyPtsState == 1, j,'first');
-                    minInd_h =c2(end);
-                    dist_q = norm(S.Qpos(k,:)-[S.surveyPtsX(minInd_q),S.surveyPtsY(minInd_q)],2);
-                    t_q = dist_q/S.Qvel;
+                    
                     for j = 1:S.hex
-                        if S.Hgoal(j,1) == S.surveyPtsX(minInd_h) && S.Hgoal(j,2) == S.surveyPtsY(minInd_h)
-                            dist_h = norm(S.Hpos(j,:)-[S.surveyPtsX(minInd_h),S.surveyPtsY(minInd_h)],2);
-                             t_h = dist_h/S.Hvel;
-                             if t_q > t_h
+                        if S.Hstate(j) == 1
                                  S.Hstate(j) = 3; %hexapod return home
-                            end    
                         end      
                     end
                     
