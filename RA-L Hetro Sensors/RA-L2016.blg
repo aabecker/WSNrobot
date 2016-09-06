@@ -1,0 +1,58 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: RA-L2016.aux
+The style file: IEEEtran.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: ./bibs/Match.bib
+-- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty journal in MAPL2006
+
+Done.
+You've used 6 entries,
+            4039 wiz_defined-function locations,
+            848 strings with 8199 characters,
+and the built_in function-call counts, 3056 in all, are:
+= -- 224
+> -- 57
+< -- 12
++ -- 30
+- -- 11
+* -- 138
+:= -- 504
+add.period$ -- 12
+call.type$ -- 6
+change.case$ -- 7
+chr.to.int$ -- 33
+cite$ -- 7
+duplicate$ -- 232
+empty$ -- 287
+format.name$ -- 13
+if$ -- 670
+int.to.chr$ -- 0
+int.to.str$ -- 6
+missing$ -- 46
+newline$ -- 45
+num.names$ -- 6
+pop$ -- 131
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 2
+skip$ -- 231
+stack$ -- 0
+substring$ -- 86
+swap$ -- 156
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 5
+type$ -- 6
+warning$ -- 1
+while$ -- 9
+width$ -- 7
+write$ -- 74
+(There was 1 warning)

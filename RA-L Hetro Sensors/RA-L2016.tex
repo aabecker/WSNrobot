@@ -59,8 +59,13 @@
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
 \usepackage[table,xcdraw]{xcolor}
-\newcommand{\todo}[1]{\vspace{5 mm}\par \noindent \framebox{\begin{minipage}[c]{0.98 \columnwidth} \ttfamily\flushleft \textcolor{red}{#1}\end{minipage}}\vspace{5 mm}\par}
+\newcommand{\todo}[1]{ \textcolor{red}{\ttfamily#1}}
+\newcommand{\todobox}[1]{\vspace{5 mm}\par \noindent \framebox{\begin{minipage}[c]{0.98 \columnwidth} \ttfamily\flushleft \textcolor{red}{#1}\end{minipage}}\vspace{5 mm}\par}
 \let\labelindent\relax \usepackage{enumitem}
+
+
+
+
 
 \begin{document}
 %

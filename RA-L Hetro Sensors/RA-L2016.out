@@ -1,23 +1,30 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
 \BOOKMARK [1][-]{section.2}{Overview and Related Work}{}% 2
 \BOOKMARK [2][-]{subsection.2.1}{Seismic Sensing}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{Sensor networks}{section.2}% 4
-\BOOKMARK [2][-]{subsection.2.3}{Multi-Robot Assignment}{section.2}% 5
-\BOOKMARK [1][-]{section.3}{Smart Darts}{}% 6
-\BOOKMARK [2][-]{subsection.3.1}{Design}{section.3}% 7
-\BOOKMARK [2][-]{subsection.3.2}{Experiments}{section.3}% 8
-\BOOKMARK [3][-]{subsubsection.3.2.1}{Exp 1: Drop tests in different soils}{subsection.3.2}% 9
-\BOOKMARK [3][-]{subsubsection.3.2.2}{Exp 2: Straight vs Bent Fins}{subsection.3.2}% 10
-\BOOKMARK [3][-]{subsubsection.3.2.3}{Exp 3: Autonomous drop}{subsection.3.2}% 11
-\BOOKMARK [3][-]{subsubsection.3.2.4}{Exp 4: Shot gather comparison}{subsection.3.2}% 12
-\BOOKMARK [1][-]{section.4}{SeismicSpider}{}% 13
-\BOOKMARK [2][-]{subsection.4.1}{Design}{section.4}% 14
-\BOOKMARK [2][-]{subsection.4.2}{Experiments}{section.4}% 15
-\BOOKMARK [3][-]{subsubsection.4.2.1}{Exp 1: Accuracy plot}{subsection.4.2}% 16
-\BOOKMARK [3][-]{subsubsection.4.2.2}{Exp 2: Shot gather comparison}{subsection.4.2}% 17
-\BOOKMARK [3][-]{subsubsection.4.2.3}{Exp 3: Deploying and Retrieving Hexapod}{subsection.4.2}% 18
-\BOOKMARK [1][-]{section.5}{DeploymentUnit\(UAV\)}{}% 19
-\BOOKMARK [2][-]{subsection.5.1}{Design}{section.5}% 20
-\BOOKMARK [2][-]{subsection.5.2}{Experiments}{section.5}% 21
-\BOOKMARK [1][-]{section.6}{Comparision}{}% 22
-\BOOKMARK [1][-]{section.7}{Conclusion and FutureWork}{}% 23
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Cabled Systems}{subsection.2.1}% 4
+\BOOKMARK [3][-]{subsubsection.2.1.2}{Autonomous Nodal Systems}{subsection.2.1}% 5
+\BOOKMARK [3][-]{subsubsection.2.1.3}{Seismic Drone}{subsection.2.1}% 6
+\BOOKMARK [2][-]{subsection.2.2}{Sensor networks}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.3}{Multi-Robot Assignment}{section.2}% 8
+\BOOKMARK [1][-]{section.3}{Smart Darts}{}% 9
+\BOOKMARK [2][-]{subsection.3.1}{Design}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.2}{Experiments}{section.3}% 11
+\BOOKMARK [3][-]{subsubsection.3.2.1}{ Drop tests in different soils}{subsection.3.2}% 12
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Straight vs Bent Fins}{subsection.3.2}% 13
+\BOOKMARK [3][-]{subsubsection.3.2.3}{Shot gather comparison}{subsection.3.2}% 14
+\BOOKMARK [1][-]{section.4}{SeismicSpider}{}% 15
+\BOOKMARK [2][-]{subsection.4.1}{Design}{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.2}{Experiments}{section.4}% 17
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Exp 1: Accuracy plot}{subsection.4.2}% 18
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Exp 2: Shot gather comparison}{subsection.4.2}% 19
+\BOOKMARK [3][-]{subsubsection.4.2.3}{Exp 3: Deploying and Retrieving Hexapod}{subsection.4.2}% 20
+\BOOKMARK [1][-]{section.5}{DeploymentUnit\(UAV\)}{}% 21
+\BOOKMARK [2][-]{subsection.5.1}{Design}{section.5}% 22
+\BOOKMARK [2][-]{subsection.5.2}{Experiment}{section.5}% 23
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Autonomous drop}{subsection.5.2}% 24
+\BOOKMARK [3][-]{subsubsection.5.2.2}{Height vs. penetration depth}{subsection.5.2}% 25
+\BOOKMARK [1][-]{section.6}{Comparision}{}% 26
+\BOOKMARK [2][-]{subsection.6.1}{Ballistic Deployment}{section.6}% 27
+\BOOKMARK [2][-]{subsection.6.2}{Simulation Studies}{section.6}% 28
+\BOOKMARK [1][-]{section.7}{Conclusion and Future Work}{}% 29
+\BOOKMARK [1][-]{section.7}{References}{}% 30
