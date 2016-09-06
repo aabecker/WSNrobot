@@ -1,0 +1,41 @@
+A =[80.15	67.13	84.53	71.62;
+87.6	75.3	95.74	72.97;
+88.13	84.13	81.38	79.64;
+78.2	83.09	86.93	63.39;
+94.12	86.49	84.72	85.08;
+92.26	81.53	84.7	88;
+76.15	84.37	85.99	63.53;
+84.53	81.09	95.16	86.12;
+79.19	78.75	84.45	88.93;
+100.57	80.5	83.98	84.43];
+
+subplot(2,2,1); plot(abs(A(:,1)-90),'ro-'); ylabel('Angle of Deviation (deg)'); xlabel('No. of Trials'); title('Straight Fins ');
+hold on;
+subplot(2,2,2); plot(A(:,2),'ro-'); ylabel('Penetration Depth (mm)'); xlabel('No. of Trials');title('Straight Fins ');
+hold on;
+hold on;
+subplot(2,2,3); plot(abs(A(:,3)-90),'bo-'); ylabel('Angle of Deviation (deg)'); xlabel('No. of Trials');title('Bent Fins ');
+hold on;
+hold on;
+subplot(2,2,4); plot(A(:,4),'bo-'); ylabel('Penetration Depth (mm)'); xlabel('No. of Trials');title('Bent Fins ');
+hold on;
+hold on;
+a1 = mean(A(:,1));
+a2 = mean(A(:,2));
+a3 = mean(A(:,3));
+a4 = mean(A(:,4));
+s1 = std(A(:,1));
+s2 = std(A(:,2));
+s3 = std(A(:,3));
+s4 = std(A(:,4));
+
+subplot(2,2,1);errorbar(a1,s1,'rx','LineWidth',2);
+hold on;
+subplot(2,2,2);errorbar(a2,s2,'rx','LineWidth',2);
+hold on;
+subplot(2,2,3);errorbar(a3,s3,'bx','LineWidth',2);
+hold on;
+subplot(2,2,4);errorbar(a4,s4,'bx','LineWidth',2);
+hold on;
+hold on;
+
