@@ -1,7 +1,15 @@
 \section{Overview and Related Work}\label{sec:RelatedWork}
 
-This paper presents a \emph{seismic drone}. It combines the quality of data acquisition present in a traditional exploration method with an autonomous unmanned air vehicle (UAV) which has high maneuverability and the capability of performing precision landing. The primary prototype consisted of a single geophone, an Arduino Uno micro-controller, an amplifier, and a battery. This system was not stable and if the plant of the geophone spike failed, the drone fell on its side. The second prototype has a seismic recorder, a battery, and four geophones all embedded onto a platform that is attached to an UAV. This sensor platform with $4$ geophones provided stability and acted as an extension of the drone's landing gear, solving the issue of tipping over during landing. These prototypes are shown in Fig.~\ref{fig:sensor_base}. 
+This paper presents a \emph{seismic drone}. It combines the quality of data acquisition present in a traditional exploration method with an autonomous unmanned air vehicle (UAV) which has high maneuverability and the capability of performing precision landing. The primary prototype consisted of a single geophone, an Arduino Uno micro-controller, an amplifier, and a battery. This system was not stable and if the plant of the geophone spike failed, the drone fell on its side. The second prototype has a seismic recorder, a battery, and four geophones all embedded onto a platform that is attached to an UAV. This sensor platform with $4$ geophones provided stability and acted as an extension of the drone's landing gear, solving the issue of tipping over during landing. These prototypes are shown in Fig.~\ref{fig:Hetero_overall}. 
 By inputting a specific GPS location, the UAV can accurately deploy the seismic data acquisition system. A \emph{geophone} senses ground movement (velocity) and converts it into voltage, which is recorded with a seismic recorder. The deviation of this measured voltage from the base line is called the \emph{seismic response} and is analyzed for identifying and classifying the type of hydrocarbon present. The geophones obtain data which is processed by the seismic recorder and stored in the on-board memory. The seismic recorder is a micro-controller designed for seismic exploration applications and has a 24-bit accuracy on the ADC conversion, and sampling rates as low as half a millisecond. This device helps us obtains data comparable to commercially available micro controllers. The drone system could successfully automate the deployment and recovery. By using a robot to perform the above task, costs and errors are reduced. 
+
+\begin{figure}
+\centering
+\begin{overpic}[width=\columnwidth]{Hetro_overall.pdf}\end{overpic}
+\caption{\label{fig:Hetero_overall}
+ This figure depicts the heterogeneous sensor system used for seismic data acquisition. It consists of two sensors the hexapod and the smart dart. These sensors have complementing features. The hexacopter shown is used as a deployment unit.}
+ 
+\end{figure}
 
 \subsection{Seismic Sensing}
 

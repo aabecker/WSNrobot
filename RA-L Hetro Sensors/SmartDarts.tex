@@ -1,13 +1,17 @@
 \section{Smart Darts}\label{sec:SmartDarts}
 
 \subsection{Design}
-The Smart dart combines a geophone \todo{(model number)} with the fins and body of a lawn Jart (TM), using a 3D-printed chamber that encloses a photo cellular-enabled microcontorller (link).
+The Smart dart combines a geophone(GS-100) with the fins and body of a lawn Jart (TM), using a 3D-printed chamber that encloses a photo cellular-enabled micro-controller (link) called \emph{Photon} as shown in \ref{fig:Smart_Dart_overview}.
 
 This design was selected because of (blah blah)
 
 The following sections compare the performance of the Smart Darts in different soils, 
 
-
+\begin{figure} \centering
+{\includegraphics[width=\columnwidth]{Smart_Dart_overview.pdf}}
+\caption{This is the cross-section of the smart dart sensor. It consists of a lawn jart fin, electron micro-controller, 3D printed protective casing and a geophone} 
+\label{fig:Smart_Dart_overview}
+\end{figure}
 
 \subsection{Experiments}
 \subsubsection{ Drop tests in different soils} 
@@ -19,7 +23,9 @@ Each trial measured the penetration depth and the angular error from vertical.
 This experiment compared drop tests as function of soil type.  
 Results are summarized in Fig.~\ref{fig:DepthPlotIndoors}, which shows penetration depth, and Fig.~\ref{fig:AnglePlotIndoors}, which shows angle of defication.
 
-Soil types are calibrated using a handheld penetrometer \todo{(model number)}
+Soil types are calibrated using a hand-held penetrometer(E-280)
+
+To determine how the smart darts would perform in different soils, we ran an experiment on their penetration into 4 different soil types. Each experiment was carried out by holding the darts at their tips opposite to the spike in a vertical position and releasing them at varying heights into the buckets of soil and measuring their penetration depth, and angle of penetration. To measure their penetration depth, the buried darts were marked at a point on it’s spike where it met the soil, the dart was then pulled out of the ground, and the distance from the spike tip to the marking was measured with calipers. The angle of penetration was recorded from the accelerometer inside the dart. The soil types were categorized by their compression strength, which was measured using a pocket penetrometer. Since measurements for compression strength vary drastically with small deviation in measurement location, we took this measurement 10 times at 10 different locations in the same soil type and took the average. A graph displaying these varying heights vs. their penetration depth can be seen in figure…. and a graph displaying the penetration angle at the varying heights can be seen in figure…
 
 \begin{figure} \centering
 {\includegraphics[width=\columnwidth]{indoor_depth_plot.pdf}}
@@ -39,6 +45,13 @@ Soil types are calibrated using a handheld penetrometer \todo{(model number)}
 Drop tests as function of height. Compares depth and angle for twisted vs. straight tail.
 Results are summarized in Fig.~\ref{fig:StraightBentPic}.
 
+To determine the difference in performance between straight-finned darts and twisted-finned darts, we ran a drop test experiment on each type of dart 10 times at a constant height in only one soil type. Each experiment was carried out by holding the darts horizontally at a height of 10.5 meters, dropping it into the soil, and recording it’s penetration depth and penetration angle.  The purpose of holding the darts horizontally in this experiment was to study the angle-correcting behavior of the fins. The angle of penetration and penetration depth were recorded in the same way as in the other drop test experiments. A graph showing the values recorded for penetration depth and angle can be seen in figure…
+\begin{figure} \centering
+  {\includegraphics[width=\columnwidth]{StraightvsBent_overview.pdf}}
+ \caption{Difference in design between straight and bent fins.} 
+ \label{fig:StraightBentPic}
+ \vspace{-1em}
+\end{figure} 
 \begin{figure} \centering
   {\includegraphics[width=\columnwidth]{StraightBentPic.pdf}}
  \caption{Outdoor Drop test comparing Straight vs Bent fins performance.
@@ -48,16 +61,27 @@ Results are summarized in Fig.~\ref{fig:StraightBentPic}.
  \vspace{-1em}
 \end{figure}
 \begin{figure} \centering
-  {\includegraphics[width=\columnwidth]{StraightBentPlot.pdf}}
- \caption{Straight vs Bent fins comparing penetration depth and angle of deviation. Experiment used a fixed drop height of 9.8 m.} 
- \label{fig:StraightBentPlot}
+  {\includegraphics[width=\columnwidth]{StraightvsBent_depthangle.pdf}}
+ \caption{Straight vs Bent fins comparing a.)penetration depth b.)angle of deviation. Experiment used a fixed drop height of 9.8 m.} 
+ \label{fig:StraightBentDepth}
 \end{figure}
-
-
-
+%\begin{figure}\centering 
+%\subfigure[\label{subfig:StraightBentDepth}]
+%  {\includegraphics[width=.45\columnwidth]{StraightvsBent_depth.pdf}}
+% \subfigure[\label{subfig:StraightBentAngle}]
+%  {\includegraphics[width=.45\columnwidth]%{StraightvsBent_angle.pdf}}
+%   \vspace*{-.1in}
+ %\caption{Straight vs Bent fins comparing a.) Penetration Depth b.) Angle of Deviation. Experiment used a fixed drop height of 9.8 m. \label{fig:StraightBent}}
+ %\vspace*{-.1in}
+%\end{figure}
 \subsubsection{Shot gather comparison}
 Exp 3: Dart sensing accuracy vs ground setup
 
+\begin{figure} \centering
+  {\includegraphics[width=\columnwidth]{shotgather_auto_drop.pdf}}
+ \caption{Shot gather comparision of traditional geophones vs autonomously dropped smart dart sensors a.) Traditional b.) Smart darts} 
+ \label{fig:TradvsAutoDrop}
+\end{figure}
 \todobox{Srikanth:  Need figure for accuracy of placement for drone drop}
 
  
