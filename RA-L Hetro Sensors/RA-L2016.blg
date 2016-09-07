@@ -11,48 +11,46 @@ Database file #1: ./bibs/Match.bib
 -- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
-Warning--empty journal in MAPL2006
 
 Done.
-You've used 6 entries,
+You've used 7 entries,
             4039 wiz_defined-function locations,
-            848 strings with 8199 characters,
-and the built_in function-call counts, 3056 in all, are:
-= -- 224
-> -- 57
+            855 strings with 8453 characters,
+and the built_in function-call counts, 3541 in all, are:
+= -- 268
+> -- 66
 < -- 12
-+ -- 30
-- -- 11
-* -- 138
-:= -- 504
-add.period$ -- 12
-call.type$ -- 6
-change.case$ -- 7
++ -- 34
+- -- 13
+* -- 157
+:= -- 594
+add.period$ -- 14
+call.type$ -- 7
+change.case$ -- 8
 chr.to.int$ -- 33
 cite$ -- 7
-duplicate$ -- 232
-empty$ -- 287
-format.name$ -- 13
-if$ -- 670
+duplicate$ -- 270
+empty$ -- 326
+format.name$ -- 16
+if$ -- 773
 int.to.chr$ -- 0
-int.to.str$ -- 6
-missing$ -- 46
-newline$ -- 45
-num.names$ -- 6
-pop$ -- 131
+int.to.str$ -- 7
+missing$ -- 58
+newline$ -- 50
+num.names$ -- 7
+pop$ -- 160
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 231
+skip$ -- 267
 stack$ -- 0
-substring$ -- 86
-swap$ -- 156
+substring$ -- 87
+swap$ -- 187
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 6
-warning$ -- 1
-while$ -- 9
-width$ -- 7
-write$ -- 74
-(There was 1 warning)
+type$ -- 7
+warning$ -- 0
+while$ -- 10
+width$ -- 8
+write$ -- 86

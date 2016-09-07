@@ -47,9 +47,17 @@ J.~Jiang, A.~A. Aziz, Y.~Liu, and K.-M. Strack, ``Geophysical data acquisition
 
 \bibitem{MAPL2006}
 \BIBentryALTinterwordspacing
-M.~A. P.~G. 2006, ``Robotic mars exploration strategy 2007–2016,'' March
-  2006. [Online]. Available:
+M.~A. P.~G. 2006, ``Robotic mars exploration strategy 2007–2016,'' National
+  Aeronautics and Space Administration, Tech. Rep., March 2006. [Online].
+  Available:
   \url{http://mepag.jpl.nasa.gov/reports/3715_Mars_Expl_Strat_GPO.pdf}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Srikanth2016seismicScheduler}
+\BIBentryALTinterwordspacing
+S.~KVS and A.~T. Becker, ``{``Seismic Survey Scheduler.'' MATLAB Central File
+  Exchange},'' Sep. 2016. [Online]. Available:
+  \url{http://www.mathworks.com/matlabcentral/fileexchange/59034}
 \BIBentrySTDinterwordspacing
 
 \end{thebibliography}
