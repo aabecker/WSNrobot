@@ -26,11 +26,61 @@ The critical factor is to know exactly (within 10 cm accuracy)  the geophone loc
 
 Exp 4: Automatic drop from drone, accuracy in placement
 
+The UAS is a 177 cm wing span hexacopter, controlled by the Pixhawk flight controller running ArduPilot Mega flight software. The UAS has a 3DR GPS module using the UBlox NEO-7 chipset.
+
+For the accuracy test, 6 sets of dart, 4 darts in each set, were dropped on the same GPS waypoint. Between each drop, the UAS travel to another GPS waypoint close by to cancel out the flight controller's stable hover. UAS return to launch platform to be reloaded and data is recorded after each set.
+
+%![Picture 1](./Fig_1-Flight_plan.png)
+
+Figure 1 - Flight plan of accuracy test
+
+To record data, one dart was picked from the first set as the reference point (the lower left one in this case), hence the first data point will be 0,0. A lager dry-wall square is placed with the origin at the dart's drop point to establish axes.
+
+%![Picture 1 - First set of dart with reference axes](./Fig_2-First_Set.jpg)
+
+Figure 2 - First set of dart with reference axes
+
+After the first set of data has been recorded, the darts are collected and reloaded on to the UAS for next set of deployment. A rod is placed in the position of the first dart to keep reference. The dry-wall square is kept in place, strings were tied on the ground to lengthen the reference axes. Future deployment will be compared against the reference point and axes.
+
+%![Picture 3](./Fig_3-Later_set.jpg)
+
+Figure 3 - Later Dart Sets
+
+%| x | y |
+%|---|---|
+%|0  |0  |
+%|43 |-9 |
+%|19 |15 |
+%|39 |90 |
+%|25 |-5 |
+%|44 |4  |
+%|59 |33 |
+%|45 |79 |
+%|42 |22 |
+%|72 |47 |
+%|52 |65 |
+%|72 |79 |
+%|33 |20 |
+%|50 |75 |
+%|19 |60 |
+%|51 |66 |
+%|62 |60 |
+%|64 |66 |
+%|43 |95 |
+%|44 |27 |
+%|48 |63 |
+%|22 |70 |
+%|28 | 90 |
+%|done |
+
+
+
+
 \todobox{AN:  Need figure for accuracy of placement for drone drop}
 
 \begin{figure} \centering
-  {\includegraphics[width=\columnwidth]{replace_graph.pdf}}
- \caption{Accuracy of placement for drone drop from 20m height} 
+  {\includegraphics[width=\columnwidth]{accuracy_test_darts.pdf}}
+ \caption{a.) Smart darts deployed autonomously by the deployment unit (hexacopter) b.) Screen shot of flight plan for autonomous deployment} 
  \label{fig:TradvsAutoDrop}
 \end{figure}
 
