@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    231023,       4414]
-NotebookOptionsPosition[    227618,       4291]
-NotebookOutlinePosition[    227978,       4307]
-CellTagsIndexPosition[    227935,       4304]
+NotebookDataLength[    231115,       4418]
+NotebookOptionsPosition[    227710,       4295]
+NotebookOutlinePosition[    228070,       4311]
+CellTagsIndexPosition[    228027,       4308]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -951,8 +951,9 @@ Cell[BoxData[
                    None, Evaluator -> Automatic, Method -> "Preemptive"], 
                   Alignment -> {Center, Center}, ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                  GraphicsBox[{{{}, {}, {
                     Directive[
                     Opacity[1.], 
@@ -996,8 +997,9 @@ E21tuA2Hu1Qb5MpIvC1J2LbiLAPNdFat0UTCT6hx92iT4T+2DbLK
                    GridLines -> {None, None}, GridLinesStyle -> Directive[
                     GrayLevel[0.5, 0.4]], ImageSize -> 
                    Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}], 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], 
                    Method -> {
                     "DefaultBoundaryStyle" -> Automatic, "ScalingFunctions" -> 
                     None}, PlotRange -> {{0., 100.}, {0., 3284.127441393128}},
@@ -1042,8 +1044,9 @@ E21tuA2Hu1Qb5MpIvC1J2LbiLAPNdFat0UTCT6hx92iT4T+2DbLK
                    None, Evaluator -> Automatic, Method -> "Preemptive"], 
                   Alignment -> {Center, Center}, ImageSize -> 
                   Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                  GraphicsBox[{{{}, {}, {
                     Directive[
                     Opacity[1.], 
@@ -1087,8 +1090,9 @@ E21tuA2Hu1Qb5MpIvC1J2LbiLAPNdFat0UTCT6hx92iT4T+2DbLK
                    GridLines -> {None, None}, GridLinesStyle -> Directive[
                     GrayLevel[0.5, 0.4]], ImageSize -> 
                    Dynamic[{
-                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}], 
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}], 
                    Method -> {
                     "DefaultBoundaryStyle" -> Automatic, "ScalingFunctions" -> 
                     None}, PlotRange -> {{0., 100.}, {0., 3284.127441393128}},
@@ -4382,36 +4386,36 @@ Cell[35279, 884, 354, 7, 95, "Subchapter"],
 Cell[35636, 893, 143, 3, 28, "Input"],
 Cell[CellGroupData[{
 Cell[35804, 900, 1122, 29, 48, "Input"],
-Cell[36929, 931, 11416, 221, 65, "Output"]
+Cell[36929, 931, 11508, 225, 65, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[48382, 1157, 2897, 82, 304, "Input"],
-Cell[51282, 1241, 11876, 204, 264, "Output"]
+Cell[48474, 1161, 2897, 82, 304, "Input"],
+Cell[51374, 1245, 11876, 204, 264, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[63195, 1450, 2482, 65, 203, "Input"],
-Cell[65680, 1517, 7926, 147, 284, "Output"]
+Cell[63287, 1454, 2482, 65, 203, "Input"],
+Cell[65772, 1521, 7926, 147, 250, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[73643, 1669, 684, 20, 56, "Input"],
-Cell[74330, 1691, 148939, 2459, 196, "Output"]
+Cell[73735, 1673, 684, 20, 56, "Input"],
+Cell[74422, 1695, 148939, 2459, 196, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[223306, 4155, 177, 2, 64, "Section"],
+Cell[223398, 4159, 177, 2, 64, "Section"],
 Cell[CellGroupData[{
-Cell[223508, 4161, 406, 11, 53, "Input"],
-Cell[223917, 4174, 1225, 37, 78, "Output"]
+Cell[223600, 4165, 406, 11, 53, "Input"],
+Cell[224009, 4178, 1225, 37, 78, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[225179, 4216, 886, 24, 90, "Input"],
-Cell[226068, 4242, 241, 3, 28, "Output"],
-Cell[226312, 4247, 255, 3, 62, "Output"]
+Cell[225271, 4220, 886, 24, 90, "Input"],
+Cell[226160, 4246, 241, 3, 28, "Output"],
+Cell[226404, 4251, 255, 3, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[226604, 4255, 536, 15, 201, "Subsubsection"],
+Cell[226696, 4259, 536, 15, 201, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[227165, 4274, 260, 7, 40, "Input"],
-Cell[227428, 4283, 138, 2, 28, "Output"]
+Cell[227257, 4278, 260, 7, 40, "Input"],
+Cell[227520, 4287, 138, 2, 28, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
@@ -4421,4 +4425,3 @@ Cell[227428, 4283, 138, 2, 28, "Output"]
 *)
 
 (* End of internal cache information *)
-
