@@ -22,7 +22,7 @@
 \BIBdecl
 
 \bibitem{sudarshan2015using}
-C.~L. R.~S. Srikanth K. V.~Sudarshan, Li~Huang and A.~T. Becker, ``Seismic
+S.~K.~V. Sudarshan, L.~Huang, C.~Li, R.~Stewart, and A.~T. Becker, ``Seismic
   surveying with drone-mounted geophones,'' in \emph{CASE, 12th Conference on
   Automation Science and Engineering}.\hskip 1em plus 0.5em minus 0.4em\relax
   IEEE, 2016, pp. 1--6.
@@ -83,8 +83,8 @@ M.~A. P.~G. 2006, ``Robotic mars exploration strategy 2007–2016,'' National
 
 \bibitem{Srikanth2016seismicScheduler}
 \BIBentryALTinterwordspacing
-S.~KVS and A.~T. Becker, ``{``Seismic Survey Scheduler.'' MATLAB Central File
-  Exchange},'' Sep. 2016. [Online]. Available:
+S.~K.~V. Sudarshan and A.~T. Becker, ``{``Seismic Survey Scheduler.'' MATLAB
+  Central File Exchange},'' Sep. 2016. [Online]. Available:
   \url{http://www.mathworks.com/matlabcentral/fileexchange/59034}
 \BIBentrySTDinterwordspacing
 

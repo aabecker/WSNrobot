@@ -1,22 +1,36 @@
 \section{Overview and Related Work}\label{sec:RelatedWork}
 
 This paper presents a \emph{heterogeneous sensor system} for automatic sensor deployment. The goal is to overcome the drawbacks of deploying seismic sensors manually. 
-In previous work \cite{sudarshan2015using}, we demonstrated a UAV equipped with geophone sensors as landing gear.
+In previous work \cite{sudarshan2015using}, we demonstrated a UAV equipped with four geophone sensors as landing gear.
 This UAV automated sensor deployment by flying to GPS waypoints to obtain seismic data. 
 This solution had several limitations.
-Geophones contain a permanent magnet 
-Geophone sensitivity is improved by planting their metal spike deep into the ground, but improving penetration of the geophone, placing geophones perpendicular to the ground and reducing the cost of sensing unit. 
-The cost of the system proposed was expensive because the deployment system (quadcopter) was attached to the sensing platform.
-The proposed heterogeneous sensor system separates the sensing units (SeismicSpider, SmartDarts) from the deployment system(hexacopter), thus reducing the cost of a single sensor. The problems with accuracy were overcome by upgrading the deployment unit from an off the shelf quadcopter to a customizable hexacopter. We had the freedom to place the GPS unit far away from the geopohone sensors to reduce the interference of the magnets. The deployment techniques adapted make sure the geophone sensor lands perpendicular to the ground with $\pm 10$ deg of error.
+Magnet-coil geophones contain a permanent magnet on a spring inside a coil. Voltage across the coil is proportional to velocity.  Beneath the coil housing is a metal spike.  Geophones are \emph{planted} by pushing this metal spike into the group, which improves coupling with the ground to increase sensitivity. The magnet-coil must be aligned with the gravity vector. Mialignment reduces the signal proportional to the cosine of the error.
 
- \cite{postel2014drone} closely relates to our work, here the authors proposed a novel vehicle for geophone deployment. Their idea is to have a propulsion module that either be a wheels, tracks, turbines, helicopter blades etc. 
+The geophones in  \cite{sudarshan2015using} were connected to the UAV, causing four problems
+(1) one UAV was required for each additional sensor,
+(2)  the force for planting the geophone was limited by the weight of the UAV,
+(3) the platform required a level landing site,
+(4) the magnets in the geophones distort compass readings, causing landing inaccuracy when autonomous.
+
+The proposed heterogeneous sensor system separates the sensing units from the UAV.
+This reduces the cost per sensor. 
+Dropping the geophones enables increasing geophone penetration by increasing drop height and eliminates the necessity for a level landing site.
+The new design also increases separation between geophones and the UAV.
+
+\subsection{Related Work}
+Seismic surveying is a 
+ The patent \cite{postel2014drone} proposed using robots for geophone deployment. 
+ Their idea is to have a propulsion module that either be a wheels, tracks, turbines, helicopter blades etc. 
  This robot is used to deploy sensors at specified locations. 
- The system consists of modules for ensuring the sensor is well planted and placed perpendicular to the ground. The modular approach to a deployment system is innovative but might not be practically feasible. While servicing a large area ability to deploy multiple sensors in limited time is a key factor. The approach seems to be well suited for short surveys. The system proposed in our paper consists a multi-agent system approach.
+ The system consists of modules for ensuring the sensor is well planted and placed perpendicular to the ground. The modular approach to a deployment system is innovative but might not be practically feasible. 
+ While servicing a large area ability to deploy multiple sensors in limited time is a key factor. 
+ The approach seems to be well suited for short surveys. 
+ The system proposed in our paper consists a multi-agent system approach.
 In patent \cite{wilcox2013seismic} an unmanned flying vehicle is used to harvest data from multiple sensors and there by easing the data collection process. The main focus is on data collection rather than automatic sensor deployment.
 Some works relate to surveying an earth quake prone region to collect data as in \cite{dominici2012micro}. The goals of these papers is to perform a survey rather than sensor deployment.
 Other works like \cite{muyzert2015marine} relate to marine seismic surveying with autonomous vehicles. An interesting proposal was to perform a seismic survey using augmented reality \cite{jones2016seismic}.
 
-\subsection{Seismic Sensing}
+\subsection{Overview of Seismic Sensing Theory}
 
 \begin{figure}
 \centering

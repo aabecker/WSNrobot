@@ -1,13 +1,56 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: RA-L2016.aux
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: RA-L2016.aux
 The style file: IEEEtran.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: ./bibs/Match.bib
 -- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
-Name 1 in "Srikanth K. V. Sudarshan, Li Huang, Chang Li, Robert Stewart, and Aaron T. Becker" has a comma at the end for entry sudarshan2015using
-while executing---line 2419 of file IEEEtran.bst
-Too many commas in name 1 of "Srikanth K. V. Sudarshan, Li Huang, Chang Li, Robert Stewart, and Aaron T. Becker" for entry sudarshan2015using
-while executing---line 2419 of file IEEEtran.bst
 
 Done.
-(There were 2 error messages)
+You've used 13 entries,
+            4039 wiz_defined-function locations,
+            889 strings with 9691 characters,
+and the built_in function-call counts, 7227 in all, are:
+= -- 532
+> -- 190
+< -- 24
++ -- 94
+- -- 40
+* -- 324
+:= -- 1134
+add.period$ -- 27
+call.type$ -- 13
+change.case$ -- 18
+chr.to.int$ -- 63
+cite$ -- 13
+duplicate$ -- 557
+empty$ -- 661
+format.name$ -- 49
+if$ -- 1615
+int.to.chr$ -- 0
+int.to.str$ -- 13
+missing$ -- 127
+newline$ -- 68
+num.names$ -- 13
+pop$ -- 351
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 2
+skip$ -- 537
+stack$ -- 0
+substring$ -- 171
+swap$ -- 394
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 5
+type$ -- 13
+warning$ -- 0
+while$ -- 24
+width$ -- 15
+write$ -- 136
