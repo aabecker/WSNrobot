@@ -21,6 +21,12 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{sudarshan2015using}
+C.~L. R.~S. Srikanth K. V.~Sudarshan, Li~Huang and A.~T. Becker, ``Seismic
+  surveying with drone-mounted geophones,'' in \emph{CASE, 12th Conference on
+  Automation Science and Engineering}.\hskip 1em plus 0.5em minus 0.4em\relax
+  IEEE, 2016, pp. 1--6.
+
 \bibitem{postel2014drone}
 J.-J. Postel, T.~Bianchi, and J.~Grimsdale, ``Drone seismic sensing method and
   apparatus,'' Mar.~20 2014, uS Patent App. 14/220,996.

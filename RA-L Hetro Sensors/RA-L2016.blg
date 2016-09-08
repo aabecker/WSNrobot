@@ -4,5 +4,10 @@ Database file #1: ./bibs/Match.bib
 -- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Name 1 in "Srikanth K. V. Sudarshan, Li Huang, Chang Li, Robert Stewart, and Aaron T. Becker" has a comma at the end for entry sudarshan2015using
+while executing---line 2419 of file IEEEtran.bst
+Too many commas in name 1 of "Srikanth K. V. Sudarshan, Li Huang, Chang Li, Robert Stewart, and Aaron T. Becker" for entry sudarshan2015using
+while executing---line 2419 of file IEEEtran.bst
 
 Done.
+(There were 2 error messages)
