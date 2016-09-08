@@ -15,37 +15,37 @@ Database file #1: ./bibs/Match.bib
 Done.
 You've used 13 entries,
             4039 wiz_defined-function locations,
-            889 strings with 9691 characters,
+            889 strings with 9702 characters,
 and the built_in function-call counts, 7227 in all, are:
 = -- 532
 > -- 190
 < -- 24
 + -- 94
 - -- 40
-* -- 324
+* -- 325
 := -- 1134
 add.period$ -- 27
 call.type$ -- 13
-change.case$ -- 18
+change.case$ -- 13
 chr.to.int$ -- 63
 cite$ -- 13
-duplicate$ -- 557
-empty$ -- 661
+duplicate$ -- 558
+empty$ -- 662
 format.name$ -- 49
-if$ -- 1615
+if$ -- 1611
 int.to.chr$ -- 0
 int.to.str$ -- 13
 missing$ -- 127
 newline$ -- 68
 num.names$ -- 13
-pop$ -- 351
+pop$ -- 350
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 537
+skip$ -- 541
 stack$ -- 0
 substring$ -- 171
-swap$ -- 394
+swap$ -- 397
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 5
