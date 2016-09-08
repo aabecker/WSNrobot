@@ -17,19 +17,6 @@ This reduces the cost per sensor.
 Dropping the geophones enables increasing geophone penetration by increasing drop height and eliminates the necessity for a level landing site.
 The new design also increases separation between geophones and the UAV.
 
-\subsection{Related Work}
-Seismic surveying is a 
- The patent \cite{postel2014drone} proposed using robots for geophone deployment. 
- Their idea is to have a propulsion module that either be a wheels, tracks, turbines, helicopter blades etc. 
- This robot is used to deploy sensors at specified locations. 
- The system consists of modules for ensuring the sensor is well planted and placed perpendicular to the ground. The modular approach to a deployment system is innovative but might not be practically feasible. 
- While servicing a large area ability to deploy multiple sensors in limited time is a key factor. 
- The approach seems to be well suited for short surveys. 
- The system proposed in our paper consists a multi-agent system approach.
-In patent \cite{wilcox2013seismic} an unmanned flying vehicle is used to harvest data from multiple sensors and there by easing the data collection process. The main focus is on data collection rather than automatic sensor deployment.
-Some works relate to surveying an earth quake prone region to collect data as in \cite{dominici2012micro}. The goals of these papers is to perform a survey rather than sensor deployment.
-Other works like \cite{muyzert2015marine} relate to marine seismic surveying with autonomous vehicles. An interesting proposal was to perform a seismic survey using augmented reality \cite{jones2016seismic}.
-
 \subsection{Overview of Seismic Sensing Theory}
 
 \begin{figure}
@@ -42,7 +29,7 @@ Other works like \cite{muyzert2015marine} relate to marine seismic surveying wit
 
 
 
-During seismic surveys the source of seismic/vibrational waves is excited to generate waves that propagate under the earth's surface. These waves are sensed by geophone sensors and are recorded for later analysis to detect the presence of hydrocarbons. Fig.~\ref{fig:sensor_types} describes the current sensors available. 
+During seismic surveys a source generates seismic waves is excited to generate waves that propagate under the earth's surface. These waves are sensed by geophone sensors and are recorded for later analysis to detect the presence of hydrocarbons. Fig.~\ref{fig:sensor_types} describes the current sensors available. 
 
 These sensors are used to sense the vertical external displacement $U$ caused by the vibrational waves that propagate with a velocity $c$ in the positive and negative $x$-directions and is represented by the 1-D differential  equation
 \begin{equation}
@@ -72,6 +59,18 @@ Here $\xi$ is the coil displacement, $k$ is the spring constant, $m$ is the movi
 \subsubsection{Heterogeneous Sensing System}
 The concept of using robots to place seismic sensors dates to the $1980$s. Mobile robots have placed seismic sensors on the moon~\cite{LSisMSE81}. Postel et al. proposed mobile robots for geophone placement~\cite{DSSMaA14}. Plans are underway for a swarm of seismic sensors for Mars exploration~\cite{MAPL2006}.
 
+\subsection{Related Work}
+Seismic surveying is a 
+ The patent \cite{postel2014drone} proposed using robots for geophone deployment. 
+ Their idea is to have a propulsion module that either be a wheels, tracks, turbines, helicopter blades etc. 
+ This robot is used to deploy sensors at specified locations. 
+ The system consists of modules for ensuring the sensor is well planted and placed perpendicular to the ground. The modular approach to a deployment system is innovative but might not be practically feasible. 
+ While servicing a large area ability to deploy multiple sensors in limited time is a key factor. 
+ The approach seems to be well suited for short surveys. 
+ The system proposed in our paper consists a multi-agent system approach.
+In patent \cite{wilcox2013seismic} an unmanned flying vehicle is used to harvest data from multiple sensors and there by easing the data collection process. The main focus is on data collection rather than automatic sensor deployment.
+Some works relate to surveying an earth quake prone region to collect data as in \cite{dominici2012micro}. The goals of these papers is to perform a survey rather than sensor deployment.
+Other works like \cite{muyzert2015marine} relate to marine seismic surveying with autonomous vehicles. An interesting proposal was to perform a seismic survey using augmented reality \cite{jones2016seismic}.
 
 \subsection{Sensor networks}
 \subsection{Multi-Robot Assignment}

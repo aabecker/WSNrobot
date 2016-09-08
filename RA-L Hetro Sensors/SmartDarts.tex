@@ -1,29 +1,32 @@
 \section{Smart Darts}\label{sec:SmartDarts}
 
 \subsection{Design}
-The Smart dart combines a geophone(GS-100) with the fins and body of a lawn Jart (TM), using a 3D-printed chamber that encloses a photo cellular-enabled micro-controller (link) called \emph{Photon} as shown in \ref{fig:Smart_Dart_overview}.
 
-The Smart Dart combines a geophone(GS-100) with the fins and body of a lawn Jart™, using a 3D-printed chamber that encloses a WiFi-enabled micro-controller (link) called Photon as shown in Fig.~\ref{fig:Smart_Dart_overview}. The center of the chamber is slotted to fit a wooden card holding an accelerometer that transmits data back to the user through the Photon. This design was selected because the centered accelerometer card allows for the microcontroller and it’s battery to be placed on opposite sides of each other, keeping the center of mass of the object in the center. The Smart Dart deployment mechanism was designed to allow the seismic drone to carry four Smart Darts in a circular array, and release them when it reaches the desired GPS location, one at a time. The circular Dart tip allows the Darts to be locked into the geometry of the mechanism, resting on top of a rectangular slot-path. A Servomotor rotates the Dart tips through the rectangular slot-path, ending at a large circular slot, allowing the Darts to release from the mechanism.
+The SmartDart combines a geophone (GS-100) with the fins and body of a lawn Jart\textsuperscript{TM}, using a 3D-printed chamber that encloses a WiFi-enabled micro-controller (Electron 2G, particle.io) as shown in Fig.~\ref{fig:Smart_Dart_overview}. 
+The center of the chamber is slotted to fit a wooden plate holding an accelerometer that transmits data back to the user through the Photon. 
+The centered accelerometer card allows placing the microcontroller and battery on opposite sides, centering the center of mass.
+ The SmartDart deployment mechanism allows the seismic drone to carry four Smart Darts in a circular array, and release them when it reaches the desired GPS location, one at a time. 
+ The rear of the dart has a circular tip that locks into the deployment mechanism, and rests on a rectangular slot-path. 
+ A servomotor rotates the dart tips through the rectangular slot-path, allowing darts to release from a circular opening.
 
-The following sections compare the performance of the Smart Darts in different soils, 
+
 
 \begin{figure} \centering
 {\includegraphics[width=\columnwidth]{Smart_Dart_overview.pdf}}
-\caption{Cross-section of the smart dart sensor. It consists of a lawn jart fin, electron micro-controller, 3D printed protective casing and a geophone} 
+\caption{Cross-section of the SmartDart sensor. It consists of a lawn  Jart\textsuperscript{TM} fin, electron micro-controller, 3D printed protective casing and a geophone} 
 \label{fig:Smart_Dart_overview}
 \end{figure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Experiments}
+The following sections compare SmartDart performance.
 \subsubsection{ Drop tests in different soils} 
 This experiment varied the drop height and measured the penetration depth in four types of soil.
-Proper planting of a geophone requres godd contact by ensuring the geophone is pushed deep into the soil, and the sensors should be close to vertical because accelerometers
-deviation from 
- to determine the minimum height for
-Each trial measured the penetration depth and the angular error from vertical.
-This experiment compared drop tests as function of soil type.  
-Results are summarized in Fig.~\ref{fig:DepthPlotIndoors}, which shows penetration depth, and Fig.~\ref{fig:AnglePlotIndoors}, which shows angle of defication.
+Proper planting of a geophone requires (1) pushing the spike deep into the soil to ensure good contact, and (2) aligning the sensors with the gravity vector.
+Each trial measured penetration depth and the angular error from vertical.
+Results are summarized in Fig.~\ref{fig:DepthPlotIndoors}, which shows penetration depth, and Fig.~\ref{fig:AnglePlotIndoors}, which shows angle of deviation.
 
-Soil types are calibrated using a hand-held penetrometer(E-280)
+Soil types are calibrated using a hand-held penetrometer (E-280)
 
 To determine how smart darts perform in different soils, this experiment measured penetration into 4 soil types.  Each trial was performed by holding the darts at the tip opposite to the spike in a vertical position and releasing them at varying heights into the buckets of soil and measuring their penetration depth, and angle of penetration. To measure penetration depth, the buried darts were marked where the spike met the soil, the dart was then pulled from the soil, and the distance from the spike tip to the marking was measured with calipers. The angle of penetration was recorded from the accelerometer inside the dart. The soil types were categorized by their compression strength, measured using a pocket penetrometer. Measurements for compression strength vary drastically with small deviation in measurement location, so we took this measurement 10 times at 10 different locations in each soil type and took the average. A graph displaying these varying heights vs. their penetration depth can be seen in Fig.~\ref{fig:DepthPlotIndoors} and a graph displaying the penetration angle at the varying heights can be seen in Fig.\ \ref{fig:AnglePlotIndoors}
 
