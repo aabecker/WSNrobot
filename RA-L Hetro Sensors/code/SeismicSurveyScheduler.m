@@ -29,8 +29,8 @@ if nargin <1
     y = 200;
     T = [0,y/2];
     hex = 0; %total number of Hexapod walkers
-    drones = 2; %total number of Drones
-    darts = 4; %total number of Darts
+    drones = 500; %total number of Drones
+    darts = 50; %total number of Darts
     people = 0; %total number of human workers
     drone_cap = 4; %number of darts a drone can hold
     people_cap = 0; %number of geophones a human can hold

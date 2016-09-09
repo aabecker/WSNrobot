@@ -60,6 +60,20 @@ After the first set of data was been recorded, the darts were collected and relo
 \subsubsection{Height vs. penetration depth}
 Exp 5: Height vs. penetration depth
 
+FAA rules require that UAVs fly below 400 feet (122 m). Our highest drop tests were from 20 m, and resulted in well-planted geophones on a grass field with density \todo{???? insert penetrometer reading}. Harder soils may require faster impact velocity, so this section examines possible impact velocities as a function of drop height.
+For ease of analysis we will assume the SmartDart has a constant coefficient of drag $C_d$ and that the drag force is proportional to velocity squared and equal to $\frac{1}{2} v^2 \rho A C_d$, where $v$ is the velocity, $A$ the cross-sectional area and $\rho$ the density of air.  The tests were performed near sea level, so $\rho \approx 1.225  \text{kg/m}^3$ and the dart body is 0.06 m in diameter so $A=0.028$ m$^2$.  We will assume the dart $C_d$ is between that of a streamlined body $C_d=0.04$ and that of an arrow $C_d=1.5$~\cite{miyazaki2013aerodynamic}, and choose that of a sphere $C_d=0.47$.
+The terminal velocity is 
+\begin{align}
+v_T = \sqrt{\frac{2 m g}{\rho A  C_d}} \approx 59 \text{m/s}
+\end{align}
+The velocity at impact is a function of the drop height $h$.
+\begin{align}
+v_{impact} = v_T  \sqrt{ 1 - e^{ -\frac{\rho A  C_d}{m} h }} \approx 59\sqrt{ 1 - e^{ -0.008 h }} \text{m/s}
+\end{align}
+With  $C_d=0.47$, our drop from 20m achieves only 38\% the terminal velocity (19.0 m/s), and for $C_d=0.04$ only 12\% terminal velocity  (19.7 m/s).
+%This implies our tests are far from the limits of the SmartDart's per
+This implies the SmartDart is suitable even for much harder soils than tested this far.
+
 %\begin{figure} \centering
 %  {\includegraphics[width=\columnwidth]{replace_graph.pdf}}
 % \caption{Plot of pneumatic cannon firing angle vs ending angle} 
