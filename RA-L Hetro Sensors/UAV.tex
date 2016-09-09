@@ -1,8 +1,8 @@
 \section{UAV and deployment unit}\label{sec:DeploymentUnit(UAV)}
 
 \subsection{Design}
-The UAV is a custom-built 
-\todobox{An: I want to know about the UAV.  }
+The UAV is a custom-built, 177 cm wing span hexacopter, controlled by the Pixhawk flight controller running ArduPilot Mega flight software. The UAV has a 3DR GPS module using the UBlox NEO-7 chipset.
+
 
  The SmartDart deployment mechanism allows the UAV to carry four Smart Darts in a circular array, and release them when it reaches the desired GPS location, one at a time. 
  The rear of the dart has a circular tip that locks into the deployment mechanism, and rests on a rectangular slot-path. 
@@ -33,13 +33,12 @@ This range is within tolerances for seismic surveys because
 The critical factor is to know within 10 cm accuracy the geophone location.  Such accuracy can be obtained thorugh Real Time Kinematic GPS systems. Knowledge of the exact location allows corrections for jitter in signal arrival times due to  placement inaccuracy.
 
 
-Exp 4: Automatic drop from drone, accuracy in placement
+%Exp 4: Automatic drop from drone, accuracy in placement
 \textbf{\begin{figure} \centering
   {\includegraphics[width=\columnwidth]{accuracy_test_overview.pdf}}
  \caption{a.) Flight plan of accuracy test b.) First set of dart with reference axes c.) Later Dart Sets} 
  \label{fig:Accu_test_darts}
 \end{figure}}
-The UAS is a 177 cm wing span hexacopter, controlled by the Pixhawk flight controller running ArduPilot Mega flight software. The UAS has a 3DR GPS module using the UBlox NEO-7 chipset.
 
 For the accuracy test, 6 sets of darts, 4 darts in each set, were dropped on the same GPS waypoint. Between each drop, the UAV travelled to a nearby GPS waypoint to cancel out the flight controller's stable hover.  This path is shown in Fig.~\ref{fig:Accu_test_darts}a. The UAV returned to the launch platform to be reloaded and data was recorded after each set.
 
@@ -58,7 +57,7 @@ After the first set of data was been recorded, the darts were collected and relo
 \end{figure}
 
 \subsubsection{Height vs. penetration depth}
-Exp 5: Height vs. penetration depth
+%Exp 5: Height vs. penetration depth
 
 FAA rules require that UAVs fly below 400 feet (122 m). Our highest drop tests were from 20 m, and resulted in well-planted geophones on a grass field with density \todo{???? insert penetrometer reading}. Harder soils may require faster impact velocity, so this section examines possible impact velocities as a function of drop height.
 For ease of analysis we will assume the SmartDart has a constant coefficient of drag $C_d$ and that the drag force is proportional to velocity squared and equal to $\frac{1}{2} v^2 \rho A C_d$, where $v$ is the velocity, $A$ the cross-sectional area and $\rho$ the density of air.  The tests were performed near sea level, so $\rho \approx 1.225  \text{kg/m}^3$ and the dart body is 0.06 m in diameter so $A=0.028$ m$^2$.  We will assume the dart $C_d$ is between that of a streamlined body $C_d=0.04$ and that of an arrow $C_d=1.5$~\cite{miyazaki2013aerodynamic}, and choose that of a sphere $C_d=0.47$.
