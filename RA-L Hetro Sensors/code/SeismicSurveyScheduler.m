@@ -29,8 +29,8 @@ if nargin <1
     y = 200;
     T = [0,y/2];
     hex = 0; %total number of Hexapod walkers
-    drones = 4; %total number of Drones
-    darts = 8; %total number of Darts
+    drones = 2; %total number of Drones
+    darts = 4; %total number of Darts
     people = 0; %total number of human workers
     drone_cap = 4; %number of darts a drone can hold
     people_cap = 0; %number of geophones a human can hold
@@ -274,7 +274,7 @@ function S = assignDrone(S)
 for k = 1:S.drones  % 0- unassigned 1- assigned
     
                 % added to stop race condition
-            if  S.Qstate(k) == 0 && sum(S.Qdarts(k,:)>0) >1 &&  sum(S.Dstate == 0)==0   %we have at least one dart, and no darts are available->time to deploy
+            if  S.Qstate(k) == 0 && sum(S.Qdarts(k,:)>0) >=1 &&  sum(S.Dstate == 0)==0   %we have at least one dart, and no darts are available->time to deploy
                 S.Qdeploying(k) = 1;
             end
     
