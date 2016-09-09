@@ -17,14 +17,16 @@
 \BOOKMARK [2][-]{subsection.4.2}{Experiments}{section.4}% 17
 \BOOKMARK [3][-]{subsubsection.4.2.1}{Exp 1: Accuracy plot}{subsection.4.2}% 18
 \BOOKMARK [3][-]{subsubsection.4.2.2}{Exp 2: Shot gather comparison}{subsection.4.2}% 19
-\BOOKMARK [3][-]{subsubsection.4.2.3}{Exp 3: Deploying and Retrieving Hexapod}{subsection.4.2}% 20
-\BOOKMARK [1][-]{section.5}{UAV and deployment unit}{}% 21
-\BOOKMARK [2][-]{subsection.5.1}{Design}{section.5}% 22
-\BOOKMARK [2][-]{subsection.5.2}{Experiment}{section.5}% 23
-\BOOKMARK [3][-]{subsubsection.5.2.1}{Autonomous drop demonstration and accuracy}{subsection.5.2}% 24
-\BOOKMARK [3][-]{subsubsection.5.2.2}{Height vs. penetration depth}{subsection.5.2}% 25
-\BOOKMARK [1][-]{section.6}{Comparision}{}% 26
-\BOOKMARK [2][-]{subsection.6.1}{Ballistic Deployment}{section.6}% 27
-\BOOKMARK [2][-]{subsection.6.2}{Simulation Studies}{section.6}% 28
-\BOOKMARK [1][-]{section.7}{Conclusion and Future Work}{}% 29
-\BOOKMARK [1][-]{section.7}{References}{}% 30
+\BOOKMARK [4][-]{paragraph.4.2.2.1}{Results}{subsubsection.4.2.2}% 20
+\BOOKMARK [4][-]{paragraph.4.2.2.2}{Future work}{subsubsection.4.2.2}% 21
+\BOOKMARK [3][-]{subsubsection.4.2.3}{Exp 3: Deploying and Retrieving Hexapod}{subsection.4.2}% 22
+\BOOKMARK [1][-]{section.5}{UAV and deployment unit}{}% 23
+\BOOKMARK [2][-]{subsection.5.1}{Design}{section.5}% 24
+\BOOKMARK [2][-]{subsection.5.2}{Experiment}{section.5}% 25
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Autonomous drop demonstration and accuracy}{subsection.5.2}% 26
+\BOOKMARK [3][-]{subsubsection.5.2.2}{Height vs. penetration depth}{subsection.5.2}% 27
+\BOOKMARK [1][-]{section.6}{Comparision}{}% 28
+\BOOKMARK [2][-]{subsection.6.1}{Ballistic Deployment}{section.6}% 29
+\BOOKMARK [2][-]{subsection.6.2}{Simulation Studies}{section.6}% 30
+\BOOKMARK [1][-]{section.7}{Conclusion and Future Work}{}% 31
+\BOOKMARK [1][-]{section.7}{References}{}% 32
