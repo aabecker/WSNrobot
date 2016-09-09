@@ -26,11 +26,11 @@ function [] = SeismicSurveyScheduler(x,y,T,hex,drones,darts,people, drone_cap,  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 if nargin <1
     x = 100;
-    y = 100;
+    y = 200;
     T = [0,y/2];
-    hex = 10; %total number of Hexapod walkers
-    drones = 4; %total number of Drones
-    darts = 30; %total number of Darts
+    hex = 0; %total number of Hexapod walkers
+    drones = 500; %total number of Drones
+    darts = 50; %total number of Darts
     people = 0; %total number of human workers
     drone_cap = 4; %number of darts a drone can hold
     people_cap = 0; %number of geophones a human can hold
@@ -47,7 +47,7 @@ S = Init_State(S);
 G = Init_Graphics(S); %draw everything for first time
 %pause(5);
 for T = 1:dt:maxTime % Main_loop
-    if mod(T,40) == 0
+    if mod(T,100) == 0
         display(['T = ',num2str(T)]) %shows computer is still running
     end
      S = Update_State(S,dt);
@@ -241,16 +241,16 @@ for k = 1:S.drones
         end
     elseif S.Qdeploying(k) == 0 && S.Qstate(k) == 1 %retrieving darts
         dxy = sqrt(sum((S.Qgoal(k,:) - S.Qpos(k,:)).^2));
-        if dxy > S.Qvel*dt
+        if dxy > S.Qvel*dt %move toward dart position
             S.Qpos(k,:) = S.Qpos(k,:)+S.Qvel*dt*(S.Qgoal(k,:) - S.Qpos(k,:))/dxy;
-        else
+        else % the drone reaches the dart position this step
             S.Qpos(k,:) = S.Qgoal(k,:);
             S.Qstate(k) = 0;  %Unassigned so that the drone can go to it's next location for deployment
             emptyInd = find(S.Qdarts(k,:) == 0,1,'first'); %find empty slot on quad
             S.Qdarts(k,emptyInd) = S.Qdartpickup(k);  %add dart to drone
             S.Dsurveypt(S.Qdartpickup(k)) = 0; %unassign dart's survey point
             S.Qdartpickup(k) = 0; %dart is picked up
-            if sum(S.Qdarts(k,:)>0) == S.drone_cap % if full of darts, time to deploy
+            if sum(S.Qdarts(k,:)>0) == S.drone_cap  % if full of darts, time to deploy
                 S.Qdeploying(k) = 1;
             end
         end
@@ -272,8 +272,15 @@ function S = assignDrone(S)
 % if in deploy mode, assign to the nearest unassigned survey point
 % if in retrieve mode, assign to nearest ready dart
 for k = 1:S.drones  % 0- unassigned 1- assigned
+    
+                % added to stop race condition
+            if  S.Qstate(k) == 0 && sum(S.Qdarts(k,:)>0) >=1 &&  sum(S.Dstate == 0)==0   %we have at least one dart, and no darts are available->time to deploy
+                S.Qdeploying(k) = 1;
+            end
+    
     if  S.Qstate(k) == 0 %only assign if unassigned
         if S.Qdeploying(k) == 0 % need to retrieve darts -- so find the closest dart
+            
             minDist = 10*S.x*S.y; %a very large number
             minInd = NaN;
             for m = 1:S.darts
@@ -293,7 +300,7 @@ for k = 1:S.drones  % 0- unassigned 1- assigned
                 S.Qdartpickup(k) = minInd;
                 S.Dsurveypt(k) = 0; %no survey point assigned
             end
-            
+         
         else % need to deploy darts -- so find the closest survey point
             ind = (S.surveyPtsState == 0);
             numind = sum(ind);
@@ -315,7 +322,6 @@ for k = 1:S.drones  % 0- unassigned 1- assigned
                 S.Qsurveypt(k) = minInd;
                 
             elseif numind == 0
-                
                 if numind_s > 0
                     dist_1 = sqrt(sum((repmat( S.Qpos(k,:),numind_s,1) - [S.surveyPtsX(ind_s),S.surveyPtsY(ind_s)]).^2,2))+...
                     sqrt(sum((repmat( S.Tpos,numind_s,1) - [S.surveyPtsX(ind_s),S.surveyPtsY(ind_s)]).^2,2));
@@ -325,10 +331,9 @@ for k = 1:S.drones  % 0- unassigned 1- assigned
                     
                     for j = 1:S.hex
                         if S.Hstate(j) == 1
-                                 S.Hstate(j) = 3; %hexapod return home
+                                 S.Hstate(j) = 3; %drone return home
                         end      
                     end
-                    
                     S.Qgoal(k,:) = [S.surveyPtsX(minInd_q),S.surveyPtsY(minInd_q)];
                                  S.surveyPtsState(minInd_q) = 1; %assigned
                                  S.Qstate(k) = 1; %assigned

@@ -21,6 +21,11 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{dominici2012micro}
+D.~Dominici, V.~Baiocchi, A.~Zavino, M.~Alicandro, and M.~Elaiopoulos, ``Micro
+  {UAV} for post seismic hazards surveying in old city center of {L'Aquila},''
+  in \emph{Proceedings of the FIG Working Week}, 2012, pp. 06--10.
+
 \bibitem{sudarshan2015using}
 S.~K.~V. Sudarshan, L.~Huang, C.~Li, R.~Stewart, and A.~T. Becker, ``Seismic
   surveying with drone-mounted geophones,'' in \emph{CASE, 12th Conference on
@@ -59,6 +64,11 @@ J.~Jiang, A.~A. Aziz, Y.~Liu, and K.-M. Strack, ``Geophysical data acquisition
   \url{http://mepag.jpl.nasa.gov/reports/3715_Mars_Expl_Strat_GPO.pdf}
 \BIBentrySTDinterwordspacing
 
+\bibitem{muyzert2015marine}
+E.~Muyzert, K.~Welker, I.~Cooper, S.~Bittleston, L.~Combee, R.~Ross, and
+  E.~Kotochigov, ``Marine seismic survey systems and methods using autonomously
+  or remotely operated vehicles,'' Apr.~21 2015, {US} Patent 9,013,952.
+
 \bibitem{postel2014drone}
 J.-J. Postel, T.~Bianchi, and J.~Grimsdale, ``Drone seismic sensing method and
   apparatus,'' Mar.~20 2014, {US} Patent App. 14/220,996.
@@ -67,19 +77,10 @@ J.-J. Postel, T.~Bianchi, and J.~Grimsdale, ``Drone seismic sensing method and
 S.~W. Wilcox, J.~C. Whelan, and J.~Alexander, ``Seismic data recording,''
   Sep.~5 2013, uS Patent App. 14/018,853.
 
-\bibitem{dominici2012micro}
-D.~Dominici, V.~Baiocchi, A.~Zavino, M.~Alicandro, and M.~Elaiopoulos, ``Micro
-  {UAV} for post seismic hazards surveying in old city center of {L'Aquila},''
-  in \emph{Proceedings of the FIG Working Week}, 2012, pp. 06--10.
-
-\bibitem{muyzert2015marine}
-E.~Muyzert, K.~Welker, I.~Cooper, S.~Bittleston, L.~Combee, R.~Ross, and
-  E.~Kotochigov, ``Marine seismic survey systems and methods using autonomously
-  or remotely operated vehicles,'' Apr.~21 2015, {US} Patent 9,013,952.
-
-\bibitem{jones2016seismic}
-R.~H. Jones, E.~Coste, G.~D. Tamboise, and D.~Rosu, ``Seismic survey using an
-  augmented reality device,'' Apr.~27 2016, {US} Patent App. 15/139,433.
+\bibitem{miyazaki2013aerodynamic}
+T.~Miyazaki, K.~Mukaiyama, Y.~Komori, K.~Okawa, S.~Taguchi, and H.~Sugiura,
+  ``Aerodynamic properties of an archery arrow,'' \emph{Sports Engineering},
+  vol.~16, no.~1, pp. 43--54, 2013.
 
 \bibitem{Srikanth2016seismicScheduler}
 \BIBentryALTinterwordspacing
