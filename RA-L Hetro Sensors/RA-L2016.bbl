@@ -26,15 +26,24 @@ D.~Dominici, V.~Baiocchi, A.~Zavino, M.~Alicandro, and M.~Elaiopoulos, ``Micro
   {UAV} for post seismic hazards surveying in old city center of {L'Aquila},''
   in \emph{Proceedings of the FIG Working Week}, 2012, pp. 06--10.
 
+\bibitem{dyo2010evolution}
+V.~Dyo, S.~A. Ellwood, D.~W. Macdonald, A.~Markham, C.~Mascolo, B.~P{\'a}sztor,
+  S.~Scellato, N.~Trigoni, R.~Wohlers, and K.~Yousef, ``Evolution and
+  sustainability of a wildlife monitoring sensor network,'' in
+  \emph{Proceedings of the 8th ACM Conference on Embedded Networked Sensor
+  Systems}.\hskip 1em plus 0.5em minus 0.4em\relax ACM, 2010, pp. 127--140.
+
+\bibitem{mainwaring2002wireless}
+A.~Mainwaring, D.~Culler, J.~Polastre, R.~Szewczyk, and J.~Anderson, ``Wireless
+  sensor networks for habitat monitoring,'' in \emph{Proceedings of the 1st ACM
+  international workshop on Wireless sensor networks and applications}.\hskip
+  1em plus 0.5em minus 0.4em\relax ACM, 2002, pp. 88--97.
+
 \bibitem{sudarshan2015using}
 S.~K.~V. Sudarshan, L.~Huang, C.~Li, R.~Stewart, and A.~T. Becker, ``Seismic
   surveying with drone-mounted geophones,'' in \emph{CASE, 12th Conference on
   Automation Science and Engineering}.\hskip 1em plus 0.5em minus 0.4em\relax
   IEEE, 2016, pp. 1--6.
-
-\bibitem{shearer2009introduction}
-P.~M. Shearer, \emph{Introduction to seismology}.\hskip 1em plus 0.5em minus
-  0.4em\relax Cambridge University Press, 2009.
 
 \bibitem{wood1998distributed}
 G.~W. Wood, R.~L. Workman, and M.~W. Norris, ``Distributed seismic
