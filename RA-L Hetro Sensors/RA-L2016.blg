@@ -1,10 +1,14 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: RA-L2016.aux
 The style file: IEEEtran.bst
 Database file #1: ./bibs/Match.bib
-Warning--I didn't find a database entry for ""
+"{" immediately follows a field name---line 18 of file ./bibs/Match.bib
+ : @incollection
+ :              {howard2002mobile,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "howard2002mobile"
 -- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 
 Done.
-(There was 1 warning)
+(There was 1 error message)

@@ -86,6 +86,18 @@ J.-J. Postel, T.~Bianchi, and J.~Grimsdale, ``Drone seismic sensing method and
 S.~W. Wilcox, J.~C. Whelan, and J.~Alexander, ``Seismic data recording,''
   Sep.~5 2013, uS Patent App. 14/018,853.
 
+\bibitem{corke2004autonomous}
+P.~Corke, S.~Hrabar, R.~Peterson, D.~Rus, S.~Saripalli, and G.~Sukhatme,
+  ``Autonomous deployment and repair of a sensor network using an unmanned
+  aerial vehicle,'' in \emph{Robotics and Automation, 2004. Proceedings.
+  ICRA'04. 2004 IEEE International Conference on}, vol.~4.\hskip 1em plus 0.5em
+  minus 0.4em\relax IEEE, 2004, pp. 3602--3608.
+
+\bibitem{tuna2014autonomous}
+G.~Tuna, V.~C. Gungor, and K.~Gulez, ``An autonomous wireless sensor network
+  deployment system using mobile robots for human existence detection in case
+  of disasters,'' \emph{Ad Hoc Networks}, vol.~13, pp. 54--68, 2014.
+
 \bibitem{Victor2016Thingiverse}
 \BIBentryALTinterwordspacing
 V.~B. Montano and A.~T. Becker, ``Smart dart,'' Sep. 2016. [Online]. Available:
