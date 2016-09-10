@@ -13,16 +13,17 @@ Traditional geophones are mounted in an insulated shock resistive enclosure on a
 
 The Seismic Spider is built from the Six Hexapod kit designed by EZ Robots. Each of the six legs are powered by two 15 kg/cm lever servos. The peg legs were replace by three GS-20DM 14 Hz geophones from Geospace Technologies. The remaining three were designed to match the geophone dimensions and reflect UH school spirit.
 
- Our initial plan to use three geophones require the spider to raise the three inactive legs while acquiring data. This lack of support caused excessive strain on the three servo motors responsible for holding the spider upright introducing unwanted vibration into the system. We found positioning the geophone legs at 20o to normal enhanced the stability and relieved the excessive stress on the servos. With each planted geophone angled inward superposition creates one vertical geophone. The three geophones were in series.
+ Our initial plan to use three geophones require the spider to raise the three inactive legs while acquiring data. This lack of support caused excessive strain on the three servo motors responsible for holding the spider upright introducing unwanted vibration into the system. We found positioning the geophone legs at 20$^\circ$ to normal enhanced the stability and relieved the excessive stress on the servos. 
+ The three geophones were in series, so with each geophone leg angled inward, superposition replicates the signal from one vertical geophone.
 
-\subsection{Experiments}
-\subsubsection{Exp 1: Accuracy plot}
-Hexapod move to desired GPS location  (plot accuracy)\\
-\subsubsection{Exp 2: Shot gather comparison}
+\subsection{Shot gather comparison}
+%\subsubsection{Accuracy plot}
+%Hexapod move to desired GPS location  (plot accuracy)\\
+%\subsubsection{ Shot gather comparison}
 
 A line of twenty four geophones, GS-20DM 14 Hz, were laid out at one meter intervals with our inline source seven meters from the nearest geophone. Beginning from the farthest offset of 31 meters we manually aligned the Spider with the corresponding geophone, fired the source, then moved one meter ahead. 
 
-\paragraph{Results}
+%\paragraph{Results}
 Data from the shot gather comparison is shown in Fig.~\ref{fig:shotgatherHexpod}.
 We found a correlation, unmeasured, with the standard geophones and we more than compensated for loss of amplitude with three geophones, the response was 5 dB greater that the single geophone. The geophone wires proved insufficient to insulate against 60 Hz. Hence the raw data from the traditional setup as well as the Seismic Spider was trough a (3-50) band-pass filter. Further the SeismicSpider data was attenuated by $-5$dB to level the comparison.  Due to the small amount of usable data we were not able to gain meaningful results for phase analysis.   
 
@@ -33,7 +34,7 @@ We found a correlation, unmeasured, with the standard geophones and we more than
 \end{figure}
 
 
-\paragraph{Future work}	we must filter 60 Hz noise, compare adding geophones to all six legs, and design a larger seismic survey to ensure adequate data for phase analysis. Design improvements could be done to make the SeismicSpider an active sensor.   
+%\paragraph{Future work}	we must filter 60 Hz noise, compare adding geophones to all six legs, and design a larger seismic survey to ensure adequate data for phase analysis. Design improvements could be done to make the SeismicSpider an active sensor.   
 
-\subsubsection{Exp 3: Deploying and Retrieving Hexapod}
-\todobox{describe piloting the drone for retrieval.  Need image}
+\subsection{Deploying and Retrieving Hexapod}
+\todobox{describe piloting the UAV for retrieval.  Need image}

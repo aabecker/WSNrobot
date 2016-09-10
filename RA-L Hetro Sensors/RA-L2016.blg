@@ -1,14 +1,58 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: RA-L2016.aux
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: RA-L2016.aux
 The style file: IEEEtran.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: ./bibs/Match.bib
-"{" immediately follows a field name---line 18 of file ./bibs/Match.bib
- : @incollection
- :              {howard2002mobile,
-I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "howard2002mobile"
+Warning--I didn't find a database entry for "DEFENSE"
 -- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 
 Done.
-(There was 1 error message)
+You've used 19 entries,
+            4039 wiz_defined-function locations,
+            929 strings with 11453 characters,
+and the built_in function-call counts, 13675 in all, are:
+= -- 1031
+> -- 395
+< -- 87
++ -- 204
+- -- 77
+* -- 652
+:= -- 2016
+add.period$ -- 43
+call.type$ -- 19
+change.case$ -- 20
+chr.to.int$ -- 213
+cite$ -- 19
+duplicate$ -- 994
+empty$ -- 1157
+format.name$ -- 93
+if$ -- 3122
+int.to.chr$ -- 0
+int.to.str$ -- 19
+missing$ -- 207
+newline$ -- 88
+num.names$ -- 19
+pop$ -- 543
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 2
+skip$ -- 1023
+stack$ -- 0
+substring$ -- 526
+swap$ -- 786
+text.length$ -- 16
+text.prefix$ -- 0
+top$ -- 5
+type$ -- 19
+warning$ -- 0
+while$ -- 58
+width$ -- 21
+write$ -- 200
+(There was 1 warning)

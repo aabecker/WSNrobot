@@ -21,6 +21,11 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{werner2006deploying}
+G.~Werner-Allen, K.~Lorincz, M.~Ruiz, O.~Marcillo, J.~Johnson, J.~Lees, and
+  M.~Welsh, ``Deploying a wireless sensor network on an active volcano,''
+  \emph{IEEE internet computing}, vol.~10, no.~2, pp. 18--25, 2006.
+
 \bibitem{dominici2012micro}
 D.~Dominici, V.~Baiocchi, A.~Zavino, M.~Alicandro, and M.~Elaiopoulos, ``Micro
   {UAV} for post seismic hazards surveying in old city center of {L'Aquila},''
@@ -86,6 +91,12 @@ J.-J. Postel, T.~Bianchi, and J.~Grimsdale, ``Drone seismic sensing method and
 S.~W. Wilcox, J.~C. Whelan, and J.~Alexander, ``Seismic data recording,''
   Sep.~5 2013, uS Patent App. 14/018,853.
 
+\bibitem{howard2002mobile}
+A.~Howard, M.~J. Matari{\'c}, and G.~S. Sukhatme, ``Mobile sensor network
+  deployment using potential fields: A distributed, scalable solution to the
+  area coverage problem,'' in \emph{Distributed Autonomous Robotic Systems
+  5}.\hskip 1em plus 0.5em minus 0.4em\relax Springer, 2002, pp. 299--308.
+
 \bibitem{corke2004autonomous}
 P.~Corke, S.~Hrabar, R.~Peterson, D.~Rus, S.~Saripalli, and G.~Sukhatme,
   ``Autonomous deployment and repair of a sensor network using an unmanned
@@ -100,8 +111,8 @@ G.~Tuna, V.~C. Gungor, and K.~Gulez, ``An autonomous wireless sensor network
 
 \bibitem{Victor2016Thingiverse}
 \BIBentryALTinterwordspacing
-V.~B. Montano and A.~T. Becker, ``Smart dart,'' Sep. 2016. [Online]. Available:
-  \url{http://www.thingiverse.com/thing:1713499}
+V.~B. Montano and A.~T. Becker, ``{SeismicDart},'' Sep. 2016. [Online].
+  Available: \url{http://www.thingiverse.com/thing:1713499}
 \BIBentrySTDinterwordspacing
 
 \bibitem{miyazaki2013aerodynamic}
