@@ -1,5 +1,9 @@
 %  compress using: gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dNOPAUSE -dQUIET -dBATCH      -sOutputFile=foo-compressed.pdf SeismicDrones.pdf
 \documentclass[letterpaper, 10 pt, conference]{ieeeconf}
+\IEEEoverridecommandlockouts                              % This command is only needed if 
+                                                          % you want to use the \thanks command
+
+\overrideIEEEmargins                                      % Needed to meet printer requirements.
 %\IEEEoverridecommandlockouts
 %\documentclass[conference]{IEEEtran}
 \newcommand{\subparagraph}{}
@@ -71,20 +75,26 @@
 %
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
-\title{A Heterogeneous Robotics Team for Large-Scale Seismic Sensing} 
+\title{\LARGE \bf A Heterogeneous Robotics Team for Large-Scale Seismic Sensing} 
 
-\author[1]{\rm Srikanth K. V. Sudarshan}
-\author[1]{\rm Victor Montano}
-\author[1]{\rm An Nguyen}
-\author[2]{\rm Michael McClimans}
-\author[2]{\rm \\Li Chang}
-\author[2]{\rm Robert Stewart}
-\author[1]{\rm Aaron T. Becker}
-\affil[1]{Department of Electrical and Computer Engineering, University of Houston}
-\affil[2]{Department of Earth and Atmospheric Sciences, University of Houston}
-%\affil[ ]{University of Houston, 4800 Calhoun Rd, Houston, TX 77004}
-\affil[ ]{\textit {\{skvenkatasudarshan, vjmontano, anguien43, michael, lchang13, rrstewar, atbecker\}@uh.edu}}
+\author{Srikanth K. V. Sudarshan$^{1}$,
+Victor Montano$^{1}$,
+An Nguyen$^{1}$,\\ 
+Michael McClimans$^{2}$,
+Li Chang$^{2}$,
+Robert Stewart$^{2}$, and
+ Aaron T. Becker$^{1}$% <-this % stops a space
+\thanks{*This work was supported by the National Science Foundation under Grant No.\ \href{http://nsf.gov/awardsearch/showAward?AWD_ID=1553063}{ [IIS-1553063]}.}% <-this % stops a space
+\thanks{$^{1}$Department of Electrical and Computer Engineering}
+\thanks{$^{2}$Department of Earth and Atmospheric Sciences, University of Houston, 4800 Calhoun Rd, Houston, TX 77004, USA
+        {\tt\small \{skvenkatasudarshan, vjmontano, anguien43, michael, lchang13, rrstewar, atbecker\}@uh.edu}}%
+}
+
+
+
 \maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
 
 
 \begin{abstract}
