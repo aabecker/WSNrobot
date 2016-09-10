@@ -3,7 +3,7 @@
 \subsection{Ballistic Deployment}
 To compare an alternate deployment mechanism we built the pneumatic cannon shown in Fig.~\ref{fig:CannonPicture}a.
 The pneumatic cannon is U-shaped,  2m in length, with a 4" diameter pressure chamber and a 3" diameter firing barrel, connected by an electronic valve (Rain Bird JTV/ASF 100). 
-The cannon is aimed by changing the desired firing angle $\theta_f$  and azimuth angle, and filling the pressure chamber to the desired pressure.  
+The cannon is aimed by changing the desired firing angle $\theta_f$ and azimuth angle, and filling the pressure chamber to the desired pressure.  
 The reachable workspace is an annular ring whose radius $r$ is a function of the firing angle and initial velocity $v$. 
 Neglecting air resistance, this range is found by integration:
 \begin{align}
@@ -36,9 +36,9 @@ A scheduling system to compare  time and costs for seismic surveys with varying 
 This tool allows us to examine engineering and logistic trade-offs quickly in simulation.  For example, Fig.~\ref{fig:DronevsTime} assumes a fixed number of darts, and examines the finishing time with $5$ to $500$ UAVs.  The time required decays asymptotically, but $140$ UAVs requires only twice the amount of time required for $500$ UAVs, indicating that $140$ UAVs are sufficient for the task.% Lines are also plotted for $5000, 1000$ and $500$ total darts.  
 Substantial cost savings can be obtained by selecting the number of UAVs required to complete within a certain percentage greater than the optimal time.
 
-The tool is useful for comparing the effectiveness of heterogeneous teams.  Table Fig.~\ref{fig:Sim_table} compares surveying a $1$ km x $10$ km strip of land with team (a) $5000$ SeismicSpiders, (b) $500$ UAVs and $5000$ SeismicDarts, (c) $500$ humans and $5000$ sensors (geophones).  Team (b) completed $6$ times faster than team (c). The SeismicSpiders are much slower even compared to humans but these sensors are useful during special cases. Since the SeismicSpiders are substantially slow compared to the UAVs and expensive compared to the SeismicDarts their use could be limited to special occasions. The Seismic UAV has the ability to deploy the SeismicSpider at a given waypoint. This attribute wasn't considered in the simulation but could be done to improve sensor deployment speed with respect to SeismicSpiders.
+The tool is useful for comparing the effectiveness of heterogeneous teams.  Table~\ref{tab:Sim_table} compares surveying a $1$ km x $10$ km strip of land with team (a) $5000$ SeismicSpiders, (b) $500$ UAVs and $5000$ SeismicDarts, (c) $500$ humans and $5000$ sensors (geophones).  Team (b) completed $6$ times faster than team (c). The SeismicSpiders are much slower even compared to humans but these sensors are useful during special cases. Since the SeismicSpiders are substantially slow compared to the UAVs and expensive compared to the SeismicDarts their use could be limited to special occasions. The Seismic UAV has the ability to deploy the SeismicSpider at a given waypoint. This attribute wasn't considered in the simulation but could be done to improve sensor deployment speed with respect to SeismicSpiders.
    
-In Fig.~\ref{fig:het_sen_ratio} we vary the percentage of individual type of sensor by keeping the total number of sensors a constant. The goal is to analyze ratios of different sensors to optimize cost and time.  10 SeismicDarts are provided for each UAV. Increasing the percentage of UAVs lowers the deployment time. This is obvious since UAVs move at 20 m/s whereas SeismicSpiders move at 0.2 m/s. The difference in velocities makes UAV deployment time efficient. The SeimicSpiders are ideal for hard surface sensing or regions difficult for UAVs to access such as forests.
+In Fig.~\ref{fig:het_sen_ratio} we vary the percentage of individual type of sensor by keeping the total number of sensors a constant. The goal is to analyze ratios of different sensors to optimize cost and time. 10 SeismicDarts are provided for each UAV. Increasing the percentage of UAVs lowers the deployment time. This is obvious since UAVs move at 20 m/s whereas SeismicSpiders move at 0.2 m/s. The difference in velocities makes UAV deployment time efficient. The SeimicSpiders are ideal for hard surface sensing or regions difficult for UAVs to access such as  forests.
 
 \begin{figure*}
 \centering
@@ -55,11 +55,11 @@ In Fig.~\ref{fig:het_sen_ratio} we vary the percentage of individual type of sen
 \label{fig:Sim_overview}}
 \end{figure*}
 
-\begin{figure} \centering
+\begin{table} \centering
   {\includegraphics[width=\columnwidth]{simulation_table.pdf}}
  \caption{Comparison of different modes of deployment highlight the efficiency of UAV deployment.} 
- \label{fig:Sim_table}
-\end{figure}
+ \label{tab:Sim_table}
+\end{table}
 
 \begin{figure} \centering
   {\includegraphics[width=\columnwidth]{DronevsTime.pdf}}
@@ -69,6 +69,6 @@ In Fig.~\ref{fig:het_sen_ratio} we vary the percentage of individual type of sen
 
 \begin{figure} \centering
   {\includegraphics[width=\columnwidth]{het_sen_ratio.pdf}}
- \caption{Survey time for different sensor ratios. The total number of sensors \{5000, 3000\} were kept constant. Ten darts were provided for each UAV.} 
+ \caption{Survey time for different sensor ratios. The total number of sensors \{5000, 3000\} were kept constant. Ten darts were provided for each UAV. } 
  \label{fig:het_sen_ratio}
 \end{figure}
