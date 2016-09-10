@@ -1,13 +1,30 @@
 \section{Comparision}\label{sec:Comparision}
 
 \subsection{Ballistic Deployment}
-See Fig.~\ref{fig:TradvsAutoDrop}.
-\todobox{Need text for this}
+To compare an alternate deployment mechanism we built the pneumatic cannon shown in Fig.~\ref{fig:CannonPicture}.
+The pneumatic cannon is U-shaped,  2m in length, with a 4" diameter pressure chamber and a 3" diameter firing barrel, connected by an electronic valve (Rain Bird JTV/ASF 100). 
+The cannon is aimed by changing elevating the barrel to the desired firing angle $\theta_f$  and azimuth angle, filling the pressure chamber to the desired pressure.  
+The reachable workspace is a annular ring whose radius $r$ is a function of the firing angle and initial velocity $v$. 
+Neglecting air resistance, this range is found by integration:
+\begin{align}
+r = \frac{v^2}{g} \sin( 2 \theta_f )
+\end{align} 
+Initial velocity is limited by the maximum pressure and size of the pressure chamber.
+The cannon used  SCH 40 PVC, which is limited to a maximum pressure of 450 psi.
+
+We charged our system to 150 psi, and achieved a range of $\approx 150 m$.
+This is considerably smaller than the UAVs range, which when loaded can complete a roundtrip of $\approx 5$ km.
+
+A larger problem, illustrated in Fig.~\ref{fig:CannonPicture}, is that angle of incidence $\theta_i$ is equal to the firing angle $\theta_f$. 
+Maximum range is achieved with $\theta_f = 45^\circ$, but this angle of incidence reduces the geophone sensitivity to $\cos(\theta_f )\approx 0.7$.
+The accuracy of the cannon is lower than the drone because a fired dart must fly over a longer distance than a dropped dart. 
+Safety reasons also limit applications for a pneumatic launcher.
+
 
 \begin{figure} \centering
   {\includegraphics[width=\columnwidth]{CannonPicture}}
  \caption{A pneumatic launcher for SeismicDarts.  Ballistic dart deployment has limited usefulness because the incident angle is equal to the firing angle.} 
- \label{fig:TradvsAutoDrop}
+ \label{fig:CannonPicture}
 \end{figure}
 
 
@@ -16,7 +33,7 @@ See Fig.~\ref{fig:TradvsAutoDrop}.
 
 A scheduling system to compare  time and costs for seismic surveys with varying numbers of UAVs, SeismicSpiders, SmartDarts, and Human manual laborers was coded in  {\sc Matlab}, available at \cite{Srikanth2016seismicScheduler}.
 
-This tool allows us to examine engineering and logistic trade-offs quickly in simulation.  For example, Fig.~\ref{fig:DronevsTime} assumes a fixed number of darts, and examines the finishing time with $5$ to $500$ UAVs.  The time required decays asymptotically, but $140$ drones requires only twice the amount of time required for $500$ drones, indicating that $140$ are sufficient for the task. Lines are also plotted for $5000, 1000 and 500$ total darts.  In each case, substantial cost savings can be obtained by selecting the number of UAVs required to complete within $5\%$ of the optimal time.
+This tool allows us to examine engineering and logistic trade-offs quickly in simulation.  For example, Fig.~\ref{fig:DronevsTime} assumes a fixed number of darts, and examines the finishing time with $5$ to $500$ UAVs.  The time required decays asymptotically, but $140$ drones requires only twice the amount of time required for $500$ drones, indicating that $140$ are sufficient for the task. Lines are also plotted for $5000, 1000$ and $500$ total darts.  In each case, substantial cost savings can be obtained by selecting the number of UAVs required to complete within $5\%$ of the optimal time.
 The tool is useful for comparing the effectiveness of heterogeneous teams.  Table Fig.~\ref{fig:Sim_table} compares surveying a $1$ km x $10$ km strip of land with team (a) $5000$ seismic spiders(hexapods), (b) $500$ UAVs and $5000$ smart darts, (c) $500$ humans and $5000$ sensors(geophones).  Team (b) completed $6$ times faster than team (c).
 In Fig.~\ref{fig:het_sen_ratio} we vary the percentage of individual type of sensor by keeping the total number of sensors a constant. The goal is to analyze ratios of different sensors to optimize cost and time. The number of drones employed for deploying smart darts is considered to be $10\%$ of number of smart darts available. We observe that employing UAVs brings down the deployment time. This is obvious since UAVs move at 20 m/s whereas SeismicSpiders move at 0.2 m/s. The drastic difference in velocities makes the UAV deployment time efficient. The SeimicSpiders are a special type of sensor that could be used for special cases like hard surface sensing or regions where it is difficult for UAvs to access like forests.
 
