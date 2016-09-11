@@ -18,7 +18,7 @@ Srikanth K. V. Sudarshan, Victor Montano, An Nguyen, Michael McClimans, Li Chang
 University of Houston,
 Houston, TX, 77004 USA
 
-{skvenkatasudarshan, vjmontano, anguyen43, msmcclimans, lchang13, rrstewar, atbecker}@uh.edu 
+{skvenkatasudarshan, vjmontano, anguyen43, msmcclimans, lchang13, rrstewart, atbecker}@uh.edu 
 
 
 [sshahrokhi2@uh.edu],[atbecker@uh.edu]
