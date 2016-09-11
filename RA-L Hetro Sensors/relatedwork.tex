@@ -1,10 +1,8 @@
 \section{Overview and Related Work}\label{sec:RelatedWork}
 
-This paper presents a \emph{heterogeneous sensor system} for automatic sensor deployment. The goal is to overcome the drawbacks of deploying seismic sensors manually. 
+This paper presents a \emph{heterogeneous sensor system} for automatic sensor deployment. The goal is to overcome the drawbacks of manually deploying seismic sensors. 
 In previous work \cite{sudarshan2015using}, we demonstrated a UAV equipped with four geophone sensors as landing gear.
 This UAV automated sensor deployment by flying to GPS waypoints to obtain seismic data. 
-This solution had several limitations.
-Magnet-coil geophones contain a permanent magnet on a spring inside a coil. Voltage across the coil is proportional to velocity.  Beneath the coil housing is a metal spike.  Geophones are \emph{planted} by pushing this metal spike into the group, which improves coupling with the ground to increase sensitivity. The magnet-coil must be aligned with the gravity vector. Mialignment reduces the signal proportional to the cosine of the error.
 
 The geophones in  \cite{sudarshan2015using} were connected to the UAV, causing four problems:
 (1) one UAV was required for each additional sensor,
@@ -23,7 +21,7 @@ The new design also increases separation between geophones and the UAV.
 \centering
 \begin{overpic}[width=\columnwidth]{overview.pdf}\end{overpic}
 \caption{\label{fig:sensor_types}
- Comparing state-of-the-art seismic survey sensors a.) Traditional cabled system, the geophones (sensors) are connected in series to the seismic recorder and battery. b.) Autonomous nodal systems, each geophone has its own seismic recorder and battery.}
+ Comparing state-of-the-art seismic survey sensors. a.) In traditional cabled system, the geophones are connected in series to the seismic recorder and battery. b.) In autonomous nodal systems, each geophone has its own seismic recorder and battery.}
  \vspace{-2em} 
 \end{figure}
 
@@ -32,6 +30,11 @@ The new design also increases separation between geophones and the UAV.
 During seismic surveys a source generates seismic waves that propagate under the earth's surface. 
 These waves are sensed by geophone sensors and are recorded for later analysis to detect the presence of hydrocarbons. 
 Fig.~\ref{fig:sensor_types} illustrates the components of current sensors. 
+
+\subsubsection{Geophones}
+Magnet-coil geophones contain a permanent magnet on a spring inside a coil. Voltage across the coil is proportional to velocity.  Beneath the coil housing is a metal spike.  Geophones are \emph{planted} by pushing this metal spike into the group, which improves coupling with the ground to increase sensitivity. 
+ The magnet-coil must be vertical. 
+  Misalignment reduces the signal proportional to the cosine of the error.
 
 %For clarity, the following section discusses 1D waves.  The full 3D equations can be found in many geophysics textbooks, for example~\cite{shearer2009introduction}.
 %Geophone sensors sense the vertical external displacement $U$ caused by vibrational waves that propagate with a velocity $c$ in the positive and negative $x$-directions. 
@@ -60,24 +63,25 @@ Fig.~\ref{fig:sensor_types} illustrates the components of current sensors.
 %Here $\xi$ is the coil displacement, $k$ is the spring constant, $m$ is the moving mass of the coil, $c$ is the friction coefficient, $B$ is the magnetic flux density, $l$ is the length of coil wire, $i$ is the current. 
 
 \subsubsection{Cabled Systems}
- Traditional \emph{cabled systems} are extensively used for seismic data acquisition in hydrocarbon exploration. A group of sensors (geophones) are connected to each other in series using long cables, and this setup is connected to a seismic recorder and a battery. The seismic recorder consists of a micro-controller which synchronizes the data acquired with a GPS signal and store the data on-board. Generally, four-cell Lithium Polymer (LiPo, 14.8V, 10Ahrs) batteries are used to power this system. This method of data acquisition requires many manual laborers and a substantial expenditure for transporting the cables. 
+ Traditional \emph{cabled systems} are extensively used for seismic data acquisition in hydrocarbon exploration. A group of sensors (geophones) are connected to each other in series using long cables, and this setup is connected to a seismic recorder and a battery. The seismic recorder consists of a micro-controller which synchronizes the data acquired with a GPS signal and stores the data on-board. 
+ This method of data acquisition requires many manual laborers and a substantial expenditure for transporting the cables. 
  Rugged terrain makes carrying and placing cables labor intensive, and the local manual labor pool may be unskilled or expensive.
    
  \subsubsection{Autonomous Nodal Systems}
- Currently, \emph{autonomous nodal systems}~\cite{wood1998distributed} are extensively used for conducting seismic data acquisition surveys in USA. Unlike traditional cabled systems, autonomous nodal systems are not connected using cables. The sensor, seismic recorder, and battery are all combined into a single package called a node, that can autonomously record data as shown in Fig.~\ref{fig:sensor_types}. Even in these systems the data is stored in the on-board memory and can only be acquired after the survey is completed. This is disadvantageous since errors cannot be detected and rectified while conducting the survey. Recently, wireless autonomous nodes have been developed. These systems can transmit data wirelessly as a radio frequency in real time~\cite{jiang2015geophysical}. However, these systems still require manual laborers for planting the autonomous nodes at specific locations and deploying the large antennas necessary for wireless communication.
+ Currently, \emph{autonomous nodal systems}~\cite{wood1998distributed} are extensively used for conducting seismic data acquisition surveys. Unlike traditional cabled systems, autonomous nodal systems are not connected using cables. The sensor, seismic recorder, and battery are all combined into a single package called a node that can autonomously record data as shown in Fig.~\ref{fig:sensor_types}. Even in these systems the data is stored in the on-board memory and can only be acquired after the survey is completed. This is disadvantageous since errors cannot be detected and rectified while conducting the survey. Recently, wireless autonomous nodes have been developed. These systems can transmit data wirelessly in real time~\cite{jiang2015geophysical}. However, these systems still require manual laborers for planting the autonomous nodes at specific locations and deploying the large antennas necessary for wireless communication.
  
 \subsection{Related Work}
 
 Seismic surveying is a large industry.
 The concept of using robots to place seismic sensors dates to the 1980s, when mobile robots placed seismic sensors on the moon~\cite{LSisMSE81}. \cite{DSSMaA14} proposed using a mobile robot for terrestrial geophone placement. Plans are underway for a swarm of seismic sensors for Mars exploration~\cite{MAPL2006}.
 Additionally,~\cite{muyzert2015marine} and~\cite{postel2014drone} proposed marine robots for hydrophone deployment underwater. 
-Other work  focuses on data collection, using a UAV to wirelessly collect data from multiple sensors~\cite{wilcox2013seismic}. Autonomous sensor deployment and mobile wireless sensor networks have been extensively studied in~\cite{howard2002mobile},~\cite{corke2004autonomous},~\cite{tuna2014autonomous}. Heterogeneous mobile robotic teams were used for mapping and tracking in~cite{howard2006experiments}.
+Other work  focuses on data collection, using a UAV to wirelessly collect data from multiple sensors~\cite{wilcox2013seismic}. Autonomous sensor deployment and mobile wireless sensor networks have been extensively studied in~\cite{howard2002mobile},~\cite{corke2004autonomous},~\cite{tuna2014autonomous}. Heterogeneous mobile robotic teams were used for mapping and tracking in~\cite{howard2006experiments}.
 % Their idea is to have a propulsion module that either be a wheels, tracks, turbines, helicopter blades etc. 
 % This robot is used to deploy sensors at specified locations. 
 % The system consists of modules for ensuring the sensor is well planted and placed perpendicular to the ground. The modular approach to a deployment system is innovative but might not be practically feasible. 
 % While servicing a large area ability to deploy multiple sensors in limited time is a key factor. 
 % The approach seems to be well suited for short surveys. 
-Our system consists of a multi-agent system approach designed to quickly and efficiently perform a survey.
+Our multi-agent system approach is designed to quickly and efficiently perform a survey.
 
 %Some works relate to surveying an earthquake prone region to collect data as in \cite{dominici2012micro}. 
 %The goals of these papers is to perform a survey rather than sensor deployment.
