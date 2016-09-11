@@ -53,7 +53,7 @@ To determine the difference in performance between SeismicDarts with straight fi
  \vspace{-1em}
 \end{figure}
 \begin{figure} \centering
-  {\includegraphics[width=\columnwidth]{StraightvsBent_depthangle.pdf}}
+  {\includegraphics[width=\columnwidth]{StraightvsTwistedAngleDepth.pdf}}
  \caption{\label{fig:StraightBentDepth}Straight vs.\ twisted fins comparing a.) penetration depth b.) angle of deviation. Experiment used a fixed drop height of 9.8 m.} 
 \end{figure}
 
@@ -64,16 +64,16 @@ To determine the difference in performance between SeismicDarts with straight fi
 %  {\includegraphics[width=.45\columnwidth]%{StraightvsBent_angle.pdf}}
 %   \vspace*{-.1in}
  %\caption{Straight vs Bent fins comparing a.) Penetration Depth b.) Angle of Deviation. Experiment used a fixed drop height of 9.8 m. \label{fig:StraightBent}}
- %\vspace*{-.1in}
-%\end{figure}
-\subsubsection{Shot gather comparison}
+ %\vspace*{-.1in} 
+%\end{figure} 
+\subsubsection{Shot gather comparison} 
 Seismic explorations use thousands of geophones to conduct a seismic survey. 
 This experiment compared the performance of a traditional cabled $24$ geophone system connected to a $24$ channel seismic recorder and a battery with readings from SeismicDarts.
 The geophones were planted vertically into the ground, three meters apart from one another.  
 We used a vibrating truck setup to generate the seismic wave. 
 Only four functional SeismicDarts were built, so these four were dropped from the UAV, a seismic wave was generated and recorded, and the darts were redeployed.
 
-Results of the seismic survey field test comparison between a $24$ channel traditional cabled geophone system and the SeismicDarts are shown in Fig.~\ref{fig:shotgather_auto_drop}.  
+Results of the seismic survey field test comparison between a $24$ channel traditional cabled geophone system and the SeismicDarts are shown in Fig.~\ref{fig:shotgather_auto_drop}.   
 Both plots were obtained using a \emph{Strata-Visor}, a device that can obtain, store and plot the sensed data. 
 It is extensively used with traditional geophone setups because the geophones can only sense vibrational waves and are dependent on other devices for storage and data processing. 
 To allow a fair comparison, the SeismicDart's  ability to store sensed data was not used in this experiment. 
@@ -85,11 +85,24 @@ With the exception of SeismicDart reading \#19, which may be due to poor termina
  \caption{Shot gather comparison of traditional geophones vs.\ autonomously dropped SeismicDart sensors. 
  \label{fig:shotgather_auto_drop}}
 \end{figure}
+
 \subsection{Deploying and Retrieving SeismicDart}
-SeismicDarts combined with UAVs could be exploited to obtain a seismic survey quickly. But the sensors have to be reused to survey a large area and these sensors are expensive too. Fig.~\ref{fig:SeismicDart_DR} shows the SeismicDart being deployed and retrieved from a location. Hence deploying and retrieving are key to automating the process. First the sensors(SeismicDarts) are loaded onto to UAV. A flight plan is created for the deployment process. The flight plan transfers to the UAV a set of GPS waypoint locations that include locations where the sensor has to be dropped. The UAV flies to these locations drops the sensors at specific location and returns home. Currently a maximum of four sensors could be dropped in a single flight. Retrieval is carried by  piloting the UAV manually.
+SeismicDarts combined with UAVs could enable fast seismic surveys.
+First the SeismicDarts are loaded onto to UAV. 
+Currently a maximum of four sensors could be dropped in a single flight. 
+The flight plan communicated to the UAV provides a GPS waypoint for each SmartDart. 
+The UAV flies to these locations, drops the sensors at specific location, and returns home. 
+
+However, deployment is only part of the problem. Large surveys require moving and reusing sensors.  
+Moreover, SmartDarts are more expensive than standard geophones. 
+Currently retrieval is performed by manually piloting the UAV. 
+Automating this process is left for future work.
+Fig.~\ref{fig:SeismicDart_DR} shows a SeismicDart being retrieved and redeployed.
+
+
 \begin{figure} \centering
   {\includegraphics[width=\columnwidth]{SeismicDart_DR.pdf}}
- \caption{Shot gather comparison of traditional geophones vs.\ autonomously dropped SeismicDart sensors. 
+ \caption{Retrevial and redeploying a SmartDart.  See video  attachment. 
  \label{fig:SeismicDart_DR}}
 \end{figure}
  
