@@ -1,6 +1,10 @@
 function [] = SeismicSurveyScheduler(x,y,T,hex,drones,darts,people, drone_cap,  people_cap)
 % Simulates a seismic survey over a rectangular grid of area x by y meters.
-% 
+% TODO: (1) place all the sensors, then move the sources along sensor paths
+% (simulate a seismic reading at each point)
+% (2) make some topology and make ground walkers (seismic spiders and
+% humans) move proportional to 
+%
 %Seismic surveying requires placing a large number of sensors (geophones)
 %in a large grid pattern, triggering a seismic event, and recording
 %accelerometer readings at each sensor. These readings are inverted to
@@ -25,11 +29,11 @@ function [] = SeismicSurveyScheduler(x,y,T,hex,drones,darts,people, drone_cap,  
 % See video at https://youtu.be/NvYyT66U8JM
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 if nargin <1
-    x = 100;
+    x = 200;
     y = 200;
-    T = [0,y/2];
+    T = [-25,y/2];
     hex = 0; %total number of Hexapod walkers
-    drones = 500; %total number of Drones
+    drones = 5; %total number of Drones
     darts = 50; %total number of Darts
     people = 0; %total number of human workers
     drone_cap = 4; %number of darts a drone can hold
@@ -39,6 +43,7 @@ end
 % State updates the state of all assets and survey location, graphics has
 % handles for all graphics elements.
 %constants
+S.state = 'place'; %place or shot.
 S.T = T; S.x = x; S.y = y; S.hex = hex; S.drones = drones; S.darts = darts; S.drone_cap = drone_cap; S.people = people;S.people_cap = people_cap;
 dt = 1; % delta T: time step during main loop
 maxTime = 100000; % max simulation time in seconds
@@ -56,7 +61,7 @@ for T = 1:dt:maxTime % Main_loop
         break
     end
 end
-title(['finished in T = ',num2str(T),' seconds'])
+display(['finished in T = ',num2str(T),' seconds'])
 display(['T = ',num2str(T),', ',num2str(S.numShots),' shots'])
 display([ x,y,hex ,drones,darts,drone_cap,people,people_cap,T])
 toc
@@ -64,12 +69,13 @@ end
 
 function S = Init_State(S)
 % constants
-gridSpacing = 10; %meters between grid points
-S.minSensorsForShot = min(10, S.hex+S.darts*(S.drones>0)); %minimum number of ready sensors before a shot is taken.
+gridSpacingX = 50; %meters between grid points
+gridSpacingY = 10; %meters between grid points
+S.minSensorsForShot = min(21, S.hex+S.darts*(S.drones>0)); %minimum number of ready sensors before a shot is taken.
 S.numShots = 0;
 
 %initialize survey points
-[xg,yg] = meshgrid(0:gridSpacing:S.x,0:gridSpacing:S.y);
+[xg,yg] = meshgrid(0:gridSpacingX:S.x,0:gridSpacingY:S.y);
 S.surveyPtsX = xg(:);
 S.surveyPtsY = yg(:);
 S.surveyPtsState = zeros(size(S.surveyPtsX));
@@ -80,7 +86,7 @@ S.Tstate = 2; % 0 - unassigned 1 - assigned 2-ready (at position) 3 - finished
 S.Tpos = S.T;
 S.Tstart = S.T;
 S.Tgoal = S.T;
-S.Tvel = 1;
+S.Tvel = .4;
 
 %initialize hex
 S.Hstate = zeros(S.hex,1); % 0 - unassigned 1 - assigned 2-ready (at position) 3- return home
@@ -127,10 +133,16 @@ function S = shotTest(S)
 %state: 0 no measurement, 1 assigned, 2 ready for measurement, 3 measured,
 readyPts = sum(S.surveyPtsState == 2);
 if readyPts >= S.minSensorsForShot ||  sum(S.surveyPtsState == 0)+sum(S.surveyPtsState == 1)==0
+    S.state = 'shot';
+   
+    %animate shot
+    
     S.numShots = S.numShots+1;
     S.surveyPtsState(S.surveyPtsState == 2) = 3; %mark as measured
     S.Hstate(S.Hstate == 2) = 0; %hexpods can move
     S.Dstate(S.Dstate == 2) = 0; % darts can be moved
+else
+    S.state = 'place';
 end
 end
 
@@ -165,31 +177,8 @@ function S = assignHexPod(S)
 for k = 1:S.hex % 0 - unassigned 1 - assigned 2-ready (at position)
     % if unassigned, move to the next (doesn't get unassigned until shot
     % is taken)
-%      if numind>0
-%                 dist = sqrt(sum((repmat( S.Qpos(k,:),numind,1) - [S.surveyPtsX(ind),S.surveyPtsY(ind)]).^2,2))+...
-%                     sqrt(sum((repmat( S.Tpos,numind,1) - [S.surveyPtsX(ind),S.surveyPtsY(ind)]).^2,2));
-%                 [~,i] = min(dist);
-%                 c = find( S.surveyPtsState == 0, i,'first');
-%                 minInd =c(end);
-%                 
-%                 S.Qgoal(k,:) = [S.surveyPtsX(minInd),S.surveyPtsY(minInd)];
-%                 S.surveyPtsState(minInd) = 1; %assigned
-%                 S.Qstate(k) = 1; %assigned
-%                 S.Qstart(k,:) = S.Qpos(k,:);
-%                 S.Qsurveypt(k) = minInd;
-%             end
     if S.Hstate(k) == 0
-       
-%         for m = 1:numel(S.surveyPtsX)
-%             if S.surveyPtsState(m) == 0 %no measurement & unassigned
-%                 dist = sqrt(sum((S.Hpos(k,:) - [S.surveyPtsX(m),S.surveyPtsY(m)]).^2))+...
-%                     sqrt(sum((S.Tpos - [S.surveyPtsX(m),S.surveyPtsY(m)]).^2));
-%                 if dist<minDist
-%                     minInd = m;
-%                     minDist = dist;
-%                 end
-%             end
-%         end
+
 ind = (S.surveyPtsState == 0);
 numind = sum(ind);
     if numind>0
@@ -349,6 +338,7 @@ function G = Init_Graphics(S)
 figure(1);
 clf;
 set(gca,'Xlim',[0,S.x],'Ylim',[0,S.y]);
+set(gcf,'Color','white');
 %draw survey points. 
 %State: 0 no measurement, 1 assigned, 2 ready for measurement, 3 measured,
 %          grey             gold         red   green      
@@ -366,6 +356,7 @@ G.tPathG = line([S.Tstart(1),S.Tgoal(1)],[S.Tstart(2),S.Tgoal(2)],'color' ,'b');
 G.tPathP = line([S.Tpos(1),S.Tgoal(1)],[S.Tpos(2),S.Tgoal(2)],'color' ,'r');
 tpts = truckPts(S.Tpos(1),S.Tpos(2),1);
 G.truck = fill(tpts(:,1),tpts(:,2),'b');
+G.seismicWave =rectangle('Curvature', [1, 1],'Position',[S.Tstart(1),S.Tstart(2),.1,.1]);
 
 %draw darts
 G.da = ones(S.darts,1);
@@ -410,7 +401,10 @@ drawnow;
 end % end init_graphics
 
 function S = moveTruck(S,dt) %move Truck (and onboard darts) in +x
-% find the survey point with lowest x value.
+if strcmp(S.state,'place')
+   return;
+end
+% otherwise, sense
 xMin = min(S.surveyPtsX(S.surveyPtsState < 3));
 if ~isempty(xMin)
     S.Tgoal(1) = xMin;
@@ -436,6 +430,12 @@ set(G.surveyPts,'CData',S.surveyPtsState);
 colormap(G.colors(unique(S.surveyPtsState)+1,:));
 %update truck
 tpts = truckPts(S.Tpos(1),S.Tpos(2),1); set(G.truck, 'XData',tpts(:,1) ,'YData',tpts(:,2)) ;
+if strcmp(S.state,'shot')
+           for i = 1:25:600
+                set(G.seismicWave, 'Position', [S.Tpos(1)-i/2, S.Tpos(2)-i/2, i, i])
+                drawnow
+            end 
+end
 
 %draw hexpods
 for k = 1:S.hex
@@ -464,7 +464,7 @@ tpts = truckPts(S.Tpos(1),S.Tpos(2),1); set(G.truck, 'XData',tpts(:,1) ,'YData',
 %draw people
 
 %update title
-title(['T = ',num2str(T),', ',num2str(sum(S.surveyPtsState == 2)),' pts ready, ',num2str(S.numShots),' shots'])
+title(['T = ',num2str(T,'%02d'),', ',num2str(sum(S.surveyPtsState == 2),'%02d'),' pts ready, ',num2str(S.numShots,'%02d'),' shots'])
 xlabel 'X-dist (m)';
 ylabel 'Y-dist (m)';
 drawnow;
