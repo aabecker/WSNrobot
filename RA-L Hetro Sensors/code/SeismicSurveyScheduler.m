@@ -28,15 +28,16 @@ function [] = SeismicSurveyScheduler(x,y,T,hex,drones,darts,people, drone_cap,  
 %
 % See video at https://youtu.be/NvYyT66U8JM
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 if nargin <1
-    x = 200;
-    y = 200;
-    T = [-25,y/2];
+    x = 10000;
+    y = 1000;
+    T = [-5,y/2];
     hex = 0; %total number of Hexapod walkers
     drones = 5; %total number of Drones
-    darts = 50; %total number of Darts
+    darts = 75; %total number of Darts
     people = 0; %total number of human workers
-    drone_cap = 4; %number of darts a drone can hold
+    drone_cap = 10; %number of darts a drone can hold
     people_cap = 0; %number of geophones a human can hold
 end
 %  There are two high level variables  State (S) and Graphics (G).
@@ -50,7 +51,7 @@ maxTime = 100000; % max simulation time in seconds
 tic
 S = Init_State(S);
 G = Init_Graphics(S); %draw everything for first time
-%pause(5);
+pause(5);
 for T = 1:dt:maxTime % Main_loop
     if mod(T,100) == 0
         display(['T = ',num2str(T)]) %shows computer is still running
@@ -69,7 +70,7 @@ end
 
 function S = Init_State(S)
 % constants
-gridSpacingX = 50; %meters between grid points
+gridSpacingX = 10; %meters between grid points
 gridSpacingY = 10; %meters between grid points
 S.minSensorsForShot = min(21, S.hex+S.darts*(S.drones>0)); %minimum number of ready sensors before a shot is taken.
 S.numShots = 0;
@@ -93,7 +94,7 @@ S.Hstate = zeros(S.hex,1); % 0 - unassigned 1 - assigned 2-ready (at position) 3
 S.Hpos = repmat( S.T, S.hex,1);
 S.Hstart = S.Hpos;
 S.Hgoal = S.Hpos;
-S.Hvel = 1;
+S.Hvel = 0.1;
 S.Hsurveypt = zeros(S.hex,1); %ID of the survey point assigned to this robot
 %initilize drones
 S.Qstate = zeros(S.drones,1); % 0- unassigned 1- assigned
@@ -104,7 +105,7 @@ S.Qdartpickup = zeros(S.drones,1); %ID of dart to pick up.
 S.Qdartscap = zeros(S.drones,1); %how many darts on board
 S.Qstart = S.Qpos;
 S.Qgoal = S.Qpos;
-S.Qvel = 20;
+S.Qvel = 1.38;
 S.Qsurveypt = zeros(S.drones,1);%ID of the survey point assigned to this robot (do we need this?)
 %initialize darts
 S.Dstate = zeros(S.darts,1);% 0- unassigned 1- assigned 2-ready (at position)
@@ -391,7 +392,7 @@ for k = 1:S.drones    %draw current path
 end
 for k = 1:S.drones    %draw the drones
     dpts = dPts(S.Qpos(k,1),S.Qpos(k,2),1);
-    G.d(k) = fill(dpts(:,1),dpts(:,2),'k');
+    G.d(k) = fill(dpts(:,1),dpts(:,2),'b');
 end
 
 %draw people
