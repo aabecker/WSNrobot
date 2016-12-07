@@ -17,46 +17,49 @@ Designs and instructions to build a SeismicDart are available at \cite{Victor201
 \subsection{Experiments} 
 The following sections compare SeismicDart performance.
 \subsubsection{ Drop tests in different soils}  
-This experiment varied the drop height and measured the penetration depth in four types of soil. 
+This experiment varied the drop height and measured the penetration depth in different soil types. The compression strengths of each soil was different making this analysis useful. 
 Proper planting of a geophone requires good contact with the soil, in a vertical position. 
 To determine the minimum deployment height for good planting, each trial measured the penetration depth and angular deviation from vertical. 
-This experiment compared drop tests as a function of soil type. 
+This experiment compared drop height as a function of soil penetration. 
 
-To determine how SeismicDarts perform in different soils, this experiment measured penetration into four soil types. Each trial was performed by holding the darts at the tip opposite to the spike in a vertical position and releasing them at varying heights into 19 liter (5 gal.) buckets of soil.
- Penetration depth and angular deviation were measured. To measure penetration depth, the buried darts were marked where the spike met the soil, the dart was then pulled from the soil, and the distance from the spike tip to the marking was measured with calipers. The angular deviation was recorded using the accelerometer inside the dart. The soil types were categorized by their compression strength, in kg/cm$^3$, measured using a soil pocket penetrometer (CertifiedMTP). Measurements for compression strength vary with small deviation in measurement location, so we repeated this measurement 10 times at 10 different locations in each soil type and took the average. These values for soil compression strength and a graph displaying heights vs. penetration depth are displayed in Fig.~\ref{fig:DepthPlotIndoors}, and a graph of angular deviation is in Fig.~\ref{fig:AnglePlotIndoors}. 
+To determine how SeismicDarts perform in different soils, this experiment measured penetration depth and angle of deviation in seven different soil types. For the first four soil types the soil compression strength was small and hence the test was performed manually. Each trial was performed by holding the darts at the tip opposite to the spike in a vertical position and releasing them at varying heights into 19 liter (5 gal.) buckets of soil. Penetration depth and angular deviation were measured. %To measure penetration depth, the buried darts were marked where the spike met the soil, the dart was then pulled from the soil, and the distance from the spike tip to the marking was measured with calipers. The angular deviation was recorded using the accelerometer inside the dart.
+ The soil types were categorized by their compression strength, in kg/cm$^3$, measured using a soil pocket penetrometer (CertifiedMTP). Measurements for compression strength vary with small deviation in measurement location, so we repeated this measurement 10 times at 10 different locations in each soil type and took the average.
+ 
+The experiment for the other soil types were conducted using the SeismicDrone autonomously. The SeismicDrone deployed the SeismicDart in different soils autonomously. We varied the drop height (10,15,20,25 m) to analyze the penetration depth and angle of deviation. We repeated this measurement 12 times for each soil type at every drop height.  
+  These values for soil compression strength and a graph displaying drop height vs. penetration depth are displayed in Fig.~\ref{fig:DepthPlotIndoors}, and a graph of drop height vs angle of deviation is displayed in Fig.~\ref{fig:AnglePlotIndoors}. 
   The experiment shows that increasing drop height increases penetration on all soils tested.
   Also, darts dropped in quiescent air remain vertical if they penetrate the soil.
 
 
 \begin{figure} \centering
-{\includegraphics[width=\columnwidth]{indoor_depth_plot.pdf}}
-\caption{Drop height vs. penetration depth in four soil types.} 
+{\includegraphics[width=\columnwidth]{AutoPenetrationDepth.pdf}}
+\caption{Drop height vs. penetration depth in seven soil types. Drops were performed autonomously and each data point represents 12 trials.} 
 \label{fig:DepthPlotIndoors}
 \end{figure}
 
 \begin{figure} \centering
-{\includegraphics[width=\columnwidth]{indoor_angle_plot.pdf}}
-\caption{Drop height vs. angle of deviation in four soil types.} 
+{\includegraphics[width=\columnwidth]{AutoPenetrationAngle.pdf}}
+\caption{Drop height vs. angle of deviation in seven soil types. Drops were performed autonomously and each data point represents 12 trials.} 
 \label{fig:AnglePlotIndoors}
 \vspace{-1em}
 \end{figure}
 
-\subsubsection{Straight vs.\ Twisted Fins}
+%\subsubsection{Straight vs.\ Twisted Fins}
 
-To determine the difference in performance between SeismicDarts with straight fins and twisted fins, we ran a drop test with 10 trials for both types of dart at a constant height in one soil type. Each trial was initialized by holding the dart horizontally at a height of 9.8 meters, dropping it into the soil, and recording the penetration depth and angular deviation. Holding the darts horizontally emphasized the angle-correcting behavior of the fins. The penetration depth and angular penetration were measured and recorded as in the previous experiment. A graph showing the values recorded for penetration depth and angular deviation in Fig.~\ref{fig:StraightBentDepth}  reveals that SeismicDarts with twisted fins had less angular deviation, but also less penetration depth. 
+%To determine the difference in performance between SeismicDarts with straight fins and twisted fins, we ran a drop test with 10 trials for both types of dart at a constant height in one soil type. Each trial was initialized by holding the dart horizontally at a height of 9.8 meters, dropping it into the soil, and recording the penetration depth and angular deviation. Holding the darts horizontally emphasized the angle-correcting behavior of the fins. The penetration depth and angular penetration were measured and recorded as in the previous experiment. A graph showing the values recorded for penetration depth and angular deviation in Fig.~\ref{fig:StraightBentDepth}  reveals that SeismicDarts with twisted fins had less angular deviation, but also less penetration depth. 
 
-\begin{figure} \centering
-  {\includegraphics[width=\columnwidth]{StraightvsBent_pic.pdf}}
- \caption{Outdoor drop test comparing straight vs.\ twisted fins performance:
- a.)  dropping a SeismicDart,  
- b.)  measuring drop height.} 
- \label{fig:StraightBentPic}
- \vspace{-1em}
-\end{figure}
-\begin{figure} \centering
-  {\includegraphics[width=\columnwidth]{StraightvsTwistedAngleDepth.pdf}}
- \caption{\label{fig:StraightBentDepth}Straight vs.\ twisted fins comparing a.) penetration depth b.) angle of deviation. Experiment used a fixed drop height of 9.8 m.} 
-\end{figure}
+%\begin{figure} \centering
+ % {\includegraphics[width=\columnwidth]{StraightvsBent_pic.pdf}}
+ %\caption{Outdoor drop test comparing straight vs.\ twisted fins performance:
+ %a.)  dropping a SeismicDart,  
+% b.)  measuring drop height.} 
+% \label{fig:StraightBentPic}
+ %\vspace{-1em}
+%\end{figure}
+%\begin{figure} \centering
+%  {\includegraphics[width=\columnwidth]{StraightvsTwistedAngleDepth.pdf}}
+% \caption{\label{fig:StraightBentDepth}Straight vs.\ twisted fins comparing a.) penetration depth b.) angle of deviation. Experiment used a fixed drop height of 9.8 m.} 
+%\end{figure}
 
 %\begin{figure}\centering 
 %\subfigure[\label{subfig:StraightBentDepth}]
