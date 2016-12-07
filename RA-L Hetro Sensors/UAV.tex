@@ -1,6 +1,6 @@
 \section{UAV and deployment unit}\label{sec:DeploymentUnit(UAV)}
 
-The UAV is a custom-built, 177 cm wingspan hexacopter, controlled by a Pixhawk flight controller running ArduPilot Mega flight software. The UAV has a 3DR GPS module using the UBlox NEO-7 chipset.
+The UAV is a custom-built, 1.77 m wingspan hexacopter, controlled by a Pixhawk flight controller running ArduPilot Mega flight software. The UAV has a 3DR GPS module using the UBlox NEO-7 chipset.
 
 
  The deployment mechanism allows the UAV to carry four SeismicDarts in a circular array, and release them when it reaches the desired GPS location, one at a time.
@@ -27,7 +27,7 @@ This range is within tolerances for seismic surveys because:
 %(3) this error minimally perturbs the data since seismic waves travel at 600 m/s near the surface, so a one-meter inaccuracy equates to $\approx$1.6 ms delay.
 %(4) the response of a receiver to seismic vibrations is an average over a number of meters.  ?? what does this mean??
 
-To accurately perform a seismic survey, the sensors do not need to placed accurately, but their position must be known within $\approx$0.01 m. 
+To accurately perform a seismic survey, the sensors do not need to placed accurately, but their position must be known within $\approx$ 0.01 m. 
  Knowledge of the exact location compensates for placement inaccuracy.
  This can be achieved by placing a differential GPS in each dart.  A lower-cost solution would use a differential GPS on the SeismicDrone and perform image registration with the downward facing camera.  As shown in the multimedia attachment, even at a 25 m drop height a planted dart occupies dozens of pixels, enabling cm-level localization accuracy.
 

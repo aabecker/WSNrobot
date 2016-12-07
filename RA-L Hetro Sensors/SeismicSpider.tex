@@ -23,7 +23,7 @@ The SeismicSpider is built from the Six Hexapod kit designed by EZ Robots. Each 
 %Hexapod move to desired GPS location  (plot accuracy)\\
 %\subsubsection{ Shot gather comparison}
 
-A line of twenty four geophones (GS-20DM 14 Hz) were laid out at one meter intervals with our inline source seven meters from the nearest geophone. Beginning from the farthest offset of 31 meters we manually aligned the Spider with the corresponding geophone, fired the source, then moved one meter ahead. 
+A line of twenty four geophones (GS-20DM 14 Hz) were laid out at one meter intervals with our inline source seven meters from the nearest geophone. Beginning from the farthest offset of 31 m we manually aligned the Spider with the corresponding geophone, fired the source, then moved one meter ahead. 
 
 %\paragraph{Results}
 Data from the shot gather comparison is shown in Fig.~\ref{fig:shotgatherHexpod}.
@@ -46,9 +46,12 @@ The response for three geophones in series was 5 dB greater than a single geopho
  \label{fig:SeismicSpiderDR}}
 \end{figure}
 
-The Seismic UAV's purpose is to deploy sensors at desired GPS waypoint locations. The SeismicSpider is a mobile robot, but it is substantially slower than the UAV. Fig.~\ref{fig:SeismicSpiderDR} shows the SeismicSpider being retrieved and then redeployed by a UAV. The UAV carrying the SeismicSpider was manually piloted to a specific location. The deployment mechanism included a hook controlled by a servo attached to the UAV. The UAV lowered to the ground, then the servo was triggered to unhook the SeismicSpider.  The SeismicSpider was then wirelessly powered on. 
-After walking to the goal sensing location, the SeismicSpider was controlled to shake its three non-sensing legs to plant its geophone legs into the ground.  The SeismicSpider has an onboard GPS to navigate to a specific waypoint.  Currently autonomous deployment of sensors is implemented, but the retrieval is piloted. 
+The Seismic UAV's purpose is to deploy sensors at desired GPS waypoint locations. The SeismicSpider is a mobile robot, but it is substantially slower than the UAV.  The UAV carrying the SeismicSpider flew autonomously to a programmed waypoint. The deployment mechanism included a hook controlled by a servo attached to the UAV. The UAV lowered to a waypoint 0.5 m from the ground, then the servo was triggered to unhook the SeismicSpider.  The SeismicSpider was then wirelessly powered on. 
+The SeismicSpider also has an onboard GPS, enabling it to navigate to desired waypoints. 
+After walking to the goal sensing location, the SeismicSpider was programmed to shake its three non-sensing legs to plant its geophone legs into the ground.  
+  Currently autonomous deployment of sensors is implemented, but the retrieval is piloted. 
 Combining the mobility of the SeismicSpider with the speed of the UAV enables reaching locations inaccessible by air or impossible to penetrate by SmartDarts.
+Fig.~\ref{fig:SeismicSpiderDR} shows the SeismicSpider being retrieved and then redeployed by a UAV.
 
 
 
