@@ -107,7 +107,7 @@ The readings from both systems are qualitatively similar, with no discernible ph
 The percent peak-to-peak error and normalized root-mean-square error (NRMSE) are defined as
 \begin{align}
 e_{pp} &= 100 \left( \frac{ \max(X) - \min(X) }{ \max(Y) - \min(Y) } -1\right) \\
-  \text{NRMSE} &=\frac{100}{\max(X) - \min(X)} \sqrt{ \frac{ \sum_{i=1}^n \left( X(i) - Y(i) \right)}{n} }.\nonumber
+  \text{NRMSE} &=\frac{100}{\max(X) - \min(X)} \sqrt{ \frac{ \sum_{i=1}^n \left( X_i - Y_i \right)}{n} }.
 \end{align}
 The peak-to-peak errors were [-6.33, -1.15, -1.81,  9.84] \% for sensors at [4,8,12,16] m from the source.
  The NRMSE were [1.05,1.27,3.98,4.39] \% for sensors at [4,8,12,16] m from the source.
