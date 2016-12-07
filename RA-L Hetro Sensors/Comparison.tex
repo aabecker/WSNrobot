@@ -24,7 +24,7 @@
 
 \subsection{Ballistic Deployment}
 To compare an alternate deployment mechanism we built the pneumatic cannon shown in Fig.~\ref{fig:CannonPicture}a.
-The pneumatic cannon is U-shaped,  2m in length, with a 0.1 m (4 inch) diameter pressure chamber and a 0.08 m (3 inch) diameter firing barrel, connected by an electronic valve (Rain Bird JTV/ASF 100). 
+The pneumatic cannon is U-shaped,  2 m in length, with a 0.1 m (4 inch) diameter pressure chamber and a 0.08 m (3 inch) diameter firing barrel, connected by an electronic valve (Rain Bird JTV/ASF 100). 
 The cannon is aimed by changing the desired firing angle $\theta_f$ and azimuth angle, and filling the pressure chamber to the desired pressure.  
 The reachable workspace is an annular ring whose radius $r$ is a function of the firing angle and initial velocity $v$. 
 Neglecting air resistance, this range is found by integration:
@@ -76,4 +76,12 @@ The tool is useful for comparing the effectiveness of heterogeneous teams.  Tabl
   Since SeismicSpiders are  slower than UAVs and humans, and are expensive compared to the SeismicDarts, their use is limited to special occasions. The Seismic UAV has the ability to deploy the SeismicSpider at a given waypoint. This attribute was not considered in the simulation but would improve deployment speed of SeismicSpiders.
    
 In Fig.~\ref{fig:het_sen_ratio}, the total number of mobile agents are constant, but the percentage of UAVs and SeismicSpiders are varied. The goal is to analyze ratios of different sensors to optimize cost and time. 10 SeismicDarts were provided for each UAV. Increasing the percentage of UAVs lowers the deployment time. This is obvious since UAVs move at 20 m/s whereas SeismicSpiders move at 0.2 m/s. The difference in velocities makes UAV deployment time efficient. The SeismicSpiders are ideal for hard surface sensing or regions difficult for UAVs to access such as  forests.
+
+Soil maps could be used to plan a survey, allocating seismic spiders to rocky or forested areas and SeismicDarts to penetrable soils. 
+These maps can be made more accurate using drone-carried ground penetrating radar \cite{merz2015new}, however the  SeismicDart's internal accelerometer also provides feedback on the quality of the plant. As shown in Figs.~\ref{fig:AnglePlotIndoors}, increasing angular deviations indicate a higher drop height is needed.  
+
+
+
+
+
 

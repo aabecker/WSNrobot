@@ -149,4 +149,10 @@ S.~K.~V. Sudarshan and A.~T. Becker, ``{``Seismic Survey Scheduler.'' MATLAB
   \url{http://www.mathworks.com/matlabcentral/fileexchange/59034}
 \BIBentrySTDinterwordspacing
 
+\bibitem{merz2015new}
+K.~Merz, A.~G. Green, T.~Buchli, S.~M. Springman, and H.~Maurer, ``A new 3-d
+  thin-skinned rock glacier model based on helicopter gpr results from the
+  swiss alps,'' \emph{Geophysical Research Letters}, vol.~42, no.~11, pp.
+  4464--4472, 2015.
+
 \end{thebibliography}

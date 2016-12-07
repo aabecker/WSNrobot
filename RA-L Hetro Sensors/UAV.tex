@@ -11,7 +11,7 @@ The UAV is a custom-built, 177 cm wingspan hexacopter, controlled by a Pixhawk f
 
 \begin{figure} \centering
   {\includegraphics[width=\columnwidth]{deployment_system.pdf}}
- \caption{Deployment system for dropping SeismicDarts from the UAV. Pictured design holds 4 darts, but can be scaled according to the UAV's carrying capacity.} 
+ \caption{Deployment system for dropping SeismicDarts from the UAV. Pictured design holds four darts, but can be scaled according to the UAV's carrying capacity.} 
  \label{fig:deployment_system}
 \end{figure}
 
@@ -27,7 +27,11 @@ This range is within tolerances for seismic surveys because:
 %(3) this error minimally perturbs the data since seismic waves travel at 600 m/s near the surface, so a one-meter inaccuracy equates to $\approx$1.6 ms delay.
 %(4) the response of a receiver to seismic vibrations is an average over a number of meters.  ?? what does this mean??
 
-The critical factor is to know within $\approx$10 cm accuracy the geophone location.  Such accuracy can be obtained through Real Time Kinematic GPS systems. Knowledge of the exact location compensates for placement inaccuracy.
+To accurately perform a seismic survey, the sensors do not need to placed accurately, but their position must be known within $\approx$0.01 m. 
+ Knowledge of the exact location compensates for placement inaccuracy.
+ This can be achieved by placing a differential GPS in each dart.  A lower-cost solution would use a differential GPS on the SeismicDrone and perform image registration with the downward facing camera.  As shown in the multimedia attachment, even at a 25 m drop height a planted dart occupies dozens of pixels, enabling cm-level localization accuracy.
+
+
 %allows corrections for jitter in signal arrival times due to  placement inaccuracy.
 
 
@@ -51,7 +55,7 @@ After the first set of data was recorded, the darts were collected and reloaded 
 
 \begin{figure} \centering
   {\includegraphics[width=\columnwidth]{SD_accu.pdf}}
- \caption{Targeting accuracy.  Circles show landing locations of 24 darts, each commanded to drop at the same GPS location. The mean position is marked by a diamond  with  covariance ellipses for  $\sigma$ and 2$\sigma$.
+ \caption{Targeting accuracy.  Circles show landing locations of 24 darts, each commanded to drop at the same GPS location. The mean position is marked by a diamond, ellipses show  $\sigma$ and 2$\sigma$ covariance.
  \label{fig:SD_accu.pdf}}
 \end{figure}
 
@@ -61,7 +65,7 @@ After the first set of data was recorded, the darts were collected and reloaded 
 
 FAA rules require that UAVs fly below 400 feet (122 m). Our highest drop tests were from 25 m, and resulted in well-planted geophones on a compacted field with density 4 kg/cm$^2$. Harder soils may require faster impact velocity, so this section examines possible impact velocities as a function of drop height.
 For ease of analysis we will assume the SeismicDart has a constant coefficient of drag $C_d$ and that the drag force is proportional to velocity squared and equal to $\frac{1}{2} v^2 \rho A C_d$, where $v$ is the velocity, $A$ the cross-sectional area and $\rho$ the density of air.  
- The tests were performed near sea level, so $\rho \approx 1.225  \text{kg/m}^3$.
+ The tests were performed near sea level, so $\rho \approx 1.225~\text{kg/m}^3$.
   The dart body is 0.06 m in diameter so $A=0.028$ m$^2$.  We will assume the dart $C_d$ is between that of a streamlined body $C_d=0.04$ and that of an arrow $C_d=1.5$~\cite{miyazaki2013aerodynamic}, and choose that of a sphere $C_d=0.47$.
 The terminal velocity is then
 \begin{align}
