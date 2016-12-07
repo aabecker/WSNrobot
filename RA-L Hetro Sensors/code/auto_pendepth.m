@@ -517,9 +517,9 @@ errorbar(h2(:,1)-.003,h2(:,2),h2(:,3),'-','LineWidth',lw,'color',c(2,:));
 errorbar(h3(:,1),h3(:,2),h3(:,3),'-','LineWidth',lw,'color',c(3,:));
 errorbar(h4(:,1)+.003,h4(:,2),h4(:,3),'-','LineWidth',lw,'color',c(4,:));
 axis([-.05,.9,0,120])
+setGCA()
 xlabel('Drop Height (m)');
 ylabel('Penetration Depth (mm)');
-setGCA()
 
 
 
@@ -536,7 +536,7 @@ l5=errorbar(h5(:,1)-.1,h5(:,2),h5(:,3),'-','LineWidth',lw,'color',c(5,:));
 l6=errorbar(h6(:,1),h6(:,2),h6(:,3),'-','LineWidth',lw,'color',c(6,:));
 l7=errorbar(h7(:,1)+.1,h7(:,2),h7(:,3),'-','LineWidth',lw,'color',c(7,:));
 axis([2,26,0,120])
-xlabel( 'Drop Height (m)');
+
 %ylabel 'Penetration Depth (mm)';
 %legend('Mason Sand','River Sand','Coarse Sand', 'Top soil','soil 1','soil 2','clay','location','best')
 % l5 (Grass Field) is a lawn area with about half foot of grass after the rain, 0.15m 
@@ -544,19 +544,21 @@ xlabel( 'Drop Height (m)');
 % l7 (Lawn)  lawn area near the intramural soccer field where the ground is a bit software and the grass not as dense/high. They are numbered in order ground1, ground2 and ground3 in the data files.
 
 legend([l1,l2,l3,l4,l7,l5,l6], ...
-'0.099 kg/sq. cm','0.056 kg/sq. cm','0.089 kg/sq. cm', '0.135 kg/sq. cm','1.75 kg/sq. cm','3 kg/sq. cm','4 kg/sq. cm','location','NorthWest')
+'0.099 kg/cm^2','0.056 kg/cm^2','0.089 kg/cm^2', '0.135 kg/cm^2','1.75 kg/cm^2','3 kg/cm^2','4 kg/cm^2','location','NorthWest')
 set(gca,'YTickLabel','','YMinorTick'  , 'off'   )
 setGCA()
+xlabel( 'Drop Height (m)');
 
 
  set(gcf,'PaperUnits','inches')
-set(gcf,'papersize',[8.5,3.5])
-set(gcf,'paperposition',[-0.7,0,10,3.5])
+ set(gcf,'paperposition',[-0.5,0,10,5])
+set(gcf,'papersize',[8.5,5])
+
 print -dpdf 'AutoPenetrationDepth.pdf'
 
 function setGCA() % http://blogs.mathworks.com/loren/2007/12/11/making-pretty-graphs/#5
 set( gca                       , ...
-    'FontName'   , 'Helvetica','FontSize'   , 8  );
+    'FontName'   , 'Helvetica','FontSize'   , 14  );
 set(gca, ...
   'Box'         , 'off'     , ...
   'TickDir'     , 'in'     , ...

@@ -31,6 +31,13 @@ D.~Dominici, V.~Baiocchi, A.~Zavino, M.~Alicandro, and M.~Elaiopoulos, ``Micro
   {UAV} for post seismic hazards surveying in old city center of {L'Aquila},''
   in \emph{Proceedings of the FIG Working Week}, 2012, pp. 06--10.
 
+\bibitem{nagatani2013volcanic}
+K.~Nagatani, K.~Akiyama, G.~Yamauchi, H.~Otsuka, T.~Nakamura, S.~Kiribayashi,
+  K.~Yoshida, Y.~Hada, K.~Fujino, T.~Izu \emph{et~al.}, ``Volcanic ash
+  observation in active volcano areas using teleoperated mobile robots,'' in
+  \emph{International Symposium on Safety, Security, and Rescue Robotics (SSRR
+  2013)}, 2013.
+
 \bibitem{wu2007efficient}
 Q.~Wu, N.~S. Rao, X.~Du, S.~S. Iyengar, and V.~K. Vaishnavi, ``On efficient
   deployment of sensors on planar grid,'' \emph{Computer Communications},
@@ -74,6 +81,10 @@ J.~Jiang, A.~A. Aziz, Y.~Liu, and K.-M. Strack, ``Geophysical data acquisition
   us20140307525: Drone seismic sensing method and apparatus,'' October 2014.
   [Online]. Available: \url{https://www.google.com/patents/US20140307525}
 \BIBentrySTDinterwordspacing
+
+\bibitem{coste2013seismic}
+E.~Coste, K.~E. Welker, and G.~D. Tamboise, ``Seismic acquisition system-based
+  unmanned airborne vehicle,'' Sep.~13 2013, uS Patent App. 14/027,094.
 
 \bibitem{MAPL2006}
 \BIBentryALTinterwordspacing

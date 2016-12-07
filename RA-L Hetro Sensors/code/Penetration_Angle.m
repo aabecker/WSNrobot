@@ -1,4 +1,4 @@
-function plotPenetrationAngle()
+function Penetration_Angle()
 x1 = [0.8,87.76;
     0.9,91.32;
     1,89.17;
@@ -903,11 +903,10 @@ l1 = errorbar(h1(:,1)-.005,h1(:,2),h1(:,3),'color',c(1,:),'LineWidth',lw);
 l2 = errorbar(h2(:,1)-.003,h2(:,2),h2(:,3),'color',c(2,:),'LineWidth',lw);
 l3 = errorbar(h3(:,1)+0.0,h3(:,2),h3(:,3),'color',c(3,:),'LineWidth',lw);
 l4 = errorbar(h4(:,1)+.003,h4(:,2),h4(:,3),'color',c(4,:),'LineWidth',lw);
-xlabel 'Drop Height (m)';
-ylabel 'Angle of Deviation (Deg)';
 axis([-.05,.85,0,90.5])
 setGCA()
-
+xlabel 'Drop Height (m)';
+ylabel 'Angle of Deviation (Deg)';
 
 subplot(1,9,[4,9]);
 % plot high-drop data
@@ -932,7 +931,6 @@ plot (h7(:,1),h7(:,2),'o','color',c(7,:));
 
 
 axis([2,26,0,90.5])
-xlabel 'Drop Height (m)';
 %ylabel 'Angle of Deviation (deg)';
 
 % l5 (grass field) is a lawn area with about half foot of grass after the rain, 0.15m 
@@ -940,18 +938,19 @@ xlabel 'Drop Height (m)';
 % l7 (lawn)  lawn area near the intramural soccer field where the ground is a bit software and the grass not as dense/high. They are numbered in order ground1, ground2 and ground3 in the data files.
 
 legend([l6,l5,l7,l4,l3,l2,l1], ...
-'4 kg/sq. cm','3 kg/sq. cm', '1.75 kg/sq. cm', '0.135 kg/sq. cm','0.089 kg/sq. cm','0.056 kg/sq. cm','0.099 kg/sq. cm')
+'4 kg/cm^2','3 kg/cm^2', '1.75 kg/cm^2', '0.135 kg/cm^2','0.089 kg/cm^2','0.056 kg/cm^2','0.099 kg/cm^2')
 setGCA()
+xlabel 'Drop Height (m)';
 set(gca,'YTickLabel','','YMinorTick'  , 'off'   )
  set(gcf,'PaperUnits','inches')
-set(gcf,'papersize',[8.5,3.5])
-set(gcf,'paperposition',[-0.7,0,10,3.5])
+ set(gcf,'paperposition',[-0.5,0,10,5])
+set(gcf,'papersize',[8.5,5])
 print -dpdf 'AutoPenetrationAngle.pdf'
 
 
 function setGCA()
 set( gca                       , ...
-    'FontName'   , 'Helvetica','FontSize'   , 8  );
+    'FontName'   , 'Helvetica','FontSize'   , 14  );
 set(gca, ...
   'Box'         , 'off'     , ...
   'TickDir'     , 'in'     , ...

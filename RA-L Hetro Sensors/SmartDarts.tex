@@ -9,7 +9,7 @@ Designs and instructions to build a SeismicDart are available at \cite{Victor201
 
 \begin{figure} \centering
 {\includegraphics[width=\columnwidth]{Smart_Dart_overview.pdf}}
-\caption{Components of the SeismicDart sensor: a lawn  Jart\textsuperscript{TM} fin, particle.io Photon\textsuperscript{TM}  micro-controller, 3D printed protective casing, and a geophone} 
+\caption{Components of the SeismicDart sensor: a lawn  Jart\textsuperscript{TM} fin, particle.io Photon\textsuperscript{TM}  micro-controller, 3D printed protective casing, and a geophone.} 
 \label{fig:Smart_Dart_overview}
 \end{figure}
 
@@ -17,32 +17,51 @@ Designs and instructions to build a SeismicDart are available at \cite{Victor201
 \subsection{Experiments} 
 The following sections compare SeismicDart performance.
 \subsubsection{ Drop tests in different soils}  
-This experiment varied the drop height and measured the penetration depth in different soil types. The compression strengths of each soil was different making this analysis useful. 
-Proper planting of a geophone requires good contact with the soil, in a vertical position. 
-To determine the minimum deployment height for good planting, each trial measured the penetration depth and angular deviation from vertical. 
-This experiment compared drop height as a function of soil penetration. 
 
-To determine how SeismicDarts perform in different soils, this experiment measured penetration depth and angle of deviation in seven different soil types. For the first four soil types the soil compression strength was small and hence the test was performed manually. Each trial was performed by holding the darts at the tip opposite to the spike in a vertical position and releasing them at varying heights into 19 liter (5 gal.) buckets of soil. Penetration depth and angular deviation were measured. %To measure penetration depth, the buried darts were marked where the spike met the soil, the dart was then pulled from the soil, and the distance from the spike tip to the marking was measured with calipers. The angular deviation was recorded using the accelerometer inside the dart.
- The soil types were categorized by their compression strength, in kg/cm$^3$, measured using a soil pocket penetrometer (CertifiedMTP). Measurements for compression strength vary with small deviation in measurement location, so we repeated this measurement 10 times at 10 different locations in each soil type and took the average.
+
+Proper planting of a geophone requires good contact with the soil and the geophone to be in a vertical position. 
+Geophone protocol classifies a geophone as well planted if the angle of deviation is less than 10$^\circ$ and the spike has at least 40 mm of penetration.
+
+To determine how SeismicDarts perform in different soils, this experiment measured penetration depth and angle of deviation in seven different soil types as a function of drop height. 
+ The soil types were categorized by their compression strength, in kg/cm$^2$, measured using a soil pocket penetrometer (CertifiedMTP). Measurements for compression strength vary with small deviation in measurement location, so we repeated this measurement 10 times at 10 different locations in each soil type and computed the average.
  
-The experiment for the other soil types were conducted using the SeismicDrone autonomously. The SeismicDrone deployed the SeismicDart in different soils autonomously. We varied the drop height (10,15,20,25 m) to analyze the penetration depth and angle of deviation. We repeated this measurement 12 times for each soil type at every drop height.  
-  These values for soil compression strength and a graph displaying drop height vs. penetration depth are displayed in Fig.~\ref{fig:DepthPlotIndoors}, and a graph of drop height vs angle of deviation is displayed in Fig.~\ref{fig:AnglePlotIndoors}. 
-  The experiment shows that increasing drop height increases penetration on all soils tested.
-  Also, darts dropped in quiescent air remain vertical if they penetrate the soil.
+ Experiments were conducted using the SeismicDrone to autonomously drop a payload of four SeismicDarts at a desired drop height. 
+ Tests were conducted at drop heights of 10, 15, 20, and 25 m. 
+ We measured angle of deviation and penetration depth for each drop.
+ The angular deviation was recorded using two protractors.
+ To measure penetration depth, the buried darts were marked where the spike met the soil, the dart was then pulled from the soil, and the distance from the spike tip to the marking was measured with calipers. 
+  We repeated this measurement 12 times for each soil type at each drop height.  The soil compression strengths in these experiments ranged from 0.056 kg/cm$^2$ for river sand, to 4 kg/cm$^2$ for a hard-packed soccer field.
 
+The four soil types with the lowest soil compression strength could be well-planted with low drop heights, so these tests were performed manually.
+   Testing was performed by holding a dart at the tip opposite to the spike in a vertical position and releasing it at varying heights into 19 liter (5 gal.) buckets of soil. 
+
+%Penetration depth and angular deviation were measured. %To measure penetration depth, the buried darts were marked where the spike met the soil, the dart was then pulled from the soil, and the distance from the spike tip to the marking was measured with calipers. The angular deviation was recorded using the accelerometer inside the dart.
+
+ 
+  % These experiments shows that increasing drop height increases penetration on all soils tested.
+  % Also, darts dropped in quiescent air remain vertical if they penetrate the soil.
+Experiment results plotting penetration depth as a function of drop height are displayed in Fig.~\ref{fig:DepthPlotIndoors}, and angle of deviation as a function of drop height in Fig.~\ref{fig:AnglePlotIndoors}.   Both graphs annotated with values for soil compression strength. 
 
 \begin{figure} \centering
 {\includegraphics[width=\columnwidth]{AutoPenetrationDepth.pdf}}
-\caption{Drop height vs. penetration depth in seven soil types. Drops were performed autonomously and each data point represents 12 trials.} 
+\caption{Drop height vs. penetration depth in seven soil types. Drops were performed autonomously and each data point represents 12 trials. Increasing the drop height increased the penetration depth for all seven soil types.} 
 \label{fig:DepthPlotIndoors}
 \end{figure}
 
 \begin{figure} \centering
 {\includegraphics[width=\columnwidth]{AutoPenetrationAngle.pdf}}
-\caption{Drop height vs. angle of deviation in seven soil types. Drops were performed autonomously and each data point represents 12 trials.} 
+\caption{Drop height vs. angle of deviation in seven soil types. Drops were performed autonomously and each data point represents 12 trials. Increasing the drop height reduced the angle of deviation for all seven soil types.} 
 \label{fig:AnglePlotIndoors}
 \vspace{-1em}
 \end{figure}
+
+If a SeismicDart is dropped from a sufficient height into penetrable soil, the spike will be buried into the soil, and the geophone will have small angular deviation from vertical. Soils with higher compression strength require higher drop heights. Error bars show that variance decreases with drop height for both angle of deviation and penetration depth.  Geophone protocol classifies a geophone as well planted if the angle of deviation is less than 10$^\circ$ and the spike has at least 40 mm of penetration. All drops from heights 20 m or more achieved the goals of an angle of deviation less than 10$^\circ$ and a penetration at least 40 mm of penetration.   
+
+The autonomous tests were conducted with 16 km/hr winds, demonstrating that drop heights 20 m or higher were sufficient to counter disturbances from wind. %https://www.windfinder.com/forecast/galveston_airport
+
+
+
+
 
 %\subsubsection{Straight vs.\ Twisted Fins}
 
@@ -72,40 +91,51 @@ The experiment for the other soil types were conducted using the SeismicDrone au
 %\end{figure} 
 \subsubsection{Shot gather comparison} 
 Seismic explorations use thousands of geophones to conduct a seismic survey. 
-This experiment compared the performance of a traditional cabled $24$ geophone system with readings from SeismicDarts.
-The geophones were planted vertically into the ground, three meters apart from one another.  
-We used a vibrating truck setup to generate the seismic wave. 
-Only four functional SeismicDarts were built, so these four were dropped from the UAV, a seismic wave was generated and recorded, and the darts were redeployed to obtain all 24 readings.
+ As a proof-of-concept, this experiment ran a small-scale seismic survey to compare the performance of a traditional cabled four geophone system with readings from four autonomously deployed SeismicDarts.
+Flying autonomously at a drop height of 25 m, the SeismicDrone flew to GPS waypoints spaced 4 m apart and deployed one dart at each location. 
+A seismic survey technician manually planted four traditional cabled geophones, each 10 cm from a deployed SeismicDart. 
+A seismic wave was generated using a sledge hammer hitting a steel plate.
 
-Results of the seismic survey field test comparison between a $24$ channel traditional cabled geophone system and the SeismicDarts are shown in Fig.~\ref{fig:shotgather_auto_drop}.   
-Both plots were obtained using a \emph{Strata-Visor}, a device that can obtain, store and plot the sensed data. 
-It is extensively used with traditional geophone setups because the geophones can only sense vibrational waves and are dependent on other devices for storage and data processing. 
+Results of the field test comparison between the traditional cabled geophone system and the SeismicDarts are shown in Fig.~\ref{fig:shotgather_auto_drop}.   
+Data were obtained using a \emph{Strata-Visor}, a device that can obtain, store, and plot the sensed data. 
+The \emph{Strata-Visor} is extensively used with traditional geophone setups because the geophones can only sense vibrational waves and are dependent on other devices for storage and data processing. 
 To allow a fair comparison, the SeismicDart's  ability to store sensed data was not used in this experiment. 
-With the exception of SeismicDart reading \#19, which may be due to poor terminal connections, the SeismicDart data corresponds well to data from a traditional setup.
+ The \emph{Strata-Visor} records the geophone voltage at 2000 Hz, using an 24 bit ADC.
+
+The readings from both systems are qualitatively similar, with no discernible phase or amplitude differences.
+Readings were compared using a Pearson product-moment correlation coefficient, which gives a correlation measurement between $-1$ and $+1$ where $+1$ is total positive linear correlation.
+\begin{align}
+\rho_{X,Y} = \frac{E\left[  (X-\mu_X) (Y-\mu_Y)  \right]}{  \sigma_X, \sigma_Y}
+\end{align}
+
+The correlation coefficients were $\rho_{\text{4 m}}  =  0.9813, \rho_{\text{8 m}}  =  0.9836, \rho_{\text{12 m}}  =  0.8600, \rho_{\text{16 m}}  = 0.8114$. These correlations decrease with distance. The SeismicDart is subject to low-amplitude noise, which is easiest to see in the fourth sensor because it was 16 m from the seismic source and thus had the lowest signal amplitude.  This noise is potentially due to wind striking the SeismicDart's fin.
+
 
 
 \begin{figure} \centering
-  {\includegraphics[width=\columnwidth]{shotgather_auto_drop.pdf}}
- \caption{Shot gather comparison of traditional geophones vs.\ autonomously dropped SeismicDart sensors. 
+  {\includegraphics[width=\columnwidth]{SeismicSurveyComparison.pdf}}
+ \caption{Shot gather comparison of traditional geophones vs.\ autonomously dropped SeismicDart sensors.  
  \label{fig:shotgather_auto_drop}}
 \end{figure}
 
-\subsection{Deploying and Retrieving SeismicDart}
+\subsection{SeismicDart Deployment and Retrieval}
 First the SeismicDarts are loaded onto to a UAV. 
 Currently a maximum of four sensors can be dropped in a single flight. 
 The flight plan communicated to the UAV provides a GPS waypoint for each SmartDart. 
 The UAV flies to and drops a SmartDart at each waypoint, then returns home. 
 
 However, deployment is only part of the problem. Large surveys require moving and reusing sensors.  
-Moreover, SmartDarts are more expensive than standard geophones. 
-Currently retrieval is performed by manually piloting the UAV. 
-Automating this process is left for future work.
+Moreover because SmartDarts are more expensive than standard geophones, rapid reuse is essential.
+The UAV has an underslung hook for picking up a SeismicDart.
+Retrieval is facilitated by attaching a wire loop to the SeismicDart tail, which provide a target 300 mm in diameter for the hook.
+Currently retrieval is performed by manually piloting the UAV, but this level of accuracy is within the accuracy of UAVS equipped with RTK GPS.
+Automating retrieval is out of the scope of this paper.
 Fig.~\ref{fig:SeismicDart_DR} shows a SeismicDart being retrieved and redeployed.
 
 
 \begin{figure} \centering
   {\includegraphics[width=\columnwidth]{SeismicDart_DR.pdf}}
- \caption{SmartDart retrieval and redeployment  See video  attachment. 
+ \caption{SmartDart retrieval and redeployment  See video attachment. 
  \label{fig:SeismicDart_DR}}
 \end{figure}
  
