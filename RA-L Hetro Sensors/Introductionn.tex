@@ -1,0 +1,34 @@
+\section{Introduction}\label{sec:Introduction}
+Seismic surveying is a geophysical technique involving sensor data collection and signal processing. 
+%It aides in identifying hydrocarbon reservoirs such as petrol and natural gas. 
+ A primary application of the method is in the search for subsurface resources. 
+ Seismic methods are also used extensively in monitoring natural hazards such as earthquakes. 
+Traditional seismic surveying requires manual laborers repeatedly placing geophone sensors at specific locations connected by cables. 
+Cables are bulky, and the length required is proportional to the area surveyed. 
+Surveys routinely cover hundreds of square kilometers, requiring kilometers of cabling. 
+Seismic surveying in remote locations is complicated by inaccessibility, harsh  conditions, and  transportation of bulky cables and sensors.  
+These factors increase the cost. 
+
+  Nodal sensors, a relatively new development in seismic sensing, are autonomous units that do not require bulky cabling. 
+  They have an internal \emph{seismic recorder}, a micro-controller that records seismic readings from a high-precision accelerometer. 
+  Because this technology does not require cabling, downtime, and overall cost can be reduced. 
+  However, these sensors are still planted and recovered by hand.  
+
+\begin{figure}
+\centering
+\begin{overpic}[width=\columnwidth]{intro.pdf}\end{overpic}
+\caption{\label{fig:Hetero_overall}
+The heterogeneous sensor system presented in this paper: wireless SeismicDarts and a SeismicSpider, both designed for UAV deployment. 
+}
+\end{figure}
+
+We propose a heterogeneous robotic system for obtaining seismic data, shown in Fig.~\ref{fig:Hetero_overall}. The system consists of two sensors, the SeismicDart and  the SeismicSpider.  
+The SeismicDart is a dart-shaped wireless sensor that is planted in the ground when dropped  from an unmanned aerial vehicle (UAV). 
+The SeismicSpider is a mobile hexapod with three legs replaced by geophones.
+This system is designed to automate sensor deployment, minimizing cost and time while maximizing accuracy, repeatability, and efficiency.
+  The technology presented may have wide applicability where quickly deploying sensor assets is essential, including geoscience research~\cite{werner2006deploying}, 
+  earthquake~\cite{dominici2012micro} and volcano \cite{nagatani2013volcanic}  monitoring, defense operations~\cite{wu2007efficient}, and wildlife monitoring~\cite{dyo2010evolution,mainwaring2002wireless}. 
+  
+  
+  
+  
