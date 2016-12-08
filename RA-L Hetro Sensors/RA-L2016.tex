@@ -1,0 +1,133 @@
+%  compress using: gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dNOPAUSE -dQUIET -dBATCH      -sOutputFile=SeismicRALcompressed.pdf RA-L2016.pdf
+\documentclass[letterpaper, 10 pt, conference]{ieeeconf}
+\IEEEoverridecommandlockouts                              % This command is only needed if 
+                                                          % you want to use the \thanks command
+
+\overrideIEEEmargins                                      % Needed to meet printer requirements.
+%\IEEEoverridecommandlockouts
+%\documentclass[conference]{IEEEtran}
+\newcommand{\subparagraph}{}
+\usepackage{epsfig,graphicx,cite}
+\usepackage{psfrag}
+\usepackage[small,compact]{titlesec}
+\usepackage{wrapfig}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{cite,url,subfigure,epsfig,graphicx}
+\usepackage{verbatim,amsfonts,amsmath,amssymb}
+\usepackage{fancyhdr}
+\usepackage{mathbbold}
+\usepackage{bbm}
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{cite,url,subfigure,epsfig,graphicx}
+\usepackage{amssymb,amsmath,bm,makecell}
+\usepackage{indentfirst}
+\usepackage{overpic}
+\newcommand{\figwid}{0.22\columnwidth}
+
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{authblk}
+
+
+
+\usepackage{mathtools}
+\usepackage[font=footnotesize]{caption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tabulary}
+\usepackage{booktabs}
+\usepackage{framed}
+\usepackage{fancyhdr}
+%\usepackage[hypertex]{hyperref}
+\usepackage[hidelinks]{hyperref}
+%\IEEEoverridecommandlockouts
+\usepackage{cite,url,subfigure,epsfig,graphicx}
+\usepackage{times,verbatim,amsfonts,amsmath,color}
+%\newtheorem{definition}{\textbf{Definition}}
+%\newtheorem{lemma}{\textbf{Lemma}}
+%\newtheorem{proof}{\textbf{Proof}}
+%\newtheorem{theorem}{\textbf{Theorem}}
+%\newtheorem{example}{\textbf{Example}}
+%\newtheorem{proposition}{\textbf{Proposition}}
+%\newtheorem{remark}{\textbf{Remark}}
+%\newtheorem{corrolary}{\textbf{Corrolary}}
+%\newtheorem{ex}{\textbf{EX}}
+\usepackage{overpic}
+\graphicspath{{./},{./pictures/}}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\usepackage[table,xcdraw]{xcolor}
+\newcommand{\todo}[1]{ \textcolor{red}{\ttfamily#1}}
+\newcommand{\todobox}[1]{\vspace{5 mm}\par \noindent \framebox{\begin{minipage}[c]{0.98 \columnwidth} \ttfamily\flushleft \textcolor{red}{#1}\end{minipage}}\vspace{5 mm}\par}
+\let\labelindent\relax \usepackage{enumitem}
+
+
+
+
+
+\begin{document}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{\LARGE \bf A Heterogeneous Robotics Team for Large-Scale Seismic Sensing} 
+
+\author{Srikanth K. V. Sudarshan$^{1}$,
+Victor Montano$^{1}$,
+An Nguyen$^{1}$,\\ 
+Michael McClimans$^{2}$,
+Li Chang$^{2}$,
+Robert Stewart$^{2}$, and
+ Aaron T. Becker$^{1}$% <-this % stops a space
+\thanks{*This work was supported by the National Science Foundation under Grant No.\ \href{http://nsf.gov/awardsearch/showAward?AWD_ID=1553063}{ [IIS-1553063]}.}% <-this % stops a space
+\thanks{$^{1}$Department of Electrical and Computer Engineering,}
+\thanks{$^{2}$Department of Earth and Atmospheric Sciences,\\ University of Houston, 4800 Calhoun Rd, Houston, TX 77004, USA
+        {\tt\small \{skvenkatasudarshan, vjmontano, anguyen43, msmcclimans, lchang13, rrstewart, atbecker\}@uh.edu}}%
+}
+
+
+
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
+
+\begin{abstract} 
+Seismic surveying requires placing a large number of sensors (geophones) in a grid pattern, triggering a seismic event, and recording vibration readings. 
+ The goal of the surveying is often to locate subsurface resources.  
+Traditional seismic surveying employs human laborers for sensor placement and retrieval. 
+The major drawbacks of surveying with human deployment are the high costs and time, and risks to humans due to explosives and harsh climatic conditions.
+We propose an autonomous heterogeneous sensor deployment system using UAVs to deploy mobile and immobile sensors.
+Detailed analysis and comparison with traditional surveying were conducted. 
+The proposed system overcomes these drawbacks of traditional systems.
+Hardware experiments and simulations show promise for the effectiveness of automation in terms of cost and time. 
+ Autonomous aerial systems will have a substantial contribution to make in future seismic surveys. 
+\end{abstract}
+
+\input{Introduction}
+%
+\input{RelatedWork}
+%
+\input{SmartDarts}
+%
+\input{SeismicSpider}
+%
+\input{UAV}
+%
+\input{Comparison}
+%
+\input{conclusion}
+
+
+\bibliographystyle{IEEEtran}
+\bibliography{./bibs/Match}
+
+% that's all folks
+\end{document}
+
+
